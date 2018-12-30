@@ -1,3 +1,6 @@
+# Paths
+tsconfig_build := typescript/tsconfig.build.json
+
 # NPX functions
 ifeq ($(OS), Windows_NT)
 	tsc := .\node_modules\.bin\tsc
@@ -21,7 +24,7 @@ run:
 
 build:
 	@echo "[INFO] Starting build"
-	@$(tsc)
+	@$(tsc) --p $(tsconfig_build)
 
 storybook:
 	@echo "[INFO] Starting build storybook"

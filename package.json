@@ -1,25 +1,7 @@
 {
   "name": "@sudoo/neon",
-  "version": "0.0.1",
-  "description": ":milky_way: React components collection",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SudoDotDog/Neon.git"
-  },
-  "keywords": [
-    "react",
-    "sudoo"
-  ],
+  "private": true,
   "author": "WMXPY",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/SudoDotDog/Neon/issues"
-  },
-  "homepage": "https://github.com/SudoDotDog/Neon#readme",
   "devDependencies": {
     "@storybook/addon-info": "^4.1.4",
     "@storybook/addon-knobs": "^4.1.4",
@@ -34,7 +16,6 @@
     "@types/storybook__react": "^4.0.0",
     "@types/storybook__addon-info": "^3.4.2",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-core": "^6.26.3",
     "chai": "^4.2.0",
     "chance": "^1.0.18",
     "mocha": "^5.2.0",
@@ -47,10 +28,6 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {},
-  "peerDependencies": {
-    "react": "*",
-    "react-dom": "*"
-  },
   "nyc": {
     "extension": [
       ".ts",

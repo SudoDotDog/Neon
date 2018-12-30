@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
- * @namespace Neon_Components
- * @description Button
+ * @namespace Neon_Button
+ * @description Index
  */
 
 import * as React from "react";

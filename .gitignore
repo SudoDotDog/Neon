@@ -11,6 +11,12 @@ pids
 *.seed
 *.pid.lock
 
+# Build
+dist
+
+app/**/*.d.ts
+app/**/*.js
+
 # Storybook
 storybook-static
 build

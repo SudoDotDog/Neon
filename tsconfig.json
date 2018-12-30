@@ -1,19 +1,29 @@
 {
+    "compileOnSave": false,
     "compilerOptions": {
-        "outDir": "build/lib",
         "module": "commonjs",
         "target": "es5",
-        "lib": ["es5", "es6", "es7", "es2017", "dom"],
+        "lib": [
+            "es5",
+            "es6",
+            "es7",
+            "es2017",
+            "dom"
+        ],
         "sourceMap": true,
         "allowJs": false,
         "jsx": "react",
         "moduleResolution": "node",
-        "rootDirs": ["src", ".storybook"],
+        "rootDirs": [
+            "src",
+            ".storybook"
+        ],
         "baseUrl": "src",
         "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "noImplicitAny": true,
+        "strict": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
         "noUnusedLocals": true,
@@ -22,6 +32,13 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules", "build", "scripts"]
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "build",
+        "test",
+        "scripts"
+    ]
 }
