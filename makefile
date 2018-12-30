@@ -6,34 +6,30 @@ webpack_dev := webpack/webpack.dev.js
 ifeq ($(OS), Windows_NT)
 	tsc := .\node_modules\.bin\tsc
 	mocha := .\node_modules\.bin\mocha
-	webpack := .\node_modules\.bin\webpack
-	webpack_dev_server := .\node_modules\.bin\webpack-dev-server
 
+	build_storybook := .\node_modules\.bin\build-storybook
 	start_storybook := .\node_modules\.bin\start-storybook
 else
 	tsc := node_modules/.bin/tsc
 	mocha := node_modules/.bin/mocha
-	webpack := node_modules/.bin/webpack
-	webpack_dev_server := node_modules/.bin/webpack-dev-server
 
+	build_storybook := node_modules/.bin/build-storybook
 	start_storybook := node_modules/.bin/start-storybook
 endif
 
 main: run
 
 run:
-	@echo "[INFO] Starting development"
-	@$(webpack_dev_server) --config $(webpack_dev)
+	@echo "[INFO] Starting storybook"
+	@$(start_storybook) -p 9001 -c .storybook
 
 build:
 	@echo "[INFO] Starting build"
-	@$(webpack) --config $(webpack_build)
+	@$(tsc)
 
-sb: story-book
-
-story-book:
-	@echo "[INFO] Starting storybook"
-	@$(start_storybook) -p 9001 -c .storybook
+storybook:
+	@echo "[INFO] Starting build storybook"
+	@$(build_storybook)
 
 tests:
 	@echo "[INFO] Testing with Mocha"
