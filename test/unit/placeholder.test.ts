@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Brontosaurus_Server
+ * @namespace Neon
  * @description Placeholder
  * @package Unit Test
  */

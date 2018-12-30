@@ -1,5 +1,9 @@
 # Paths
-tsconfig_build := typescript/tsconfig.build.json
+tsconfig_build_path := typescript/tsconfig.build.json
+storybook_config_path := .storybook
+
+# Variables
+storybook_port := 8081
 
 # NPX functions
 ifeq ($(OS), Windows_NT)
@@ -20,15 +24,19 @@ main: run
 
 run:
 	@echo "[INFO] Starting storybook"
-	@$(start_storybook) -p 9001 -c .storybook
+	@$(start_storybook) -p $(storybook_port) -c $(storybook_config_path)
 
 build:
-	@echo "[INFO] Starting build"
-	@$(tsc) --p $(tsconfig_build)
+	@echo "[INFO] Building for release"
+	@$(tsc) --p $(tsconfig_build_path)
 
 storybook:
-	@echo "[INFO] Starting build storybook"
+	@echo "[INFO] Building storybook"
 	@$(build_storybook)
+
+publish: install tests build
+	@echo "[INFO] Publishing package"
+	@cd app && npm publish --access=public
 
 tests:
 	@echo "[INFO] Testing with Mocha"

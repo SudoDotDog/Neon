@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Hook
+ * @namespace Test
  * @description TS-Hook
  */
 
