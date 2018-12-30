@@ -1,7 +1,3 @@
-# Paths
-webpack_build := webpack/webpack.config.js
-webpack_dev := webpack/webpack.dev.js
-
 # NPX functions
 ifeq ($(OS), Windows_NT)
 	tsc := .\node_modules\.bin\tsc
@@ -63,6 +59,8 @@ ifeq ($(OS), Windows_NT)
 else
 	@echo "[INFO] Cleaning dist files"
 	@rm -rf dist
+	@rm -rf build
 	@rm -rf .nyc_output
 	@rm -rf coverage
+	@rm -rf storybook-static
 endif
