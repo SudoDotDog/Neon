@@ -22,6 +22,7 @@
   "homepage": "https://github.com/SudoDotDog/Neon#readme",
   "devDependencies": {
     "@storybook/addon-info": "^4.1.4",
+    "@storybook/addon-knobs": "^4.1.4",
     "@storybook/react": "^4.1.4",
     "@sudoo/tslint-config": "^1.0.1",
     "@sudoo/webpack-react": "^1.1.0",
@@ -30,7 +31,11 @@
     "@types/mocha": "^5.2.5",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
+    "@types/storybook__addon-knobs": "^4.0.0",
+    "@types/storybook__react": "^4.0.0",
+    "@types/storybook__addon-info": "^3.4.2",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-core": "^6.26.3",
     "chai": "^4.2.0",
     "chance": "^1.0.18",
     "mocha": "^5.2.0",
@@ -38,6 +43,7 @@
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.7.0",
     "react-hot-loader": "^4.6.3",
+    "storybook-addon-jsx": "^6.0.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2"

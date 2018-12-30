@@ -29,9 +29,11 @@ build:
 	@echo "[INFO] Starting build"
 	@$(webpack) --config $(webpack_build)
 
-sb:
+sb: story-book
+
+story-book:
 	@echo "[INFO] Starting storybook"
-	@$(start_storybook) -p 9001 -c storybook
+	@$(start_storybook) -p 9001 -c .storybook
 
 tests:
 	@echo "[INFO] Testing with Mocha"
