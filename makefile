@@ -8,11 +8,15 @@ ifeq ($(OS), Windows_NT)
 	mocha := .\node_modules\.bin\mocha
 	webpack := .\node_modules\.bin\webpack
 	webpack_dev_server := .\node_modules\.bin\webpack-dev-server
+
+	start_storybook := .\node_modules\.bin\start-storybook
 else
 	tsc := node_modules/.bin/tsc
 	mocha := node_modules/.bin/mocha
 	webpack := node_modules/.bin/webpack
 	webpack_dev_server := node_modules/.bin/webpack-dev-server
+
+	start_storybook := node_modules/.bin/start-storybook
 endif
 
 main: run
@@ -24,6 +28,10 @@ run:
 build:
 	@echo "[INFO] Starting build"
 	@$(webpack) --config $(webpack_build)
+
+sb:
+	@echo "[INFO] Starting storybook"
+	@$(start_storybook) -p 9001 -c storybook
 
 tests:
 	@echo "[INFO] Testing with Mocha"

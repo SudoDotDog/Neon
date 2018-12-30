@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Portal
+ * @namespace Neon
  * @description Provider
  */
 
