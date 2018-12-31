@@ -6,4 +6,8 @@
 
 import * as React from "react";
 
-export const NeonButton: React.SFC<{}> = (props: {}) => <button>123</button>;
+export const NeonButton: React.SFC<{
+    a: string;
+}> = (props: {
+    a: string;
+}) => <button>123</button>;

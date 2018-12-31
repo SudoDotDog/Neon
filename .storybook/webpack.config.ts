@@ -4,7 +4,7 @@
  * @description Webpack Config
  */
 
-const TSDocgenPlugin = require("react-docgen-typescript-webpack-plugin");
+const TSDocgenPlugin: any = require("react-docgen-typescript-webpack-plugin");
 
 module.exports = (baseConfig: any, env: any, defaultConfig: any) => {
 
@@ -17,5 +17,6 @@ module.exports = (baseConfig: any, env: any, defaultConfig: any) => {
 
     defaultConfig.plugins.push(new TSDocgenPlugin());
     defaultConfig.resolve.extensions.push('.ts', '.tsx');
+
     return defaultConfig;
 };
