@@ -4,6 +4,7 @@
  * @description Input
  */
 
+import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonInput } from "../../src/input";
@@ -15,8 +16,13 @@ storiesOf('Form', module).add(
     'NeonInput',
     wInfo('')(() => {
 
+        const label: string = text('Label', 'Label');
+
         return (<div>
-            <NeonInput {...events} />
+            <NeonInput
+                {...events}
+                label={label}
+            />
         </div>);
     }),
 );

@@ -17,7 +17,7 @@ storiesOf('Button', module).add(
     'NeonButton',
     wInfo(ButtonMD)(() => {
 
-        const name = text('Name', 'Name');
+        const name: string = text('Name', 'Name');
 
         return (<div>
             <NeonButton {...events}>{name}</NeonButton>
