@@ -4,15 +4,5 @@
  * @description Index
  */
 
-import * as React from "react";
+export { NeonButton, NeonButtonProps } from "./button";
 
-export type NeonButtonProps = {
-
-    children: JSX.Element;
-};
-
-export const NeonButton: React.SFC<NeonButtonProps> =
-    (props: NeonButtonProps) => {
-
-        return <button>{props.children}</button>;
-    };

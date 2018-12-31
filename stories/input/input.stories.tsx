@@ -1,26 +1,23 @@
 /**
  * @author WMXPY
  * @namespace Stories
- * @description Button
+ * @description Input
  */
 
-import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { NeonButton } from "../../src/button";
+import { NeonInput } from "../../src/input";
 import { createAction, wInfo } from "../util";
 import * as ButtonMD from "./button.md";
 
 const events = createAction();
 
-storiesOf('Button', module).add(
-    'NeonButton',
+storiesOf('Form', module).add(
+    'NeonInput',
     wInfo(ButtonMD)(() => {
 
-        const name = text('Name', 'Name');
-
         return (<div>
-            <NeonButton {...events}>{name}</NeonButton>
+            <NeonInput {...events} />
         </div>);
     }),
 );

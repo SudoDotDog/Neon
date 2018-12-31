@@ -6,5 +6,7 @@
         "ifeq",
         "setx"
     ],
-    "tslint.configFile": "typescript/tslint.json"
+    "tslint.configFile": "typescript/tslint.json",
+    "javascript.preferences.importModuleSpecifier": "relative",
+    "typescript.preferences.importModuleSpecifier": "relative"
 }

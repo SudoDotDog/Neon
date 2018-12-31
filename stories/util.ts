@@ -22,4 +22,5 @@ export const wInfo = (markdown: string) =>
 
 export const createAction = () => Actions.actions({
     onClick: 'clicked',
+    onChange: 'changed',
 });
