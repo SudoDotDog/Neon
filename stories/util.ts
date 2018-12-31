@@ -6,6 +6,8 @@
 
 import { withInfo } from "@storybook/addon-info";
 
+const Actions: any = require("@storybook/addon-actions");
+
 export const wInfo = (markdown: string) =>
     withInfo({
         inline: true,
@@ -17,3 +19,7 @@ export const wInfo = (markdown: string) =>
         },
         text: markdown,
     });
+
+export const createAction = () => Actions.actions({
+    onClick: 'clicked',
+});

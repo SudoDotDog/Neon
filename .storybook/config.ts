@@ -5,12 +5,9 @@
  */
 
 import { withKnobs } from "@storybook/addon-knobs/react";
-import { addDecorator, configure, setAddon } from "@storybook/react";
-
-const JSXAddon = require("storybook-addon-jsx");
+import { addDecorator, configure } from "@storybook/react";
 
 addDecorator(withKnobs);
-setAddon(JSXAddon);
 
 const req: __WebpackModuleApi.RequireContext = require.context('../stories', true, /\.stories\.tsx$/);
 
