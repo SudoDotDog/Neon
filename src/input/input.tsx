@@ -26,4 +26,3 @@ export class NeonInput extends React.Component<NeonInputProps, {}> {
         />);
     }
 }
-

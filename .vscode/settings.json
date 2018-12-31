@@ -1,9 +1,11 @@
 {
     "cSpell.words": [
+        "DARKGRAY",
         "Sudoo",
         "devtool",
         "docgen",
         "ifeq",
+        "scrollbar",
         "setx"
     ],
     "tslint.configFile": "typescript/tslint.json",
