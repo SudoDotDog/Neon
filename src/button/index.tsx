@@ -6,8 +6,13 @@
 
 import * as React from "react";
 
-export const NeonButton: React.SFC<{
-    a: string;
-}> = (props: {
-    a: string;
-}) => <button>123</button>;
+export type NeonButtonProps = {
+
+    children: JSX.Element;
+};
+
+export const NeonButton: React.SFC<NeonButtonProps> =
+    (props: NeonButtonProps) => {
+
+        return <button>{props.children}</button>;
+    };

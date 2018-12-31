@@ -14,14 +14,13 @@ import * as ButtonMD from "./button.md";
 const events = createAction();
 
 storiesOf('Button', module).add(
-    'Hello',
+    'NeonButton',
     wInfo(ButtonMD)(() => {
 
         const name = text('Name', 'Name');
 
         return (<div>
-            <button {...events}>{name}</button>
-            <NeonButton a="123" />
+            <NeonButton {...events}>{name}</NeonButton>
         </div>);
     }),
 );
