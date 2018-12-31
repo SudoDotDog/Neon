@@ -6,7 +6,8 @@
         "docgen",
         "ifeq",
         "scrollbar",
-        "setx"
+        "setx",
+        "triforce"
     ],
     "tslint.configFile": "typescript/tslint.json",
     "javascript.preferences.importModuleSpecifier": "relative",
