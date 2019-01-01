@@ -20,9 +20,15 @@ storiesOf('Form', module).add(
         const value: string = text('Value', 'Value');
 
         return (<div>
+            WithValue
             <NeonInput
                 {...events}
                 value={value}
+                label={label}
+            />
+            Empty
+            <NeonInput
+                {...events}
                 label={label}
             />
         </div>);

@@ -5,19 +5,20 @@
  */
 
 import { COLOR } from "../common/color";
-import { JSSStyle } from "../common/style";
+import { getBorderHoverStyle, JSSStyle } from "../common/style";
 
 export const NeonInputStyle: JSSStyle = {
 
     wrap: {
 
         position: 'relative',
-        border: `0.2rem solid ${COLOR.NAVY}`,
 
         padding: '0.1rem',
         paddingLeft: '0.3rem',
 
         cursor: 'text',
+
+        ...getBorderHoverStyle(),
     },
     label: {
 
