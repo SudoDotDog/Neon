@@ -12,10 +12,12 @@ export const NeonInputStyle: JSSStyle = {
     wrap: {
 
         position: 'relative',
-        border: `5px solid ${COLOR.NAVY}`,
+        border: `0.2rem solid ${COLOR.NAVY}`,
 
         padding: '0.1rem',
         paddingLeft: '0.3rem',
+
+        cursor: 'text',
     },
     label: {
 
@@ -24,6 +26,7 @@ export const NeonInputStyle: JSSStyle = {
 
         fontSize: '1rem',
         fontWeight: 'bold',
+        userSelect: 'none',
 
         transition: '0.2s all',
     },

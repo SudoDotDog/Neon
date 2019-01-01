@@ -33,10 +33,15 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
         shrink: false,
     };
 
+    private _ref: HTMLInputElement | null;
+
     public constructor(props: NeonInputProps) {
 
         super(props);
 
+        this._ref = null;
+
+        this._handleBlur = this._handleBlur.bind(this);
         this._handleFocus = this._handleFocus.bind(this);
     }
 
@@ -44,18 +49,34 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
 
         return (
             <div className={classes.wrap}>
-                <div className={this._getShrinkClass()}>
+                <div
+                    className={this._getShrinkClass()}
+                    onClick={() => {
+                        if (this._ref) {
+                            this._ref.focus();
+                        }
+                    }}
+                >
                     {this.props.label}
                 </div>
                 <input
+                    ref={(ref) => this._ref = ref}
                     className={classes.input}
                     type={this.props.type}
                     value={this.props.value}
                     onFocus={this._handleFocus}
+                    onBlur={this._handleBlur}
                     onChange={(event) => this.props.onChange(event.target.value)}
                 />
             </div>
         );
+    }
+
+    private _handleBlur(): void {
+
+        this.setState({
+            shrink: false,
+        });
     }
 
     private _handleFocus(): void {
@@ -67,7 +88,7 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
 
     private _getShrinkClass(): string {
 
-        if (this.state.shrink) {
+        if (this.state.shrink || this.props.value) {
 
             return `${classes.label} ${classes.shrink}`;
         }

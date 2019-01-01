@@ -17,10 +17,12 @@ storiesOf('Form', module).add(
     wInfo('')(() => {
 
         const label: string = text('Label', 'Label');
+        const value: string = text('Value', 'Value');
 
         return (<div>
             <NeonInput
                 {...events}
+                value={value}
                 label={label}
             />
         </div>);
