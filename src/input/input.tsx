@@ -26,10 +26,12 @@ export class NeonInput extends React.Component<NeonInputProps, {}> {
     public render() {
 
         return (
-            <div>
-                {this.props.label}
+            <div className={classes.wrap}>
+                <div className={classes.label}>
+                    {this.props.label}
+                </div>
                 <input
-                    className={classes.label}
+                    className={classes.input}
                     type={this.props.type}
                     value={this.props.value}
                     onChange={(event) => this.props.onChange(event.target.value)}
