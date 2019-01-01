@@ -11,7 +11,7 @@ import { NeonButtonStyle } from "./style";
 export type NeonButtonProps = {
 
     onClick: () => void;
-    children: JSX.Element;
+    children?: JSX.Element;
 };
 
 const { classes }: StyleSheet = jss.createStyleSheet(NeonButtonStyle).attach();
