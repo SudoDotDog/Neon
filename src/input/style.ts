@@ -13,20 +13,40 @@ export const NeonInputStyle: JSSStyle = {
 
         position: 'relative',
         border: `5px solid ${COLOR.NAVY}`,
+
+        padding: '0.1rem',
+        paddingLeft: '0.3rem',
     },
     label: {
 
         position: 'absolute',
-        top: 0,
-        left: 0,
+        top: '0.8rem',
+
+        fontSize: '1rem',
+        fontWeight: 'bold',
+
+        transition: '0.2s all',
+    },
+    shrink: {
+
+        top: '0.1rem',
+        left: '0.2rem',
+        fontSize: '0.5rem',
     },
     input: {
 
-        backgroundColor: 'red',
         border: '0',
-        marginTop: '0.5rem',
+        marginTop: '0.2rem',
+        paddingTop: '0.8rem',
+
+        fontSize: '1rem',
+        outline: '0',
 
         width: '100%',
-        height: '2rem',
+        height: '1.4rem',
+
+        '&:focus': {
+            color: COLOR.DARKGRAY,
+        },
     },
 };
