@@ -19,8 +19,7 @@
     "jss-preset-default": "^10.0.0-alpha.4",
     "react": "^16.7.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "react-dom": "^16.7.0",
-    "react-jss": "^10.0.0-alpha.4"
+    "react-dom": "^16.7.0"
   },
   "dependencies": {},
   "nyc": {

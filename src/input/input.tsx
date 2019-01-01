@@ -5,8 +5,6 @@
  */
 
 import * as React from "react";
-import injectSheet from "react-jss";
-import { JSSStyle } from "../common/style";
 
 export type NeonInputProps = {
     label: string;
@@ -15,22 +13,13 @@ export type NeonInputProps = {
     onChange: (value: string) => void;
 };
 
-const styles: JSSStyle = {
-
-    myColor: {
-        color: 'green',
-    },
-};
-
-export class NeonInputBase extends React.Component<NeonInputProps, {}> {
+export class NeonInput extends React.Component<NeonInputProps, {}> {
 
     public static defaultProps: Partial<NeonInputProps> = {
         type: "text",
     };
 
     public render() {
-
-        // const classes = getClasses(this.props);
 
         return (
             <div>
@@ -44,6 +33,3 @@ export class NeonInputBase extends React.Component<NeonInputProps, {}> {
         );
     }
 }
-
-export const NeonInput: React.SFC<NeonInputProps> = injectSheet(styles)(NeonInputBase);
-
