@@ -6,9 +6,9 @@
 
 import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
-import { NeonInput } from "input/input";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
+import { NeonInput } from "../../src/input";
 import { createAction, wInfo } from "../util";
 import * as ButtonMD from "./button.md";
 
