@@ -5097,10 +5097,10 @@ jss-preset-default@^10.0.0-alpha.5:
     jss-plugin-template "^10.0.0-alpha.5"
     jss-plugin-vendor-prefixer "^10.0.0-alpha.5"
 
-jss@^10.0.0-alpha.5:
-  version "10.0.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/jss/-/jss-10.0.0-alpha.5.tgz#a5dbf2c19496727da3dea108c6e115e49c195c90"
-  integrity sha512-96o9X8VVswas2hTylN+kYfM6TY2s05QLAcUsPzhp1twhzCGhCxMEBoW/qZsooeHYQ1HyEU1tSBhkS75qJQ7SxA==
+jss@^10.0.0-alpha.6:
+  version "10.0.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/jss/-/jss-10.0.0-alpha.6.tgz#d8cf1fcd60c7f700afeb34b2c46a68373f495309"
+  integrity sha512-nvkRsDJkvq/RZfT/+ngzp+Sih2rl7h1oBwnCZVpclfjGrygqA9EJrEnY9s+YTG2BV2qIQtGoChf+UNWFxj/fug==
   dependencies:
     "@babel/runtime" "^7.0.0"
     is-in-browser "^1.1.3"
