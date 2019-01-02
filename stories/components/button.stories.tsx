@@ -8,7 +8,6 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
-import { NeonInput } from "../../src/input";
 import { createAction, wInfo } from "../util";
 import * as ButtonMD from "./button.md";
 
@@ -27,27 +26,3 @@ componentStories.add(
         </NeonButton>);
     }),
 );
-
-componentStories.add(
-    'NeonInput',
-    wInfo('')(() => {
-
-        const label: string = text('Label', 'Label');
-        const value: string = text('Value', 'Value');
-
-        return (<div>
-            WithValue
-            <NeonInput
-                {...events}
-                value={value}
-                label={label}
-            />
-            Empty
-            <NeonInput
-                {...events}
-                label={label}
-            />
-        </div>);
-    }),
-);
-

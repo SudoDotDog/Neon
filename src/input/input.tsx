@@ -11,8 +11,10 @@ import { NeonInputStyle } from "./style";
 export type NeonInputProps = {
     readonly label: string;
     readonly value: string;
-    readonly type?: string;
     readonly onChange: (value: string) => void;
+
+    readonly style?: React.CSSProperties;
+    readonly type?: string;
 };
 
 export type NeonInputStates = {
@@ -48,15 +50,16 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
     public render() {
 
         return (
-            <div className={classes.wrap}>
+            <div
+                style={this.props.style}
+                className={classes.wrap}>
                 <div
                     className={this._getShrinkClass()}
                     onClick={() => {
                         if (this._ref) {
                             this._ref.focus();
                         }
-                    }}
-                >
+                    }}>
                     {this.props.label}
                 </div>
                 <input

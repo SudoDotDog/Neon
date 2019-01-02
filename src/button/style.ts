@@ -14,6 +14,7 @@ export const NeonButtonStyle: JSSStyle = {
         backgroundColor: COLOR.WHITE,
         width: '100%',
         height: '2rem',
+        padding: 0,
 
         cursor: 'pointer',
         outline: 0,
@@ -22,7 +23,7 @@ export const NeonButtonStyle: JSSStyle = {
         fontWeight: 'bold',
 
         '&:active': {
-            backgroundColor: COLOR.LIME,
+            borderColor: COLOR.BLUE,
         },
 
         '&:focus': {

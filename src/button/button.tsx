@@ -11,7 +11,9 @@ import { NeonButtonStyle } from "./style";
 export type NeonButtonProps = {
 
     onClick: () => void;
-    children?: JSX.Element;
+
+    style?: React.CSSProperties;
+    children?: JSX.Element | any;
 };
 
 const { classes }: StyleSheet = jss.createStyleSheet(NeonButtonStyle).attach();
@@ -19,9 +21,12 @@ const { classes }: StyleSheet = jss.createStyleSheet(NeonButtonStyle).attach();
 export const NeonButton: React.SFC<NeonButtonProps> =
     (props: NeonButtonProps) => {
 
-        return (<button
-            className={classes.button}
-            onClick={props.onClick}>
-            {props.children}
-        </button>);
+        return (
+            <div style={props.style}>
+                <button
+                    className={classes.button}
+                    onClick={props.onClick}>
+                    {props.children}
+                </button>
+            </div>);
     };

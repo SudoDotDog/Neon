@@ -13,8 +13,7 @@ export const NeonInputStyle: JSSStyle = {
 
         position: 'relative',
 
-        padding: '0.1rem',
-        paddingLeft: '0.3rem',
+        padding: '0.2rem',
 
         cursor: 'text',
 
@@ -35,12 +34,11 @@ export const NeonInputStyle: JSSStyle = {
 
         top: '0.1rem',
         left: '0.2rem',
-        fontSize: '0.5rem',
+        fontSize: '0.8rem',
     },
     input: {
 
         border: '0',
-        marginTop: '0.2rem',
         paddingTop: '0.8rem',
 
         fontSize: '1rem',

@@ -11,17 +11,15 @@ export type JSSStyle = Record<string, Style | {
     [key: string]: Style;
 }>;
 
-export const getBorder = (color: string) => ({
+export const getBorder = (color: string, width: string = '0.2rem') => ({
 
-    border: `0.2rem solid ${color}`,
+    borderColor: color,
+    borderWidth: width,
+    borderStyle: 'solid',
 });
 
 export const getBorderHoverStyle = () => ({
 
     ...getBorder(COLOR.NAVY),
     transition: '0.2s all',
-
-    '&:hover': {
-        ...getBorder(COLOR.DARKGRAY),
-    },
 });
