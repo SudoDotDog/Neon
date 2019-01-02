@@ -1,18 +1,34 @@
 /**
  * @author WMXPY
  * @namespace Stories
- * @description Input
+ * @description Components
  */
 
 import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
+import { NeonInput } from "input/input";
 import * as React from "react";
-import { NeonInput } from "../../src/input";
+import { NeonButton } from "../../src/button";
 import { createAction, wInfo } from "../util";
+import * as ButtonMD from "./button.md";
 
 const events = createAction();
 
-storiesOf('Form', module).add(
+const componentStories = storiesOf('Components', module);
+
+componentStories.add(
+    'NeonButton',
+    wInfo(ButtonMD)(() => {
+
+        const name: string = text('Name', 'Name');
+
+        return (<NeonButton {...events}>
+            {name}
+        </NeonButton>);
+    }),
+);
+
+componentStories.add(
     'NeonInput',
     wInfo('')(() => {
 
@@ -34,3 +50,4 @@ storiesOf('Form', module).add(
         </div>);
     }),
 );
+
