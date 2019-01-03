@@ -13,7 +13,7 @@ import { NeonButton, NeonButtonProps } from "../../../src/button";
 
 describe('Given a <Box /> Component', (): void => {
 
-    const chance: Chance.Chance = new Chance('neon-button');
+    const chance: Chance.Chance = new Chance('neon-button-button');
 
     const getDefaultProps = (): NeonButtonProps => ({
 

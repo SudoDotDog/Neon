@@ -1,7 +1,5 @@
 {
-  "name": "@sudoo/neon",
   "private": true,
-  "author": "WMXPY",
   "devDependencies": {
     "@storybook/addon-actions": "^4.1.4",
     "@storybook/addon-info": "^4.1.4",
