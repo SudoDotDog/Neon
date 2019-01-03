@@ -4,10 +4,11 @@
  * @description Style
  */
 
-import { COLOR } from "../common/color";
+import jss, { Classes, StyleSheet } from "jss";
+import { COLOR } from "../common/declare";
 import { getBorderHoverStyle, JSSStyle } from "../common/style";
 
-export const NeonInputStyle: JSSStyle = {
+const NeonInputStyleBase: JSSStyle = {
 
     wrap: {
 
@@ -52,3 +53,6 @@ export const NeonInputStyle: JSSStyle = {
         },
     },
 };
+
+export const NeonInputStyleSheet: StyleSheet = jss.createStyleSheet(NeonInputStyleBase).attach();
+export const NeonInputStyle: Classes = NeonInputStyleSheet.classes;

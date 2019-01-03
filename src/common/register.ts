@@ -6,7 +6,7 @@
 
 import jss from "jss";
 import jssPresetDefault from "jss-preset-default";
-import { COLOR } from "./color";
+import { COLOR } from "./declare";
 
 export class NeonRegister {
 

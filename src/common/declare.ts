@@ -24,3 +24,9 @@ export enum COLOR {
     WHITE = "#FFFFFF",
     TRANSPARENT = "transparent",
 }
+
+export enum SIZE {
+
+    FULL = "FULL",
+    NORMAL = "NORMAL",
+}

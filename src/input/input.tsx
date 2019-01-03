@@ -4,7 +4,6 @@
  * @description Input
  */
 
-import jss, { StyleSheet } from "jss";
 import * as React from "react";
 import { NeonInputStyle } from "./style";
 
@@ -21,8 +20,6 @@ export type NeonInputStates = {
 
     readonly shrink: boolean;
 };
-
-const { classes }: StyleSheet = jss.createStyleSheet(NeonInputStyle).attach();
 
 export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> {
 
@@ -52,7 +49,7 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
         return (
             <div
                 style={this.props.style}
-                className={classes.wrap}>
+                className={NeonInputStyle.wrap}>
                 <div
                     className={this._getShrinkClass()}
                     onClick={() => {
@@ -64,7 +61,7 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
                 </div>
                 <input
                     ref={(ref) => this._ref = ref}
-                    className={classes.input}
+                    className={NeonInputStyle.input}
                     type={this.props.type}
                     value={this.props.value}
                     onFocus={this._handleFocus}
@@ -93,9 +90,9 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
 
         if (this.state.shrink || this.props.value) {
 
-            return `${classes.label} ${classes.shrink}`;
+            return `${NeonInputStyle.label} ${NeonInputStyle.shrink}`;
         }
 
-        return classes.label;
+        return NeonInputStyle.label;
     }
 }

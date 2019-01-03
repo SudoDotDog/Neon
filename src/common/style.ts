@@ -5,7 +5,7 @@
  */
 
 import { Style } from "jss/css";
-import { COLOR } from "./color";
+import { COLOR } from "./declare";
 
 export type JSSStyle = Record<string, Style | {
     [key: string]: Style;

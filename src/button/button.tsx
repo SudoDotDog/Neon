@@ -4,29 +4,53 @@
  * @description Button
  */
 
-import jss, { StyleSheet } from "jss";
 import * as React from "react";
+import { SIZE } from "../common/declare";
 import { NeonButtonStyle } from "./style";
 
 export type NeonButtonProps = {
 
     onClick: () => void;
 
+    size?: SIZE;
+
     style?: React.CSSProperties;
     children?: JSX.Element | any;
 };
 
-const { classes }: StyleSheet = jss.createStyleSheet(NeonButtonStyle).attach();
+export class NeonButton extends React.Component<NeonButtonProps, {}> {
 
-export const NeonButton: React.SFC<NeonButtonProps> =
-    (props: NeonButtonProps) => {
+    public static readonly defaultProps: Partial<NeonButtonProps> = {
+
+        size: SIZE.NORMAL,
+    };
+
+    public render(): JSX.Element {
 
         return (
-            <div style={props.style}>
+            <div style={this.props.style}>
                 <button
-                    className={classes.button}
-                    onClick={props.onClick}>
-                    {props.children}
+                    className={this._getClass()}
+                    onClick={this.props.onClick}>
+                    {this.props.children}
                 </button>
             </div>);
-    };
+    }
+
+    private _getClass(): string {
+
+        switch (this.props.size) {
+
+            case SIZE.FULL:
+                return [
+                    NeonButtonStyle.button,
+                    NeonButtonStyle.full,
+                ].join(' ');
+            case SIZE.NORMAL:
+            default:
+                return [
+                    NeonButtonStyle.button,
+                ].join(' ');
+        }
+    }
+}

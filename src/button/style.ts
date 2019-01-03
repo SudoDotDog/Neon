@@ -4,15 +4,16 @@
  * @description Style
  */
 
-import { COLOR } from "../common/color";
+import jss, { Classes, StyleSheet } from "jss";
+import { COLOR } from "../common/declare";
 import { getBorderHoverStyle, JSSStyle } from "../common/style";
 
-export const NeonButtonStyle: JSSStyle = {
+const NeonButtonStyleBase: JSSStyle = {
 
     button: {
 
         backgroundColor: COLOR.WHITE,
-        width: '100%',
+        width: '5rem',
         height: '2rem',
         padding: 0,
 
@@ -32,4 +33,12 @@ export const NeonButtonStyle: JSSStyle = {
 
         ...getBorderHoverStyle(),
     },
+
+    full: {
+
+        width: '100%',
+    },
 };
+
+export const NeonButtonStyleSheet: StyleSheet = jss.createStyleSheet(NeonButtonStyleBase).attach();
+export const NeonButtonStyle: Classes = NeonButtonStyleSheet.classes;

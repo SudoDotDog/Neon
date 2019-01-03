@@ -4,10 +4,11 @@
  * @description Style
  */
 
-import { COLOR } from "../common/color";
+import jss, { Classes, StyleSheet } from "jss";
+import { COLOR } from "../common/declare";
 import { getBorder, JSSStyle } from "../common/style";
 
-export const NeonPaperStyle: JSSStyle = {
+const NeonPaperStyleBase: JSSStyle = {
 
     wrap: {
 
@@ -17,3 +18,6 @@ export const NeonPaperStyle: JSSStyle = {
         ...getBorder(COLOR.GRAY, '1px'),
     },
 };
+
+export const NeonPaperStyleSheet: StyleSheet = jss.createStyleSheet(NeonPaperStyleBase).attach();
+export const NeonPaperStyle: Classes = NeonPaperStyleSheet.classes;
