@@ -8,7 +8,7 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
-import { SIZE } from "../../src/common/declare";
+import { SIZE } from "../../src/declare";
 import { createAction, wInfo } from "../util";
 import * as ButtonMD from "./button.md";
 
