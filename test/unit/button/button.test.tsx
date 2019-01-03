@@ -9,6 +9,7 @@ import { expect } from 'chai';
 import * as Chance from 'chance';
 import { shallow, ShallowWrapper } from 'enzyme';
 import * as React from "react";
+import { NeonBox } from '../../../src/box/box';
 import { NeonButton, NeonButtonProps } from "../../../src/button";
 
 describe('Given a <Box /> Component', (): void => {
@@ -31,6 +32,6 @@ describe('Given a <Box /> Component', (): void => {
 
         const component: ShallowWrapper = render();
 
-        expect(component.type()).to.be.equal('div');
+        expect(component.type()).to.be.equal(NeonBox);
     });
 });
