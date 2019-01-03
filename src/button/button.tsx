@@ -5,7 +5,8 @@
  */
 
 import * as React from "react";
-import { SIZE } from "../common/declare";
+import { NeonBox } from "../box/box";
+import { MARGIN, SIZE } from "../declare";
 import { NeonButtonStyle } from "./style";
 
 export type NeonButtonProps = {
@@ -15,6 +16,7 @@ export type NeonButtonProps = {
     size?: SIZE;
 
     style?: React.CSSProperties;
+    margin?: MARGIN;
     children?: JSX.Element | any;
 };
 
@@ -28,13 +30,15 @@ export class NeonButton extends React.Component<NeonButtonProps, {}> {
     public render(): JSX.Element {
 
         return (
-            <div style={this.props.style}>
+            <NeonBox
+                style={this.props.style}
+                margin={this.props.margin}>
                 <button
                     className={this._getClass()}
                     onClick={this.props.onClick}>
                     {this.props.children}
                 </button>
-            </div>);
+            </NeonBox>);
     }
 
     private _getClass(): string {

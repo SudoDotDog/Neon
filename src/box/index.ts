@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Neon_Input
+ * @namespace Neon_Box
  * @description Index
  */
 
@@ -8,5 +8,5 @@ import { NeonRegister } from "../common/register";
 
 NeonRegister.register();
 
-export { NeonInput, NeonInputProps } from "./input";
+export { NeonBox, NeonBoxProps } from "./box";
 

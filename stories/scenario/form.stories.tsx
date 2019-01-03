@@ -8,6 +8,7 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
+import { MARGIN } from "../../src/declare/index";
 import { NeonInput } from "../../src/input";
 import { NeonPaper } from "../../src/paper";
 import { createAction, wInfo } from "../util";
@@ -23,26 +24,53 @@ componentStories.add(
         const label: string = text('Label', 'Label');
         const value: string = text('Value', 'Value');
 
-        return (<NeonPaper>
-            <div>
-                Hello World
+        return (<div>
+
+            Single button
+            <NeonPaper>
+                <div>
+                    Hello World
                 <NeonInput
-                    {...events}
-                    style={{
-                        margin: '5px',
-                    }}
-                    value={value}
-                    label={label}
-                />
-                <NeonButton
-                    style={{
-                        margin: '5px',
-                    }}
-                    onClick={() => undefined}>
-                    {label}
-                </NeonButton>
-            </div>
-        </NeonPaper>);
+                        {...events}
+                        margin={MARGIN.SMALL}
+                        value={value}
+                        label={label}
+                    />
+                    <NeonButton
+                        margin={MARGIN.SMALL}
+                        onClick={() => undefined}>
+                        {label}
+                    </NeonButton>
+                </div>
+            </NeonPaper>
+
+            Multiple Button
+            <NeonPaper>
+                <div>
+                    Hello World
+                    <NeonInput
+                        {...events}
+                        margin={MARGIN.SMALL}
+                        value={value}
+                        label={label}
+                    />
+                    <div style={{ display: 'flex' }}>
+
+                        <NeonButton
+                            margin={MARGIN.SMALL}
+                            onClick={() => undefined}>
+                            {label}
+                        </NeonButton>
+
+                        <NeonButton
+                            margin={MARGIN.SMALL}
+                            onClick={() => undefined}>
+                            {label}
+                        </NeonButton>
+                    </div>
+                </div>
+            </NeonPaper>
+        </div>);
     }),
 );
 

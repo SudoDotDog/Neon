@@ -5,6 +5,9 @@
  */
 
 import * as React from "react";
+import { NeonBox } from "../box/box";
+import { MARGIN } from "../declare/index";
+import { INPUT_TYPE } from "./declare";
 import { NeonInputStyle } from "./style";
 
 export type NeonInputProps = {
@@ -13,7 +16,8 @@ export type NeonInputProps = {
     readonly onChange: (value: string) => void;
 
     readonly style?: React.CSSProperties;
-    readonly type?: string;
+    margin?: MARGIN;
+    readonly type?: INPUT_TYPE;
 };
 
 export type NeonInputStates = {
@@ -24,7 +28,8 @@ export type NeonInputStates = {
 export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> {
 
     public static readonly defaultProps: Partial<NeonInputProps> = {
-        type: "text",
+
+        type: INPUT_TYPE.TEXT,
     };
 
     public readonly state: NeonInputStates = {
@@ -47,9 +52,10 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
     public render() {
 
         return (
-            <div
+            <NeonBox
                 style={this.props.style}
-                className={NeonInputStyle.wrap}>
+                className={NeonInputStyle.wrap}
+                margin={this.props.margin}>
                 <div
                     className={this._getShrinkClass()}
                     onClick={() => {
@@ -68,7 +74,7 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
                     onBlur={this._handleBlur}
                     onChange={(event) => this.props.onChange(event.target.value)}
                 />
-            </div>
+            </NeonBox>
         );
     }
 
