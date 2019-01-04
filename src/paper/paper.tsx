@@ -5,21 +5,25 @@
  */
 
 import * as React from "react";
+import { NeonBox } from "../box/box";
+import { MARGIN } from "../declare/index";
 import { NeonPaperStyle } from "./style";
 
 export type NeonPaperProps = {
 
     readonly style?: React.CSSProperties;
+    readonly margin?: MARGIN;
     readonly children?: any;
 };
 
 export const NeonPaper: React.SFC<NeonPaperProps> =
     (props: NeonPaperProps) => {
 
-        return (<div
+        return (<NeonBox
             style={props.style}
             className={NeonPaperStyle.wrap}
+            margin={props.margin}
         >
             {props.children}
-        </div>);
+        </NeonBox>);
     };

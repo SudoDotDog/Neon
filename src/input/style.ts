@@ -13,10 +13,9 @@ const NeonInputStyleBase: JSSStyle = {
     wrap: {
 
         position: 'relative',
-
         padding: '0.2rem',
-
         cursor: 'text',
+        backgroundColor: COLOR.WHITE,
 
         ...getBorderHoverStyle(),
     },
