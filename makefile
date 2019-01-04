@@ -34,7 +34,7 @@ storybook:
 	@echo "[INFO] Building storybook"
 	@$(build_storybook)
 
-publish: install tests build
+publish: install tests clean build
 	@echo "[INFO] Publishing package"
 	@cd app && npm publish --access=public
 

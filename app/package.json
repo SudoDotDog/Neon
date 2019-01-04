@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/SudoDotDog/Neon#readme",
   "dependencies": {
-    "jss": "^10.0.0-alpha.4",
-    "jss-preset-default": "^10.0.0-alpha.4"
+    "jss": "^10.0.0-alpha.6",
+    "jss-preset-default": "^10.0.0-alpha.6"
   },
   "peerDependencies": {
     "react": "*",
