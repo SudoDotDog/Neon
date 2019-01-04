@@ -9,7 +9,7 @@ import { NeonPaperStyle } from "./style";
 
 export type NeonPaperProps = {
 
-    children?: JSX.Element;
+    children?: any;
 };
 
 export const NeonPaper: React.SFC<NeonPaperProps> =

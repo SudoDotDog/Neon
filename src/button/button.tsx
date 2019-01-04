@@ -17,7 +17,7 @@ export type NeonButtonProps = {
 
     style?: React.CSSProperties;
     margin?: MARGIN;
-    children?: JSX.Element | any;
+    children?: any;
 };
 
 export class NeonButton extends React.Component<NeonButtonProps, {}> {

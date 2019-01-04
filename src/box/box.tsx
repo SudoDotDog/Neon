@@ -15,7 +15,7 @@ export type NeonBoxProps = {
     className?: string;
     margin?: MARGIN;
 
-    children?: JSX.Element | any;
+    children?: any;
 };
 
 export const NeonBox: React.SFC<NeonBoxProps> = (props: NeonBoxProps) => {
