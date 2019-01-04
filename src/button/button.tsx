@@ -11,13 +11,12 @@ import { NeonButtonStyle } from "./style";
 
 export type NeonButtonProps = {
 
-    onClick: () => void;
+    readonly onClick: () => void;
 
-    size?: SIZE;
-
-    style?: React.CSSProperties;
-    margin?: MARGIN;
-    children?: any;
+    readonly size?: SIZE;
+    readonly style?: React.CSSProperties;
+    readonly margin?: MARGIN;
+    readonly children?: any;
 };
 
 export class NeonButton extends React.Component<NeonButtonProps, {}> {

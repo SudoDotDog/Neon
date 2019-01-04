@@ -9,13 +9,17 @@ import { NeonPaperStyle } from "./style";
 
 export type NeonPaperProps = {
 
-    children?: any;
+    readonly style?: React.CSSProperties;
+    readonly children?: any;
 };
 
 export const NeonPaper: React.SFC<NeonPaperProps> =
     (props: NeonPaperProps) => {
 
-        return (<div className={NeonPaperStyle.wrap}>
+        return (<div
+            style={props.style}
+            className={NeonPaperStyle.wrap}
+        >
             {props.children}
         </div>);
     };

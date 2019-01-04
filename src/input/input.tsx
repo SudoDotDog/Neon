@@ -16,7 +16,7 @@ export type NeonInputProps = {
     readonly onChange: (value: string) => void;
 
     readonly style?: React.CSSProperties;
-    margin?: MARGIN;
+    readonly margin?: MARGIN;
     readonly type?: INPUT_TYPE;
 };
 

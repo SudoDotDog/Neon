@@ -9,12 +9,12 @@ import { NeonSpinnerStyle } from "./style";
 
 export type NeonSpinnerProps = {
 
-    loading: boolean;
+    readonly loading: boolean;
 };
 
 export type NeonSpinnerState = {
 
-    spinning: boolean;
+    readonly spinning: boolean;
 };
 
 export class NeonSpinner extends React.Component<NeonSpinnerProps, NeonSpinnerState> {

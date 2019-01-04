@@ -10,12 +10,10 @@ import { NeonBoxStyle } from "./style";
 
 export type NeonBoxProps = {
 
-    style?: React.CSSProperties;
-
-    className?: string;
-    margin?: MARGIN;
-
-    children?: any;
+    readonly style?: React.CSSProperties;
+    readonly className?: string;
+    readonly margin?: MARGIN;
+    readonly children?: any;
 };
 
 export const NeonBox: React.SFC<NeonBoxProps> = (props: NeonBoxProps) => {
