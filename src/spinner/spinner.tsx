@@ -46,9 +46,8 @@ export class NeonSpinner extends React.Component<NeonSpinnerProps, NeonSpinnerSt
 
             this._timer = setTimeout(() => this.setState({
                 spinning: false,
-            }), 3000);
+            }), 1000);
         }
-
     }
 
     public render(): JSX.Element {
