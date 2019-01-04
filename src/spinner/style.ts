@@ -18,7 +18,7 @@ const commonFrontBackStyle = {
     opacity: 1,
 
     '&.disable': {
-        outline: '0px solid red',
+        border: '0px solid red',
     },
 };
 const keyframes = {
@@ -29,46 +29,40 @@ const keyframes = {
 const NeonSpinnerStyleBase: JSSStyle = {
 
     loading: {
-
         position: 'relative',
         transition: '0.5s all ease-in-out',
-        margin: '1.5rem',
+        margin: '1rem',
         width: '3rem',
         height: '3rem',
     },
-
     disable: {
-        outline: `0 solid ${COLOR.TRANSPARENT}`,
+        border: `0 solid ${COLOR.TRANSPARENT}`,
     },
-
     enableFront: {
-        outline: `0.5rem solid ${COLOR.NAVY}`,
+        border: `0.5rem solid ${COLOR.NAVY}`,
     },
-
     enableBack: {
-        outline: `0.5rem solid ${COLOR.LIME}`,
+        border: `0.5rem solid ${COLOR.LIME}`,
     },
-
     outer: {
-
         transition: '0.5s all ease-in-out',
         position: 'absolute',
     },
     front: {
-
         zIndex: 1,
         ...commonFrontBackStyle,
-
-        animation: 'loading-rotate 3s infinite',
     },
     back: {
-
         ...commonFrontBackStyle,
-        animation: 'loading-rotate 1.5s infinite',
     },
-
+    spinningFront: {
+        animation: 'neon-loading-rotate 3s infinite',
+    },
+    spinningBack: {
+        animation: 'neon-loading-rotate 1.5s infinite',
+    },
     '@global': {
-        '@keyframes loading-rotate': keyframes,
+        '@keyframes neon-loading-rotate': keyframes,
     },
 };
 

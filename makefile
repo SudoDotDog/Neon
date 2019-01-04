@@ -8,12 +8,14 @@ storybook_port := 8081
 # NPX functions
 ifeq ($(OS), Windows_NT)
 	tsc := .\node_modules\.bin\tsc
+	ts_node := .\node_modules\.bin\ts-node
 	mocha := .\node_modules\.bin\mocha
 
 	build_storybook := .\node_modules\.bin\build-storybook
 	start_storybook := .\node_modules\.bin\start-storybook
 else
 	tsc := node_modules/.bin/tsc
+	ts_node := node_modules/.bin/ts-node
 	mocha := node_modules/.bin/mocha
 
 	build_storybook := node_modules/.bin/build-storybook
@@ -75,3 +77,5 @@ else
 	@rm -rf coverage
 	@rm -rf storybook-static
 endif
+	@echo "[INFO] Cleaning release files"
+	@$(ts_node) script/clean-app.ts
