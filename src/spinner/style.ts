@@ -29,44 +29,38 @@ const keyframes = {
 const NeonSpinnerStyleBase: JSSStyle = {
 
     loading: {
-
         position: 'relative',
         transition: '0.5s all ease-in-out',
         margin: '1.5rem',
         width: '3rem',
         height: '3rem',
     },
-
     disable: {
         outline: `0 solid ${COLOR.TRANSPARENT}`,
     },
-
     enableFront: {
         outline: `0.5rem solid ${COLOR.NAVY}`,
     },
-
     enableBack: {
         outline: `0.5rem solid ${COLOR.LIME}`,
     },
-
     outer: {
-
         transition: '0.5s all ease-in-out',
         position: 'absolute',
     },
     front: {
-
         zIndex: 1,
         ...commonFrontBackStyle,
-
-        animation: 'loading-rotate 3s infinite',
     },
     back: {
-
         ...commonFrontBackStyle,
+    },
+    spinningFront: {
+        animation: 'loading-rotate 3s infinite',
+    },
+    spinningBack: {
         animation: 'loading-rotate 1.5s infinite',
     },
-
     '@global': {
         '@keyframes loading-rotate': keyframes,
     },
