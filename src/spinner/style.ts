@@ -32,6 +32,7 @@ const NeonSpinnerStyleBase: JSSStyle = {
 
         position: 'relative',
         transition: '0.5s all ease-in-out',
+        margin: '1.5rem',
         width: '3rem',
         height: '3rem',
     },

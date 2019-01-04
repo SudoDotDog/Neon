@@ -4,8 +4,10 @@
  * @description Spinner
  */
 
+import { boolean } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
+import { NeonPaper } from "../../src/paper/paper";
 import { NeonSpinner } from "../../src/spinner/index";
 import { wInfo } from "../util";
 import * as ButtonMD from "./button.md";
@@ -16,6 +18,13 @@ componentStories.add(
     'NeonSpinner',
     wInfo(ButtonMD)(() => {
 
-        return (<NeonSpinner loading />);
+        const isLoading: boolean = boolean('Loading', true);
+
+        return (<NeonPaper>
+            <div>
+                Hello World
+                <NeonSpinner loading={isLoading} />
+            </div>
+        </NeonPaper>);
     }),
 );
