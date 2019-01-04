@@ -8,7 +8,7 @@ import { Style } from "jss/css";
 import { COLOR } from "./declare";
 
 export type JSSStyle = Record<string, Style | {
-    [key: string]: Style;
+    [key: string]: any;
 }>;
 
 export const getBorder = (color: string, width: string = '0.2rem') => ({
