@@ -11,6 +11,15 @@ const NeonFlagStyleBase: JSSStyle = {
 
     flag: {
 
+
+    },
+    error: {
+
+
+    },
+    warning: {
+
+
     },
 };
 
