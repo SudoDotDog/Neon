@@ -9,6 +9,7 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
 import { MARGIN } from "../../src/declare/index";
+import { FLAG_TYPE, NeonFlag } from "../../src/flag";
 import { NeonInput } from "../../src/input";
 import { NeonPaper } from "../../src/paper";
 import { createAction, wInfo } from "../util";
@@ -30,7 +31,12 @@ componentStories.add(
             <NeonPaper>
                 <div>
                     Hello World
-                <NeonInput
+                    <NeonFlag
+                        type={FLAG_TYPE.ERROR}
+                        margin={MARGIN.SMALL}>
+                        {label}
+                    </NeonFlag>
+                    <NeonInput
                         {...events}
                         margin={MARGIN.SMALL}
                         value={value}
