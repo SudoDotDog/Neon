@@ -31,18 +31,18 @@ const NeonSpinnerStyleBase: JSSStyle = {
     loading: {
         position: 'relative',
         transition: '0.5s all ease-in-out',
-        margin: '1rem',
+        margin: '1.5rem',
         width: '3rem',
         height: '3rem',
     },
     disable: {
-        border: `0 solid ${COLOR.TRANSPARENT}`,
+        outline: `0.8rem solid ${COLOR.TRANSPARENT}`,
     },
     enableFront: {
-        border: `0.5rem solid ${COLOR.NAVY}`,
+        outline: `0.5rem solid ${COLOR.NAVY}`,
     },
     enableBack: {
-        border: `0.5rem solid ${COLOR.LIME}`,
+        outline: `0.5rem solid ${COLOR.LIME}`,
     },
     outer: {
         transition: '0.5s all ease-in-out',

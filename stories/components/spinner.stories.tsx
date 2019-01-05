@@ -10,13 +10,12 @@ import * as React from "react";
 import { NeonPaper } from "../../src/paper/paper";
 import { NeonSpinner } from "../../src/spinner/index";
 import { wInfo } from "../util";
-import * as ButtonMD from "./button.md";
 
 const componentStories = storiesOf('Components', module);
 
 componentStories.add(
     'NeonSpinner',
-    wInfo(ButtonMD)(() => {
+    wInfo()(() => {
 
         const isLoading: boolean = boolean('Loading', true);
 

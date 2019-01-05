@@ -16,7 +16,7 @@ const componentStories = storiesOf('Components', module);
 
 componentStories.add(
     'NeonInput',
-    wInfo('')(() => {
+    wInfo()(() => {
 
         const label: string = text('Label', 'Label');
         const value: string = text('Value', 'Value');

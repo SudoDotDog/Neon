@@ -19,7 +19,7 @@ const componentStories = storiesOf('Scenario', module);
 
 componentStories.add(
     'Form',
-    wInfo('')(() => {
+    wInfo()(() => {
 
         const label: string = text('Label', 'Label');
         const value: string = text('Value', 'Value');
