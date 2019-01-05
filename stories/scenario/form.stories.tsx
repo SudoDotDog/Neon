@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
- * @namespace Stories
- * @description Scenario
+ * @namespace Stories_Scenario
+ * @description Form
  */
 
 import { text } from "@storybook/addon-knobs";

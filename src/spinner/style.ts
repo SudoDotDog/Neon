@@ -66,5 +66,41 @@ const NeonSpinnerStyleBase: JSSStyle = {
     },
 };
 
+const NeonIndicatorStyleBase: JSSStyle = {
+
+    box: {
+
+        position: 'relative',
+    },
+    wrap: {
+
+        backgroundColor: 'red',
+        transition: '0.5s all ease-in-out',
+    },
+    spinner: {
+
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        display: 'flex',
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    visible: {
+
+        visibility: 'visible',
+        opacity: 1,
+    },
+    invisible: {
+
+        visibility: 'hidden',
+        opacity: 0,
+    },
+};
+
 export const NeonSpinnerStyleSheet: StyleSheet = jss.createStyleSheet(NeonSpinnerStyleBase).attach();
 export const NeonSpinnerStyle: Classes = NeonSpinnerStyleSheet.classes;
+export const NeonIndicatorStyleSheet: StyleSheet = jss.createStyleSheet(NeonIndicatorStyleBase).attach();
+export const NeonIndicatorStyle: Classes = NeonIndicatorStyleSheet.classes;
