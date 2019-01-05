@@ -6,7 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../common/declare";
-import { getBorderHoverStyle, JSSStyle } from "../common/style";
+import { getBorderStyle, JSSStyle } from "../common/style";
 
 const NeonInputStyleBase: JSSStyle = {
 
@@ -17,7 +17,7 @@ const NeonInputStyleBase: JSSStyle = {
         cursor: 'text',
         backgroundColor: COLOR.WHITE,
 
-        ...getBorderHoverStyle(),
+        ...getBorderStyle(),
     },
     label: {
 

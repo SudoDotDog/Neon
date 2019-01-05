@@ -6,7 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../common/declare";
-import { getBorderHoverStyle, JSSStyle } from "../common/style";
+import { getBorderStyle, JSSStyle } from "../common/style";
 
 const NeonButtonStyleBase: JSSStyle = {
 
@@ -31,7 +31,7 @@ const NeonButtonStyleBase: JSSStyle = {
             color: COLOR.DARKGRAY,
         },
 
-        ...getBorderHoverStyle(),
+        ...getBorderStyle(),
     },
 
     full: {
