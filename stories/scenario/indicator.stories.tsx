@@ -4,9 +4,12 @@
  * @description Indicator
  */
 
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
+import { NeonButton } from "../../src/button";
+import { SIZE } from "../../src/declare";
+import { NeonInput } from "../../src/input";
 import { NeonPaper } from "../../src/paper";
 import { NeonIndicator } from "../../src/spinner";
 import { wInfo } from "../util";
@@ -17,6 +20,7 @@ componentStories.add(
     'Indicator',
     wInfo()(() => {
 
+        const label: string = text('Label', 'Label');
         const loading: boolean = boolean('Loading', false);
 
         return (<div>
@@ -24,12 +28,15 @@ componentStories.add(
                 From
                 <NeonIndicator loading={loading}>
                     <div>
-                        Test<hr />Test<br />
-                        Test<hr />Test
-                        Test<hr />Test<br />
-                        Test<hr />Test
+                        <NeonInput label={label} />
+                        <NeonInput label={label} />
+                        <NeonInput label={label} />
+                        <NeonButton size={SIZE.FULL}>Hello</NeonButton>
                     </div>
                 </NeonIndicator>
+                <hr />
+                Out of indicator
+                <NeonButton>Hello</NeonButton>
             </NeonPaper>
         </div>);
     }),

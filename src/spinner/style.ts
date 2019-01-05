@@ -74,33 +74,40 @@ const NeonIndicatorStyleBase: JSSStyle = {
     },
     wrap: {
 
-        backgroundColor: 'red',
-        transition: '0.5s all ease-in-out',
+        transition: '0.3s all ease-in-out',
     },
     spinner: {
 
         position: 'absolute',
+        display: 'flex',
         top: 0,
         left: 0,
-        display: 'flex',
-        width: '100%',
-        height: '100%',
         alignItems: 'center',
         justifyContent: 'center',
+
+        width: '100%',
+        height: '100%',
+
+        pointerEvents: 'none',
     },
     visible: {
 
         visibility: 'visible',
         opacity: 1,
+
+        pointerEvents: 'auto',
     },
     invisible: {
 
         visibility: 'hidden',
         opacity: 0,
+
+        pointerEvents: 'none',
     },
 };
 
 export const NeonSpinnerStyleSheet: StyleSheet = jss.createStyleSheet(NeonSpinnerStyleBase).attach();
 export const NeonSpinnerStyle: Classes = NeonSpinnerStyleSheet.classes;
+
 export const NeonIndicatorStyleSheet: StyleSheet = jss.createStyleSheet(NeonIndicatorStyleBase).attach();
 export const NeonIndicatorStyle: Classes = NeonIndicatorStyleSheet.classes;
