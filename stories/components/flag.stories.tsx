@@ -30,6 +30,13 @@ componentStories.add(
                 {message}
             </NeonFlag>
 
+            With info
+            <NeonFlag
+                info={message}
+                type={FLAG_TYPE.WARNING}>
+                {message}
+            </NeonFlag>
+
             With Margin
             <NeonFlag
                 margin={MARGIN.SMALL}
