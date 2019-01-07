@@ -4,7 +4,7 @@
  * @description Input
  */
 
-import { text } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { MARGIN } from "../../src/declare";
@@ -18,6 +18,7 @@ componentStories.add(
     wInfo()(() => {
 
         const message: string = text('Message', 'A message');
+        const hidden: boolean = boolean('Hidden', false);
 
         return (<div>
             ERROR
@@ -33,6 +34,14 @@ componentStories.add(
             With info
             <NeonFlag
                 info={message}
+                type={FLAG_TYPE.WARNING}>
+                {message}
+            </NeonFlag>
+
+            With info, Hidden
+            <NeonFlag
+                info={message}
+                hidden={hidden}
                 type={FLAG_TYPE.WARNING}>
                 {message}
             </NeonFlag>

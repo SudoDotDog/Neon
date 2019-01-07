@@ -17,6 +17,8 @@ export type NeonFlagProps = {
     readonly info?: string;
     readonly maxSize?: SIZE;
 
+    readonly hidden?: boolean;
+
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
     readonly children?: any;
@@ -127,6 +129,13 @@ export class NeonFlag extends React.Component<NeonFlagProps, NeonFlagState> {
                     maxSizeClass,
                 );
             }
+        }
+
+        if (this.props.hidden) {
+
+            classes.push(
+                NeonFlagStyle.hidden,
+            );
         }
 
         return classes.join(' ');

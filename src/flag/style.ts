@@ -14,12 +14,13 @@ const NeonFlagStyleBase: JSSStyle = {
         ...getBorderStyle(),
 
         maxHeight: '1.5rem',
-        minHeight: '1.5rem',
         overflow: 'hidden',
 
         borderLeftWidth: '0.6rem',
         padding: '0.2rem',
         paddingLeft: '0.4rem',
+
+        visibility: 'visible',
 
         fontSize: '1rem',
         fontWeight: 'bold',
@@ -30,6 +31,14 @@ const NeonFlagStyleBase: JSSStyle = {
     },
     full: {
         maxHeight: '10rem',
+    },
+
+    hidden: {
+        borderTop: 0,
+        borderBottom: 0,
+
+        maxHeight: 0,
+        visibility: 'hidden',
     },
 
     expend: {
@@ -55,6 +64,7 @@ const NeonFlagStyleBase: JSSStyle = {
         flex: 1,
     },
     info: {
+        paddingTop: '0.2rem',
         overflow: 'auto',
     },
 
