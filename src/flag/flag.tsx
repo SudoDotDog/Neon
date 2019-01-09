@@ -59,14 +59,10 @@ export class NeonFlag extends React.Component<NeonFlagProps, NeonFlagState> {
                 <div className={NeonFlagStyle.content}>
                     {this.props.children}
                 </div>
-                {this._getExpendButton()}
+                {this._renderExpendButton()}
             </div>
 
-            {this.props.info
-                ? (<div className={NeonFlagStyle.info}>
-                    {this.props.info}
-                </div>)
-                : void 0}
+            {this._renderInfoBlock()}
         </NeonBox>);
     }
 
@@ -77,27 +73,60 @@ export class NeonFlag extends React.Component<NeonFlagProps, NeonFlagState> {
         });
     }
 
-    private _getExpendButton(): any {
+    private _renderInfoBlock(): any {
+        if (this.props.info) {
+            return (<div className={this._getInfoClasses()}>
+                {this.props.info}
+            </div>);
+        }
+        return void 0;
+    }
+
+    private _renderExpendButton(): any {
+        if (this.props.info) {
+            return (<button
+                className={this._getExpendButtonClasses()}
+                onClick={this._toggleExpend}>
+                ▼
+            </button>);
+        }
+        return void 0;
+    }
+
+    private _getExpendButtonClasses(): string {
 
         const expendClass: string =
             this.state.expended
                 ? NeonFlagStyle.expended
                 : NeonFlagStyle.shrinked;
 
-        const classes: string = [
+        return [
             NeonFlagStyle.expend,
             expendClass,
         ].join(' ');
+    }
+
+    private _getInfoClasses(): string {
+
+        const classes: string[] = [
+            NeonFlagStyle.info,
+        ];
 
         if (this.props.info) {
 
-            return (<button
-                className={classes}
-                onClick={this._toggleExpend}>
-                ▼
-            </button>);
+            const maxSizeClass: string = (() => {
+                switch (this.props.maxSize as SIZE) {
+                    case SIZE.FULL: return NeonFlagStyle.full;
+                    case SIZE.NORMAL:
+                    default: return NeonFlagStyle.normal;
+                }
+            })();
+            classes.push(
+                this.state.expended ? maxSizeClass : NeonFlagStyle.zero,
+            );
         }
-        return void 0;
+
+        return classes.join(' ');
     }
 
     private _getFlagClasses(): string {
@@ -114,22 +143,6 @@ export class NeonFlag extends React.Component<NeonFlagProps, NeonFlagState> {
             NeonFlagStyle.flag,
             flagClass,
         ];
-
-        if (this.props.info) {
-
-            const maxSizeClass: string = (() => {
-                switch (this.props.maxSize as SIZE) {
-                    case SIZE.FULL: return NeonFlagStyle.full;
-                    case SIZE.NORMAL:
-                    default: return NeonFlagStyle.normal;
-                }
-            })();
-            if (this.state.expended) {
-                classes.push(
-                    maxSizeClass,
-                );
-            }
-        }
 
         if (this.props.hidden) {
 

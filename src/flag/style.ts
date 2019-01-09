@@ -13,7 +13,6 @@ const NeonFlagStyleBase: JSSStyle = {
     flag: {
         ...getBorderStyle(),
 
-        maxHeight: '1.5rem',
         overflow: 'hidden',
 
         borderLeftWidth: '0.6rem',
@@ -21,11 +20,11 @@ const NeonFlagStyleBase: JSSStyle = {
         paddingLeft: '0.4rem',
 
         visibility: 'visible',
-
-        fontSize: '1rem',
-        fontWeight: 'bold',
     },
 
+    zero: {
+        maxHeight: 0,
+    },
     normal: {
         maxHeight: '5rem',
     },
@@ -47,6 +46,7 @@ const NeonFlagStyleBase: JSSStyle = {
         outline: 0,
         backgroundColor: COLOR.TRANSPARENT,
         fontWeight: 'bold',
+
         transition: '0.2s all',
     },
     expended: {
@@ -62,10 +62,16 @@ const NeonFlagStyleBase: JSSStyle = {
     },
     content: {
         flex: 1,
+
+        overflow: 'hidden',
+        fontSize: '1.2rem',
+        fontWeight: 'bold',
     },
     info: {
-        paddingTop: '0.2rem',
         overflow: 'auto',
+        fontSize: '1rem',
+
+        transition: '0.2s all',
     },
 
     error: {

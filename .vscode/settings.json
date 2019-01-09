@@ -8,7 +8,8 @@
         "scrollbar",
         "setx",
         "shrinked",
-        "triforce"
+        "triforce",
+        "tshook"
     ],
     "tslint.configFile": "typescript/tslint.json",
     "javascript.preferences.importModuleSpecifier": "relative",
