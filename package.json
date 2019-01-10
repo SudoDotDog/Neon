@@ -4,7 +4,7 @@
     "@storybook/addon-actions": "^4.1.4",
     "@storybook/addon-info": "^4.1.4",
     "@storybook/addon-knobs": "^4.1.4",
-    "@storybook/react": "^4.1.4",
+    "@storybook/react": "^4.1.6",
     "@sudoo/triforce": "^1.1.0",
     "@types/enzyme": "^3.1.15",
     "@types/enzyme-adapter-react-16": "^1.0.3",
