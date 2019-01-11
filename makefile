@@ -6,34 +6,26 @@ storybook_config_path := .storybook
 storybook_port := 8081
 
 # NPX functions
-ifeq ($(OS), Windows_NT)
-	tsc := .\node_modules\.bin\tsc
-	ts_node := .\node_modules\.bin\ts-node
+tsc := node_modules/.bin/tsc
+ts_node := node_modules/.bin/ts-node
 
-	build_storybook := .\node_modules\.bin\build-storybook
-	start_storybook := .\node_modules\.bin\start-storybook
-else
-	tsc := node_modules/.bin/tsc
-	ts_node := node_modules/.bin/ts-node
-
-	build_storybook := node_modules/.bin/build-storybook
-	start_storybook := node_modules/.bin/start-storybook
-endif
+build_storybook := node_modules/.bin/build-storybook
+start_storybook := node_modules/.bin/start-storybook
 mocha := node_modules/.bin/mocha
 
 main: run
 
 run:
 	@echo "[INFO] Starting storybook"
-	@$(start_storybook) -p $(storybook_port) -c $(storybook_config_path)
+	@NODE_ENV=development $(start_storybook) -p $(storybook_port) -c $(storybook_config_path)
 
 build:
 	@echo "[INFO] Building for release"
-	@$(tsc) --p $(tsconfig_build_path)
+	@NODE_ENV=production $(tsc) --p $(tsconfig_build_path)
 
 storybook:
 	@echo "[INFO] Building storybook"
-	@$(build_storybook)
+	@NODE_ENV=production $(build_storybook)
 
 publish: install tests clean build
 	@echo "[INFO] Publishing package"
@@ -68,4 +60,4 @@ else
 	@rm -rf storybook-static
 endif
 	@echo "[INFO] Cleaning release files"
-	@$(ts_node) script/clean-app.ts
+	@NODE_ENV=development $(ts_node) script/clean-app.ts
