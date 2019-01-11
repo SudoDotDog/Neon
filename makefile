@@ -13,6 +13,9 @@ build_storybook := node_modules/.bin/build-storybook
 start_storybook := node_modules/.bin/start-storybook
 mocha := node_modules/.bin/mocha
 
+
+.IGNORE: clean-linux
+
 main: run
 
 run:
@@ -48,16 +51,14 @@ install-prod:
 	@echo "[INFO] Installing Dependencies"
 	@yarn install --production=true
 
-clean:
-ifeq ($(OS), Windows_NT)
-	@echo "[INFO] Skipping"
-else
+clean: clean-linux
+	@echo "[INFO] Cleaning release files"
+	@NODE_ENV=development $(ts_node) script/clean-app.ts
+
+clean-linux:
 	@echo "[INFO] Cleaning dist files"
 	@rm -rf dist
 	@rm -rf build
 	@rm -rf .nyc_output
 	@rm -rf coverage
 	@rm -rf storybook-static
-endif
-	@echo "[INFO] Cleaning release files"
-	@NODE_ENV=development $(ts_node) script/clean-app.ts
