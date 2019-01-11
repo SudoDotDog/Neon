@@ -30,10 +30,7 @@ componentStories.add(
 
             Link
             <NeonSub
-                tag="a"
-                tagProps={{
-                    href: target,
-                }}
+                href={target}
                 margin={MARGIN.SMALL}
             >
                 {content}

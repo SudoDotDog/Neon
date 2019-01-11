@@ -32,5 +32,21 @@ const NeonTypographyStyleBase: JSSStyle = {
     },
 };
 
+const NeonTypographySubStyleBase: JSSStyle = {
+
+    link: {
+
+        textDecoration: 'none',
+
+        '&:hover': {
+            textDecoration: 'underline',
+            textDecorationColor: COLOR.GRAY,
+        },
+    },
+};
+
 export const NeonTypographyStyleSheet: StyleSheet = jss.createStyleSheet(NeonTypographyStyleBase).attach();
 export const NeonTypographyStyle: Classes = NeonTypographyStyleSheet.classes;
+
+export const NeonTypographySubStyleSheet: StyleSheet = jss.createStyleSheet(NeonTypographySubStyleBase).attach();
+export const NeonTypographySubStyle: Classes = NeonTypographySubStyleSheet.classes;

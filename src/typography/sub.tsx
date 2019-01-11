@@ -7,7 +7,7 @@
 import * as React from "react";
 import { NeonBox } from "../box/box";
 import { MARGIN } from "../declare/index";
-import { NeonTypographyStyle } from "./style";
+import { NeonTypographyStyle, NeonTypographySubStyle } from "./style";
 
 export type NeonSubProps = {
 
@@ -15,17 +15,22 @@ export type NeonSubProps = {
     readonly margin?: MARGIN;
     readonly children?: any;
 
-    readonly tag?: string;
-    readonly tagProps?: any;
+    readonly href?: string;
 };
 
-const createSubTag = (tag: string, tagProps: any, children: any):
-    React.DOMElement<any, any> =>
-    React.createElement(
-        tag,
-        tagProps,
-        children,
-    );
+const renderSubTag = (children: any, href?: string) => {
+
+    if (href) {
+        const classes: string[] = [
+            NeonTypographySubStyle.link,
+            NeonTypographyStyle.dye,
+        ];
+
+        return (<a href={href} className={classes.join(' ')}>{children}</a>);
+    }
+
+    return <span>{children}</span>;
+};
 
 export const NeonSub: React.SFC<NeonSubProps> =
     (props: NeonSubProps) => {
@@ -40,10 +45,6 @@ export const NeonSub: React.SFC<NeonSubProps> =
             margin={props.margin}
             className={classes.join(' ')}
         >
-            {createSubTag(
-                props.tag || 'span',
-                props.tagProps || {},
-                props.children,
-            )}
+            {renderSubTag(props.children, props.href)}
         </NeonBox>);
     };
