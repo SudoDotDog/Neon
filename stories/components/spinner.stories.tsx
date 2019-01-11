@@ -7,8 +7,8 @@
 import { boolean } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { NeonPaper } from "../../src/paper/paper";
-import { NeonSpinner } from "../../src/spinner/index";
+import { NeonPaper } from "../../src/paper";
+import { NeonSpinner } from "../../src/spinner";
 import { wInfo } from "../util";
 
 const componentStories = storiesOf('Components', module);

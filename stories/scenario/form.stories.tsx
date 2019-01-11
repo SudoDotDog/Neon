@@ -8,7 +8,7 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
-import { MARGIN } from "../../src/declare/index";
+import { MARGIN } from "../../src/declare";
 import { FLAG_TYPE, NeonFlag } from "../../src/flag";
 import { NeonInput } from "../../src/input";
 import { NeonPaper } from "../../src/paper";

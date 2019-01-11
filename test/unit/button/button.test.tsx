@@ -9,7 +9,7 @@ import { expect } from 'chai';
 import * as Chance from 'chance';
 import { shallow, ShallowWrapper } from 'enzyme';
 import * as React from "react";
-import { NeonBox } from '../../../src/box/box';
+import { NeonBox } from '../../../src/box';
 import { NeonButton, NeonButtonProps } from "../../../src/button";
 
 describe('Given a <Box /> Component', (): void => {

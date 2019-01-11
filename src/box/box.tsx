@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { MARGIN } from "../declare";
+import { NeonTheme, NeonThemeConsumer } from "../theme";
 import { NeonBoxStyle } from "./style";
 
 export type NeonBoxProps = {
@@ -18,25 +19,27 @@ export type NeonBoxProps = {
 
 export const NeonBox: React.SFC<NeonBoxProps> = (props: NeonBoxProps) => {
 
-    const margin: MARGIN = props.margin || MARGIN.NONE;
+    return React.createElement(NeonThemeConsumer, {} as any, (theme: NeonTheme) => {
 
-    const marginClass: string = (() => {
-        switch (margin) {
-            case MARGIN.SMALL: return NeonBoxStyle.small;
-            case MARGIN.MEDIUM: return NeonBoxStyle.medium;
-            case MARGIN.LARGE: return NeonBoxStyle.large;
-            case MARGIN.NONE:
-            default: return '';
-        }
-    })();
+        const margin: MARGIN = props.margin || theme.margin;
 
-    const className: string = props.className
-        ? `${props.className} ${marginClass}`
-        : marginClass;
+        const marginClass: string = (() => {
+            switch (margin) {
+                case MARGIN.SMALL: return NeonBoxStyle.small;
+                case MARGIN.MEDIUM: return NeonBoxStyle.medium;
+                case MARGIN.LARGE: return NeonBoxStyle.large;
+                case MARGIN.NONE:
+                default: return '';
+            }
+        })();
 
-    return (<div
-        className={className}
-        style={props.style}>
-        {props.children}
-    </div>);
+        const className: string = props.className
+            ? `${props.className} ${marginClass}`
+            : marginClass;
+
+        return React.createElement('div', {
+            className,
+            style: props.style,
+        }, props.children);
+    });
 };

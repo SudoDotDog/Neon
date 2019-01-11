@@ -5,8 +5,8 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../box/box";
-import { ALIGN, MARGIN } from "../declare/index";
+import { NeonBox } from "../box";
+import { ALIGN, MARGIN } from "../declare";
 import { getAlignClass, NeonTypographyStyle } from "./style";
 
 export type NeonTitleProps = {

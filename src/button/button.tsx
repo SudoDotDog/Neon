@@ -5,7 +5,7 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../box/box";
+import { NeonBox } from "../box";
 import { MARGIN, SIZE, WIDTH } from "../declare";
 import { NeonButtonStyle } from "./style";
 
@@ -31,9 +31,9 @@ export class NeonButton extends React.Component<NeonButtonProps, {}> {
 
         return (
             <NeonBox
-                style={this.props.style}
                 margin={this.props.margin}>
                 <button
+                    style={this.props.style}
                     className={this._getClass()}
                     onClick={this.props.onClick}>
                     {this.props.children}
