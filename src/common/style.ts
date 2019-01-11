@@ -5,6 +5,7 @@
  */
 
 import { Style } from "jss/css";
+import { CSSProperties } from "react";
 import { COLOR } from "./declare";
 
 export type JSSStyle = Record<string, Style | {
@@ -23,3 +24,14 @@ export const getBorderStyle = () => ({
     ...getBorder(COLOR.NAVY),
     transition: '0.2s all',
 });
+
+export const combineStyle = (style: CSSProperties, propsStyle?: CSSProperties): CSSProperties => {
+
+    if (propsStyle) {
+        return {
+            ...style,
+            ...propsStyle,
+        };
+    }
+    return style;
+};

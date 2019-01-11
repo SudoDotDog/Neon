@@ -5,13 +5,14 @@
  */
 
 import jss, { Classes, StyleSheet } from "jss";
+import { CSSProperties } from "react";
 import { COLOR } from "../common/declare";
 import { getBorderStyle, JSSStyle } from "../common/style";
+import { NeonTheme } from "../theme";
 
 const NeonButtonStyleBase: JSSStyle = {
 
     button: {
-        backgroundColor: COLOR.NAVY,
         padding: 0,
 
         cursor: 'pointer',
@@ -50,6 +51,12 @@ const NeonButtonStyleBase: JSSStyle = {
         width: '100%',
     },
 };
+
+export const getNeonButtonStyle =
+    (theme: NeonTheme): CSSProperties => ({
+
+        backgroundColor: theme.main.color,
+    });
 
 export const NeonButtonStyleSheet: StyleSheet = jss.createStyleSheet(NeonButtonStyleBase).attach();
 export const NeonButtonStyle: Classes = NeonButtonStyleSheet.classes;
