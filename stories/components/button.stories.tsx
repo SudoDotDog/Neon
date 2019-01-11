@@ -23,10 +23,31 @@ componentStories.add(
         const name: string = text('Name', 'Name');
 
         return (<div>
+            Full width
+            <NeonButton
+                {...events}
+                width={SIZE.FULL}>
+                {name}
+            </NeonButton>
+
+            Medium size full width
+            <NeonButton
+                {...events}
+                size={SIZE.MEDIUM}
+                width={SIZE.FULL}>
+                {name}
+            </NeonButton>
+
             Full size
             <NeonButton
                 {...events}
                 size={SIZE.FULL}>
+                {name}
+            </NeonButton>
+            Medium size
+            <NeonButton
+                {...events}
+                size={SIZE.MEDIUM}>
                 {name}
             </NeonButton>
             Normal size

@@ -7,7 +7,21 @@
 export enum SIZE {
 
     FULL = "FULL",
+    MEDIUM = "MEDIUM",
     NORMAL = "NORMAL",
+}
+
+export enum WIDTH {
+
+    NORMAL = "NORMAL",
+    FULL = "FULL",
+}
+
+export enum ALIGN {
+
+    LEFT = "LEFT",
+    CENTER = "CENTER",
+    RIGHT = "RIGHT",
 }
 
 export enum MARGIN {

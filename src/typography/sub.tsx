@@ -6,11 +6,12 @@
 
 import * as React from "react";
 import { NeonBox } from "../box/box";
-import { MARGIN } from "../declare/index";
-import { NeonTypographyStyle, NeonTypographySubStyle } from "./style";
+import { ALIGN, MARGIN } from "../declare/index";
+import { getAlignClass, NeonTypographyStyle, NeonTypographySubStyle } from "./style";
 
 export type NeonSubProps = {
 
+    readonly align?: ALIGN,
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
     readonly children?: any;
@@ -36,6 +37,7 @@ export const NeonSub: React.SFC<NeonSubProps> =
     (props: NeonSubProps) => {
 
         const classes: string[] = [
+            getAlignClass(props.align || ALIGN.LEFT),
             NeonTypographyStyle.small,
             NeonTypographyStyle.dye,
         ];

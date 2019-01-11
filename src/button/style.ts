@@ -11,10 +11,7 @@ import { getBorderStyle, JSSStyle } from "../common/style";
 const NeonButtonStyleBase: JSSStyle = {
 
     button: {
-
-        backgroundColor: COLOR.WHITE,
-        width: '5rem',
-        height: '2rem',
+        backgroundColor: COLOR.NAVY,
         padding: 0,
 
         cursor: 'pointer',
@@ -22,20 +19,34 @@ const NeonButtonStyleBase: JSSStyle = {
 
         fontSize: '1rem',
         fontWeight: 'bold',
-
-        '&:active': {
-            borderColor: COLOR.BLUE,
-        },
+        color: COLOR.WHITE,
 
         '&:focus': {
-            color: COLOR.DARKGRAY,
+            color: COLOR.GRAY,
+        },
+
+        '&:active': {
+            color: COLOR.WHITE,
+            borderColor: COLOR.BLUE,
         },
 
         ...getBorderStyle(),
     },
 
-    full: {
+    sizeNormal: {
+        width: '5rem',
+        height: '2rem',
+    },
+    sizeMedium: {
+        width: '7rem',
+        height: '3rem',
+    },
+    sizeFull: {
+        width: '9rem',
+        height: '4rem',
+    },
 
+    full: {
         width: '100%',
     },
 };

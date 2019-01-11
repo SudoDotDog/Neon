@@ -6,13 +6,14 @@
 
 import * as React from "react";
 import { NeonBox } from "../box/box";
-import { MARGIN, SIZE } from "../declare";
+import { MARGIN, SIZE, WIDTH } from "../declare";
 import { NeonButtonStyle } from "./style";
 
 export type NeonButtonProps = {
 
     readonly onClick: () => void;
 
+    readonly width?: WIDTH;
     readonly size?: SIZE;
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
@@ -23,7 +24,7 @@ export class NeonButton extends React.Component<NeonButtonProps, {}> {
 
     public static readonly defaultProps: Partial<NeonButtonProps> = {
 
-        size: SIZE.NORMAL,
+        width: WIDTH.NORMAL,
     };
 
     public render(): JSX.Element {
@@ -40,18 +41,31 @@ export class NeonButton extends React.Component<NeonButtonProps, {}> {
             </NeonBox>);
     }
 
-    private _getClass(): string {
+    private _getSizeClass(): string {
 
         switch (this.props.size) {
 
-            case SIZE.FULL:
+            case SIZE.FULL: return NeonButtonStyle.sizeFull;
+            case SIZE.MEDIUM: return NeonButtonStyle.sizeMedium;
+            case SIZE.NORMAL:
+            default: return NeonButtonStyle.sizeNormal;
+        }
+    }
+
+    private _getClass(): string {
+
+        switch (this.props.width) {
+
+            case WIDTH.FULL:
                 return [
+                    this._getSizeClass(),
                     NeonButtonStyle.button,
                     NeonButtonStyle.full,
                 ].join(' ');
-            case SIZE.NORMAL:
+            case WIDTH.NORMAL:
             default:
                 return [
+                    this._getSizeClass(),
                     NeonButtonStyle.button,
                 ].join(' ');
         }

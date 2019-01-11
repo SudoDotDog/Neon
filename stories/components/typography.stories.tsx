@@ -7,7 +7,7 @@
 import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { MARGIN } from "../../src/declare";
+import { ALIGN, MARGIN } from "../../src/declare";
 import { NeonSub, NeonTitle } from "../../src/typography";
 import { wInfo } from "../util";
 
@@ -24,12 +24,50 @@ componentStories.add(
             <NeonTitle margin={MARGIN.SMALL}>
                 {content}
             </NeonTitle>
+
+            Center
+            <NeonTitle
+                align={ALIGN.CENTER}
+                margin={MARGIN.SMALL}>
+                {content}
+            </NeonTitle>
+
+            Right
+            <NeonTitle
+                align={ALIGN.RIGHT}
+                margin={MARGIN.SMALL}>
+                {content}
+            </NeonTitle>
+
+            Empty
+            <NeonTitle
+                align={ALIGN.RIGHT}
+                margin={MARGIN.SMALL}>
+            </NeonTitle>
+
+            Space
+            <NeonTitle
+                margin={MARGIN.SMALL}>
+                &nbsp;
+            </NeonTitle>
+
+            <hr />
+
             <NeonSub margin={MARGIN.SMALL}>
                 {content}
             </NeonSub>
 
             Link
             <NeonSub
+                href={target}
+                margin={MARGIN.SMALL}
+            >
+                {content}
+            </NeonSub>
+
+            Right
+            <NeonSub
+                align={ALIGN.RIGHT}
                 href={target}
                 margin={MARGIN.SMALL}
             >
