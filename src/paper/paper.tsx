@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
+import { withConsumer } from "../#common/consumer";
 import { MARGIN } from "../declare";
 import { NeonPaperStyle } from "./style";
 
@@ -16,7 +17,7 @@ export type NeonPaperProps = {
     readonly children?: any;
 };
 
-export const NeonPaper: React.SFC<NeonPaperProps> =
+export const NeonPaperBase: React.SFC<NeonPaperProps> =
     (props: NeonPaperProps) => {
 
         return (<NeonBox
@@ -27,3 +28,5 @@ export const NeonPaper: React.SFC<NeonPaperProps> =
             {props.children}
         </NeonBox>);
     };
+
+export const NeonPaper: React.ComponentType<NeonPaperProps> = withConsumer<NeonPaperProps>(NeonPaperBase);

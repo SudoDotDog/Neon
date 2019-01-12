@@ -5,6 +5,7 @@
  */
 
 import * as React from "react";
+import { withConsumer } from "../#common/consumer";
 import { NeonSpinnerStyle } from "./style";
 
 export type NeonSpinnerProps = {
@@ -17,7 +18,7 @@ export type NeonSpinnerState = {
     readonly spinning: boolean;
 };
 
-export class NeonSpinner extends React.Component<NeonSpinnerProps, NeonSpinnerState> {
+export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinnerState> {
 
     public readonly state: NeonSpinnerState = {
 
@@ -90,3 +91,5 @@ export class NeonSpinner extends React.Component<NeonSpinnerProps, NeonSpinnerSt
         return classes.join(' ');
     }
 }
+
+export const NeonSpinner: React.ComponentType<NeonSpinnerProps> = withConsumer<NeonSpinnerProps>(NeonSpinnerBase);
