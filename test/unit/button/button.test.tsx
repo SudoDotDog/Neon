@@ -9,8 +9,11 @@ import { expect } from 'chai';
 import * as Chance from 'chance';
 import { shallow, ShallowWrapper } from 'enzyme';
 import * as React from "react";
-import { NeonButton, NeonButtonProps } from "../../../src/button";
-import { NeonThemeConsumer } from '../../../src/theme';
+import { NeonBox } from '../../../src/#common/components/box';
+import { NeonButtonProps } from "../../../src/button";
+import { NeonButtonBase } from '../../../src/button/button';
+import { getDefaultTheme } from '../../../src/theme/declare';
+import { Sandbox } from '../../mock/sandbox/sandbox';
 
 describe('Given a <Box /> Component', (): void => {
 
@@ -18,15 +21,15 @@ describe('Given a <Box /> Component', (): void => {
 
     const getDefaultProps = (): NeonButtonProps => ({
 
-        onClick: () => undefined,
+        theme: getDefaultTheme(),
     });
 
     const render = (props: NeonButtonProps = getDefaultProps(), children: any = chance.string()) => {
 
         return shallow(
-            (<NeonButton {...props}>
+            (<NeonButtonBase {...props}>
                 {children}
-            </NeonButton>),
+            </NeonButtonBase>),
         );
     };
 
@@ -34,6 +37,21 @@ describe('Given a <Box /> Component', (): void => {
 
         const component: ShallowWrapper = render();
 
-        expect(component.type()).to.be.equal(NeonThemeConsumer);
+        expect(component.type()).to.be.equal(NeonBox);
+    });
+
+    it('should be able to click', (): void => {
+
+        const onClick: Sandbox = new Sandbox();
+        const props: NeonButtonProps = {
+            ...getDefaultProps(),
+            onClick: onClick.func(),
+        };
+
+        const component: ShallowWrapper = render(props);
+
+        component.find('button').simulate('click');
+
+        expect(onClick.calls()).to.be.lengthOf(1);
     });
 });

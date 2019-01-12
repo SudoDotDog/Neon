@@ -19,9 +19,9 @@ export const getBorder = (color: string, width: string = '0.2rem') => ({
     borderStyle: 'solid',
 });
 
-export const getBorderStyle = () => ({
+export const getBorderStyle = (width?: string) => ({
 
-    ...getBorder(COLOR.NAVY),
+    ...getBorder(COLOR.NAVY, width),
     transition: '0.2s all',
 });
 

@@ -5,15 +5,18 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../#common/box/box";
+import { NeonBox } from "../#common/components/box";
+import { withConsumer } from "../#common/consumer";
 import { combineStyle } from "../#common/style";
 import { MARGIN, SIZE, WIDTH } from "../declare";
-import { NeonTheme, NeonThemeConsumer } from "../theme";
+import { NeonTheme } from "../theme";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style";
 
 export type NeonButtonProps = {
 
-    readonly onClick: () => void;
+    readonly theme: NeonTheme;
+
+    readonly onClick?: () => void;
 
     readonly width?: WIDTH;
     readonly size?: SIZE;
@@ -22,7 +25,7 @@ export type NeonButtonProps = {
     readonly children?: any;
 };
 
-export class NeonButton extends React.Component<NeonButtonProps, {}> {
+export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
     public static readonly defaultProps: Partial<NeonButtonProps> = {
 
@@ -31,19 +34,16 @@ export class NeonButton extends React.Component<NeonButtonProps, {}> {
 
     public render(): JSX.Element {
 
-        return React.createElement(NeonThemeConsumer, {} as any, (theme: NeonTheme) => {
-
-            return (
-                <NeonBox
-                    margin={this.props.margin}>
-                    <button
-                        style={combineStyle(getNeonButtonStyle(theme), this.props.style)}
-                        className={this._getClass()}
-                        onClick={this.props.onClick}>
-                        {this.props.children}
-                    </button>
-                </NeonBox>);
-        });
+        return (
+            <NeonBox
+                margin={this.props.margin}>
+                <button
+                    style={combineStyle(getNeonButtonStyle(this.props.theme), this.props.style)}
+                    className={this._getClass()}
+                    onClick={this.props.onClick}>
+                    {this.props.children}
+                </button>
+            </NeonBox>);
     }
 
     private _getSizeClass(): string {
@@ -76,3 +76,5 @@ export class NeonButton extends React.Component<NeonButtonProps, {}> {
         }
     }
 }
+
+export const NeonButton: React.ComponentType<Pick<NeonButtonProps, Exclude<keyof NeonButtonProps, 'theme'>>> = withConsumer(NeonButtonBase);

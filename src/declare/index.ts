@@ -9,6 +9,7 @@ export enum SIZE {
     FULL = "FULL",
     MEDIUM = "MEDIUM",
     NORMAL = "NORMAL",
+    RELATIVE = "RELATIVE",
 }
 
 export enum WIDTH {

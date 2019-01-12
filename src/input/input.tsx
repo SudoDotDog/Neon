@@ -5,15 +5,17 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../#common/box/box";
+import { NeonBox } from "../#common/components/box";
+import { withConsumer } from "../#common/consumer";
 import { MARGIN } from "../declare";
 import { INPUT_TYPE } from "./declare";
 import { NeonInputStyle } from "./style";
 
 export type NeonInputProps = {
-    readonly label: string;
-    readonly value: string;
-    readonly onChange: (value: string) => void;
+
+    readonly label?: string;
+    readonly value?: string;
+    readonly onChange?: (value: string) => void;
 
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
@@ -25,7 +27,7 @@ export type NeonInputStates = {
     readonly shrink: boolean;
 };
 
-export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> {
+export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStates> {
 
     public static readonly defaultProps: Partial<NeonInputProps> = {
 
@@ -51,31 +53,25 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
 
     public render() {
 
-        return (
-            <NeonBox
-                style={this.props.style}
-                className={NeonInputStyle.wrap}
-                margin={this.props.margin}>
-                <div
-                    className={this._getShrinkClass()}
-                    onClick={() => {
-                        if (this._ref) {
-                            this._ref.focus();
-                        }
-                    }}>
-                    {this.props.label}
-                </div>
-                <input
-                    ref={(ref) => this._ref = ref}
-                    className={NeonInputStyle.input}
-                    type={this.props.type}
-                    value={this.props.value}
-                    onFocus={this._handleFocus}
-                    onBlur={this._handleBlur}
-                    onChange={(event) => this.props.onChange(event.target.value)}
-                />
-            </NeonBox>
-        );
+        return (<NeonBox
+            style={this.props.style}
+            className={NeonInputStyle.wrap}
+            margin={this.props.margin}>
+            <div
+                className={this._getShrinkClass()}
+                onClick={() => this._ref && this._ref.focus()}>
+                {this.props.label}
+            </div>
+            <input
+                ref={(ref) => this._ref = ref}
+                className={NeonInputStyle.input}
+                type={this.props.type}
+                value={this.props.value}
+                onFocus={this._handleFocus}
+                onBlur={this._handleBlur}
+                onChange={(event) => this.props.onChange && this.props.onChange(event.target.value)}
+            />
+        </NeonBox>);
     }
 
     private _handleBlur(): void {
@@ -102,3 +98,5 @@ export class NeonInput extends React.Component<NeonInputProps, NeonInputStates> 
         return NeonInputStyle.label;
     }
 }
+
+export const NeonInput: React.ComponentType<NeonInputProps> = withConsumer(NeonInputBase);

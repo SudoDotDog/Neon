@@ -1,13 +1,33 @@
 /**
  * @author WMXPY
- * @namespace Neon_Box
+ * @namespace Neon_Common_Components
  * @description Box
  */
 
+import jss, { Classes, StyleSheet } from "jss";
 import * as React from "react";
-import { MARGIN } from "../../declare";
-import { NeonTheme, NeonThemeConsumer } from "../../theme";
-import { NeonBoxStyle } from "./style";
+import { MARGIN } from "../../declare/index";
+import { NeonTheme, NeonThemeConsumer } from "../../theme/index";
+import { JSSStyle } from "../style";
+
+const NeonBoxStyleBase: JSSStyle = {
+
+    small: {
+
+        margin: '0.5rem',
+    },
+    medium: {
+
+        margin: '1rem',
+    },
+    large: {
+
+        margin: '2rem',
+    },
+};
+
+const NeonBoxStyleSheet: StyleSheet = jss.createStyleSheet(NeonBoxStyleBase).attach();
+const NeonBoxStyle: Classes = NeonBoxStyleSheet.classes;
 
 export type NeonBoxProps = {
 
