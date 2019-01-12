@@ -5,7 +5,7 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../box";
+import { NeonBox } from "../.common/box/box";
 import { MARGIN, SIZE } from "../declare";
 import { FLAG_TYPE } from "./declare";
 import { NeonFlagStyle } from "./style";

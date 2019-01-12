@@ -9,8 +9,8 @@ import { expect } from 'chai';
 import * as Chance from 'chance';
 import { shallow, ShallowWrapper } from 'enzyme';
 import * as React from "react";
-import { NeonBox } from '../../../src/box';
 import { NeonButton, NeonButtonProps } from "../../../src/button";
+import { NeonThemeConsumer } from '../../../src/theme';
 
 describe('Given a <Box /> Component', (): void => {
 
@@ -23,15 +23,17 @@ describe('Given a <Box /> Component', (): void => {
 
     const render = (props: NeonButtonProps = getDefaultProps(), children: any = chance.string()) => {
 
-        return shallow(<NeonButton {...props}>
-            {children}
-        </NeonButton>);
+        return shallow(
+            (<NeonButton {...props}>
+                {children}
+            </NeonButton>),
+        );
     };
 
     it('should render a button element', (): void => {
 
         const component: ShallowWrapper = render();
 
-        expect(component.type()).to.be.equal(NeonBox);
+        expect(component.type()).to.be.equal(NeonThemeConsumer);
     });
 });
