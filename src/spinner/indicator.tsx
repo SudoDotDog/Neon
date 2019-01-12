@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { NeonSpinner } from "./spinner";
 import { NeonIndicatorStyle } from "./style";
 
@@ -14,9 +15,9 @@ export type NeonIndicatorProps = {
     readonly loading: boolean;
 
     readonly children?: any;
-};
+} & ThemeProps;
 
-export const NeonIndicator: React.SFC<NeonIndicatorProps> = (props: NeonIndicatorProps) => {
+export const NeonIndicatorBase: React.SFC<NeonIndicatorProps> = (props: NeonIndicatorProps) => {
 
     const classes: string[] = [
         NeonIndicatorStyle.wrap,
@@ -32,3 +33,5 @@ export const NeonIndicator: React.SFC<NeonIndicatorProps> = (props: NeonIndicato
         </div>
     </NeonBox>);
 };
+
+export const NeonIndicator: ThemedComponent<NeonIndicatorProps> = withConsumer<NeonIndicatorProps>(NeonIndicatorBase);

@@ -7,7 +7,7 @@
 import * as React from "react";
 import { NeonTheme, NeonThemeConsumer } from "../theme/index";
 
-export const withConsumer = <T>(Component: any): React.ComponentType<T> =>
+export const withConsumer = <T extends ThemeProps>(Component: any): React.ComponentType<ExcludeTheme<T>> =>
 
     <P extends React.Props<T>>(originProps: P) =>
 
@@ -18,3 +18,10 @@ export const withConsumer = <T>(Component: any): React.ComponentType<T> =>
                 theme: context,
             }, originProps.children),
         );
+
+export type ThemeProps = {
+    theme: NeonTheme;
+};
+
+export type ExcludeTheme<T extends ThemeProps> = Pick<T, Exclude<keyof T, 'theme'>>;
+export type ThemedComponent<T extends ThemeProps> = React.ComponentType<ExcludeTheme<T>>;

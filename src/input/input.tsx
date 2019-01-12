@@ -6,7 +6,7 @@
 
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
-import { withConsumer } from "../#common/consumer";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { MARGIN } from "../declare";
 import { INPUT_TYPE } from "./declare";
 import { NeonInputStyle } from "./style";
@@ -20,7 +20,7 @@ export type NeonInputProps = {
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
     readonly type?: INPUT_TYPE;
-};
+} & ThemeProps;
 
 export type NeonInputStates = {
 
@@ -99,4 +99,4 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
     }
 }
 
-export const NeonInput: React.ComponentType<NeonInputProps> = withConsumer(NeonInputBase);
+export const NeonInput: ThemedComponent<NeonInputProps> = withConsumer<NeonInputProps>(NeonInputBase);

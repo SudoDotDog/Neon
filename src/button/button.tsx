@@ -6,15 +6,12 @@
 
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
-import { withConsumer } from "../#common/consumer";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { combineStyle } from "../#common/style";
 import { MARGIN, SIZE, WIDTH } from "../declare";
-import { NeonTheme } from "../theme";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style";
 
 export type NeonButtonProps = {
-
-    readonly theme: NeonTheme;
 
     readonly onClick?: () => void;
 
@@ -23,7 +20,7 @@ export type NeonButtonProps = {
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
     readonly children?: any;
-};
+} & ThemeProps;
 
 export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
@@ -77,4 +74,4 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
     }
 }
 
-export const NeonButton: React.ComponentType<Pick<NeonButtonProps, Exclude<keyof NeonButtonProps, 'theme'>>> = withConsumer(NeonButtonBase);
+export const NeonButton: ThemedComponent<NeonButtonProps> = withConsumer<NeonButtonProps>(NeonButtonBase);

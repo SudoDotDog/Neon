@@ -7,7 +7,7 @@
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
 import { NeonSeparator } from "../#common/components/separator";
-import { withConsumer } from "../#common/consumer";
+import { ExcludeTheme, ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { MARGIN, SIZE, WIDTH } from "../declare";
 import { NeonCardStyle } from "./style";
 
@@ -20,10 +20,10 @@ export type NeonCardProps = {
     readonly width?: WIDTH;
     readonly size?: SIZE;
     readonly children?: any;
-};
+} & ThemeProps;
 
 export const NeonCardBase: React.SFC<NeonCardProps> =
-    (props: NeonCardProps = {
+    (props: ExcludeTheme<NeonCardProps> = {
         width: WIDTH.NORMAL,
         size: SIZE.NORMAL,
     }) => {
@@ -61,4 +61,4 @@ export const NeonCardBase: React.SFC<NeonCardProps> =
         </NeonBox>);
     };
 
-export const NeonCard: React.ComponentType<NeonCardProps> = withConsumer<NeonCardProps>(NeonCardBase);
+export const NeonCard: ThemedComponent<NeonCardProps> = withConsumer<NeonCardProps>(NeonCardBase);

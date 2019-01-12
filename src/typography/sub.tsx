@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { ALIGN, MARGIN } from "../declare";
 import { getAlignClass, NeonTypographyStyle, NeonTypographySubStyle } from "./style";
 
@@ -17,7 +18,7 @@ export type NeonSubProps = {
     readonly children?: any;
 
     readonly href?: string;
-};
+} & ThemeProps;
 
 const renderSubTag = (children: any, href?: string) => {
 
@@ -33,7 +34,7 @@ const renderSubTag = (children: any, href?: string) => {
     return <span>{children}</span>;
 };
 
-export const NeonSub: React.SFC<NeonSubProps> =
+export const NeonSubBase: React.SFC<NeonSubProps> =
     (props: NeonSubProps) => {
 
         const classes: string[] = [
@@ -50,3 +51,5 @@ export const NeonSub: React.SFC<NeonSubProps> =
             {renderSubTag(props.children, props.href)}
         </NeonBox>);
     };
+
+export const NeonSub: ThemedComponent<NeonSubProps> = withConsumer<NeonSubProps>(NeonSubBase);

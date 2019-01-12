@@ -6,7 +6,7 @@
 
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
-import { withConsumer } from "../#common/consumer";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { MARGIN, SIZE } from "../declare";
 import { FLAG_TYPE } from "./declare";
 import { NeonFlagStyle } from "./style";
@@ -23,7 +23,7 @@ export type NeonFlagProps = {
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
     readonly children?: any;
-};
+} & ThemeProps;
 
 export type NeonFlagState = {
 
@@ -156,4 +156,4 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
     }
 }
 
-export const NeonFlag: React.ComponentType<NeonFlagProps> = withConsumer<NeonFlagProps>(NeonFlagBase);
+export const NeonFlag: ThemedComponent<NeonFlagProps> = withConsumer<NeonFlagProps>(NeonFlagBase);

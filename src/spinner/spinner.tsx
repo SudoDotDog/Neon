@@ -5,13 +5,13 @@
  */
 
 import * as React from "react";
-import { withConsumer } from "../#common/consumer";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { NeonSpinnerStyle } from "./style";
 
 export type NeonSpinnerProps = {
 
     readonly loading: boolean;
-};
+} & ThemeProps;
 
 export type NeonSpinnerState = {
 
@@ -92,4 +92,4 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
     }
 }
 
-export const NeonSpinner: React.ComponentType<NeonSpinnerProps> = withConsumer<NeonSpinnerProps>(NeonSpinnerBase);
+export const NeonSpinner: ThemedComponent<NeonSpinnerProps> = withConsumer<NeonSpinnerProps>(NeonSpinnerBase);

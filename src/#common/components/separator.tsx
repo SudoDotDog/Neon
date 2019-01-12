@@ -6,6 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import * as React from "react";
+import { ThemedComponent, ThemeProps, withConsumer } from "../consumer";
 import { COLOR } from "../declare";
 import { JSSStyle } from "../style";
 
@@ -24,7 +25,11 @@ const NeonSeparatorStyleBase: JSSStyle = {
 const NeonSeparatorStyleSheet: StyleSheet = jss.createStyleSheet(NeonSeparatorStyleBase).attach();
 const NeonSeparatorStyle: Classes = NeonSeparatorStyleSheet.classes;
 
-export const NeonSeparator: React.SFC<{}> = () => {
+export type NeonSeparatorProps = {} & ThemeProps;
+
+export const NeonSeparatorBase: React.SFC<NeonSeparatorProps> = () => {
 
     return <div className={NeonSeparatorStyle.separator} />;
 };
+
+export const NeonSeparator: ThemedComponent<NeonSeparatorProps> = withConsumer<NeonSeparatorProps>(NeonSeparatorBase);

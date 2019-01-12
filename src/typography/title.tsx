@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { ALIGN, MARGIN } from "../declare";
 import { getAlignClass, NeonTypographyStyle } from "./style";
 
@@ -15,9 +16,9 @@ export type NeonTitleProps = {
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
     readonly children?: any;
-};
+} & ThemeProps;
 
-export const NeonTitle: React.SFC<NeonTitleProps> =
+export const NeonTitleBase: React.SFC<NeonTitleProps> =
     (props: NeonTitleProps) => {
 
         const classes: string[] = [
@@ -36,3 +37,5 @@ export const NeonTitle: React.SFC<NeonTitleProps> =
             {props.children}
         </NeonBox>);
     };
+
+export const NeonTitle: ThemedComponent<NeonTitleProps> = withConsumer<NeonTitleProps>(NeonTitleBase);
