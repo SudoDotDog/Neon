@@ -2417,7 +2417,7 @@ boolbase@^1.0.0, boolbase@~1.0.0:
 
 boxen@^2.0.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/.common/box/boxen/-/.common/box/boxen-2.1.0.tgz#8d576156e33fc26a34d6be8635fd16b1d745f0b2"
+  resolved "https://registry.yarnpkg.com/#common/box/boxen/-/#common/box/boxen-2.1.0.tgz#8d576156e33fc26a34d6be8635fd16b1d745f0b2"
   integrity sha512-luq3RQOt2U5sUX+fiu+qnT+wWnHDcATLpEe63jvge6GUZO99AKbVRfp97d2jgLvq1iQa0ORzaAm4lGVG52ZSlw==
   dependencies:
     ansi-align "^3.0.0"
@@ -2901,12 +2901,12 @@ commander@^2.12.1, commander@^2.19.0:
 
 common-tags@^1.8.0:
   version "1.8.0"
-  resolved "https://registry.yarnpkg.com/.common-tags/-/.common-tags-1.8.0.tgz#8e3153e542d4a39e9b10554434afaaf98956a937"
+  resolved "https://registry.yarnpkg.com/#common-tags/-/#common-tags-1.8.0.tgz#8e3153e542d4a39e9b10554434afaaf98956a937"
   integrity sha512-6P6g0uetGpW/sdyUy/iQQCbFF0kWVMSIVSyYz7Zgjcgh8mgw8PQzDNZeyZ5DQ2gM7LBoZPHmnjz8rUthkBG5tw==
 
 commondir@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/.commondir/-/.commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
+  resolved "https://registry.yarnpkg.com/#commondir/-/#commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
   integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
 
 component-emitter@^1.2.1:

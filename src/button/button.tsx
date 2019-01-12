@@ -5,8 +5,8 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../.common/box/box";
-import { combineStyle } from "../.common/style";
+import { NeonBox } from "../#common/box/box";
+import { combineStyle } from "../#common/style";
 import { MARGIN, SIZE, WIDTH } from "../declare";
 import { NeonTheme, NeonThemeConsumer } from "../theme";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style";

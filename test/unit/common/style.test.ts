@@ -7,7 +7,7 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { getBorder } from '../../../src/.common/style';
+import { getBorder } from '../../../src/#common/style';
 
 describe('Given [Common] Help functions', (): void => {
 

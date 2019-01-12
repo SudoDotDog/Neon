@@ -4,7 +4,7 @@
  * @description Index
  */
 
-import { NeonRegister } from "../.common/register";
+import { NeonRegister } from "../#common/register";
 
 NeonRegister.register();
 

@@ -5,7 +5,7 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../.common/box/box";
+import { NeonBox } from "../#common/box/box";
 import { NeonSpinner } from "./spinner";
 import { NeonIndicatorStyle } from "./style";
 

@@ -5,7 +5,7 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../.common/box/box";
+import { NeonBox } from "../#common/box/box";
 import { MARGIN } from "../declare";
 import { INPUT_TYPE } from "./declare";
 import { NeonInputStyle } from "./style";

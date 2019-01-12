@@ -5,8 +5,8 @@
  */
 
 import jss, { Classes, StyleSheet } from "jss";
-import { COLOR } from "../.common/declare";
-import { JSSStyle } from "../.common/style";
+import { COLOR } from "../#common/declare";
+import { JSSStyle } from "../#common/style";
 import { ALIGN } from "../declare";
 
 const NeonTypographyStyleBase: JSSStyle = {

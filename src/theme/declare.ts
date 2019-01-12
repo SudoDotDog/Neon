@@ -4,7 +4,7 @@
  * @description Declare
  */
 
-import { COLOR } from "../.common/declare";
+import { COLOR } from "../#common/declare";
 import { MARGIN } from "../declare";
 
 export type NeonTheme = {
