@@ -12,12 +12,15 @@ import * as React from "react";
 import { NeonBox } from '../../../src/#common/components/box';
 import { NeonCardProps } from "../../../src/card";
 import { NeonCardBase } from '../../../src/card/card';
+import { getDefaultTheme } from '../../../src/theme/declare';
 
 describe('Given a <Card /> Component', (): void => {
 
     const chance: Chance.Chance = new Chance('neon-card-card');
 
     const getDefaultProps = (): NeonCardProps => ({
+
+        theme: getDefaultTheme(),
     });
 
     const render = (props: NeonCardProps = getDefaultProps(), children: any = chance.string()) => {

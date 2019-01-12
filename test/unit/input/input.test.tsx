@@ -12,13 +12,17 @@ import * as React from "react";
 import { NeonBox } from '../../../src/#common/components/box';
 import { NeonInputProps } from "../../../src/input";
 import { NeonInputBase } from '../../../src/input/input';
+import { getDefaultTheme } from '../../../src/theme/declare';
 import { Sandbox } from "../../mock/sandbox/sandbox";
 
 describe('Given a <Input /> Component', (): void => {
 
     const chance: Chance.Chance = new Chance('neon-input-input');
 
-    const getDefaultProps = (): NeonInputProps => ({});
+    const getDefaultProps = (): NeonInputProps => ({
+
+        theme: getDefaultTheme(),
+    });
 
     const render = (props: NeonInputProps = getDefaultProps(), children: any = chance.string()) => {
 
