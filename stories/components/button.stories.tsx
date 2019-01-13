@@ -8,6 +8,7 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
+import { NeonButtonBase } from "../../src/button/button";
 import { SIZE, WIDTH } from "../../src/declare";
 import { createAction, wInfo } from "../util";
 import * as ButtonMD from "./button.md";
@@ -18,7 +19,7 @@ const componentStories = storiesOf('Components', module);
 
 componentStories.add(
     'NeonButton',
-    wInfo(ButtonMD)(() => {
+    wInfo([NeonButtonBase], [NeonButton], ButtonMD)(() => {
 
         const name: string = text('Name', 'Name');
 

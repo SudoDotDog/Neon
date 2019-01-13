@@ -12,13 +12,18 @@ import { SIZE, WIDTH } from "../../src/declare";
 import { NeonInput } from "../../src/input";
 import { NeonPaper } from "../../src/paper";
 import { NeonIndicator } from "../../src/spinner";
+import { NeonIndicatorBase } from "../../src/spinner/indicator";
+import { NeonSpinnerBase } from "../../src/spinner/spinner";
 import { wInfo } from "../util";
 
 const componentStories = storiesOf('Scenario', module);
 
 componentStories.add(
     'Indicator',
-    wInfo()(() => {
+    wInfo(
+        [NeonSpinnerBase, NeonIndicatorBase],
+        [NeonButton, NeonInput, NeonPaper, NeonIndicator],
+    )(() => {
 
         const label: string = text('Label', 'Label');
         const loading: boolean = boolean('Loading', false);

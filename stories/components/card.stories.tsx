@@ -8,6 +8,7 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonCard } from "../../src/card";
+import { NeonCardBase } from "../../src/card/card";
 import { MARGIN, SIZE } from "../../src/declare";
 import { wInfo } from "../util";
 
@@ -15,7 +16,7 @@ const componentStories = storiesOf('Components', module);
 
 componentStories.add(
     'NeonCard',
-    wInfo()(() => {
+    wInfo([NeonCardBase], [NeonCard])(() => {
 
         const name: string = text('Name', 'Name');
 

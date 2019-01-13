@@ -8,10 +8,14 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
+import { NeonButtonBase } from "../../src/button/button";
 import { MARGIN } from "../../src/declare";
 import { FLAG_TYPE, NeonFlag } from "../../src/flag";
+import { NeonFlagBase } from "../../src/flag/flag";
 import { NeonInput } from "../../src/input";
+import { NeonInputBase } from "../../src/input/input";
 import { NeonPaper } from "../../src/paper";
+import { NeonPaperBase } from "../../src/paper/paper";
 import { createAction, wInfo } from "../util";
 
 const events = createAction();
@@ -20,7 +24,10 @@ const componentStories = storiesOf('Scenario', module);
 
 componentStories.add(
     'Form',
-    wInfo()(() => {
+    wInfo(
+        [NeonButtonBase, NeonInputBase, NeonPaperBase, NeonFlagBase],
+        [NeonButton, NeonInput, NeonPaper, NeonFlag],
+    )(() => {
 
         const label: string = text('Label', 'Label');
         const value: string = text('Value', 'Value');

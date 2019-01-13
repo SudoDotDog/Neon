@@ -8,8 +8,10 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
+import { NeonButtonBase } from "../../src/button/button";
 import { MARGIN } from "../../src/declare";
 import { FLAG_TYPE, NeonFlag } from "../../src/flag";
+import { NeonFlagBase } from "../../src/flag/flag";
 import { NeonThemeProvider } from "../../src/theme";
 import { wInfo } from "../util";
 
@@ -26,7 +28,11 @@ const getExampleComponents = (label: string) => (
 
 componentStories.add(
     'Provider',
-    wInfo()(() => {
+    wInfo(
+        [NeonButtonBase, NeonFlagBase],
+        [React.Fragment, NeonButton, NeonFlag, NeonThemeProvider],
+        'The <Provider /> take one props [Theme], which is a NeonTheme',
+    )(() => {
 
         const label: string = text('Label', 'Label');
 

@@ -9,13 +9,15 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { ALIGN, MARGIN } from "../../src/declare";
 import { NeonSub, NeonTitle } from "../../src/typography";
+import { NeonSubBase } from "../../src/typography/sub";
+import { NeonTitleBase } from "../../src/typography/title";
 import { wInfo } from "../util";
 
 const componentStories = storiesOf('Components', module);
 
 componentStories.add(
     'NeonTypography',
-    wInfo()(() => {
+    wInfo([NeonTitleBase, NeonSubBase], [NeonSub, NeonTitle])(() => {
 
         const content: string = text('Text', 'text');
         const target: string = text('Target', 'https://google.com');

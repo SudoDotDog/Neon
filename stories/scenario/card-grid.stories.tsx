@@ -8,6 +8,7 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonCard } from "../../src/card";
+import { NeonCardBase } from "../../src/card/card";
 import { MARGIN, SIZE } from "../../src/declare";
 import { NeonThemeProvider } from "../../src/theme";
 import { wInfo } from "../util";
@@ -17,7 +18,7 @@ const componentStories = storiesOf('Scenario', module);
 
 componentStories.add(
     'Card Grid',
-    wInfo()(() => {
+    wInfo([NeonCardBase], [NeonCard, NeonThemeProvider])(() => {
 
         const label: string = text('Label', 'Label');
 

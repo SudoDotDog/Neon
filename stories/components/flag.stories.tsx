@@ -9,13 +9,14 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { MARGIN } from "../../src/declare";
 import { FLAG_TYPE, NeonFlag } from "../../src/flag";
+import { NeonFlagBase } from "../../src/flag/flag";
 import { wInfo } from "../util";
 
 const componentStories = storiesOf('Components', module);
 
 componentStories.add(
     'NeonFlag',
-    wInfo()(() => {
+    wInfo([NeonFlagBase], [NeonFlag])(() => {
 
         const message: string = text('Message', 'A message');
         const hidden: boolean = boolean('Hidden', false);
