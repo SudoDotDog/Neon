@@ -11,6 +11,9 @@ import { ThemedComponent, ThemeProps, withConsumer } from "../consumer";
 import { JSSStyle } from "../style";
 
 const NeonBoxStyleBase: JSSStyle = {
+    tiny: {
+        margin: '0.2rem',
+    },
     small: {
         margin: '0.5rem',
     },
@@ -39,6 +42,7 @@ export const NeonBoxBase: React.SFC<NeonBoxProps> = (props: NeonBoxProps) => {
 
     const marginClass: string = (() => {
         switch (margin) {
+            case MARGIN.TINY: return NeonBoxStyle.tiny;
             case MARGIN.SMALL: return NeonBoxStyle.small;
             case MARGIN.MEDIUM: return NeonBoxStyle.medium;
             case MARGIN.LARGE: return NeonBoxStyle.large;

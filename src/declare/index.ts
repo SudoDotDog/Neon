@@ -27,6 +27,7 @@ export enum ALIGN {
 
 export enum MARGIN {
 
+    TINY = "TINY",
     SMALL = "SMALL",
     MEDIUM = "MEDIUM",
     LARGE = "LARGE",

@@ -23,7 +23,7 @@ componentStories.add(
 
         return (<div className="card-grid">
             <NeonThemeProvider value={{
-                margin: MARGIN.SMALL,
+                margin: MARGIN.TINY,
             }}>
                 <NeonCard
                     size={SIZE.RELATIVE}
