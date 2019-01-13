@@ -28,7 +28,7 @@ const NeonFlagStyleBase: JSSStyle = {
     normal: {
         maxHeight: '5rem',
     },
-    full: {
+    large: {
         maxHeight: '10rem',
     },
 

@@ -8,7 +8,7 @@ import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
-import { SIZE } from "../../src/declare";
+import { SIZE, WIDTH } from "../../src/declare";
 import { NeonInput } from "../../src/input";
 import { NeonPaper } from "../../src/paper";
 import { NeonIndicator } from "../../src/spinner";
@@ -31,7 +31,7 @@ componentStories.add(
                         <NeonInput label={label} />
                         <NeonInput label={label} />
                         <NeonInput label={label} />
-                        <NeonButton size={SIZE.FULL}>Hello</NeonButton>
+                        <NeonButton width={WIDTH.FULL} size={SIZE.LARGE}>Hello</NeonButton>
                     </div>
                 </NeonIndicator>
                 <hr />

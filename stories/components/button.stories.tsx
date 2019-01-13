@@ -8,7 +8,7 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
-import { SIZE } from "../../src/declare";
+import { SIZE, WIDTH } from "../../src/declare";
 import { createAction, wInfo } from "../util";
 import * as ButtonMD from "./button.md";
 
@@ -26,7 +26,7 @@ componentStories.add(
             Full width
             <NeonButton
                 {...events}
-                width={SIZE.FULL}>
+                width={WIDTH.FULL}>
                 {name}
             </NeonButton>
 
@@ -34,14 +34,14 @@ componentStories.add(
             <NeonButton
                 {...events}
                 size={SIZE.MEDIUM}
-                width={SIZE.FULL}>
+                width={WIDTH.FULL}>
                 {name}
             </NeonButton>
 
-            Full size
+            Large size
             <NeonButton
                 {...events}
-                size={SIZE.FULL}>
+                size={SIZE.LARGE}>
                 {name}
             </NeonButton>
             Medium size

@@ -41,7 +41,9 @@ export const NeonCardBase: React.SFC<NeonCardProps> =
         }
 
         switch (props.size) {
+
             case SIZE.FULL: classes.push(NeonCardStyle.fullSize); break;
+            case SIZE.LARGE: classes.push(NeonCardStyle.largeSize); break;
             case SIZE.MEDIUM: classes.push(NeonCardStyle.mediumSize); break;
             case SIZE.RELATIVE: classes.push(NeonCardStyle.relativeSize); break;
             case SIZE.NORMAL:

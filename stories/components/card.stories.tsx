@@ -42,8 +42,8 @@ componentStories.add(
                 </NeonCard>
 
                 <NeonCard
-                    upper="Full"
-                    size={SIZE.FULL}
+                    upper="Large"
+                    size={SIZE.LARGE}
                     margin={MARGIN.SMALL}>
                     {name}
                 </NeonCard>
@@ -61,7 +61,17 @@ componentStories.add(
             <div style={{ height: '150px', width: '100px' }}>
                 <NeonCard
                     upper="Relative"
-                    size={SIZE.RELATIVE}>
+                    size={SIZE.RELATIVE}
+                    margin={MARGIN.SMALL}>
+                    {name}
+                </NeonCard>
+            </div>
+
+            Full Size (Margin setting will be ignored)
+            <div style={{ height: '150px', width: '100px' }}>
+                <NeonCard
+                    upper="Full"
+                    size={SIZE.FULL}>
                     {name}
                 </NeonCard>
             </div>

@@ -47,7 +47,8 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
         switch (this.props.size) {
 
-            case SIZE.FULL: return NeonButtonStyle.sizeFull;
+            case SIZE.FULL:
+            case SIZE.LARGE: return NeonButtonStyle.sizeLarge;
             case SIZE.MEDIUM: return NeonButtonStyle.sizeMedium;
             case SIZE.NORMAL:
             default: return NeonButtonStyle.sizeNormal;

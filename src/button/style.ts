@@ -42,7 +42,7 @@ const NeonButtonStyleBase: JSSStyle = {
         width: '7rem',
         height: '3rem',
     },
-    sizeFull: {
+    sizeLarge: {
         width: '9rem',
         height: '4rem',
     },

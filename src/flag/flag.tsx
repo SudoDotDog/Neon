@@ -117,7 +117,10 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
 
             const maxSizeClass: string = (() => {
                 switch (this.props.maxSize as SIZE) {
-                    case SIZE.FULL: return NeonFlagStyle.full;
+
+                    case SIZE.FULL:
+                    case SIZE.LARGE: return NeonFlagStyle.large;
+                    case SIZE.MEDIUM:
                     case SIZE.NORMAL:
                     default: return NeonFlagStyle.normal;
                 }

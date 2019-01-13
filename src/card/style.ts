@@ -30,8 +30,13 @@ const NeonCardStyleBase: JSSStyle = {
     },
 
     relativeSize: {
-        width: 'auto',
         height: 'auto',
+        width: 'auto',
+    },
+    fullSize: {
+        boxSizing: 'border-box',
+        height: '100%',
+        width: '100%',
     },
     normalSize: {
         width: '10rem',
@@ -41,7 +46,7 @@ const NeonCardStyleBase: JSSStyle = {
         width: '15rem',
         height: '19rem',
     },
-    fullSize: {
+    largeSize: {
         width: '20rem',
         height: '25rem',
     },
