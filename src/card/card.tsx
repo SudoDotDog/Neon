@@ -7,13 +7,15 @@
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
 import { NeonSeparator } from "../#common/components/separator";
-import { ExcludeTheme, ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { MARGIN, SIZE, WIDTH } from "../declare";
+import { NeonTheme } from "../theme/index";
 import { NeonCardStyle } from "./style";
 
 export type NeonCardProps = {
 
     readonly upper?: any;
+    readonly separator?: boolean;
 
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
@@ -23,10 +25,12 @@ export type NeonCardProps = {
 } & ThemeProps;
 
 export const NeonCardBase: React.SFC<NeonCardProps> =
-    (props: ExcludeTheme<NeonCardProps> = {
+    (props: Partial<NeonCardProps> = {
         width: WIDTH.NORMAL,
         size: SIZE.NORMAL,
     }) => {
+
+        const theme: NeonTheme = props.theme as NeonTheme;
 
         const classes: string[] = [
             NeonCardStyle.wrap,
@@ -44,6 +48,11 @@ export const NeonCardBase: React.SFC<NeonCardProps> =
             default: classes.push(NeonCardStyle.normalSize);
         }
 
+        const hasSeparator: boolean =
+            (props.separator === undefined)
+                ? theme.separator
+                : props.separator;
+
         return (<NeonBox
             style={props.style}
             className={classes.join(' ')}
@@ -54,7 +63,7 @@ export const NeonCardBase: React.SFC<NeonCardProps> =
                 {props.upper && props.upper}
             </div>
 
-            {props.upper && <NeonSeparator />}
+            {(props.upper && hasSeparator) && <NeonSeparator />}
             <div className={NeonCardStyle.lower}>
                 {props.children}
             </div>

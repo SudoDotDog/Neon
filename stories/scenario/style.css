@@ -1,0 +1,10 @@
+.card-grid {
+
+    height: 500px;
+    display: grid;
+    grid-template-areas:
+        'top top right'
+        'medium center right';
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+}

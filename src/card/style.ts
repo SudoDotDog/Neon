@@ -30,8 +30,8 @@ const NeonCardStyleBase: JSSStyle = {
     },
 
     relativeSize: {
-        width: '100%',
-        height: '100%',
+        width: 'auto',
+        height: 'auto',
     },
     normalSize: {
         width: '10rem',

@@ -49,16 +49,22 @@ componentStories.add(
                 </NeonCard>
             </div>
 
+            No Separator
+            <NeonCard
+                upper="No Separator"
+                separator={false}
+                margin={MARGIN.SMALL}>
+                {name}
+            </NeonCard>
+
             Relative Size
-            <div style={{ height: '68px', width: '100px' }}>
+            <div style={{ height: '150px', width: '100px' }}>
                 <NeonCard
                     upper="Relative"
-                    size={SIZE.RELATIVE}
-                    margin={MARGIN.SMALL}>
+                    size={SIZE.RELATIVE}>
                     {name}
                 </NeonCard>
             </div>
-
         </div>
         );
     }),

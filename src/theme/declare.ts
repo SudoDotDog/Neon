@@ -13,6 +13,7 @@ export type NeonTheme = {
         color: string;
     };
     margin: MARGIN;
+    separator: boolean;
 };
 
 export const getDefaultTheme = (): NeonTheme => ({
@@ -20,4 +21,5 @@ export const getDefaultTheme = (): NeonTheme => ({
         color: COLOR.NAVY,
     },
     margin: MARGIN.NONE,
+    separator: true,
 });
