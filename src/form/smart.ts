@@ -5,35 +5,41 @@
  */
 
 import * as React from "react";
-import { NeonInput } from "../input/input";
-import { FORM_TYPE, FromStructure } from "./declare";
 
-export type SmartFormType<T extends Record<string, any>> = {
+export enum FORM_TYPE {
 
-    onSubmit: (content: T) => void;
+    STRING = "STRING",
+    NUMBER = "NUMBER",
+    PASSWORD = "PASSWORD",
+    SWITCH = "SWITCH",
+}
+
+export type SmartFormProps = {
+
+    form: Record<string, FORM_TYPE>;
+    onSubmit: <T>(content: T) => void;
 };
 
-export class SmartForm<T extends Record<string, any>> {
+export type SmartFormStates = {
 
-    public static create<T extends Record<string, any>>(structure: FromStructure<T>) {
+};
 
-        return new SmartForm<T>(structure);
-    }
+export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> {
 
-    private readonly _structure: FromStructure<T>;
+    // public static create<T extends Record<string, any>>(structure: FromStructure<T>) {
 
-    private constructor(structure: FromStructure<T>) {
+    //     return new SmartForm<T>(structure);
+    // }
 
-        this._structure = structure;
-    }
+    // private readonly _structure: FromStructure<T>;
 
-    public getForm(): React.ComponentType<SmartFormType<T>> {
+    // public getForm(): React.ComponentType<SmartFormType<T>> {
 
-        return (props: SmartFormType<T>) => React.createElement('div');
-    }
+    //     return (props: SmartFormType<T>) => React.createElement('div');
+    // }
 
-    private _renderSingle(name: string, type: FORM_TYPE): JSX.Element {
+    // private _renderSingle(name: string, type: FORM_TYPE): JSX.Element {
 
-        return React.createElement(NeonInput);
-    }
+    //     return React.createElement(NeonInput);
+    // }
 }

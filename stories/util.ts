@@ -25,4 +25,5 @@ export const wInfo = (includes: any[] = [], excludes: any[] = [], markdown: stri
 export const createAction = () => Actions.actions({
     onClick: 'clicked',
     onChange: 'changed',
+    onSubmit: 'submitted',
 });

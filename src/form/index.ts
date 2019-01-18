@@ -8,5 +8,5 @@ import { NeonRegister } from "../#common/register";
 
 NeonRegister.register();
 
-export { SmartForm } from "./smart";
+export { SmartForm, FORM_TYPE } from "./smart";
 
