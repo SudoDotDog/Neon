@@ -41,6 +41,7 @@ export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> 
     private _renderSubmit(): React.ReactNode {
 
         return React.createElement(NeonButton, {
+
             width: WIDTH.FULL,
             size: SIZE.MEDIUM,
             onClick: () => this.props.onSubmit(this._getResponse()),
@@ -53,8 +54,9 @@ export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> 
 
             const type: INPUT_TYPE = this.props.form[key];
 
-            const inputProps: ExcludeTheme<NeonInputProps> = {
+            const inputProps: ExcludeTheme<{ key: string } & NeonInputProps> = {
 
+                key,
                 label: key,
                 value: this.state.current[key] || '',
                 onChange: (value: any) => {
@@ -78,12 +80,14 @@ export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> 
             .reduce((previous: Record<string, ''>, current: string) => {
 
                 return {
+
                     ...previous,
                     [current]: '',
                 };
             }, {});
 
         return {
+
             ...empty,
             ...this.state.current,
         };
