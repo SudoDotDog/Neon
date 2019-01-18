@@ -7,7 +7,7 @@
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { MARGIN } from "../../src/declare";
-import { INPUT_TYPE, SmartForm } from "../../src/form";
+import { INPUT_TYPE, NeonSmartForm } from "../../src/form";
 import { NeonThemeProvider } from "../../src/theme";
 import { wInfo } from "../util";
 
@@ -24,6 +24,7 @@ componentStories.add(
 
         const structure: Record<string, INPUT_TYPE> = {
             hello: INPUT_TYPE.TEXT,
+            number: INPUT_TYPE.NUMBER,
             world: INPUT_TYPE.PASSWORD,
         };
 
@@ -32,12 +33,27 @@ componentStories.add(
             <NeonThemeProvider value={{
                 margin: MARGIN.SMALL,
             }}>
-                <SmartForm
+
+
+                <NeonSmartForm
                     submit="Click me"
                     onSubmit={(response: any) => {
                         action('Submit')(response);
                     }}
                     form={structure}
+                />
+
+                WithDefaultValue
+                <NeonSmartForm
+                    submit="Click me"
+                    onSubmit={(response: any) => {
+                        action('Submit')(response);
+                    }}
+                    form={structure}
+                    defaultValue={{
+                        hello: 'test',
+                        world: 'test',
+                    }}
                 />
             </NeonThemeProvider>);
     }),

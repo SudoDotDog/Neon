@@ -11,23 +11,25 @@ import { NeonButton } from "../button/index";
 import { SIZE, WIDTH } from "../declare/index";
 import { INPUT_TYPE, NeonInput, NeonInputProps } from "../input";
 
-export type SmartFormProps = {
+export type NeonSmartFormProps = {
 
     readonly form: Record<string, INPUT_TYPE>;
+    readonly defaultValue?: Record<string, any>;
+
     readonly submit?: string;
     readonly onSubmit: <T>(content: T) => void;
 };
 
-export type SmartFormStates = {
+export type NeonSmartFormStates = {
 
     readonly current: Record<string, any>;
 };
 
-export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> {
+export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmartFormStates> {
 
-    public state: SmartFormStates = {
+    public state: NeonSmartFormStates = {
 
-        current: {},
+        current: this._getDefaultValue(),
     };
 
     public render(): JSX.Element {
@@ -42,9 +44,10 @@ export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> 
 
         return React.createElement(NeonButton, {
 
+            key: '__neon_submit_button',
             width: WIDTH.FULL,
             size: SIZE.MEDIUM,
-            onClick: () => this.props.onSubmit(this._getResponse()),
+            onClick: () => this.props.onSubmit(this.state.current),
         }, this.props.submit || 'Submit');
     }
 
@@ -58,7 +61,7 @@ export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> 
 
                 key,
                 label: key,
-                value: this.state.current[key] || '',
+                value: this.state.current[key],
                 onChange: (value: any) => {
                     this.setState({
                         current: {
@@ -74,22 +77,18 @@ export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> 
         });
     }
 
-    private _getResponse(): Record<string, any> {
+    private _getDefaultValue(): Record<string, any> {
 
-        const empty: Record<string, ''> = _Map.keys(this.props.form)
-            .reduce((previous: Record<string, ''>, current: string) => {
+        const defaultValue: Record<string, any> = this.props.defaultValue || {};
+
+        return _Map.keys(this.props.form)
+            .reduce((previous: Record<string, any>, current: string) => {
 
                 return {
 
                     ...previous,
-                    [current]: '',
+                    [current]: defaultValue[current] || '',
                 };
             }, {});
-
-        return {
-
-            ...empty,
-            ...this.state.current,
-        };
     }
 }
