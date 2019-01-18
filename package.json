@@ -13,7 +13,7 @@
     "@types/storybook__addon-knobs": "^4.0.0",
     "@types/storybook__react": "^4.0.0",
     "awesome-typescript-loader": "^5.2.1",
-    "jss": "^10.0.0-alpha.7",
+    "jss": "^10.0.0-alpha.8",
     "jss-preset-default": "^10.0.0-alpha.7",
     "react-docgen-typescript-webpack-plugin": "^1.1.0"
   },
