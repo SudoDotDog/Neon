@@ -29,7 +29,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     public state: NeonSmartFormStates = {
 
-        current: this._getDefaultValue(),
+        current: {},
     };
 
     public render(): JSX.Element {
@@ -47,7 +47,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             key: '__neon_submit_button',
             width: WIDTH.FULL,
             size: SIZE.MEDIUM,
-            onClick: () => this.props.onSubmit(this.state.current),
+            onClick: () => this.props.onSubmit(this._getResponse()),
         }, this.props.submit || 'Submit');
     }
 
@@ -61,7 +61,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
                 key,
                 label: key,
-                value: this.state.current[key],
+                value: this._getValue(key),
                 onChange: (value: any) => {
                     this.setState({
                         current: {
@@ -77,9 +77,21 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
         });
     }
 
-    private _getDefaultValue(): Record<string, any> {
+    private _getValue(key: string): any {
 
-        const defaultValue: Record<string, any> = this.props.defaultValue || {};
+        if (this.state.current[key]) {
+            return this.state.current[key];
+        }
+
+        if (this.props.defaultValue) {
+
+            return this.props.defaultValue[key] || '';
+        }
+
+        return '';
+    }
+
+    private _getResponse(): Record<string, any> {
 
         return _Map.keys(this.props.form)
             .reduce((previous: Record<string, any>, current: string) => {
@@ -87,7 +99,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
                 return {
 
                     ...previous,
-                    [current]: defaultValue[current] || '',
+                    [current]: this._getValue(current),
                 };
             }, {});
     }

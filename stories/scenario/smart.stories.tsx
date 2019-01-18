@@ -4,6 +4,7 @@
  * @description Smart
  */
 
+import { object } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { MARGIN } from "../../src/declare";
@@ -22,11 +23,11 @@ componentStories.add(
         [NeonThemeProvider],
     )(() => {
 
-        const structure: Record<string, INPUT_TYPE> = {
+        const structure: Record<string, INPUT_TYPE> = object('Structure', {
             hello: INPUT_TYPE.TEXT,
             number: INPUT_TYPE.NUMBER,
             world: INPUT_TYPE.PASSWORD,
-        };
+        });
 
         return (
 
