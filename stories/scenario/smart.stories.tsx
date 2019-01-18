@@ -17,7 +17,10 @@ const componentStories = storiesOf('Scenario', module);
 
 componentStories.add(
     'Smart Form',
-    wInfo()(() => {
+    wInfo(
+        [],
+        [NeonThemeProvider],
+    )(() => {
 
         const structure: Record<string, INPUT_TYPE> = {
             hello: INPUT_TYPE.TEXT,
