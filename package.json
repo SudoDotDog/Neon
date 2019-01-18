@@ -1,10 +1,10 @@
 {
   "private": true,
   "devDependencies": {
-    "@storybook/addon-actions": "^4.1.6",
-    "@storybook/addon-info": "^4.1.6",
-    "@storybook/addon-knobs": "^4.1.6",
-    "@storybook/react": "^4.1.6",
+    "@storybook/addon-actions": "^4.1.7",
+    "@storybook/addon-info": "^4.1.7",
+    "@storybook/addon-knobs": "^4.1.7",
+    "@storybook/react": "^4.1.7",
     "@sudoo/react-force": "^1.1.0",
     "@sudoo/react-force-dev": "^1.1.0",
     "@sudoo/triforce": "^1.1.0",
@@ -14,7 +14,7 @@
     "@types/storybook__react": "^4.0.0",
     "awesome-typescript-loader": "^5.2.1",
     "jss": "^10.0.0-alpha.8",
-    "jss-preset-default": "^10.0.0-alpha.7",
+    "jss-preset-default": "^10.0.0-alpha.8",
     "react-docgen-typescript-webpack-plugin": "^1.1.0"
   },
   "dependencies": {},
