@@ -43,7 +43,7 @@ export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> 
         return React.createElement(NeonButton, {
             width: WIDTH.FULL,
             size: SIZE.MEDIUM,
-            onClick: () => this.props.onSubmit(this.state.current),
+            onClick: () => this.props.onSubmit(this._getResponse()),
         }, this.props.submit || 'Submit');
     }
 
@@ -70,5 +70,22 @@ export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> 
 
             return React.createElement(NeonInput, inputProps);
         });
+    }
+
+    private _getResponse(): Record<string, any> {
+
+        const empty: Record<string, ''> = _Map.keys(this.props.form)
+            .reduce((previous: Record<string, ''>, current: string) => {
+
+                return {
+                    ...previous,
+                    [current]: '',
+                };
+            }, {});
+
+        return {
+            ...empty,
+            ...this.state.current,
+        };
     }
 }
