@@ -4,42 +4,71 @@
  * @description Smart
  */
 
+import { _Map } from "@sudoo/bark";
 import * as React from "react";
-
-export enum FORM_TYPE {
-
-    STRING = "STRING",
-    NUMBER = "NUMBER",
-    PASSWORD = "PASSWORD",
-    SWITCH = "SWITCH",
-}
+import { ExcludeTheme } from "../#common/consumer";
+import { NeonButton } from "../button/index";
+import { SIZE, WIDTH } from "../declare/index";
+import { INPUT_TYPE, NeonInput, NeonInputProps } from "../input";
 
 export type SmartFormProps = {
 
-    form: Record<string, FORM_TYPE>;
-    onSubmit: <T>(content: T) => void;
+    readonly form: Record<string, INPUT_TYPE>;
+    readonly submit?: string;
+    readonly onSubmit: <T>(content: T) => void;
 };
 
 export type SmartFormStates = {
 
+    readonly current: Record<string, any>;
 };
 
 export class SmartForm extends React.Component<SmartFormProps, SmartFormStates> {
 
-    // public static create<T extends Record<string, any>>(structure: FromStructure<T>) {
+    public state: SmartFormStates = {
 
-    //     return new SmartForm<T>(structure);
-    // }
+        current: {},
+    };
 
-    // private readonly _structure: FromStructure<T>;
+    public render(): JSX.Element {
 
-    // public getForm(): React.ComponentType<SmartFormType<T>> {
+        return React.createElement(React.Fragment, {}, [
+            this._renderForm(),
+            this._renderSubmit(),
+        ]);
+    }
 
-    //     return (props: SmartFormType<T>) => React.createElement('div');
-    // }
+    private _renderSubmit(): React.ReactNode {
 
-    // private _renderSingle(name: string, type: FORM_TYPE): JSX.Element {
+        return React.createElement(NeonButton, {
+            width: WIDTH.FULL,
+            size: SIZE.MEDIUM,
+            onClick: () => this.props.onSubmit(this.state.current),
+        }, this.props.submit || 'Submit');
+    }
 
-    //     return React.createElement(NeonInput);
-    // }
+    private _renderForm(): React.ReactNode {
+
+        return _Map.keys(this.props.form).map((key: string) => {
+
+            const type: INPUT_TYPE = this.props.form[key];
+
+            const inputProps: ExcludeTheme<NeonInputProps> = {
+
+                label: key,
+                value: this.state.current[key] || '',
+                onChange: (value: any) => {
+                    this.setState({
+                        current: {
+                            ...this.state.current,
+                            [key]: value,
+                        },
+                    });
+                },
+                type,
+            };
+
+            return React.createElement(NeonInput, inputProps);
+        });
+    }
 }

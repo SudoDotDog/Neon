@@ -20,7 +20,9 @@
     "react": "^16.7.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@sudoo/bark": "^1.2.2"
+  },
   "nyc": {
     "extension": [
       ".ts",

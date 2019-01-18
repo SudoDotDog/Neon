@@ -8,5 +8,6 @@ import { NeonRegister } from "../#common/register";
 
 NeonRegister.register();
 
-export { SmartForm, FORM_TYPE } from "./smart";
+export { INPUT_TYPE } from "../input/declare";
+export { SmartForm, SmartFormProps } from "./smart";
 

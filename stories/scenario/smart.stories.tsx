@@ -6,28 +6,37 @@
 
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { FORM_TYPE, SmartForm } from "../../src/form";
-import { createAction, wInfo } from "../util";
+import { MARGIN } from "../../src/declare";
+import { INPUT_TYPE, SmartForm } from "../../src/form";
+import { NeonThemeProvider } from "../../src/theme";
+import { wInfo } from "../util";
 
-const events = createAction();
+const { action } = require("@storybook/addon-actions");
 
 const componentStories = storiesOf('Scenario', module);
 
 componentStories.add(
     'Smart Form',
-    wInfo(
-        [],
-        [],
-    )(() => {
+    wInfo()(() => {
 
-        // const label: string = text('Label', 'Label');
-        // const value: string = text('Value', 'Value');
-
-        const structure: Record<string, FORM_TYPE> = {
-            hello: FORM_TYPE.STRING,
+        const structure: Record<string, INPUT_TYPE> = {
+            hello: INPUT_TYPE.TEXT,
+            world: INPUT_TYPE.PASSWORD,
         };
 
-        return (<SmartForm form={structure} {...events} />);
+        return (
+
+            <NeonThemeProvider value={{
+                margin: MARGIN.SMALL,
+            }}>
+                <SmartForm
+                    submit="Click me"
+                    onSubmit={(response: any) => {
+                        action('Submit')(response);
+                    }}
+                    form={structure}
+                />
+            </NeonThemeProvider>);
     }),
 );
 

@@ -1309,6 +1309,11 @@
     react-modal "^3.6.1"
     react-treebeard "^3.1.0"
 
+"@sudoo/bark@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@sudoo/bark/-/bark-1.2.2.tgz#c42c63eeb1b5908dcfad25cab442a9407d4f32ac"
+  integrity sha512-Hauvvdbr+AxnFrke0KPwW4lmdGFPLlsL1utaKRUmCTsqKd6HIVrowgLhZNGsWI+D31uTeDyP8rjIUBXHeyzQcA==
+
 "@sudoo/react-force-dev@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@sudoo/react-force-dev/-/react-force-dev-1.1.0.tgz#c2991ac3d899798cf5922bd1f274bd4f4781c189"
