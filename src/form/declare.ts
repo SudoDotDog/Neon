@@ -12,7 +12,7 @@ export enum FORM_TYPE {
     SWITCH = "SWITCH",
 }
 
-export type FromStructure = {
+export type FromStructure<T extends Record<string, any>> = {
 
-    form: Record<string, FORM_TYPE>;
+    form: Record<keyof T, FORM_TYPE>;
 };
