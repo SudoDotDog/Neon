@@ -56,7 +56,7 @@ export const NeonBoxBase: React.SFC<NeonBoxProps> = (props: NeonBoxProps) => {
         : marginClass;
 
     return React.createElement('div', {
-        className,
+        className: className || undefined,
         style: props.style,
     }, props.children);
 };
