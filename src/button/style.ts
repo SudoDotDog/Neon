@@ -7,30 +7,26 @@
 import jss, { Classes, StyleSheet } from "jss";
 import { CSSProperties } from "react";
 import { COLOR } from "../#common/declare";
-import { getBorderStyle, JSSStyle } from "../#common/style";
+import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../#common/style";
 import { NeonTheme } from "../theme";
 
 const NeonButtonStyleBase: JSSStyle = {
 
     button: {
-        padding: 0,
 
+        padding: 0,
         cursor: 'pointer',
-        outline: 0,
 
         fontSize: '1rem',
         fontWeight: 'bold',
         color: COLOR.WHITE,
-
-        '&:focus': {
-            color: COLOR.GRAY,
-        },
 
         '&:active': {
             color: COLOR.WHITE,
             borderColor: COLOR.BLUE,
         },
 
+        ...migrateFocusStyle(),
         ...getBorderStyle(),
     },
 

@@ -6,7 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../#common/declare";
-import { getBorderStyle, JSSStyle } from "../#common/style";
+import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../#common/style";
 
 const NeonFlagStyleBase: JSSStyle = {
 
@@ -43,11 +43,12 @@ const NeonFlagStyleBase: JSSStyle = {
     expend: {
         cursor: 'pointer',
         border: 0,
-        outline: 0,
         backgroundColor: COLOR.TRANSPARENT,
         fontWeight: 'bold',
 
-        transition: '0.2s all',
+        transition: 'transform 0.2s',
+
+        ...migrateFocusStyle(),
     },
     expended: {
         transform: 'rotate(180deg)',

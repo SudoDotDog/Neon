@@ -22,7 +22,7 @@ export const getBorder = (color: string, width: string = '0.2rem') => ({
 export const getBorderStyle = (width?: string) => ({
 
     ...getBorder(COLOR.NAVY, width),
-    transition: '0.2s all',
+    transition: 'border 0.2s, color 0.1s',
 });
 
 export const combineStyle = (style: CSSProperties, propsStyle?: CSSProperties): CSSProperties => {
@@ -35,3 +35,14 @@ export const combineStyle = (style: CSSProperties, propsStyle?: CSSProperties): 
     }
     return style;
 };
+
+export const migrateFocusStyle = () => ({
+
+    '&:focus': {
+
+        outlineColor: `rgba(77, 144, 254, .7)`,
+        outlineOffset: '-0.1rem',
+        outlineStyle: 'auto',
+        outlineWidth: '0.2rem',
+    },
+});
