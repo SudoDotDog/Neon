@@ -56,6 +56,11 @@ componentStories.add(
                 {name}
             </NeonButton>
 
+            Disabled
+            <NeonButton disabled {...events}>
+                {name}
+            </NeonButton>
+
             Relative size
             <div style={{
                 height: '150px',

@@ -14,6 +14,7 @@ export type NeonButtonProps = {
 
     readonly onClick?: () => void;
 
+    readonly disabled?: boolean;
     readonly tabIndex?: number;
     readonly className?: string;
     readonly width?: WIDTH;
@@ -38,6 +39,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
                 className={[this._getBoxSizeClass()].concat(this.props.className || []).join(' ')}
                 margin={this.props.margin}>
                 <button
+                    disabled={this.props.disabled}
                     style={getNeonButtonStyle(this.props.theme)}
                     className={this._getClass()}
                     tabIndex={this.props.tabIndex}
@@ -74,21 +76,31 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
     private _getClass(): string {
 
+        const classes: string[] = [];
+
         switch (this.props.width) {
 
             case WIDTH.FULL:
-                return [
+                classes.push(
                     this._getSizeClass(),
                     NeonButtonStyle.button,
                     NeonButtonStyle.full,
-                ].join(' ');
+                );
+                break;
             case WIDTH.NORMAL:
             default:
-                return [
+                classes.push(
                     this._getSizeClass(),
                     NeonButtonStyle.button,
-                ].join(' ');
+                );
         }
+
+        if (this.props.disabled) {
+
+            classes.push(NeonButtonStyle.disabled);
+        }
+
+        return classes.join(' ');
     }
 }
 

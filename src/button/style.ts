@@ -30,6 +30,13 @@ const NeonButtonStyleBase: JSSStyle = {
         ...getBorderStyle(),
     },
 
+    disabled: {
+
+        cursor: 'not-allowed',
+        color: COLOR.DARKGRAY,
+        borderColor: COLOR.DARKGRAY,
+    },
+
     sizeNormal: {
         width: '5rem',
         height: '2rem',
