@@ -16,6 +16,7 @@ export type NeonInputProps = {
     readonly label?: string;
     readonly value?: string;
     readonly onChange?: (value: string) => void;
+    readonly onEnter?: (value?: string) => void;
 
     readonly className?: string;
     readonly style?: React.CSSProperties;
@@ -48,6 +49,7 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
 
         this._ref = null;
 
+        this._handleKeyPress = this._handleKeyPress.bind(this);
         this._handleBlur = this._handleBlur.bind(this);
         this._handleFocus = this._handleFocus.bind(this);
     }
@@ -71,8 +73,18 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
                 onFocus={this._handleFocus}
                 onBlur={this._handleBlur}
                 onChange={(event) => this.props.onChange && this.props.onChange(event.target.value)}
+                onKeyPress={this._handleKeyPress}
             />
         </NeonBox>);
+    }
+
+    private _handleKeyPress(event: React.KeyboardEvent): void {
+
+        if (event.key === 'Enter') {
+            if (this.props.onEnter) {
+                this.props.onEnter(this.props.value);
+            }
+        }
     }
 
     private _handleBlur(): void {
