@@ -14,6 +14,7 @@ export type NeonButtonProps = {
 
     readonly onClick?: () => void;
 
+    readonly tabIndex?: number;
     readonly className?: string;
     readonly width?: WIDTH;
     readonly size?: SIZE;
@@ -39,6 +40,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
                 <button
                     style={getNeonButtonStyle(this.props.theme)}
                     className={this._getClass()}
+                    tabIndex={this.props.tabIndex}
                     onClick={() => this.props.onClick && this.props.onClick()}>
                     {this.props.children}
                 </button>

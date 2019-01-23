@@ -18,6 +18,7 @@ export type NeonInputProps = {
     readonly onChange?: (value: string) => void;
     readonly onEnter?: () => void;
 
+    readonly tabIndex?: number;
     readonly className?: string;
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
@@ -70,6 +71,7 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
                 className={NeonInputStyle.input}
                 type={this.props.type}
                 value={this.props.value}
+                tabIndex={this.props.tabIndex}
                 onFocus={this._handleFocus}
                 onBlur={this._handleBlur}
                 onChange={(event) => this.props.onChange && this.props.onChange(event.target.value)}
