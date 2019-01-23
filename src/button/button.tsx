@@ -39,7 +39,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
                 <button
                     style={combineStyle(getNeonButtonStyle(this.props.theme), this.props.style)}
                     className={this._getClass()}
-                    onClick={this.props.onClick}>
+                    onClick={() => this.props.onClick && this.props.onClick()}>
                     {this.props.children}
                 </button>
             </NeonBox>);

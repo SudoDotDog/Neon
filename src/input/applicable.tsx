@@ -72,6 +72,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
                 value={this.state.value}
 
                 onChange={this._handleChange}
+                onEnter={this._handleApply}
             />
             <NeonButton
                 className={[this._getButtonSizeClass(), NeonApplicableStyle.button].join(' ')}

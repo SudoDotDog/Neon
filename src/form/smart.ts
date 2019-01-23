@@ -40,6 +40,10 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
         ]);
     }
 
+    private _submit(): void {
+        this.props.onSubmit(this._getResponse());
+    }
+
     private _renderSubmit(): React.ReactNode {
 
         return React.createElement(NeonButton, {
@@ -47,7 +51,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             key: '__neon_submit_button',
             width: WIDTH.FULL,
             size: SIZE.MEDIUM,
-            onClick: () => this.props.onSubmit(this._getResponse()),
+            onClick: () => this._submit(),
         }, this.props.submit || 'Submit');
     }
 
@@ -62,6 +66,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
                 key,
                 label: key,
                 value: this._getValue(key),
+                onEnter: () => this._submit(),
                 onChange: (value: any) => {
                     this.setState({
                         current: {

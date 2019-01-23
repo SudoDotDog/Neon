@@ -12,6 +12,7 @@ import { NeonInputBase } from "../../src/input/input";
 import { createAction, wInfo } from "../util";
 
 const events = createAction();
+const { action } = require("@storybook/addon-actions");
 
 const componentStories = storiesOf('Components', module);
 
@@ -32,6 +33,13 @@ componentStories.add(
             Empty
             <NeonInput
                 {...events}
+                label={label}
+            />
+
+            Enter
+            <NeonInput
+                {...events}
+                onEnter={action('Enter')}
                 label={label}
             />
         </div>);

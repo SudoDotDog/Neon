@@ -16,7 +16,7 @@ export type NeonInputProps = {
     readonly label?: string;
     readonly value?: string;
     readonly onChange?: (value: string) => void;
-    readonly onEnter?: (value?: string) => void;
+    readonly onEnter?: () => void;
 
     readonly className?: string;
     readonly style?: React.CSSProperties;
@@ -82,7 +82,7 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
 
         if (event.key === 'Enter') {
             if (this.props.onEnter) {
-                this.props.onEnter(this.props.value);
+                this.props.onEnter();
             }
         }
     }
