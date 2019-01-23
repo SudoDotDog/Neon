@@ -63,20 +63,22 @@ const NeonApplicableStyleBase: JSSStyle = {
 
         flex: 1,
     },
-    buttonNormal: {
-
-        width: '5rem',
+    button: {
         height: 'auto',
+        transition: '0.4s all ease-in-out',
+        overflow: 'hidden',
+    },
+    buttonNormal: {
+        width: '5rem',
     },
     buttonMedium: {
-
         width: '7rem',
-        height: 'auto',
     },
     buttonLarge: {
-
         width: '9rem',
-        height: 'auto',
+    },
+    buttonDisable: {
+        width: 0,
     },
 };
 

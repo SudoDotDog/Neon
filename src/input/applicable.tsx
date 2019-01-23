@@ -7,6 +7,7 @@
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
 import { ThemeProps } from "../#common/consumer";
+import { COLOR } from "../#common/declare";
 import { NeonButton } from "../button";
 import { MARGIN, SIZE } from "../declare/index";
 import { INPUT_TYPE } from "./declare";
@@ -28,6 +29,7 @@ export type NeonApplicableProps = {
 export type NeonApplicableStates = {
 
     readonly value: any;
+    readonly applicable: boolean;
 };
 
 export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApplicableStates> {
@@ -41,6 +43,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
     public readonly state: NeonApplicableStates = {
 
         value: '',
+        applicable: true,
     };
 
     private _lastValue: any;
@@ -48,7 +51,11 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
     public constructor(props: NeonApplicableProps) {
 
         super(props);
+
         this._lastValue = null;
+
+        this._handleChange = this._handleChange.bind(this);
+        this._handleApply = this._handleApply.bind(this);
     }
 
     public render() {
@@ -63,25 +70,63 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
                 label={this.props.label}
                 type={this.props.type}
                 value={this.state.value}
-                onChange={(value: any) => this.setState({ value })}
+
+                onChange={this._handleChange}
             />
             <NeonButton
-                className={this._getButtonClass()}
+                className={[this._getButtonSizeClass(), NeonApplicableStyle.button].join(' ')}
                 size={SIZE.RELATIVE}
+                style={{
+                    transition: '0.2s all',
+                    color: this.state.applicable ? undefined : COLOR.TRANSPARENT,
+                }}
+
+                onClick={this._handleApply}
             >
                 {this.props.apply}
             </NeonButton>
         </NeonBox>);
     }
 
-    private _getButtonClass(): string {
+    private _handleChange(value: any): void {
 
-        switch (this.props.size) {
+        this.setState({
+            value,
+            applicable: this._lastValue !== value,
+        });
+    }
 
-            case SIZE.MEDIUM: return NeonApplicableStyle.buttonMedium;
-            case SIZE.LARGE: return NeonApplicableStyle.buttonLarge;
-            case SIZE.NORMAL:
-            default: return NeonApplicableStyle.buttonNormal;
+    private _handleApply(): void {
+
+        if (!this.state.applicable) {
+            return;
         }
+
+        const currentValue: any = this.state.value;
+
+        this._lastValue = currentValue;
+        this.setState({
+            applicable: false,
+        });
+
+        if (this.props.onApply) {
+            this.props.onApply(this.state.value);
+        }
+    }
+
+    private _getButtonSizeClass(): string {
+
+        if (this.state.applicable) {
+
+            switch (this.props.size) {
+
+                case SIZE.MEDIUM: return NeonApplicableStyle.buttonMedium;
+                case SIZE.LARGE: return NeonApplicableStyle.buttonLarge;
+                case SIZE.NORMAL:
+                default: return NeonApplicableStyle.buttonNormal;
+            }
+        }
+
+        return NeonApplicableStyle.buttonDisable;
     }
 }

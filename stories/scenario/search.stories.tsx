@@ -11,6 +11,8 @@ import { SIZE } from "../../src/declare";
 import { NeonApplicable } from "../../src/input";
 import { wInfo } from "../util";
 
+const { action } = require("@storybook/addon-actions");
+
 const componentStories = storiesOf('Scenario', module);
 
 componentStories.add(
@@ -19,6 +21,10 @@ componentStories.add(
 
         const label: string = text("Label", "Label");
 
-        return (<NeonApplicable label={label} size={SIZE.MEDIUM} />);
+        return (<NeonApplicable
+            onApply={action('Apply')}
+            label={label}
+            size={SIZE.MEDIUM}
+        />);
     }),
 );
