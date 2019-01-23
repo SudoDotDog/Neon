@@ -68,6 +68,23 @@ componentStories.add(
                     {name}
                 </NeonButton>
             </div>
+
+            Relative size
+            <div style={{
+                display: 'flex',
+                height: '100px',
+                width: '300px',
+                border: '2px solid red',
+            }}>
+                <div style={{
+                    flex: 1,
+                }}>Something</div>
+                <NeonButton
+                    size={SIZE.RELATIVE}
+                    {...events}>
+                    {name}
+                </NeonButton>
+            </div>
         </div>
         );
     }),

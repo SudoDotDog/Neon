@@ -20,6 +20,7 @@ export type NeonApplicableProps = {
     readonly apply?: string;
     readonly onApply?: (value: string) => void;
 
+    readonly className?: string;
     readonly size?: SIZE;
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
@@ -63,7 +64,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
         return (<NeonBox
             style={this.props.style}
             margin={this.props.margin}
-            className={NeonApplicableStyle.wrap}
+            className={[NeonApplicableStyle.wrap].concat(this.props.className || []).join(' ')}
         >
             <NeonInput
                 className={NeonApplicableStyle.input}
