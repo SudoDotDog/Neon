@@ -33,6 +33,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
         return (
             <NeonBox
+                className={this._getBoxSizeClass()}
                 margin={this.props.margin}>
                 <button
                     style={combineStyle(getNeonButtonStyle(this.props.theme), this.props.style)}
@@ -43,6 +44,17 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
             </NeonBox>);
     }
 
+    private _getBoxSizeClass(): string | undefined {
+
+        if (this.props.size === SIZE.RELATIVE
+            || this.props.size === SIZE.FULL) {
+
+            return NeonButtonStyle.sizeFullBox;
+        }
+
+        return undefined;
+    }
+
     private _getSizeClass(): string {
 
         switch (this.props.size) {
@@ -50,6 +62,8 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
             case SIZE.FULL:
             case SIZE.LARGE: return NeonButtonStyle.sizeLarge;
             case SIZE.MEDIUM: return NeonButtonStyle.sizeMedium;
+            case SIZE.FULL:
+            case SIZE.RELATIVE: return NeonButtonStyle.sizeFull;
             case SIZE.NORMAL:
             default: return NeonButtonStyle.sizeNormal;
         }

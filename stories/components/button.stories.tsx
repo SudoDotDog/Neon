@@ -55,6 +55,19 @@ componentStories.add(
             <NeonButton {...events}>
                 {name}
             </NeonButton>
+
+            Relative size
+            <div style={{
+                height: '150px',
+                width: '300px',
+                border: '2px solid red',
+            }}>
+                <NeonButton
+                    size={SIZE.RELATIVE}
+                    {...events}>
+                    {name}
+                </NeonButton>
+            </div>
         </div>
         );
     }),
