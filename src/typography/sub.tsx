@@ -18,9 +18,10 @@ export type NeonSubProps = {
     readonly children?: any;
 
     readonly href?: string;
+    readonly onClick?: () => any;
 } & ThemeProps;
 
-const renderSubTag = (children: any, href?: string) => {
+const renderSubTag = (children: any, href?: string, onClick?: () => any) => {
 
     if (href) {
         const classes: string[] = [
@@ -29,6 +30,15 @@ const renderSubTag = (children: any, href?: string) => {
         ];
 
         return (<a href={href} className={classes.join(' ')}>{children}</a>);
+    }
+
+    if (onClick) {
+        const classes: string[] = [
+            NeonTypographySubStyle.link,
+            NeonTypographyStyle.dye,
+        ];
+
+        return (<a onClick={onClick} className={classes.join(' ')}>{children}</a>);
     }
 
     return <span>{children}</span>;
@@ -48,7 +58,7 @@ export const NeonSubBase: React.SFC<NeonSubProps> =
             margin={props.margin}
             className={classes.join(' ')}
         >
-            {renderSubTag(props.children, props.href)}
+            {renderSubTag(props.children, props.href, props.onClick)}
         </NeonBox>);
     };
 
