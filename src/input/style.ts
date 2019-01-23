@@ -53,5 +53,35 @@ const NeonInputStyleBase: JSSStyle = {
     },
 };
 
+const NeonApplicableStyleBase: JSSStyle = {
+
+    wrap: {
+
+        display: 'flex',
+    },
+    input: {
+
+        flex: 1,
+    },
+    buttonNormal: {
+
+        width: '5rem',
+        height: 'auto',
+    },
+    buttonMedium: {
+
+        width: '7rem',
+        height: 'auto',
+    },
+    buttonLarge: {
+
+        width: '9rem',
+        height: 'auto',
+    },
+};
+
 export const NeonInputStyleSheet: StyleSheet = jss.createStyleSheet(NeonInputStyleBase).attach();
 export const NeonInputStyle: Classes = NeonInputStyleSheet.classes;
+
+export const NeonApplicableStyleSheet: StyleSheet = jss.createStyleSheet(NeonApplicableStyleBase).attach();
+export const NeonApplicableStyle: Classes = NeonApplicableStyleSheet.classes;

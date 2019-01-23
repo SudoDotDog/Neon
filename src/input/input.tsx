@@ -17,6 +17,7 @@ export type NeonInputProps = {
     readonly value?: string;
     readonly onChange?: (value: string) => void;
 
+    readonly className?: string;
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
     readonly type?: INPUT_TYPE;
@@ -55,7 +56,7 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
 
         return (<NeonBox
             style={this.props.style}
-            className={NeonInputStyle.wrap}
+            className={[NeonInputStyle.wrap].concat(this.props.className || []).join(' ')}
             margin={this.props.margin}>
             <div
                 className={this._getShrinkClass()}

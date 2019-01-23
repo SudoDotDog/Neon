@@ -15,6 +15,7 @@ export type NeonButtonProps = {
 
     readonly onClick?: () => void;
 
+    readonly className?: string;
     readonly width?: WIDTH;
     readonly size?: SIZE;
     readonly style?: React.CSSProperties;
@@ -33,7 +34,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
         return (
             <NeonBox
-                className={this._getBoxSizeClass()}
+                className={[this._getBoxSizeClass()].concat(this.props.className || []).join(' ')}
                 margin={this.props.margin}>
                 <button
                     style={combineStyle(getNeonButtonStyle(this.props.theme), this.props.style)}
