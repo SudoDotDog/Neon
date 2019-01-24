@@ -51,8 +51,8 @@ const NeonButtonStyleBase: JSSStyle = {
     },
     sizeFullBox: {
         boxSizing: 'border-box',
-        width: 'inherit',
-        height: 'inherit',
+        width: '100%',
+        height: '100%',
     },
     sizeFull: {
         width: '100%',
