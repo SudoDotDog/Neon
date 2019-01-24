@@ -51,8 +51,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
     private _getBoxSizeClass(): string | undefined {
 
-        if (this.props.size === SIZE.RELATIVE
-            || this.props.size === SIZE.FULL) {
+        if (this.props.size === SIZE.FULL) {
 
             return NeonButtonStyle.sizeFullBox;
         }
