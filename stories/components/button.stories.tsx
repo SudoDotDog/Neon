@@ -61,12 +61,13 @@ componentStories.add(
                 {name}
             </NeonButton>
 
-            Relative size
             <div style={{
-                height: '150px',
+                display: 'block',
+                height: '100px',
                 width: '300px',
                 border: '2px solid red',
             }}>
+
                 <NeonButton
                     size={SIZE.RELATIVE}
                     {...events}>
@@ -74,22 +75,38 @@ componentStories.add(
                 </NeonButton>
             </div>
 
-            Relative size
-            <div style={{
-                display: 'flex',
-                height: '100px',
-                width: '300px',
-                border: '2px solid red',
-            }}>
+            <div style={{ display: 'flex' }}>
+                Relative size
                 <div style={{
-                    flex: 1,
-                }}>Something</div>
-                <NeonButton
-                    size={SIZE.RELATIVE}
-                    {...events}>
-                    {name}
-                </NeonButton>
+                    height: '150px',
+                    width: '300px',
+                    border: '2px solid red',
+                }}>
+                    <NeonButton
+                        size={SIZE.RELATIVE}
+                        {...events}>
+                        {name}
+                    </NeonButton>
+                </div>
+
+                Relative size
+                <div style={{
+                    display: 'flex',
+                    height: '100px',
+                    width: '300px',
+                    border: '2px solid red',
+                }}>
+                    <div style={{
+                        flex: 1,
+                    }}>Something</div>
+                    <NeonButton
+                        size={SIZE.RELATIVE}
+                        {...events}>
+                        {name}
+                    </NeonButton>
+                </div>
             </div>
+
         </div>
         );
     }),
