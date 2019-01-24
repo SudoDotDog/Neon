@@ -8,16 +8,15 @@ import { withInfo } from "@storybook/addon-info";
 
 const Actions: any = require("@storybook/addon-actions");
 
-export const wInfo = (includes: any[] = [], excludes: any[] = [], markdown: string = '') =>
+export const wInfo = (includes: any[] = [], excludes: any[] = []) =>
     withInfo({
-        inline: true,
+        inline: false,
         source: false,
         styles: {
             infoBody: {
                 lineHeight: "1.5",
             },
         },
-        text: markdown,
         propTables: includes,
         propTablesExclude: excludes,
     });

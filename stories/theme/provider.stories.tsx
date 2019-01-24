@@ -31,7 +31,6 @@ componentStories.add(
     wInfo(
         [NeonButtonBase, NeonFlagBase],
         [React.Fragment, NeonButton, NeonFlag, NeonThemeProvider],
-        'The <Provider /> take one props [Theme], which is a NeonTheme',
     )(() => {
 
         const label: string = text('Label', 'Label');

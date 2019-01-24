@@ -1,6 +1,62 @@
 import { NeonButton } from "../../src/button";
+import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 import './button.css';
 
-# WHAT
+# Neon Button
 
-<NeonButton className="button-cover">123</NeonButton>
+Full width
+
+<NeonButton
+    {...this.props.events}
+    width={WIDTH.FULL}>
+    {this.props.name}
+</NeonButton>
+
+Medium size full width
+
+<NeonButton
+    {...this.props.events}
+    size={SIZE.MEDIUM}
+    width={WIDTH.FULL}>
+    {this.props.name}
+</NeonButton>
+
+Large size
+
+<NeonButton
+    {...this.props.events}
+    size={SIZE.LARGE}>
+    {this.props.name}
+</NeonButton>
+
+Medium size
+
+<NeonButton
+    {...this.props.events}
+    size={SIZE.MEDIUM}>
+    {this.props.name}
+</NeonButton>
+
+Normal size
+
+<NeonButton {...this.props.events}>
+    {this.props.name}
+</NeonButton>
+
+Disabled
+<NeonButton disabled {...this.props.events}>
+    {this.props.name}
+</NeonButton>
+
+Full Button
+<div style={{
+    height: '150px',
+    width: '300px',
+    border: '2px solid red',
+}}>
+    <NeonButton
+        size={SIZE.FULL}
+        {...this.props.events}>
+        {this.props.name}
+    </NeonButton>
+</div>

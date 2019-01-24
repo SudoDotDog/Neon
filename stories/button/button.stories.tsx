@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Stories_Components
+ * @namespace Stories_Button
  * @description Button
  */
 
@@ -9,17 +9,18 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
 import { NeonButtonBase } from "../../src/button/button";
-import { wInfo } from "../util";
+import { createAction, wInfo } from "../util";
 import ButtonMDX from "./button.mdx";
 
 const componentStories = storiesOf('Components', module);
+const events = createAction();
 
 componentStories.add(
     'NeonButton',
-    wInfo([NeonButtonBase], [NeonButton])(() => {
+    wInfo([NeonButtonBase], [NeonButton, ButtonMDX])(() => {
 
         const name: string = text('Name', 'Name');
 
-        return (<ButtonMDX name={name} />);
+        return (<ButtonMDX name={name} events={events} />);
     }),
 );
