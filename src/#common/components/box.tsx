@@ -7,8 +7,9 @@
 import jss, { Classes, StyleSheet } from "jss";
 import * as React from "react";
 import { MARGIN } from "../../declare/index";
-import { ThemedComponent, ThemeProps, withConsumer } from "../consumer";
-import { JSSStyle } from "../style";
+import { ExcludeTheme, ThemedComponent, ThemeProps, withConsumer } from "../consumer";
+import { BoxProps } from "../declare";
+import { JSSStyle, mergeClasses } from "../style";
 
 const NeonBoxStyleBase: JSSStyle = {
     tiny: {
@@ -27,6 +28,12 @@ const NeonBoxStyleBase: JSSStyle = {
 
 const NeonBoxStyleSheet: StyleSheet = jss.createStyleSheet(NeonBoxStyleBase).attach();
 const NeonBoxStyle: Classes = NeonBoxStyleSheet.classes;
+
+export const boxProps = (props: BoxProps, ...extraClasses: string[]): ExcludeTheme<NeonBoxProps> => ({
+    style: props.style,
+    margin: props.margin,
+    className: mergeClasses(props.className, ...extraClasses),
+});
 
 export type NeonBoxProps = {
 

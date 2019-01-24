@@ -4,6 +4,8 @@
  * @description Color
  */
 
+import { MARGIN } from "../declare/index";
+
 export enum COLOR {
 
     LIME = "#01FF70",
@@ -35,3 +37,11 @@ export enum COLOR_SET {
 
     ACTIVE = COLOR.MAROON_LIGHT,
 }
+
+export type BoxProps = {
+
+    readonly style?: React.CSSProperties;
+    readonly margin?: MARGIN;
+    readonly className?: string;
+};
+
