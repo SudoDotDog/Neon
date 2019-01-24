@@ -47,6 +47,7 @@ const NeonTypographySubStyleBase: JSSStyle = {
     link: {
 
         textDecoration: 'none',
+        cursor: 'pointer',
 
         '&:hover': {
             textDecoration: 'underline',
