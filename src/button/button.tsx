@@ -64,11 +64,12 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
         switch (this.props.size) {
 
-            case SIZE.FULL:
-            case SIZE.LARGE: return NeonButtonStyle.sizeLarge;
             case SIZE.MEDIUM: return NeonButtonStyle.sizeMedium;
+            case SIZE.LARGE: return NeonButtonStyle.sizeLarge;
+
             case SIZE.FULL:
             case SIZE.RELATIVE: return NeonButtonStyle.sizeFull;
+
             case SIZE.NORMAL:
             default: return NeonButtonStyle.sizeNormal;
         }
@@ -80,19 +81,21 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
         switch (this.props.width) {
 
-            case WIDTH.FULL:
+            case WIDTH.FULL: {
                 classes.push(
                     this._getSizeClass(),
                     NeonButtonStyle.button,
                     NeonButtonStyle.full,
                 );
                 break;
+            }
             case WIDTH.NORMAL:
-            default:
+            default: {
                 classes.push(
                     this._getSizeClass(),
                     NeonButtonStyle.button,
                 );
+            }
         }
 
         if (this.props.disabled) {

@@ -35,8 +35,8 @@ const NeonCardStyleBase: JSSStyle = {
     },
     fullSize: {
         boxSizing: 'border-box',
-        height: '100%',
-        width: '100%',
+        height: 'inherit',
+        width: 'inherit',
     },
     normalSize: {
         width: '10rem',
