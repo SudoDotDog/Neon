@@ -13,6 +13,7 @@ import { NeonInputStyle } from "./style";
 
 export type NeonInputProps = {
 
+    readonly autofocus?: boolean;
     readonly label?: string;
     readonly value?: string;
     readonly onChange?: (value: string) => void;
@@ -50,6 +51,13 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
         this._handleKeyPress = this._handleKeyPress.bind(this);
         this._handleBlur = this._handleBlur.bind(this);
         this._handleFocus = this._handleFocus.bind(this);
+    }
+
+    public componentDidMount() {
+
+        if (this.props.autofocus && this._ref) {
+            this._ref.focus();
+        }
     }
 
     public render() {
