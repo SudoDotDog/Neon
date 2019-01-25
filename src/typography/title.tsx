@@ -5,37 +5,44 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../#common/components/box";
+import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
-import { ALIGN, MARGIN } from "../declare";
+import { BoxProps } from "../#common/declare";
+import { ALIGN, SIZE } from "../declare";
 import { getAlignClass, NeonTypographyStyle } from "./style";
 
 export type NeonTitleProps = {
 
     readonly align?: ALIGN;
-    readonly style?: React.CSSProperties;
-    readonly margin?: MARGIN;
+    readonly size?: SIZE;
+
     readonly children?: any;
-} & ThemeProps;
+} & ThemeProps & BoxProps;
+
+const getSizeClass = (size: SIZE) => {
+
+    switch (size) {
+
+        case SIZE.MEDIUM: return NeonTypographyStyle.medium;
+        case SIZE.NORMAL: return NeonTypographyStyle.small;
+        case SIZE.FULL:
+        case SIZE.LARGE:
+        default: return NeonTypographyStyle.large;
+    }
+};
 
 export const NeonTitleBase: React.SFC<NeonTitleProps> =
     (props: NeonTitleProps) => {
 
         const classes: string[] = [
             getAlignClass(props.align || ALIGN.LEFT),
-            NeonTypographyStyle.large,
+            getSizeClass(props.size || SIZE.LARGE),
             NeonTypographyStyle.bold,
             NeonTypographyStyle.dye,
             NeonTypographyStyle.tag,
         ];
 
-        return (<NeonBox
-            style={props.style}
-            margin={props.margin}
-            className={classes.join(' ')}
-        >
-            {props.children}
-        </NeonBox>);
+        return (<NeonBox {...boxProps(props, ...classes)}>{props.children}</NeonBox>);
     };
 
 export const NeonTitle: ThemedComponent<NeonTitleProps> = withConsumer<NeonTitleProps>(NeonTitleBase);

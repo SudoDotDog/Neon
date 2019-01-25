@@ -1,0 +1,82 @@
+import { NeonSub, NeonTitle } from "../../src/typography";
+import { ALIGN, MARGIN, SIZE } from "../../src/declare";
+
+# Neon Typography
+
+## Title
+
+- Align Left
+<NeonTitle margin={MARGIN.SMALL}>
+    {this.props.content}
+</NeonTitle>
+
+- Align Center
+<NeonTitle
+    align={ALIGN.CENTER}
+    margin={MARGIN.SMALL}>
+    {this.props.content}
+</NeonTitle>
+
+- Align Right
+<NeonTitle
+    align={ALIGN.RIGHT}
+    margin={MARGIN.SMALL}>
+    {this.props.content}
+</NeonTitle>
+
+- Empty
+<NeonTitle
+    align={ALIGN.RIGHT}
+    margin={MARGIN.SMALL}>
+</NeonTitle>
+
+- Single Space
+<NeonTitle
+    margin={MARGIN.SMALL}>
+    &nbsp;
+</NeonTitle>
+
+```jsx
+<NeonTitle
+    margin={MARGIN.SMALL}>
+    &nbsp;
+</NeonTitle>
+```
+
+- Smaller
+<NeonTitle
+    size={SIZE.MEDIUM}
+    margin={MARGIN.SMALL}>
+    {this.props.content}
+</NeonTitle>
+
+- Smallest
+<NeonTitle
+    size={SIZE.NORMAL}
+    margin={MARGIN.SMALL}>
+    {this.props.content}
+</NeonTitle>
+
+## Subtitle
+
+- Normal
+<NeonSub margin={MARGIN.SMALL}>
+    {this.props.content}
+</NeonSub>
+
+- Link
+<NeonSub
+    href={this.props.target}
+    margin={MARGIN.SMALL}
+>
+    {this.props.content}
+</NeonSub>
+
+- Align Right
+<NeonSub
+    align={ALIGN.RIGHT}
+    href={this.props.target}
+    margin={MARGIN.SMALL}
+>
+    {this.props.content}
+</NeonSub>
