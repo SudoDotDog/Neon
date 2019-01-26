@@ -19,6 +19,14 @@ const NeonInputStyleBase: JSSStyle = {
 
         ...getBorderStyle(),
     },
+    text: {
+
+        padding: '0.2rem',
+        cursor: 'text',
+        backgroundColor: COLOR.WHITE,
+
+        ...getBorderStyle(),
+    },
     notEditable: {
 
         borderStyle: 'dashed',
@@ -52,6 +60,21 @@ const NeonInputStyleBase: JSSStyle = {
 
         border: '0',
         paddingTop: '0.8rem',
+
+        fontSize: '1rem',
+        outline: '0',
+
+        width: '100%',
+        height: '1.4rem',
+
+        '&:focus': {
+            color: COLOR.DARKGRAY,
+        },
+    },
+    textInput: {
+
+        border: '0',
+        padding: '0',
 
         fontSize: '1rem',
         outline: '0',
