@@ -14,7 +14,6 @@ import { NeonText, NeonTextProps } from "./text";
 export type NeonEditableTextProps = {
 
     readonly disabled?: boolean;
-    readonly origin?: any;
 } & NeonTextProps;
 
 export type NeonEditableTextStates = {
@@ -29,10 +28,14 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
         editing: false,
     };
 
+    private readonly _origin: any;
+
     public constructor(props: NeonEditableTextProps) {
 
         super(props);
 
+        this._origin = props.value;
+        this._handleBlur = this._handleBlur.bind(this);
         this._handleClickShowing = this._handleClickShowing.bind(this);
     }
 
@@ -40,7 +43,13 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
 
         if (this.state.editing) {
 
-            return (<NeonText {...this.props} autofocus />);
+            return (
+                <NeonText
+                    {...this.props}
+                    autofocus
+                    onBlur={this._handleBlur}
+                />
+            );
         } else {
 
             return (<NeonBox {...boxProps(this.props, NeonInputStyle.wrap, NeonInputStyle.notEditable)} >
@@ -54,7 +63,16 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
         }
     }
 
-    public _handleClickShowing() {
+    private _handleBlur(): void {
+
+        if (this._origin === this.props.value) {
+            this.setState({
+                editing: false,
+            });
+        }
+    }
+
+    private _handleClickShowing() {
 
         if (!Boolean(this.props.disabled)) {
 

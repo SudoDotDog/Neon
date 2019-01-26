@@ -15,6 +15,8 @@ export type NeonTextProps = {
 
     readonly autofocus?: boolean;
     readonly value?: string;
+
+    readonly onBlur?: () => void;
     readonly onChange?: (value: string) => void;
     readonly onEnter?: () => void;
 
@@ -56,6 +58,7 @@ export class NeonTextBase extends React.Component<NeonTextProps> {
                 type={this.props.type}
                 value={this.props.value}
                 tabIndex={this.props.tabIndex}
+                onBlur={this.props.onBlur}
                 onChange={(event) => this.props.onChange && this.props.onChange(event.target.value)}
                 onKeyPress={this._handleKeyPress}
             />

@@ -17,6 +17,8 @@ export type NeonInputProps = {
     readonly autofocus?: boolean;
     readonly label?: string;
     readonly value?: string;
+
+    readonly onBlur?: () => void;
     readonly onChange?: (value: string) => void;
     readonly onEnter?: () => void;
 
@@ -93,6 +95,10 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
     }
 
     private _handleBlur(): void {
+
+        if (this.props.onBlur) {
+            this.props.onBlur();
+        }
 
         this.setState({
             shrink: false,
