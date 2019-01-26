@@ -29,7 +29,7 @@ const NeonBoxStyleBase: JSSStyle = {
 const NeonBoxStyleSheet: StyleSheet = jss.createStyleSheet(NeonBoxStyleBase).attach();
 const NeonBoxStyle: Classes = NeonBoxStyleSheet.classes;
 
-export const boxProps = (props: BoxProps, ...extraClasses: string[]): ExcludeTheme<NeonBoxProps> => ({
+export const boxProps = (props: BoxProps, ...extraClasses: Array<string | null | undefined>): ExcludeTheme<NeonBoxProps> => ({
     style: props.style,
     margin: props.margin,
     className: mergeClasses(props.className, ...extraClasses),

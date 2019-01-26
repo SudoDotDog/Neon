@@ -27,6 +27,11 @@ const NeonInputStyleBase: JSSStyle = {
 
         ...getBorderStyle(),
     },
+    borderLite: {
+
+        borderWidth: 0,
+        borderBottomWidth: '0.2rem',
+    },
     notEditable: {
 
         borderStyle: 'dashed',

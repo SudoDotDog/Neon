@@ -9,6 +9,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
+import { mergeClasses } from "../#common/style";
 import { NeonEditableText } from "../input/index";
 import { NeonTableStyle } from "./style";
 
@@ -50,10 +51,15 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
             const value: string = list[key] as string;
             return (<tr key={index}>
-                <td className={NeonTableStyle.listKey}>
+                <td className={mergeClasses(
+                    NeonTableStyle.listKey,
+                    this.props.editableName ? undefined : NeonTableStyle.withBorder,
+                )}>
                     {this.props.editableName ? this._renderEditableKey(key, value) : key}
                 </td>
-                <td>
+                <td className={mergeClasses(
+                    this.props.editableValue ? undefined : NeonTableStyle.withBorder,
+                )}>
                     {this.props.editableValue ? this._renderEditableValue(key, value) : value}
                 </td>
             </tr>);
@@ -63,6 +69,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
     private _renderEditableKey(key: string, value: string) {
 
         return (<NeonEditableText
+            lite
             value={key}
             onChange={(newKey: string) => {
                 if (this.props.onChange) {
@@ -78,6 +85,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
     private _renderEditableValue(key: string, value: string) {
 
         return (<NeonEditableText
+            lite
             value={value}
             onChange={(newValue: string) => {
                 if (this.props.onChange) {

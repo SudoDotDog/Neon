@@ -52,9 +52,15 @@ const NeonTableStyleBase: JSSStyle = {
 
         '& td': {
 
-            padding: '0.2rem',
-            ...getBorder(COLOR.NAVY, '0.1rem'),
+            borderLeft: `0.1rem solid ${COLOR.NAVY}`,
+            borderRight: `0.1rem solid ${COLOR.NAVY}`,
         },
+    },
+    withBorder: {
+
+        padding: '0.2rem',
+        borderTop: `0.1rem solid ${COLOR.NAVY}`,
+        borderBottom: `0.1rem solid ${COLOR.NAVY}`,
     },
     listKey: {
 

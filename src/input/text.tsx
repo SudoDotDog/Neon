@@ -15,6 +15,7 @@ export type NeonTextProps = {
 
     readonly autofocus?: boolean;
     readonly value?: string;
+    readonly lite?: boolean;
 
     readonly onBlur?: () => void;
     readonly onChange?: (value: string) => void;
@@ -51,7 +52,11 @@ export class NeonTextBase extends React.Component<NeonTextProps> {
 
     public render() {
 
-        return (<NeonBox {...boxProps(this.props, NeonInputStyle.text)} >
+        return (<NeonBox {...boxProps(
+            this.props,
+            NeonInputStyle.text,
+            (this.props.lite ? NeonInputStyle.borderLite : undefined),
+        )} >
             <input
                 ref={(ref) => this._ref = ref}
                 className={NeonInputStyle.textInput}

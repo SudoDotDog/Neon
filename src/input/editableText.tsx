@@ -13,6 +13,7 @@ import { NeonText, NeonTextProps } from "./text";
 
 export type NeonEditableTextProps = {
 
+    readonly list?: boolean;
     readonly disabled?: boolean;
 } & NeonTextProps;
 
@@ -52,7 +53,12 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
             );
         } else {
 
-            return (<NeonBox {...boxProps(this.props, NeonInputStyle.wrap, NeonInputStyle.notEditable)} >
+            return (<NeonBox {...boxProps(
+                this.props,
+                NeonInputStyle.wrap,
+                NeonInputStyle.notEditable,
+                (this.props.lite ? NeonInputStyle.borderLite : undefined),
+            )} >
                 <div
                     className={mergeClasses(NeonInputStyle.textInput, NeonInputStyle.notEditableInput)}
                     onClick={this._handleClickShowing}
