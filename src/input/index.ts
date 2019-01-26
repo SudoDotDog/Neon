@@ -11,6 +11,8 @@ NeonRegister.register();
 export { NeonApplicable, NeonApplicableProps } from "./applicable";
 export { INPUT_TYPE } from "./declare";
 export { NeonEditable, NeonEditableProps } from "./editable";
+export { NeonEditableText, NeonEditableTextProps } from "./editableText";
 export { NeonInput, NeonInputProps } from "./input";
 export { NeonText, NeonTextProps } from "./text";
+
 

@@ -37,7 +37,7 @@ const NeonInputStyleBase: JSSStyle = {
         textIndent: '0px',
         textShadow: 'none',
         marginTop: '1px',
-        font: '400 11px system-ui',
+        font: '400 1rem system-ui',
     },
     label: {
 

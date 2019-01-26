@@ -1,5 +1,5 @@
 import { action } from "@storybook/addon-actions";
-import { NeonEditable } from "../../src/input";
+import { NeonEditable, NeonEditableText } from "../../src/input";
 import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 
 # Neon Editable
@@ -19,3 +19,20 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
     value={this.props.value}
     label={this.props.label}
 />
+
+# Neon EditableText
+
+- Editable
+
+<NeonEditableText
+    {...this.props.events}
+    value={this.props.value}
+/>
+
+- Editing
+
+<NeonEditableText
+    {...this.props.events}
+    value={this.props.value}
+/>
+

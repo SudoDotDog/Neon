@@ -17,7 +17,9 @@ export type NeonSmartListProps = {
 
     readonly list: Record<Basics, Basics>;
     readonly name?: string;
+    readonly editableName?: boolean;
     readonly value?: string;
+    readonly editableValue?: boolean;
 } & ThemeProps & BoxProps;
 
 export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
