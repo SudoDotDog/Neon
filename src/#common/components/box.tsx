@@ -33,10 +33,12 @@ export const boxProps = (props: BoxProps, ...extraClasses: Array<string | null |
     style: props.style,
     margin: props.margin,
     className: mergeClasses(props.className, ...extraClasses),
+    ignoreTheme: props.ignoreTheme,
 });
 
 export type NeonBoxProps = {
 
+    readonly ignoreTheme?: boolean;
     readonly style?: React.CSSProperties;
     readonly className?: string;
     readonly margin?: MARGIN;
@@ -45,7 +47,14 @@ export type NeonBoxProps = {
 
 export const NeonBoxBase: React.SFC<NeonBoxProps> = (props: NeonBoxProps) => {
 
-    const margin: MARGIN = props.margin || props.theme.margin;
+    const margin: MARGIN = ((): MARGIN => {
+
+        if (props.ignoreTheme) {
+            return props.margin || MARGIN.NONE;
+        }
+
+        return props.margin || props.theme.margin;
+    })();
 
     const marginClass: string = (() => {
         switch (margin) {

@@ -49,16 +49,19 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
                     {...this.props}
                     autofocus
                     onBlur={this._handleBlur}
+                    ignoreTheme={this.props.ignoreTheme}
                 />
             );
         } else {
 
-            return (<NeonBox {...boxProps(
-                this.props,
-                NeonInputStyle.wrap,
-                NeonInputStyle.notEditable,
-                (this.props.lite ? NeonInputStyle.borderLite : undefined),
-            )} >
+            return (<NeonBox
+                {...boxProps(
+                    this.props,
+                    NeonInputStyle.wrap,
+                    NeonInputStyle.notEditable,
+                    (this.props.lite ? NeonInputStyle.borderLite : undefined),
+                )}
+            >
                 <div
                     className={mergeClasses(NeonInputStyle.textInput, NeonInputStyle.notEditableInput)}
                     onClick={this._handleClickShowing}

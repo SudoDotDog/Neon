@@ -56,7 +56,7 @@ export class NeonTextBase extends React.Component<NeonTextProps> {
             this.props,
             NeonInputStyle.text,
             (this.props.lite ? NeonInputStyle.borderLite : undefined),
-        )} >
+        )}>
             <input
                 ref={(ref) => this._ref = ref}
                 className={NeonInputStyle.textInput}

@@ -70,6 +70,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
         return (<NeonEditableText
             lite
+            ignoreTheme
             value={key}
             onChange={(newKey: string) => {
                 if (this.props.onChange) {
@@ -86,6 +87,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
         return (<NeonEditableText
             lite
+            ignoreTheme
             value={value}
             onChange={(newValue: string) => {
                 if (this.props.onChange) {

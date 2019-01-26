@@ -1,3 +1,4 @@
+import { NeonThemeProvider } from "../../src/theme";
 import { NeonSmartList } from "../../src/table";
 import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 
@@ -32,3 +33,19 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
     editableValue
     list={this.props.list}
 />
+
+> Theme inside will be ignored
+
+<NeonThemeProvider value={{
+    margin: MARGIN.SMALL,
+    main: {
+        color: 'red',
+    },
+}}>
+    <NeonSmartList 
+        onChange={this.props.onChange}
+        editableName
+        editableValue
+        list={this.props.list}
+    />
+</NeonThemeProvider>
