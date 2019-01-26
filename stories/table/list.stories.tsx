@@ -4,7 +4,6 @@
  * @description List
  */
 
-import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonSmartList } from "../../src/table";
@@ -14,12 +13,34 @@ import ListMDX from "./list.mdx";
 
 const componentStories = storiesOf('Components', module);
 
+class ListStory extends React.Component {
+
+    public state = {
+        list: {
+            key: 'value',
+            key2: 'value2',
+        },
+    };
+
+    public render() {
+
+        return (<ListMDX
+
+            onChange={(newList: any) => {
+
+                this.setState({
+                    list: newList,
+                });
+            }}
+            list={this.state.list}
+        />);
+    }
+}
+
 componentStories.add(
     'Smart List',
     wInfo([NeonSmartListBase], [NeonSmartList, ListMDX])(() => {
 
-        const name: string = text('Name', 'Name');
-
-        return (<ListMDX name={name} />);
+        return (<ListStory />);
     }),
 );

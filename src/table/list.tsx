@@ -9,22 +9,24 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
+import { NeonEditableText } from "../input/index";
 import { NeonTableStyle } from "./style";
-
-export type Basics = string | number;
 
 export type NeonSmartListProps = {
 
-    readonly list: Record<Basics, Basics>;
+    readonly list: Record<string, string>;
     readonly name?: string;
     readonly editableName?: boolean;
     readonly value?: string;
     readonly editableValue?: boolean;
+
+    readonly onChange?: (value: Record<string, string>) => void;
 } & ThemeProps & BoxProps;
 
 export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
     public render() {
+
         return (<NeonBox {...boxProps(this.props)}>
             <table className={NeonTableStyle.list}>
                 <thead>{this._renderHeader()}</thead>
@@ -34,6 +36,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
     }
 
     private _renderHeader() {
+
         return (<tr>
             <th className={NeonTableStyle.listKey} >{this.props.name || 'Key'}</th>
             <th>{this.props.value || 'Value'}</th>
@@ -42,15 +45,49 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
     private _renderBody() {
 
-        const list: Record<Basics, Basics> = this.props.list;
-        return _Map.keys(list).map((key: Basics) => {
+        const list: Record<string, string> = this.props.list;
+        return _Map.keys(list).map((key: string, index: number) => {
 
-            const value: Basics = list[key] as Basics;
-            return (<tr>
-                <td className={NeonTableStyle.listKey}>{key}</td>
-                <td>{value}</td>
+            const value: string = list[key] as string;
+            return (<tr key={index}>
+                <td className={NeonTableStyle.listKey}>
+                    {this.props.editableName ? this._renderEditableKey(key, value) : key}
+                </td>
+                <td>
+                    {this.props.editableValue ? this._renderEditableValue(key, value) : value}
+                </td>
             </tr>);
         });
+    }
+
+    private _renderEditableKey(key: string, value: string) {
+
+        return (<NeonEditableText
+            value={key}
+            onChange={(newKey: string) => {
+                if (this.props.onChange) {
+
+                    const newList: Record<string, string> =
+                        _Map.lash_mutate(this.props.list, key, value, newKey);
+
+                    this.props.onChange(newList);
+                }
+            }} />);
+    }
+
+    private _renderEditableValue(key: string, value: string) {
+
+        return (<NeonEditableText
+            value={value}
+            onChange={(newValue: string) => {
+                if (this.props.onChange) {
+
+                    const newList: Record<string, string> =
+                        _Map.lash_mutate(this.props.list, key, newValue);
+
+                    this.props.onChange(newList);
+                }
+            }} />);
     }
 }
 

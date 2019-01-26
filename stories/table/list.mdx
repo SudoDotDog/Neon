@@ -7,3 +7,28 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
     key: "value",
     key2: "value2",
 }} />
+
+- WithEditableKey
+
+<NeonSmartList 
+    onChange={this.props.onChange}
+    editableName
+    list={this.props.list}
+/>
+
+- WithEditableValue
+
+<NeonSmartList 
+    onChange={this.props.onChange}
+    editableValue
+    list={this.props.list}
+/>
+
+- WithEditable
+
+<NeonSmartList 
+    onChange={this.props.onChange}
+    editableName
+    editableValue
+    list={this.props.list}
+/>
