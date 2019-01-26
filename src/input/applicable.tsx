@@ -5,9 +5,10 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../#common/components/box";
+import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemeProps } from "../#common/consumer";
 import { COLOR } from "../#common/declare";
+import { mergeClasses } from "../#common/style";
 import { NeonButton } from "../button";
 import { MARGIN, SIZE } from "../declare/index";
 import { INPUT_TYPE } from "./declare";
@@ -18,6 +19,7 @@ export type NeonApplicableProps = {
 
     readonly label?: string;
     readonly apply?: string;
+    readonly defaultValue?: string;
     readonly onApply?: (value: string) => void;
 
     readonly className?: string;
@@ -38,12 +40,13 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
     public static readonly defaultProps: Partial<NeonApplicableProps> = {
 
         apply: 'Apply',
+        defaultValue: '',
         type: INPUT_TYPE.TEXT,
     };
 
     public readonly state: NeonApplicableStates = {
 
-        value: '',
+        value: this.props.defaultValue,
         applicable: true,
     };
 
@@ -61,11 +64,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
 
     public render() {
 
-        return (<NeonBox
-            style={this.props.style}
-            margin={this.props.margin}
-            className={[NeonApplicableStyle.wrap].concat(this.props.className || []).join(' ')}
-        >
+        return (<NeonBox {...boxProps(this.props, NeonApplicableStyle.wrap)}>
             <NeonInput
                 className={NeonApplicableStyle.input}
                 label={this.props.label}
@@ -76,7 +75,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
                 onEnter={this._handleApply}
             />
             <NeonButton
-                className={[this._getButtonSizeClass(), NeonApplicableStyle.button].join(' ')}
+                className={mergeClasses(this._getButtonSizeClass(), NeonApplicableStyle.button)}
                 size={SIZE.RELATIVE}
                 style={{
                     transition: '0.2s all',

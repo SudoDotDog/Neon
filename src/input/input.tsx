@@ -5,8 +5,9 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../#common/components/box";
+import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
+import { mergeClasses } from "../#common/style";
 import { MARGIN } from "../declare";
 import { INPUT_TYPE } from "./declare";
 import { NeonInputStyle } from "./style";
@@ -57,10 +58,7 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
 
     public render() {
 
-        return (<NeonBox
-            style={this.props.style}
-            className={[NeonInputStyle.wrap].concat(this.props.className || []).join(' ')}
-            margin={this.props.margin}>
+        return (<NeonBox {...boxProps(this.props, NeonInputStyle.wrap)}>
             <div
                 className={this._getShrinkClass()}
                 onClick={() => this._ref && this._ref.focus()}>
@@ -106,10 +104,8 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
     private _getShrinkClass(): string {
 
         if (this.state.shrink || this.props.value) {
-
-            return `${NeonInputStyle.label} ${NeonInputStyle.shrink}`;
+            return mergeClasses(NeonInputStyle.label, NeonInputStyle.shrink);
         }
-
         return NeonInputStyle.label;
     }
 }
