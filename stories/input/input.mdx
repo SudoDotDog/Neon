@@ -1,0 +1,28 @@
+import { action } from "@storybook/addon-actions";
+import { NeonInput } from "../../src/input";
+import { MARGIN, SIZE, WIDTH } from "../../src/declare";
+
+# Neon Input
+
+- WithValue
+
+<NeonInput
+    {...this.props.events}
+    value={this.props.value}
+    label={this.props.label}
+/>
+
+- Empty
+
+<NeonInput
+    {...this.props.events}
+    label={this.props.label}
+/>
+
+- Enter
+
+<NeonInput
+    {...this.props.events}
+    onEnter={action('Enter')}
+    label={this.props.label}
+/>

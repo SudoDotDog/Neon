@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
- * @namespace Stories_Button
- * @description Button
+ * @namespace Stories_Table
+ * @description Table
  */
 
 import { text } from "@storybook/addon-knobs";

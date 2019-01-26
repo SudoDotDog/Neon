@@ -19,6 +19,18 @@ const NeonInputStyleBase: JSSStyle = {
 
         ...getBorderStyle(),
     },
+    notEditable: {
+
+        borderStyle: 'dashed',
+    },
+    notEditableInput: {
+
+        display: 'inline-block',
+        textIndent: '0px',
+        textShadow: 'none',
+        marginTop: '1px',
+        font: '400 11px system-ui',
+    },
     label: {
 
         position: 'absolute',

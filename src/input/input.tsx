@@ -7,24 +7,22 @@
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
+import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style";
-import { MARGIN } from "../declare";
 import { INPUT_TYPE } from "./declare";
 import { NeonInputStyle } from "./style";
 
 export type NeonInputProps = {
 
+    readonly autofocus?: boolean;
     readonly label?: string;
     readonly value?: string;
     readonly onChange?: (value: string) => void;
     readonly onEnter?: () => void;
 
     readonly tabIndex?: number;
-    readonly className?: string;
-    readonly style?: React.CSSProperties;
-    readonly margin?: MARGIN;
     readonly type?: INPUT_TYPE;
-} & ThemeProps;
+} & ThemeProps & BoxProps;
 
 export type NeonInputStates = {
 
@@ -56,9 +54,16 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
         this._handleFocus = this._handleFocus.bind(this);
     }
 
+    public componentDidMount() {
+
+        if (this.props.autofocus && this._ref) {
+            this._ref.focus();
+        }
+    }
+
     public render() {
 
-        return (<NeonBox {...boxProps(this.props, NeonInputStyle.wrap)}>
+        return (<NeonBox {...boxProps(this.props, NeonInputStyle.wrap)} >
             <div
                 className={this._getShrinkClass()}
                 onClick={() => this._ref && this._ref.focus()}>
