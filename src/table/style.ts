@@ -32,6 +32,28 @@ const NeonTableStyleBase: JSSStyle = {
             ...getBorder(COLOR.NAVY, '0.1rem'),
         },
     },
+    list: {
+
+        width: '100%',
+
+        borderCollapse: 'collapse',
+
+        ...getBorderStyle(),
+
+        '& th': {
+
+            cursor: 'default',
+            padding: '0.3rem',
+            backgroundColor: COLOR.NAVY,
+            color: COLOR.WHITE,
+        },
+
+        '& td': {
+
+            padding: '0.2rem',
+            ...getBorder(COLOR.NAVY, '0.1rem'),
+        },
+    },
 };
 
 export const NeonTableStyleSheet: StyleSheet = jss.createStyleSheet(NeonTableStyleBase).attach();
