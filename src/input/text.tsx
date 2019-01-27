@@ -8,6 +8,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
+import { assertIfTrue } from "../#common/style";
 import { INPUT_TYPE } from "./declare";
 import { NeonInputStyle } from "./style";
 
@@ -55,7 +56,7 @@ export class NeonTextBase extends React.Component<NeonTextProps> {
         return (<NeonBox {...boxProps(
             this.props,
             NeonInputStyle.text,
-            (this.props.lite ? NeonInputStyle.borderLite : undefined),
+            assertIfTrue(this.props.lite, NeonInputStyle.borderLite),
         )}>
             <input
                 ref={(ref) => this._ref = ref}

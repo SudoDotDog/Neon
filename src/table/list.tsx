@@ -9,7 +9,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { mergeClasses } from "../#common/style";
+import { assertIfFalse, mergeClasses } from "../#common/style";
 import { NeonEditableText } from "../input/index";
 import { NeonTableStyle } from "./style";
 
@@ -53,12 +53,12 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
             return (<tr key={index}>
                 <td className={mergeClasses(
                     NeonTableStyle.listKey,
-                    this.props.editableName ? undefined : NeonTableStyle.withBorder,
+                    assertIfFalse(this.props.editableName, NeonTableStyle.withBorder),
                 )}>
                     {this.props.editableName ? this._renderEditableKey(key, value) : key}
                 </td>
                 <td className={mergeClasses(
-                    this.props.editableValue ? undefined : NeonTableStyle.withBorder,
+                    assertIfFalse(this.props.editableValue, NeonTableStyle.withBorder),
                 )}>
                     {this.props.editableValue ? this._renderEditableValue(key, value) : value}
                 </td>

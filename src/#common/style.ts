@@ -22,6 +22,20 @@ export const mergeClasses = (...classes: Array<string | null | undefined>): stri
     return;
 };
 
+export const assertIfTrue = (condition: any, name: string): string | undefined => {
+
+    if (Boolean(condition)) {
+        return name;
+    }
+
+    return;
+};
+
+export const assertIfFalse = (condition: any, name: string): string | undefined => {
+
+    return assertIfTrue(!Boolean(condition), name);
+};
+
 export const getBorder = (color: string, width: string = '0.2rem') => ({
 
     borderColor: color,

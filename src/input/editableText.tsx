@@ -7,7 +7,7 @@
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, withConsumer } from "../#common/consumer";
-import { mergeClasses } from "../#common/style";
+import { assertIfTrue, mergeClasses } from "../#common/style";
 import { NeonInputStyle } from "./style";
 import { NeonText, NeonTextProps } from "./text";
 
@@ -59,7 +59,7 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
                     this.props,
                     NeonInputStyle.wrap,
                     NeonInputStyle.notEditable,
-                    (this.props.lite ? NeonInputStyle.borderLite : undefined),
+                    assertIfTrue(this.props.lite, NeonInputStyle.borderLite),
                 )}
             >
                 <div

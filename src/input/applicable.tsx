@@ -8,7 +8,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemeProps } from "../#common/consumer";
 import { COLOR } from "../#common/declare";
-import { mergeClasses } from "../#common/style";
+import { assertIfFalse, mergeClasses } from "../#common/style";
 import { NeonButton } from "../button";
 import { MARGIN, SIZE } from "../declare/index";
 import { INPUT_TYPE } from "./declare";
@@ -79,7 +79,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
                 size={SIZE.RELATIVE}
                 style={{
                     transition: '0.2s all',
-                    color: this.state.applicable ? undefined : COLOR.TRANSPARENT,
+                    color: assertIfFalse(this.state.applicable, COLOR.TRANSPARENT),
                 }}
 
                 onClick={this._handleApply}
