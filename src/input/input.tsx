@@ -112,7 +112,7 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
         });
     }
 
-    private _getShrinkClass(): string {
+    private _getShrinkClass(): string | undefined {
 
         if (this.state.shrink || this.props.value) {
             return mergeClasses(NeonInputStyle.label, NeonInputStyle.shrink);

@@ -12,8 +12,15 @@ export type JSSStyle = Record<string, Style | {
     [key: string]: any;
 }>;
 
-export const mergeClasses = (...classes: Array<string | null | undefined>): string =>
-    classes.filter((name: string | null | undefined) => Boolean(name)).join(' ');
+export const mergeClasses = (...classes: Array<string | null | undefined>): string | undefined => {
+
+    const clazz: string = classes.filter((name: string | null | undefined) => Boolean(name)).join(' ');
+
+    if (clazz) {
+        return clazz;
+    }
+    return;
+};
 
 export const getBorder = (color: string, width: string = '0.2rem') => ({
 
