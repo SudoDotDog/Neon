@@ -5331,10 +5331,10 @@ jss-preset-default@^10.0.0-alpha.8:
     jss-plugin-template "^10.0.0-alpha.8"
     jss-plugin-vendor-prefixer "^10.0.0-alpha.8"
 
-jss@^10.0.0-alpha.8:
-  version "10.0.0-alpha.8"
-  resolved "https://registry.yarnpkg.com/jss/-/jss-10.0.0-alpha.8.tgz#7bf6232046e131c8bb6edafd01d13beab06db0da"
-  integrity sha512-7cNQXMbJ5KQOgTJSaDPfLInBIaU5AD+FYg00PCl9i170NXj3M/CsoIWUMnTGbsWjcIQ7DmlqzrSFdsxSwzHjuA==
+jss@^10.0.0-alpha.9:
+  version "10.0.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/jss/-/jss-10.0.0-alpha.9.tgz#c4a0334010a019a167d72107f23bcd9e266ccbab"
+  integrity sha512-emGhSk/Vp4GoNL1Oex/YJXk/G3wMsh9TbFQ6dZ5lazQmFwBAoWC5K0CVL8N3aJqq2k6WO9rcVUL371pHGp3IPQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     is-in-browser "^1.1.3"
