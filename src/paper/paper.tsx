@@ -17,7 +17,7 @@ export type NeonPaperProps = {
     readonly children?: any;
 } & ThemeProps;
 
-export const NeonPaperBase: React.SFC<NeonPaperProps> =
+export const NeonPaperBase: React.FC<NeonPaperProps> =
     (props: NeonPaperProps) => {
 
         return (<NeonBox

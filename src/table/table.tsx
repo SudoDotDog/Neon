@@ -15,7 +15,7 @@ export type NeonTableProps = {
     readonly children?: any;
 } & ThemeProps & BoxProps;
 
-export const NeonTableBase: React.SFC<NeonTableProps> =
+export const NeonTableBase: React.FC<NeonTableProps> =
     (props: NeonTableProps) => {
 
         return (<NeonBox {...boxProps(props)}>

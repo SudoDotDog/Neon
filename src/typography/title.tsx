@@ -31,7 +31,7 @@ const getSizeClass = (size: SIZE) => {
     }
 };
 
-export const NeonTitleBase: React.SFC<NeonTitleProps> =
+export const NeonTitleBase: React.FC<NeonTitleProps> =
     (props: NeonTitleProps) => {
 
         const classes: string[] = [

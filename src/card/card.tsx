@@ -24,7 +24,7 @@ export type NeonCardProps = {
     readonly children?: any;
 } & ThemeProps;
 
-export const NeonCardBase: React.SFC<NeonCardProps> =
+export const NeonCardBase: React.FC<NeonCardProps> =
     (props: Partial<NeonCardProps> = {
         width: WIDTH.NORMAL,
         size: SIZE.NORMAL,

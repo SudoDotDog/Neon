@@ -17,7 +17,7 @@ export type NeonIndicatorProps = {
     readonly children?: any;
 } & ThemeProps;
 
-export const NeonIndicatorBase: React.SFC<NeonIndicatorProps> = (props: NeonIndicatorProps) => {
+export const NeonIndicatorBase: React.FC<NeonIndicatorProps> = (props: NeonIndicatorProps) => {
 
     const classes: string[] = [
         NeonIndicatorStyle.wrap,

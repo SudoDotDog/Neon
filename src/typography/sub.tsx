@@ -44,7 +44,7 @@ const renderSubTag = (children: any, href?: string, onClick?: () => any) => {
     return <span>{children}</span>;
 };
 
-export const NeonSubBase: React.SFC<NeonSubProps> =
+export const NeonSubBase: React.FC<NeonSubProps> =
     (props: NeonSubProps) => {
 
         const classes: string[] = [

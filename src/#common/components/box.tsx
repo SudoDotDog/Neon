@@ -45,7 +45,7 @@ export type NeonBoxProps = {
     readonly children?: any;
 } & ThemeProps;
 
-export const NeonBoxBase: React.SFC<NeonBoxProps> = (props: NeonBoxProps) => {
+export const NeonBoxBase: React.FC<NeonBoxProps> = (props: NeonBoxProps) => {
 
     const margin: MARGIN = ((): MARGIN => {
 

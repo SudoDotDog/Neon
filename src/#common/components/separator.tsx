@@ -27,7 +27,7 @@ const NeonSeparatorStyle: Classes = NeonSeparatorStyleSheet.classes;
 
 export type NeonSeparatorProps = {} & ThemeProps;
 
-export const NeonSeparatorBase: React.SFC<NeonSeparatorProps> = () => {
+export const NeonSeparatorBase: React.FC<NeonSeparatorProps> = () => {
 
     return <div className={NeonSeparatorStyle.separator} />;
 };
