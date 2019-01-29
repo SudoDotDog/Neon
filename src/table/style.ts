@@ -58,7 +58,7 @@ const NeonTableStyleBase: JSSStyle = {
     },
     withBorder: {
 
-        padding: '0.2rem',
+        padding: '0.5rem',
         borderTop: `0.1rem solid ${COLOR.NAVY}`,
         borderBottom: `0.1rem solid ${COLOR.NAVY}`,
     },

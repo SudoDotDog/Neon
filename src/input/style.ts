@@ -34,6 +34,7 @@ const NeonInputStyleBase: JSSStyle = {
     },
     notEditable: {
 
+        paddingLeft: '0.3rem',
         borderStyle: 'dashed',
     },
     notEditableInput: {
@@ -42,7 +43,9 @@ const NeonInputStyleBase: JSSStyle = {
         textIndent: '0px',
         textShadow: 'none',
         marginTop: '1px',
-        font: '400 1rem system-ui',
+
+        fontFamily: 'system-ui',
+        fontSize: '1rem',
     },
     label: {
 
@@ -79,7 +82,7 @@ const NeonInputStyleBase: JSSStyle = {
     textInput: {
 
         border: '0',
-        padding: '0',
+        paddingTop: '0.3rem',
 
         fontSize: '1rem',
         outline: '0',
