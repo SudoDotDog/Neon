@@ -5,7 +5,6 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 # Neon Pair
 
 <NeonPair
-    {...this.props.events}
     value={this.props.value}
     label={this.props.label}
 />
@@ -13,8 +12,17 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 - With Margin
 
 <NeonPair
+    margin={MARGIN.SMALL}
+    value={this.props.value}
+    label={this.props.label}
+/>
+
+- Editable
+
+<NeonPair
     {...this.props.events}
-    value={""}
+    editable
+    value={this.props.value}
     label={this.props.label}
 />
 
@@ -22,22 +30,18 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 
 <NeonThemeProvider value={{
     margin: MARGIN.SMALL,
-    main: {
-        color: 'red',
-    },
 }}>
     <NeonPair
-        {...this.props.events}
+        value={this.props.value}
+        label={this.props.label}
+    />
+    <NeonPair
         value={this.props.value}
         label={this.props.label}
     />
     <NeonPair
         {...this.props.events}
-        value={this.props.value}
-        label={this.props.label}
-    />
-    <NeonPair
-        {...this.props.events}
+        editable
         value={this.props.value}
         label={this.props.label}
     />

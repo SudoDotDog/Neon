@@ -19,6 +19,40 @@ const NeonInputStyleBase: JSSStyle = {
 
         ...getBorderStyle(),
     },
+    pair: {
+
+        backgroundColor: COLOR.NAVY,
+        display: 'flex',
+        alignItems: 'center',
+        fontFamily: 'system-ui',
+        fontWeight: 'bold',
+    },
+    pairLabel: {
+
+        color: COLOR.WHITE,
+        textAlign: 'right',
+        paddingTop: '0.2rem',
+        paddingRight: '0.6rem',
+        paddingLeft: '0.6rem',
+        flex: 1,
+    },
+    pairText: {
+
+        flex: 5,
+    },
+    pairRaw: {
+
+        flex: 5,
+        backgroundColor: COLOR.WHITE,
+        color: COLOR.NAVY,
+
+        padding: '0.2rem',
+        paddingTop: '0.6rem',
+        fontSize: '1rem',
+        height: '1.4rem',
+
+        ...getBorderStyle(),
+    },
     text: {
 
         padding: '0.2rem',

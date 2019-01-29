@@ -17,6 +17,7 @@ export type NeonPairProps = {
     readonly label: string;
 
     readonly autofocus?: boolean;
+    readonly editable?: boolean;
     readonly value?: string;
 
     readonly onBlur?: () => void;
@@ -27,24 +28,36 @@ export type NeonPairProps = {
     readonly type?: INPUT_TYPE;
 } & ThemeProps & BoxProps;
 
-export class NeonPairBase extends React.Component<NeonPairProps> {
+export const NeonPairBase: React.FC<NeonPairProps> = (props: NeonPairProps) => {
 
-    public render() {
-
-        return (<NeonBox {...boxProps(this.props, NeonInputStyle.pair)}>
-            <div>{this.props.label}</div>
-            <NeonEditableText
-                autofocus={this.props.autofocus}
-                ignoreTheme
-                value={this.props.value}
-                onChange={this.props.onChange}
-                onBlur={this.props.onBlur}
-                onEnter={this.props.onEnter}
-                tabIndex={this.props.tabIndex}
-                type={this.props.type}
-            />
-        </NeonBox>);
-    }
-}
+    return (
+        <NeonBox
+            {...boxProps(props, NeonInputStyle.pair)}
+        >
+            <div
+                className={NeonInputStyle.pairLabel}>
+                {props.label}
+            </div>
+            {
+                props.editable
+                    ? <NeonEditableText
+                        className={NeonInputStyle.pairText}
+                        autofocus={props.autofocus}
+                        ignoreTheme
+                        value={props.value}
+                        onChange={props.onChange}
+                        onBlur={props.onBlur}
+                        onEnter={props.onEnter}
+                        tabIndex={props.tabIndex}
+                        type={props.type}
+                    />
+                    : <div
+                        className={NeonInputStyle.pairRaw}>
+                        {props.value}
+                    </div>
+            }
+        </NeonBox>
+    );
+};
 
 export const NeonPair: ThemedComponent<NeonPairProps> = withConsumer<NeonPairProps>(NeonPairBase);
