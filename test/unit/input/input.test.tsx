@@ -31,7 +31,7 @@ describe('Given a <Input /> Component', (): void => {
         );
     };
 
-    it('should render a card element', (): void => {
+    it('should render a box element', (): void => {
 
         const component: ShallowWrapper = render();
 
