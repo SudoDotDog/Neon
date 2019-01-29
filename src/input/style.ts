@@ -25,15 +25,17 @@ const NeonInputStyleBase: JSSStyle = {
         display: 'flex',
         alignItems: 'center',
         fontFamily: 'system-ui',
-        fontWeight: 'bold',
     },
     pairLabel: {
 
         color: COLOR.WHITE,
+        fontWeight: 'bold',
+
         textAlign: 'right',
         paddingTop: '0.2rem',
         paddingRight: '0.6rem',
         paddingLeft: '0.6rem',
+
         flex: 1,
     },
     pairText: {
