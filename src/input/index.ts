@@ -13,6 +13,6 @@ export { INPUT_TYPE } from "./declare";
 export { NeonEditable, NeonEditableProps } from "./editable";
 export { NeonEditableText, NeonEditableTextProps } from "./editableText";
 export { NeonInput, NeonInputProps } from "./input";
+export { NeonPair, NeonPairProps } from "./pair";
 export { NeonText, NeonTextProps } from "./text";
-
 

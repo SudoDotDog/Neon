@@ -1,0 +1,44 @@
+import { NeonPair } from "../../src/input";
+import { NeonThemeProvider } from "../../src/theme";
+import { MARGIN, SIZE, WIDTH } from "../../src/declare";
+
+# Neon Pair
+
+<NeonPair
+    {...this.props.events}
+    value={this.props.value}
+    label={this.props.label}
+/>
+
+- With Margin
+
+<NeonPair
+    {...this.props.events}
+    value={""}
+    label={this.props.label}
+/>
+
+- With Theme
+
+<NeonThemeProvider value={{
+    margin: MARGIN.SMALL,
+    main: {
+        color: 'red',
+    },
+}}>
+    <NeonPair
+        {...this.props.events}
+        value={this.props.value}
+        label={this.props.label}
+    />
+    <NeonPair
+        {...this.props.events}
+        value={this.props.value}
+        label={this.props.label}
+    />
+    <NeonPair
+        {...this.props.events}
+        value={this.props.value}
+        label={this.props.label}
+    />
+</NeonThemeProvider>

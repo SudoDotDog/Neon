@@ -39,9 +39,6 @@ const NeonInputStyleBase: JSSStyle = {
     },
     notEditableInput: {
 
-        display: 'inline-block',
-        textIndent: '0px',
-        textShadow: 'none',
         marginTop: '1px',
 
         fontFamily: 'system-ui',
