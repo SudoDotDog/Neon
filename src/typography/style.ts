@@ -38,6 +38,8 @@ const NeonTypographyStyleBase: JSSStyle = {
     },
     tag: {
         paddingLeft: '0.6rem',
+    },
+    sign: {
         borderLeft: `0.4rem solid ${COLOR.NAVY}`,
     },
 };
