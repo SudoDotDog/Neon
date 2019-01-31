@@ -1347,10 +1347,10 @@
     react-modal "^3.6.1"
     react-treebeard "^3.1.0"
 
-"@sudoo/bark@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sudoo/bark/-/bark-2.0.0.tgz#3faeaea206a28e0a30a19c681a665f16d99f2909"
-  integrity sha512-osSqt1xlSSEKDJh7OezHaXF4T9sjJmrzFEaGCUz/mJewrEoKCN4dHBCzbZi/HTpUUmuwxrqEj+7J96Hj6ckgSg==
+"@sudoo/bark@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@sudoo/bark/-/bark-2.0.1.tgz#3c696b69b5884905424e8d9d52f492c306dbd19b"
+  integrity sha512-WE23+pNU+wFtDatWYVAQV7VPYlgeN+DE+z0+JvEyXgjjCTlOlM32Q7imUwO45JcjKDGTc9izffzcEM9UXO4r9g==
 
 "@sudoo/react-force-dev@^1.1.0":
   version "1.1.0"

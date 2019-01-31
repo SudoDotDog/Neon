@@ -6,6 +6,7 @@
     "@storybook/addon-info": "^4.1.11",
     "@storybook/addon-knobs": "^4.1.11",
     "@storybook/react": "^4.1.11",
+    "@sudoo/bark": "^2.0.1",
     "@sudoo/react-force": "^1.1.0",
     "@sudoo/react-force-dev": "^1.1.0",
     "@sudoo/triforce": "^1.2.0",
@@ -19,9 +20,6 @@
     "jss-preset-default": "^10.0.0-alpha.9",
     "react": "^16.7.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0"
-  },
-  "dependencies": {
-    "@sudoo/bark": "^2.0.0"
   },
   "nyc": {
     "extension": [
