@@ -4,7 +4,7 @@
  * @description List
  */
 
-import { _Map } from "@sudoo/bark";
+import { keys, lash_mutate } from "@sudoo/bark/map";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
@@ -47,7 +47,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
     private _renderBody() {
 
         const list: Record<string, string> = this.props.list;
-        return _Map.keys(list).map((key: string, index: number) => {
+        return keys(list).map((key: string, index: number) => {
 
             const value: string = list[key] as string;
             return (<tr key={index}>
@@ -76,7 +76,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
                 if (this.props.onChange) {
 
                     const newList: Record<string, string> =
-                        _Map.lash_mutate(this.props.list, key, value, newKey);
+                        lash_mutate(this.props.list, key, value, newKey);
 
                     this.props.onChange(newList);
                 }
@@ -93,7 +93,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
                 if (this.props.onChange) {
 
                     const newList: Record<string, string> =
-                        _Map.lash_mutate(this.props.list, key, newValue);
+                        lash_mutate(this.props.list, key, newValue);
 
                     this.props.onChange(newList);
                 }

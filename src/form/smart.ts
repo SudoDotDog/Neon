@@ -4,7 +4,7 @@
  * @description Smart
  */
 
-import { _Map } from "@sudoo/bark";
+import { keys } from "@sudoo/bark/map";
 import * as React from "react";
 import { ExcludeTheme } from "../#common/consumer";
 import { NeonButton } from "../button/index";
@@ -57,7 +57,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _renderForm(): React.ReactNode {
 
-        return _Map.keys(this.props.form).map((key: string) => {
+        return keys(this.props.form).map((key: string) => {
 
             const type: INPUT_TYPE = this.props.form[key];
 
@@ -98,7 +98,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _getResponse(): Record<string, any> {
 
-        return _Map.keys(this.props.form)
+        return keys(this.props.form)
             .reduce((previous: Record<string, any>, current: string) => {
 
                 return {
