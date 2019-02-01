@@ -9,8 +9,11 @@ import * as React from "react";
 import { NeonButton } from "../button/index";
 import { SIZE, WIDTH } from "../declare/index";
 import { INPUT_TYPE, NeonInput } from "../input/index";
+import { NeonIndicator } from "../spinner/index";
 
 export type NeonSmartFormProps = {
+
+    readonly loading?: boolean;
 
     readonly form: Record<string, INPUT_TYPE>;
     readonly defaultValue?: Record<string, any>;
@@ -40,10 +43,14 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     public render(): JSX.Element {
 
-        return React.createElement(React.Fragment, {}, [
-            this._renderForm(),
-            this._renderSubmit(),
-        ]);
+        return (
+            <NeonIndicator
+                loading={this.props.loading || false}
+            >
+                {this._renderForm()}
+                {this._renderSubmit()}
+            </NeonIndicator>
+        );
     }
 
     private _submit(): void {
