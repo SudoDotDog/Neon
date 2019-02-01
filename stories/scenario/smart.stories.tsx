@@ -34,8 +34,6 @@ componentStories.add(
             <NeonThemeProvider value={{
                 margin: MARGIN.SMALL,
             }}>
-
-
                 <NeonSmartForm
                     submit="Click me"
                     onSubmit={(response: any) => {

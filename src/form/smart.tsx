@@ -6,10 +6,9 @@
 
 import { keys } from "@sudoo/bark/map";
 import * as React from "react";
-import { ExcludeTheme } from "../#common/consumer";
 import { NeonButton } from "../button/index";
 import { SIZE, WIDTH } from "../declare/index";
-import { INPUT_TYPE, NeonInput, NeonInputProps } from "../input";
+import { INPUT_TYPE, NeonInput } from "../input/index";
 
 export type NeonSmartFormProps = {
 
@@ -31,6 +30,13 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
         current: {},
     };
+
+    public constructor(props: NeonSmartFormProps) {
+
+        super(props);
+
+        this._submit = this._submit.bind(this);
+    }
 
     public render(): JSX.Element {
 
@@ -61,24 +67,14 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
             const type: INPUT_TYPE = this.props.form[key];
 
-            const inputProps: ExcludeTheme<{ key: string } & NeonInputProps> = {
-
-                key,
-                label: key,
-                value: this._getValue(key),
-                onEnter: () => this._submit(),
-                onChange: (value: any) => {
-                    this.setState({
-                        current: {
-                            ...this.state.current,
-                            [key]: value,
-                        },
-                    });
-                },
-                type,
-            };
-
-            return React.createElement(NeonInput, inputProps);
+            return (<NeonInput
+                key={key}
+                label={key}
+                value={this._getValue(key)}
+                onEnter={this._submit}
+                onChange={this._getSetValueFunction(key)}
+                type={type}
+            />);
         });
     }
 
@@ -89,11 +85,21 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
         }
 
         if (this.props.defaultValue) {
-
             return this.props.defaultValue[key] || '';
         }
 
         return '';
+    }
+
+    private _getSetValueFunction(key: string): (value: any) => void {
+
+        return (value: any) =>
+            this.setState({
+                current: {
+                    ...this.state.current,
+                    [key]: value,
+                },
+            });
     }
 
     private _getResponse(): Record<string, any> {
