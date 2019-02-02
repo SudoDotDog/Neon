@@ -16,7 +16,7 @@ const componentStories = storiesOf('Components', module);
 const events = createAction();
 
 componentStories.add(
-    'NeonButton',
+    'Button',
     wInfo([NeonButtonBase], [NeonButton, ButtonMDX])(() => {
 
         const name: string = text('Name', 'Name');

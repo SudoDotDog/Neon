@@ -1,0 +1,44 @@
+import { NeonFlag, FLAG_TYPE } from "../../src/flag";
+import { MARGIN } from "../../src/declare";
+
+# Neon Flag
+
+- ERROR
+
+<NeonFlag type={FLAG_TYPE.ERROR}>
+    {this.props.message}
+</NeonFlag>
+
+- WARNING
+
+<NeonFlag type={FLAG_TYPE.WARNING}>
+    {this.props.message}
+</NeonFlag>
+
+- PLAIN
+
+<NeonFlag type={FLAG_TYPE.PLAIN}>
+    {this.props.message}
+</NeonFlag>
+
+With info
+<NeonFlag
+    info={this.props.message}
+    type={FLAG_TYPE.WARNING}>
+    {this.props.message}
+</NeonFlag>
+
+With info, Hidden
+<NeonFlag
+    info={this.props.message}
+    hidden={this.props.hidden}
+    type={FLAG_TYPE.WARNING}>
+    {this.props.message}
+</NeonFlag>
+
+With Margin
+<NeonFlag
+    margin={MARGIN.SMALL}
+    type={FLAG_TYPE.ERROR}>
+    {this.props.message}
+</NeonFlag>
