@@ -138,8 +138,9 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
         const flagClass: string = (() => {
             switch (this.props.type) {
                 case FLAG_TYPE.ERROR: return NeonFlagStyle.error;
-                case FLAG_TYPE.WARNING:
-                default: return NeonFlagStyle.warning;
+                case FLAG_TYPE.WARNING: return NeonFlagStyle.warning;
+                case FLAG_TYPE.PLAIN:
+                default: return NeonFlagStyle.plain;
             }
         })();
 

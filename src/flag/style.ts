@@ -83,6 +83,10 @@ const NeonFlagStyleBase: JSSStyle = {
         backgroundColor: COLOR.ORANGE,
         color: COLOR.WHITE,
     },
+    plain: {
+        backgroundColor: COLOR.WHITE,
+        color: COLOR.BLACK,
+    },
 };
 
 export const NeonFlagStyleSheet: StyleSheet = jss.createStyleSheet(NeonFlagStyleBase).attach();
