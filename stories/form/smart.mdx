@@ -1,0 +1,22 @@
+import { INPUT_TYPE, NeonSmartForm } from "../../src/form";
+import { NeonThemeProvider } from "../../src/theme";
+import { MARGIN } from "../../src/declare";
+
+# Neon Smart Form
+
+<NeonThemeProvider value={{
+    margin: MARGIN.SMALL,
+}}>
+    <NeonSmartForm
+        submit="Click me"
+        onSubmit={(response) => action('Submit')(response)}
+        form={this.props.structure}
+        flag={this.props.flag}
+        message={this.props.message}
+        info={this.props.info}
+        loading={this.props.loading}
+        defaultValue={{
+            hello: 'test',
+        }}
+    />
+</NeonThemeProvider>

@@ -14,7 +14,8 @@ import { NeonIndicator } from "../spinner/index";
 
 export type NeonSmartFormProps = {
 
-    readonly warning?: FLAG_TYPE;
+    readonly flag?: FLAG_TYPE;
+    readonly message?: string;
     readonly info?: string;
 
     readonly loading?: boolean;
@@ -64,14 +65,15 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _renderWarning(): React.ReactNode {
 
-        if (this.props.info) {
+        const hidden: boolean = !Boolean(this.props.message);
 
-            return (<NeonFlag type={this.props.warning || FLAG_TYPE.PLAIN}>
-                {this.props.info}
-            </NeonFlag>);
-        }
-
-        return null;
+        return (<NeonFlag
+            hidden={hidden}
+            type={this.props.flag || FLAG_TYPE.PLAIN}
+            info={this.props.info}
+        >
+            {this.props.message}
+        </NeonFlag>);
     }
 
     private _renderForm(): React.ReactNode {
