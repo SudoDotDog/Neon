@@ -8,10 +8,14 @@ import { keys } from "@sudoo/bark/map";
 import * as React from "react";
 import { NeonButton } from "../button/index";
 import { SIZE, WIDTH } from "../declare/index";
+import { FLAG_TYPE, NeonFlag } from "../flag/index";
 import { INPUT_TYPE, NeonInput } from "../input/index";
 import { NeonIndicator } from "../spinner/index";
 
 export type NeonSmartFormProps = {
+
+    readonly warning?: FLAG_TYPE;
+    readonly info?: string;
 
     readonly loading?: boolean;
 
@@ -41,12 +45,13 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
         this._submit = this._submit.bind(this);
     }
 
-    public render(): JSX.Element {
+    public render(): React.ReactNode {
 
         return (
             <NeonIndicator
                 loading={this.props.loading || false}
             >
+                {this._renderWarning()}
                 {this._renderForm()}
                 {this._renderSubmit()}
             </NeonIndicator>
@@ -57,15 +62,16 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
         this.props.onSubmit(this._getResponse());
     }
 
-    private _renderSubmit(): React.ReactNode {
+    private _renderWarning(): React.ReactNode {
 
-        return React.createElement(NeonButton, {
+        if (this.props.info) {
 
-            key: '__neon_submit_button',
-            width: WIDTH.FULL,
-            size: SIZE.MEDIUM,
-            onClick: () => this._submit(),
-        }, this.props.submit || 'Submit');
+            return (<NeonFlag type={this.props.warning || FLAG_TYPE.PLAIN}>
+                {this.props.info}
+            </NeonFlag>);
+        }
+
+        return null;
     }
 
     private _renderForm(): React.ReactNode {
@@ -83,6 +89,17 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
                 type={type}
             />);
         });
+    }
+
+    private _renderSubmit(): React.ReactNode {
+
+        return React.createElement(NeonButton, {
+
+            key: '__neon_submit_button',
+            width: WIDTH.FULL,
+            size: SIZE.MEDIUM,
+            onClick: () => this._submit(),
+        }, this.props.submit || 'Submit');
     }
 
     private _getValue(key: string): any {
