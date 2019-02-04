@@ -1,9 +1,18 @@
 import { NeonPill } from "../../src/pill";
 import { MARGIN } from "../../src/declare";
+import { action } from "@storybook/addon-actions";
 
 # Neon Pill
 
+- Normal
+
 <NeonPill>
+    {this.props.info}
+</NeonPill>
+
+- OnRemove
+
+<NeonPill onRemove={action('Remove')}>
     {this.props.info}
 </NeonPill>
 
