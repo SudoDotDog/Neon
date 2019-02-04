@@ -10,7 +10,7 @@ import { action } from "@storybook/addon-actions";
     {this.props.info}
 </NeonPill>
 
-- OnRemove
+- onRemove
 
 <NeonPill onRemove={action('Remove')}>
     {this.props.info}
@@ -20,5 +20,16 @@ import { action } from "@storybook/addon-actions";
 
 <NeonPill
     margin={MARGIN.SMALL}>
+    {this.props.info}
+</NeonPill>
+
+- Multiple onRemove with Margin
+
+<NeonPill
+    margin={MARGIN.SMALL} onRemove={action('Remove')}>
+    {this.props.info}
+</NeonPill>
+<NeonPill
+    margin={MARGIN.SMALL} onRemove={action('Remove')}>
     {this.props.info}
 </NeonPill>
