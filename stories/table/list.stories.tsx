@@ -39,7 +39,7 @@ class ListStory extends React.Component {
 
 componentStories.add(
     'Smart List',
-    wInfo([NeonSmartListBase], [NeonSmartList, ListMDX])(() => {
+    wInfo([NeonSmartListBase], [NeonSmartList, ListStory, ListMDX])(() => {
 
         return (<ListStory />);
     }),

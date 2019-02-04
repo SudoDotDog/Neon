@@ -27,6 +27,15 @@ const NeonPillStyleBase: JSSStyle = {
 
         width: '1.5rem',
     },
+
+    group: {
+
+        display: 'flex',
+    },
+    addButton: {
+
+        width: '3rem',
+    },
 };
 
 export const NeonPillStyleSheet: StyleSheet = jss.createStyleSheet(NeonPillStyleBase).attach();
