@@ -6,7 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../#common/declare";
-import { getBorder, JSSStyle } from "../#common/style";
+import { getBorder, JSSStyle, migrateFocusStyle } from "../#common/style";
 
 const NeonPillStyleBase: JSSStyle = {
 
@@ -32,9 +32,22 @@ const NeonPillStyleBase: JSSStyle = {
 
         display: 'flex',
     },
-    addButton: {
+    add: {
 
-        width: '3rem',
+        height: '1.7rem',
+        backgroundColor: COLOR.NAVY,
+        cursor: 'pointer',
+    },
+    select: {
+
+        border: 0,
+        backgroundColor: COLOR.TRANSPARENT,
+        outline: 0,
+        color: COLOR.WHITE,
+        height: '100%',
+        cursor: 'pointer',
+
+        ...migrateFocusStyle(),
     },
 };
 
