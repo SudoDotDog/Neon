@@ -5,9 +5,10 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../#common/components/box";
+import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
-import { MARGIN, SIZE, WIDTH } from "../declare";
+import { BoxProps } from "../#common/declare";
+import { SIZE, WIDTH } from "../declare";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style";
 
 export type NeonButtonProps = {
@@ -19,10 +20,9 @@ export type NeonButtonProps = {
     readonly className?: string;
     readonly width?: WIDTH;
     readonly size?: SIZE;
-    readonly style?: React.CSSProperties;
-    readonly margin?: MARGIN;
+
     readonly children?: any;
-} & ThemeProps;
+} & ThemeProps & BoxProps;
 
 export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
@@ -34,10 +34,8 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
     public render(): JSX.Element {
 
         return (
-            <NeonBox
-                style={this.props.style}
-                className={[this._getBoxSizeClass()].concat(this.props.className || []).join(' ')}
-                margin={this.props.margin}>
+            <NeonBox {...boxProps(this.props, this._getBoxSizeClass())}>
+
                 <button
                     disabled={this.props.disabled}
                     style={getNeonButtonStyle(this.props.theme)}

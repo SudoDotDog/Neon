@@ -5,9 +5,10 @@
  */
 
 import * as React from "react";
-import { NeonBox } from "../#common/components/box";
+import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
-import { MARGIN, SIZE } from "../declare";
+import { BoxProps } from "../#common/declare";
+import { SIZE } from "../declare";
 import { FLAG_TYPE } from "./declare";
 import { NeonFlagStyle } from "./style";
 
@@ -20,10 +21,8 @@ export type NeonFlagProps = {
 
     readonly hidden?: boolean;
 
-    readonly style?: React.CSSProperties;
-    readonly margin?: MARGIN;
     readonly children?: any;
-} & ThemeProps;
+} & ThemeProps & BoxProps;
 
 export type NeonFlagState = {
 
@@ -51,10 +50,7 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
 
     public render(): JSX.Element {
 
-        return (<NeonBox
-            margin={this.props.margin}
-            className={this._getFlagClasses()}
-            style={this.props.style}>
+        return (<NeonBox {...boxProps(this.props, this._getFlagClasses())}>
 
             <div className={NeonFlagStyle.main}>
                 <div className={NeonFlagStyle.content}>
