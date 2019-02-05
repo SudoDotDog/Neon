@@ -5,6 +5,7 @@ import { MARGIN } from "../../src/declare";
 
 <NeonSmartForm
     submit="Click me"
+    title={this.props.title}
     onSubmit={(response) => action('Submit')(response)}
     form={this.props.structure}
     flag={this.props.flag}

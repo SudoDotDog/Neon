@@ -25,11 +25,13 @@ componentStories.add(
         });
         const loading: boolean = boolean('Loading', false);
 
+        const title: string = text('title', 'title');
         const flag: FLAG_TYPE = text('flag', FLAG_TYPE.PLAIN) as any;
         const message: string = text('message', '');
         const info: string = text('info', '');
 
         return (<SmartMDX
+            title={title}
             structure={structure}
             loading={loading}
             flag={flag}

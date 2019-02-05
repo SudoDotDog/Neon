@@ -11,6 +11,7 @@ import { MARGIN, SIZE, WIDTH } from "../declare/index";
 import { FLAG_TYPE, NeonFlag } from "../flag/index";
 import { INPUT_TYPE, NeonInput } from "../input/index";
 import { NeonIndicator } from "../spinner/index";
+import { NeonTitle } from "../typography/title";
 
 export type NeonSmartFormProps = {
 
@@ -55,6 +56,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             <NeonIndicator
                 loading={this.props.loading || false}
             >
+                {this._renderTitle()}
                 {this._renderWarning()}
                 {this._renderForm()}
                 {this._renderSubmit()}
@@ -64,6 +66,20 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _submit(): void {
         this.props.onSubmit(this._getResponse());
+    }
+
+    private _renderTitle(): React.ReactNode {
+
+        if (!Boolean(this.props.title)) {
+            return null;
+        }
+
+        return (<NeonTitle
+            ignoreTheme
+            margin={this.props.margin || MARGIN.SMALL}
+        >
+            {this.props.title}
+        </NeonTitle>);
     }
 
     private _renderWarning(): React.ReactNode {
