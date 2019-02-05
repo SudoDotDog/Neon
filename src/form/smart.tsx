@@ -7,12 +7,14 @@
 import { keys } from "@sudoo/bark/map";
 import * as React from "react";
 import { NeonButton } from "../button/index";
-import { SIZE, WIDTH } from "../declare/index";
+import { MARGIN, SIZE, WIDTH } from "../declare/index";
 import { FLAG_TYPE, NeonFlag } from "../flag/index";
 import { INPUT_TYPE, NeonInput } from "../input/index";
 import { NeonIndicator } from "../spinner/index";
 
 export type NeonSmartFormProps = {
+
+    readonly title?: string;
 
     readonly flag?: FLAG_TYPE;
     readonly message?: string;
@@ -23,6 +25,7 @@ export type NeonSmartFormProps = {
     readonly form: Record<string, INPUT_TYPE>;
     readonly defaultValue?: Record<string, any>;
 
+    readonly margin?: MARGIN;
     readonly submit?: string;
     readonly onSubmit: <T>(content: T) => void;
 };
@@ -71,6 +74,8 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             hidden={hidden}
             type={this.props.flag || FLAG_TYPE.PLAIN}
             info={this.props.info}
+            ignoreTheme
+            margin={this.props.margin || MARGIN.SMALL}
         >
             {this.props.message}
         </NeonFlag>);
@@ -89,6 +94,8 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
                 onEnter={this._submit}
                 onChange={this._getSetValueFunction(key)}
                 type={type}
+                ignoreTheme
+                margin={this.props.margin || MARGIN.SMALL}
             />);
         });
     }
@@ -100,6 +107,8 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             width={WIDTH.FULL}
             size={SIZE.MEDIUM}
             onClick={this._submit}
+            ignoreTheme
+            margin={this.props.margin || MARGIN.SMALL}
         >
             {this.props.submit || 'Submit'}
         </NeonButton>);
