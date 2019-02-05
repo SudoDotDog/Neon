@@ -76,7 +76,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
         return (<NeonTitle
             ignoreTheme
-            margin={this.props.margin || MARGIN.SMALL}
+            margin={this._getMargin()}
         >
             {this.props.title}
         </NeonTitle>);
@@ -84,14 +84,15 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _renderWarning(): React.ReactNode {
 
-        const hidden: boolean = !Boolean(this.props.message);
+        if (!Boolean(this.props.message)) {
+            return null;
+        }
 
         return (<NeonFlag
-            hidden={hidden}
             type={this.props.flag || FLAG_TYPE.PLAIN}
             info={this.props.info}
             ignoreTheme
-            margin={this.props.margin || MARGIN.SMALL}
+            margin={this._getMargin()}
         >
             {this.props.message}
         </NeonFlag>);
@@ -111,7 +112,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
                 onChange={this._getSetValueFunction(key)}
                 type={type}
                 ignoreTheme
-                margin={this.props.margin || MARGIN.SMALL}
+                margin={this._getMargin()}
             />);
         });
     }
@@ -124,10 +125,15 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             size={SIZE.MEDIUM}
             onClick={this._submit}
             ignoreTheme
-            margin={this.props.margin || MARGIN.SMALL}
+            margin={this._getMargin()}
         >
             {this.props.submit || 'Submit'}
         </NeonButton>);
+    }
+
+    private _getMargin(): MARGIN {
+
+        return this.props.margin || MARGIN.SMALL;
     }
 
     private _getValue(key: string): any {
