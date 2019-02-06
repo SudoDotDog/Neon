@@ -27,11 +27,12 @@ componentStories.add(
 
         const label: string = text('Label', 'Label');
         const loading: boolean = boolean('Loading', false);
+        const covering: boolean = boolean('Covering', false);
 
         return (<div>
             <NeonPaper>
                 From
-                <NeonIndicator loading={loading}>
+                <NeonIndicator loading={loading} covering={covering} cover={label}>
                     <div>
                         <NeonInput label={label} />
                         <NeonInput label={label} />

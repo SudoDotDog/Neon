@@ -74,6 +74,13 @@ const NeonIndicatorStyleBase: JSSStyle = {
     wrap: {
         transition: '0.3s all ease-in-out',
     },
+    cover: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+
+        transition: '0.3s all ease-in-out',
+    },
     spinner: {
         position: 'absolute',
         display: 'flex',
@@ -87,17 +94,17 @@ const NeonIndicatorStyleBase: JSSStyle = {
 
         pointerEvents: 'none',
     },
-    visible: {
-        visibility: 'visible',
-        opacity: 1,
-
-        pointerEvents: 'auto',
-    },
     invisible: {
         visibility: 'hidden',
         opacity: 0,
 
         pointerEvents: 'none',
+    },
+    visible: {
+        visibility: 'visible',
+        opacity: 1,
+
+        pointerEvents: 'auto',
     },
 };
 

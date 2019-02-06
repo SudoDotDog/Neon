@@ -36,6 +36,16 @@ export const assertIfFalse = (condition: any, name: string): string | undefined 
     return assertIfTrue(!Boolean(condition), name);
 };
 
+export const assertIfTri = (condition: any, ifTrue: string, ifFalse: string): string => {
+
+    if (Boolean(condition)) {
+
+        return ifTrue;
+    }
+
+    return ifFalse;
+};
+
 export const getBorder = (color: string, width: string = '0.2rem') => ({
 
     borderColor: color,
