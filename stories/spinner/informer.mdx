@@ -1,4 +1,4 @@
-import { NeonInformer } from "../../src/spinner";
+import { NeonInformer, NeonSpinner } from "../../src/spinner";
 import { MARGIN } from "../../src/declare";
 
 # Neon Informer
@@ -6,3 +6,9 @@ import { MARGIN } from "../../src/declare";
 <NeonInformer>
     {this.props.message}
 </NeonInformer>
+<NeonInformer>
+    {this.props.message}
+</NeonInformer>
+<NeonSpinner loading>
+    {this.props.message}
+</NeonSpinner>

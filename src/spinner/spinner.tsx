@@ -65,7 +65,7 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
     private _frontClass(): string | undefined {
 
         return mergeClasses(
-            NeonSpinnerStyle.back,
+            NeonSpinnerStyle.front,
             this.props.loading ? NeonSpinnerStyle.enableFront : NeonSpinnerStyle.disable,
             assertIfTrue(this.state.spinning, NeonSpinnerStyle.spinningFront),
         );

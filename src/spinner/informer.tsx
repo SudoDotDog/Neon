@@ -6,7 +6,8 @@
 
 import * as React from "react";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
-import { NeonSpinnerStyle } from "./style";
+import { mergeClasses } from "../#common/style";
+import { NeonInformerStyle, NeonSpinnerStyle } from "./style";
 
 export type NeonInformerProps = {
 
@@ -24,9 +25,27 @@ export class NeonInformerBase extends React.Component<NeonInformerProps, NeonInf
 
         return (<div className={NeonSpinnerStyle.loading}>
             <div className={NeonSpinnerStyle.outer} >
-                <div style={{ width: '100px', backgroundColor: 'red' }} />
+                <div className={this._frontClass()} />
+                <div className={this._backClass()} />
             </div>
         </div>);
+    }
+
+    private _frontClass(): string | undefined {
+
+        return mergeClasses(
+            NeonSpinnerStyle.front,
+            NeonSpinnerStyle.enableFront,
+        );
+    }
+
+    private _backClass(): string | undefined {
+
+        return mergeClasses(
+            NeonSpinnerStyle.back,
+            NeonSpinnerStyle.enableBack,
+            NeonInformerStyle.informerBack,
+        );
     }
 }
 

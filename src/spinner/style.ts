@@ -25,9 +25,28 @@ const keyframes = {
 
     '100%': 'transform: rotate(360deg)',
 };
+const informerKeyframes = {
+    '0%': 'transform: rotate(0deg)',
+    '10%': 'transform: rotate(45deg)',
+    '20%': 'transform: rotate(60deg)',
+    '30%': 'transform: rotate(90deg)',
+    '40%': 'transform: rotate(120deg)',
+    '50%': 'transform: rotate(150deg)',
+    '60%': 'transform: rotate(160deg)',
+    '70%': 'transform: rotate(180deg)',
+    '80%': 'transform: rotate(225deg)',
+    '90%': 'transform: rotate(300deg)',
+    '100%': 'transform: rotate(360deg)',
+};
 
 const NeonInformerStyleBase: JSSStyle = {
 
+    informerBack: {
+        animation: 'neon-informer-rotate 20s infinite',
+    },
+    '@global': {
+        '@keyframes neon-informer-rotate': informerKeyframes,
+    },
 };
 
 const NeonSpinnerStyleBase: JSSStyle = {
