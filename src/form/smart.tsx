@@ -6,6 +6,8 @@
 
 import { keys } from "@sudoo/bark/map";
 import * as React from "react";
+import { boxProps } from "../#common/components/box";
+import { BoxProps } from "../#common/declare";
 import { NeonButton } from "../button/index";
 import { MARGIN, SIZE, WIDTH } from "../declare/index";
 import { FLAG_TYPE, NeonFlag } from "../flag/index";
@@ -26,10 +28,10 @@ export type NeonSmartFormProps = {
     readonly form: Record<string, INPUT_TYPE>;
     readonly defaultValue?: Record<string, any>;
 
-    readonly margin?: MARGIN;
+    readonly rift?: MARGIN;
     readonly submit?: string;
     readonly onSubmit: <T>(content: T) => void;
-};
+} & BoxProps;
 
 export type NeonSmartFormStates = {
 
@@ -54,6 +56,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
         return (
             <NeonIndicator
+                {...boxProps(this.props)}
                 loading={this.props.loading || false}
             >
                 {this._renderTitle()}
@@ -133,7 +136,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _getMargin(): MARGIN {
 
-        return this.props.margin || MARGIN.SMALL;
+        return this.props.rift || MARGIN.SMALL;
     }
 
     private _getValue(key: string): any {
