@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
+import { assertIfTrue, mergeClasses } from "../#common/style";
 import { NeonSpinnerStyle } from "./style";
 
 export type NeonSpinnerProps = {
@@ -61,34 +62,22 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
         </div>);
     }
 
-    private _frontClass(): string {
+    private _frontClass(): string | undefined {
 
-        const classes: string[] = [
-            NeonSpinnerStyle.front,
+        return mergeClasses(
+            NeonSpinnerStyle.back,
             this.props.loading ? NeonSpinnerStyle.enableFront : NeonSpinnerStyle.disable,
-        ];
-
-        if (this.state.spinning) {
-
-            classes.push(NeonSpinnerStyle.spinningFront);
-        }
-
-        return classes.join(' ');
+            assertIfTrue(this.state.spinning, NeonSpinnerStyle.spinningFront),
+        );
     }
 
-    private _backClass(): string {
+    private _backClass(): string | undefined {
 
-        const classes: string[] = [
+        return mergeClasses(
             NeonSpinnerStyle.back,
             this.props.loading ? NeonSpinnerStyle.enableBack : NeonSpinnerStyle.disable,
-        ];
-
-        if (this.state.spinning) {
-
-            classes.push(NeonSpinnerStyle.spinningBack);
-        }
-
-        return classes.join(' ');
+            assertIfTrue(this.state.spinning, NeonSpinnerStyle.spinningBack),
+        );
     }
 }
 

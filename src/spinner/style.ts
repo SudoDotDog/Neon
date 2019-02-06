@@ -26,6 +26,10 @@ const keyframes = {
     '100%': 'transform: rotate(360deg)',
 };
 
+const NeonInformerStyleBase: JSSStyle = {
+
+};
+
 const NeonSpinnerStyleBase: JSSStyle = {
 
     loading: {
@@ -69,15 +73,12 @@ const NeonSpinnerStyleBase: JSSStyle = {
 const NeonIndicatorStyleBase: JSSStyle = {
 
     box: {
-
         position: 'relative',
     },
     wrap: {
-
         transition: '0.3s all ease-in-out',
     },
     spinner: {
-
         position: 'absolute',
         display: 'flex',
         top: 0,
@@ -91,14 +92,12 @@ const NeonIndicatorStyleBase: JSSStyle = {
         pointerEvents: 'none',
     },
     visible: {
-
         visibility: 'visible',
         opacity: 1,
 
         pointerEvents: 'auto',
     },
     invisible: {
-
         visibility: 'hidden',
         opacity: 0,
 
@@ -108,6 +107,9 @@ const NeonIndicatorStyleBase: JSSStyle = {
 
 export const NeonSpinnerStyleSheet: StyleSheet = jss.createStyleSheet(NeonSpinnerStyleBase).attach();
 export const NeonSpinnerStyle: Classes = NeonSpinnerStyleSheet.classes;
+
+export const NeonInformerStyleSheet: StyleSheet = jss.createStyleSheet(NeonInformerStyleBase).attach();
+export const NeonInformerStyle: Classes = NeonInformerStyleSheet.classes;
 
 export const NeonIndicatorStyleSheet: StyleSheet = jss.createStyleSheet(NeonIndicatorStyleBase).attach();
 export const NeonIndicatorStyle: Classes = NeonIndicatorStyleSheet.classes;

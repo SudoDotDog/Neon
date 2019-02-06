@@ -9,5 +9,6 @@ import { NeonRegister } from "../#common/register";
 NeonRegister.register();
 
 export { NeonIndicator, NeonIndicatorProps } from "./indicator";
+export { NeonInformer, NeonInformerProps } from "./informer";
 export { NeonSpinner, NeonSpinnerProps } from "./spinner";
 
