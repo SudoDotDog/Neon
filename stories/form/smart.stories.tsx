@@ -32,6 +32,8 @@ componentStories.add(
         const flag: FLAG_TYPE = text('flag', FLAG_TYPE.PLAIN) as any;
         const message: string = text('message', '');
         const info: string = text('info', '');
+        const cover: string = text('cover', '');
+        const covering: boolean = boolean('covering', false);
 
         return (<SmartMDX
             title={title}
@@ -42,6 +44,8 @@ componentStories.add(
             flag={flag}
             message={message}
             info={info}
+            cover={cover}
+            covering={covering}
         />);
     }),
 );

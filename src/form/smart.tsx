@@ -24,6 +24,8 @@ export type NeonSmartFormProps = {
     readonly info?: string;
 
     readonly loading?: boolean;
+    readonly covering?: boolean;
+    readonly cover?: React.ReactNode;
 
     readonly form: Record<string, INPUT_TYPE>;
     readonly defaultValue?: Record<string, any>;
@@ -57,7 +59,9 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
         return (
             <NeonIndicator
                 {...boxProps(this.props)}
-                loading={this.props.loading || false}
+                loading={this.props.loading}
+                covering={this.props.covering}
+                cover={this.props.cover}
             >
                 {this._renderTitle()}
                 {this._renderWarning()}
