@@ -12,15 +12,25 @@ import { NeonTableStyle } from "./style";
 
 export type NeonTableProps = {
 
+    readonly headers?: string[];
+
     readonly children?: any;
 } & ThemeProps & BoxProps;
 
 export const NeonTableBase: React.FC<NeonTableProps> =
     (props: NeonTableProps) => {
 
+        const header: string[] = props.headers || [];
+        const headers = header.map((element: string, index: number) => <th key={index}>{element}</th>);
+
         return (<NeonBox {...boxProps(props)}>
             <table className={NeonTableStyle.table}>
-                {props.children}
+                <thead>
+                    <tr>
+                        {headers}
+                    </tr>
+                </thead>
+                <tbody>{props.children}</tbody>
             </table>
         </NeonBox>);
     };
