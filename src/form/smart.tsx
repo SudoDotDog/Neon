@@ -81,10 +81,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             return null;
         }
 
-        return (<NeonTitle
-            ignoreTheme
-            margin={this._getMargin()}
-        >
+        return (<NeonTitle ignoreTheme margin={this._getMargin()}>
             {this.props.title}
         </NeonTitle>);
     }
