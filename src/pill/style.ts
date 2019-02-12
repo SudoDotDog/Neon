@@ -49,6 +49,10 @@ const NeonPillStyleBase: JSSStyle = {
 
         ...migrateFocusStyle(),
     },
+    option: {
+
+        color: COLOR.NAVY,
+    },
 };
 
 export const NeonPillStyleSheet: StyleSheet = jss.createStyleSheet(NeonPillStyleBase).attach();

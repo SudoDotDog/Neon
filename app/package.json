@@ -1,6 +1,6 @@
 {
   "name": "@sudoo/neon",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "description": ":milky_way: React components collection",
   "repository": {
     "type": "git",
@@ -18,8 +18,8 @@
   "homepage": "https://github.com/SudoDotDog/Neon#readme",
   "dependencies": {
     "@sudoo/bark": "^2.1.0",
-    "jss": "^10.0.0-alpha.9",
-    "jss-preset-default": "^10.0.0-alpha.9"
+    "jss": "^10.0.0-alpha.10",
+    "jss-preset-default": "^10.0.0-alpha.10"
   },
   "peerDependencies": {
     "react": "*",

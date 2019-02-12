@@ -59,7 +59,7 @@ export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillG
                             {props.add || 'Add...'}
                         </option>
                         {props.options.filter((option: string) => !props.selected.includes(option)).map((option: string) =>
-                            <option value={option} key={option}>{option}</option>)}
+                            <option value={option} key={option} className={NeonPillStyle.option}>{option}</option>)}
                     </select>
                 </NeonBox>}
         </NeonBox>
