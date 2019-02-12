@@ -14,10 +14,13 @@ import { NeonPillStyle } from "./style";
 
 export type NeonPillGroupProps = {
 
-    selected: string[];
-    add?: string;
-    options?: string[];
-    onChange?: (selected: string[]) => void;
+    readonly selected: string[];
+    readonly addable?: boolean;
+    readonly removable?: boolean;
+
+    readonly addText?: string;
+    readonly options?: string[];
+    readonly onChange?: (selected: string[]) => void;
 } & ThemeProps & BoxProps;
 
 export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillGroupProps) => {
@@ -29,22 +32,24 @@ export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillG
                     key={key}
                     ignoreTheme
                     margin={MARGIN.TINY}
-                    onRemove={props.onChange && (() => {
+                    onRemove={Boolean(props.removable) ? (() => {
                         const newSelected: string[] = [...props.selected];
                         newSelected.splice(index, 1);
 
                         (props as any).onChange(newSelected);
-                    })}
+                    }) : undefined}
                 >
                     {key}
                 </NeonPill>
             ),
         );
 
+    const options: string[] = props.options || [];
+
     return (
         <NeonBox {...boxProps(props, NeonPillStyle.group)}>
             {pills}
-            {props.options &&
+            {props.addable &&
                 <NeonBox margin={MARGIN.TINY} className={NeonPillStyle.add}>
                     <select
                         value="__Neon_Default_Option"
@@ -56,9 +61,9 @@ export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillG
                             value="__Neon_Default_Option"
                             disabled
                             hidden>
-                            {props.add || 'Add...'}
+                            {props.addText || 'Add...'}
                         </option>
-                        {props.options.filter((option: string) => !props.selected.includes(option)).map((option: string) =>
+                        {options.filter((option: string) => !props.selected.includes(option)).map((option: string) =>
                             <option value={option} key={option} className={NeonPillStyle.option}>{option}</option>)}
                     </select>
                 </NeonBox>}

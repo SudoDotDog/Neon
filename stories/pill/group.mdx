@@ -2,7 +2,32 @@ import { NeonPillGroup } from "../../src/pill";
 
 # Neon Pill Group
 
+- Addable
+
 <NeonPillGroup
+    addable
+    addText="Add Text"
+    options={this.props.options}
+    selected={this.props.selected}
+    onChange={this.props.onChange}
+/>
+
+- Removable
+
+<NeonPillGroup
+    removable
+    addText="Add Text"
+    options={this.props.options}
+    selected={this.props.selected}
+    onChange={this.props.onChange}
+/>
+
+- Addable and Removable
+
+<NeonPillGroup
+    addable
+    removable
+    addText="Add Text"
     options={this.props.options}
     selected={this.props.selected}
     onChange={this.props.onChange}
