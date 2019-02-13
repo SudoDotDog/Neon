@@ -7,17 +7,19 @@
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
-import { NeonButton } from "../button/index";
-import { MARGIN, SIZE, WIDTH } from "../declare/index";
-import { FLAG_TYPE, NeonFlag } from "../flag/index";
-import { NeonInput } from "../input/index";
-import { NeonIndicator } from "../spinner/index";
+import { NeonButton } from "../button";
+import { MARGIN, SIZE, WIDTH } from "../declare";
+import { FLAG_TYPE, NeonFlag } from "../flag";
+import { NeonInput } from "../input";
+import { NeonIndicator } from "../spinner";
 import { NeonTitle } from "../typography/title";
 import { NeonFromStructure, parseStructure, RenderableFormElement } from "./structure";
 
 export type NeonSmartFormProps = {
 
     readonly title?: string;
+    readonly titleBorderless?: boolean;
+    readonly titleSize?: SIZE;
 
     readonly flag?: FLAG_TYPE;
     readonly message?: string;
@@ -80,7 +82,12 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             return null;
         }
 
-        return (<NeonTitle ignoreTheme margin={this._getMargin()}>
+        return (<NeonTitle
+            ignoreTheme
+            margin={this._getMargin()}
+            removeBorder={this.props.titleBorderless}
+            size={this.props.titleSize}
+        >
             {this.props.title}
         </NeonTitle>);
     }
