@@ -10,5 +10,5 @@ NeonRegister.register();
 
 export { INPUT_TYPE } from "../input/declare";
 export { NeonSmartForm, NeonSmartFormProps } from "./smart";
-export { NeonFromStructure } from "./structure";
+export { FromElement, NeonFromStructure } from "./structure";
 

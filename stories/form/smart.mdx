@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import { INPUT_TYPE, NeonSmartForm } from "../../src/form";
 import { MARGIN } from "../../src/declare";
 
@@ -14,9 +15,6 @@ import { MARGIN } from "../../src/declare";
     message={this.props.message}
     info={this.props.info}
     loading={this.props.loading}
-    defaultValue={{
-        hello: 'test',
-    }}
     cover={this.props.cover}
     covering={this.props.covering}
 />
