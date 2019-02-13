@@ -144,7 +144,11 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             return this.state.current[key];
         }
 
-        return defaultValue;
+        if (this.state.current[key] === undefined) {
+            return defaultValue;
+        }
+
+        return '';
     }
 
     private _getSetValueFunction(key: string): (value: any) => void {
