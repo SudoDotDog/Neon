@@ -4,17 +4,16 @@
  * @description Smart
  */
 
-import { keys } from "@sudoo/bark/map";
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
 import { NeonButton } from "../button/index";
 import { MARGIN, SIZE, WIDTH } from "../declare/index";
 import { FLAG_TYPE, NeonFlag } from "../flag/index";
-import { INPUT_TYPE, NeonInput } from "../input/index";
+import { NeonInput } from "../input/index";
 import { NeonIndicator } from "../spinner/index";
 import { NeonTitle } from "../typography/title";
-import { NeonFromStructure } from "./structure";
+import { NeonFromStructure, parseStructure, RenderableFormElement } from "./structure";
 
 export type NeonSmartFormProps = {
 
@@ -29,7 +28,6 @@ export type NeonSmartFormProps = {
     readonly cover?: React.ReactNode;
 
     readonly form: NeonFromStructure;
-    readonly defaultValue?: Record<string, any>;
 
     readonly rift?: MARGIN;
     readonly submit?: string;
@@ -105,21 +103,20 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _renderForm(): React.ReactNode {
 
-        return keys(this.props.form).map((key: string) => {
+        const renderableStructure: RenderableFormElement[] = parseStructure(this.props.form);
 
-            const type: INPUT_TYPE = this.props.form[key];
-
-            return (<NeonInput
-                key={key}
-                label={key}
-                value={this._getValue(key)}
+        return renderableStructure.map((element: RenderableFormElement) =>
+            (<NeonInput
+                key={element.key}
+                label={element.display}
+                value={this._getValue(element.key, element.defaultValue)}
                 onEnter={this._submit}
-                onChange={this._getSetValueFunction(key)}
-                type={type}
+                onChange={this._getSetValueFunction(element.key)}
+                type={element.type}
                 ignoreTheme
                 margin={this._getMargin()}
-            />);
-        });
+            />),
+        );
     }
 
     private _renderSubmit(): React.ReactNode {
@@ -141,17 +138,13 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
         return this.props.rift || MARGIN.SMALL;
     }
 
-    private _getValue(key: string): any {
+    private _getValue(key: string, defaultValue: any): any {
 
         if (this.state.current[key]) {
             return this.state.current[key];
         }
 
-        if (this.props.defaultValue) {
-            return this.props.defaultValue[key] || '';
-        }
-
-        return '';
+        return defaultValue;
     }
 
     private _getSetValueFunction(key: string): (value: any) => void {
@@ -167,14 +160,11 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _getResponse(): Record<string, any> {
 
-        return keys(this.props.form)
-            .reduce((previous: Record<string, any>, current: string) => {
+        const renderableStructure: RenderableFormElement[] = parseStructure(this.props.form);
 
-                return {
-
-                    ...previous,
-                    [current]: this._getValue(current),
-                };
-            }, {});
+        return renderableStructure.reduce((previous: Record<string, any>, current: RenderableFormElement) => ({
+            ...previous,
+            [current.key]: this._getValue(current.key, current.defaultValue),
+        }), {} as Record<string, any>);
     }
 }
