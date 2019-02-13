@@ -14,6 +14,7 @@ import { FLAG_TYPE, NeonFlag } from "../flag/index";
 import { INPUT_TYPE, NeonInput } from "../input/index";
 import { NeonIndicator } from "../spinner/index";
 import { NeonTitle } from "../typography/title";
+import { NeonFromStructure } from "./structure";
 
 export type NeonSmartFormProps = {
 
@@ -27,7 +28,7 @@ export type NeonSmartFormProps = {
     readonly covering?: boolean;
     readonly cover?: React.ReactNode;
 
-    readonly form: Record<string, INPUT_TYPE>;
+    readonly form: NeonFromStructure;
     readonly defaultValue?: Record<string, any>;
 
     readonly rift?: MARGIN;
