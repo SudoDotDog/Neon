@@ -20,7 +20,7 @@ export const withConsumer = <T extends ThemeProps>(Component: any): React.Compon
         );
 
 export type ThemeProps = {
-    theme: NeonTheme;
+    readonly theme: NeonTheme;
 };
 
 export type ExcludeTheme<T extends ThemeProps> = Pick<T, Exclude<keyof T, 'theme'>>;

@@ -14,8 +14,8 @@ import { NeonPillStyle } from "./style";
 
 export type NeonPillProps = {
 
-    onRemove?: () => void;
-    children?: any;
+    readonly onRemove?: () => void;
+    readonly children?: any;
 } & ThemeProps & BoxProps;
 
 export const NeonPillBase: React.FC<NeonPillProps> =

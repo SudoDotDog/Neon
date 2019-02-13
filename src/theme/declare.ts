@@ -9,11 +9,11 @@ import { MARGIN } from "../declare";
 
 export type NeonTheme = {
 
-    main: {
-        color: string;
+    readonly main: {
+        readonly color: string;
     };
-    margin: MARGIN;
-    separator: boolean;
+    readonly margin: MARGIN;
+    readonly separator: boolean;
 };
 
 export const getDefaultTheme = (): NeonTheme => ({

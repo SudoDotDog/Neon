@@ -41,7 +41,7 @@ export type NeonSmartFormStates = {
 
 export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmartFormStates> {
 
-    public state: NeonSmartFormStates = {
+    public readonly state: NeonSmartFormStates = {
 
         current: {},
     };

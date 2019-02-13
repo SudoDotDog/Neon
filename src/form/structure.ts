@@ -9,17 +9,17 @@ import { INPUT_TYPE } from "../input/declare";
 
 export type FromElement = {
 
-    type: INPUT_TYPE;
-    defaultValue?: any;
-    display?: string;
+    readonly type: INPUT_TYPE;
+    readonly defaultValue?: any;
+    readonly display?: string;
 };
 
 export type RenderableFormElement = {
 
-    type: INPUT_TYPE;
-    defaultValue: any;
-    display: string;
-    key: string;
+    readonly type: INPUT_TYPE;
+    readonly defaultValue: any;
+    readonly display: string;
+    readonly key: string;
 };
 
 export type NeonFromStructure = Record<string, INPUT_TYPE | FromElement>;
