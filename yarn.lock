@@ -1403,9 +1403,9 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/storybook__addon-info@^3.4.3":
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@types/storybook__addon-info/-/storybook__addon-info-3.4.3.tgz#c952150737830d665b8c95a9b652b18226dd8afa"
+"@types/storybook__addon-info@^3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@types/storybook__addon-info/-/storybook__addon-info-3.4.4.tgz#6ded3159f6e279746790566544333f83d06a2703"
   dependencies:
     "@types/react" "*"
     "@types/storybook__react" "*"
