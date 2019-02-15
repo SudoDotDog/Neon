@@ -122,6 +122,7 @@ const NeonFlagStyleBase: JSSStyle = {
     },
     stickerTitle: {
         fontSize: '3.8rem',
+        fontWeight: 'bold',
     },
     stickerHolder: {
         fontSize: '1.2rem',
