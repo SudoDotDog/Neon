@@ -33,11 +33,19 @@ componentStories.add(
         const margin: string = text('margin', MARGIN.SMALL);
         const rift: string = text('rift', MARGIN.SMALL);
 
-        const flag: FLAG_TYPE = text('flag', FLAG_TYPE.PLAIN) as any;
-        const message: string = text('message', '');
-        const info: string = text('info', '');
-        const cover: string = text('cover', '');
-        const covering: boolean = boolean('covering', false);
+        const flag: any = object('Flag', {
+            type: FLAG_TYPE.ERROR,
+            message: 'message',
+            info: 'info',
+        });
+
+        const covering: boolean = boolean('Covering', false);
+
+        const cover: any = object('Cover', {
+            type: FLAG_TYPE.ERROR,
+            message: 'message',
+            info: 'info',
+        });
 
         return (<SmartMDX
             title={title}
@@ -50,10 +58,7 @@ componentStories.add(
             structure={structure}
             loading={loading}
             flag={flag}
-            message={message}
-            info={info}
-            cover={cover}
-            covering={covering}
+            cover={covering ? cover : null}
         />);
     }),
 );

@@ -9,7 +9,7 @@ import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
 import { NeonButton } from "../button";
 import { MARGIN, SIZE, WIDTH } from "../declare";
-import { FLAG_TYPE, NeonFlag } from "../flag";
+import { FLAG_TYPE, NeonFlag, NeonSticker } from "../flag";
 import { NeonInput } from "../input";
 import { NeonIndicator } from "../spinner";
 import { NeonTitle } from "../typography/title";
@@ -22,13 +22,13 @@ export type NeonSmartFormProps = {
     readonly titleSize?: SIZE;
 
     readonly flag?: {
-        readonly type: FLAG_TYPE;
+        readonly type?: FLAG_TYPE;
         readonly message?: string;
         readonly info?: string;
     };
 
     readonly cover?: {
-        readonly type: FLAG_TYPE;
+        readonly type?: FLAG_TYPE;
         readonly message?: string;
         readonly info?: string;
     };
@@ -68,7 +68,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
                 {...boxProps(this.props)}
                 loading={this.props.loading}
                 covering={Boolean(this.props.cover)}
-                cover={this.props.cover}
+                cover={this._renderSticker()}
             >
                 {this._renderTitle()}
                 {this._renderWarning()}
@@ -80,6 +80,19 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _submit(): void {
         this.props.onSubmit(this._getResponse());
+    }
+
+    private _renderSticker(): React.ReactNode | undefined {
+
+        if (!this.props.cover) {
+            return undefined;
+        }
+
+        return (<NeonSticker
+            type={this.props.cover.type || FLAG_TYPE.SUCCEED}
+            title={this.props.cover.message || 'Complete'}
+            info={this.props.cover.info}
+        />);
     }
 
     private _renderTitle(): React.ReactNode {

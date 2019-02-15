@@ -79,6 +79,9 @@ const NeonIndicatorStyleBase: JSSStyle = {
         top: 0,
         left: 0,
 
+        width: '100%',
+        height: '100%',
+
         transition: '0.3s all ease-in-out',
     },
     spinner: {
