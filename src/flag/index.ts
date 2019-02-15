@@ -10,4 +10,5 @@ NeonRegister.register();
 
 export { FLAG_TYPE } from "./declare";
 export { NeonFlag, NeonFlagProps } from "./flag";
+export { NeonSticker, NeonStickerProps } from "./sticker";
 
