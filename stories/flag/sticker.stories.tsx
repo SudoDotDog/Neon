@@ -18,9 +18,10 @@ componentStories.add(
     'Sticker',
     wInfo([NeonStickerBase], [NeonSticker, StickerMDX])(() => {
 
-        const message: string = text('Message', 'A message');
+        const title: string = text('Title', 'Title');
+        const info: string = text('Info', 'Info');
 
-        return (<StickerMDX message={message}/>);
+        return (<StickerMDX title={title} info={info}/>);
     }),
 );
 

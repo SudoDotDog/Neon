@@ -3,6 +3,15 @@ import { MARGIN } from "../../src/declare";
 
 # Neon Sticker
 
-<NeonSticker>
-    {this.props.message}
-</NeonSticker>
+- Individual
+
+<NeonSticker title={this.props.title} info={this.props.info} />
+
+- Container
+
+<div style={{
+    height: '300px',
+}}>
+    <NeonSticker title={this.props.title} info={this.props.info} />
+</div>
+

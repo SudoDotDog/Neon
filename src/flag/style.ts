@@ -87,6 +87,25 @@ const NeonFlagStyleBase: JSSStyle = {
         backgroundColor: COLOR.WHITE,
         color: COLOR.BLACK,
     },
+
+    sticker: {
+        padding: '0.4rem',
+        border: `0.4rem solid ${COLOR.NAVY}`,
+
+        height: 'inherit',
+        width: 'inherit',
+
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    stickerTitle: {
+        fontSize: '3.8rem',
+    },
+    stickerHolder: {
+        fontSize: '1.2rem',
+        flex: 1,
+    },
 };
 
 export const NeonFlagStyleSheet: StyleSheet = jss.createStyleSheet(NeonFlagStyleBase).attach();
