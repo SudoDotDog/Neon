@@ -21,13 +21,19 @@ export type NeonSmartFormProps = {
     readonly titleBorderless?: boolean;
     readonly titleSize?: SIZE;
 
-    readonly flag?: FLAG_TYPE;
-    readonly message?: string;
-    readonly info?: string;
+    readonly flag?: {
+        readonly type: FLAG_TYPE;
+        readonly message?: string;
+        readonly info?: string;
+    };
+
+    readonly cover?: {
+        readonly type: FLAG_TYPE;
+        readonly message?: string;
+        readonly info?: string;
+    };
 
     readonly loading?: boolean;
-    readonly covering?: boolean;
-    readonly cover?: React.ReactNode;
 
     readonly form: NeonFromStructure;
 
@@ -61,7 +67,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             <NeonIndicator
                 {...boxProps(this.props)}
                 loading={this.props.loading}
-                covering={this.props.covering}
+                covering={Boolean(this.props.cover)}
                 cover={this.props.cover}
             >
                 {this._renderTitle()}
@@ -94,17 +100,17 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _renderWarning(): React.ReactNode {
 
-        if (!Boolean(this.props.message)) {
+        if (!this.props.flag) {
             return null;
         }
 
         return (<NeonFlag
-            type={this.props.flag || FLAG_TYPE.PLAIN}
-            info={this.props.info}
+            type={this.props.flag.type}
+            info={this.props.flag.info}
             ignoreTheme
             margin={this._getMargin()}
         >
-            {this.props.message}
+            {this.props.flag.message}
         </NeonFlag>);
     }
 
