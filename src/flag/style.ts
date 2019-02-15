@@ -83,14 +83,33 @@ const NeonFlagStyleBase: JSSStyle = {
         backgroundColor: COLOR.ORANGE,
         color: COLOR.WHITE,
     },
+    succeed: {
+        backgroundColor: COLOR.GREEN,
+        color: COLOR.BLACK,
+    },
     plain: {
         backgroundColor: COLOR.WHITE,
         color: COLOR.BLACK,
     },
 
+
+    stickerError: {
+        color: COLOR.RED,
+    },
+    stickerWarning: {
+        color: COLOR.ORANGE,
+    },
+    stickerSucceed: {
+        color: COLOR.GREEN,
+    },
+    stickerPlain: {
+        color: COLOR.NAVY,
+    },
+
     sticker: {
-        padding: '0.4rem',
         border: `0.4rem solid ${COLOR.NAVY}`,
+        padding: '0.2rem',
+        boxSizing: 'border-box',
 
         height: 'inherit',
         width: 'inherit',
@@ -98,6 +117,8 @@ const NeonFlagStyleBase: JSSStyle = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+
+        overflow: 'auto',
     },
     stickerTitle: {
         fontSize: '3.8rem',

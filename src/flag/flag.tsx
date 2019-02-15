@@ -14,8 +14,7 @@ import { NeonFlagStyle } from "./style";
 
 export type NeonFlagProps = {
 
-    readonly type: FLAG_TYPE;
-
+    readonly type?: FLAG_TYPE;
     readonly info?: string;
     readonly maxSize?: SIZE;
 
@@ -135,6 +134,7 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
             switch (this.props.type) {
                 case FLAG_TYPE.ERROR: return NeonFlagStyle.error;
                 case FLAG_TYPE.WARNING: return NeonFlagStyle.warning;
+                case FLAG_TYPE.SUCCEED: return NeonFlagStyle.succeed;
                 case FLAG_TYPE.PLAIN:
                 default: return NeonFlagStyle.plain;
             }

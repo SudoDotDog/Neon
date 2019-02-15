@@ -6,6 +6,8 @@ import { MARGIN } from "../../src/declare";
 - Individual
 
 <NeonSticker title={this.props.title} info={this.props.info} />
+<NeonSticker title={this.props.title} info={this.props.info} type="SUCCEED" />
+<NeonSticker title={this.props.title} info={this.props.info} type="ERROR" />
 
 - Container
 
@@ -15,3 +17,9 @@ import { MARGIN } from "../../src/declare";
     <NeonSticker title={this.props.title} info={this.props.info} />
 </div>
 
+<div style={{
+    height: '300px',
+    width: '100px',
+}}>
+    <NeonSticker title={this.props.title} info={this.props.info} />
+</div>

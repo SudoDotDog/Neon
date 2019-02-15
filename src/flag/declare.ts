@@ -9,4 +9,5 @@ export enum FLAG_TYPE {
     PLAIN = "PLAIN",
     ERROR = "ERROR",
     WARNING = "WARNING",
+    SUCCEED = "SUCCEED",
 }
