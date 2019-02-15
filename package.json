@@ -1,5 +1,4 @@
 {
-  "private": true,
   "devDependencies": {
     "@mdx-js/loader": "^0.17.0",
     "@storybook/addon-actions": "^4.1.11",
@@ -18,7 +17,6 @@
     "babel-loader": "^8.0.5",
     "jss": "^10.0.0-alpha.10",
     "jss-preset-default": "^10.0.0-alpha.10",
-    "react": "^16.8.1",
     "react-docgen-typescript-webpack-plugin": "^1.1.0"
   },
   "nyc": {
