@@ -43,7 +43,7 @@ componentStories.add(
 
         const cover: any = object('Cover', {
             type: FLAG_TYPE.ERROR,
-            message: 'message',
+            title: 'title',
             info: 'info',
         });
 

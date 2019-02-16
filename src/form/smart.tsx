@@ -9,17 +9,11 @@ import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
 import { NeonButton } from "../button";
 import { MARGIN, SIZE, WIDTH } from "../declare";
-import { FLAG_TYPE, NeonFlag, NeonSticker } from "../flag";
+import { FLAG_TYPE, NeonFlag, NeonFlagCut, NeonSticker, NeonStickerCut } from "../flag";
 import { NeonInput } from "../input";
 import { NeonIndicator } from "../spinner";
 import { NeonTitle } from "../typography/title";
 import { NeonFromStructure, parseStructure, RenderableFormElement } from "./structure";
-
-export type NeonSmartFormShort = {
-    readonly type?: FLAG_TYPE;
-    readonly message?: string;
-    readonly info?: string;
-};
 
 export type NeonSmartFormProps = {
 
@@ -27,8 +21,8 @@ export type NeonSmartFormProps = {
     readonly titleBorderless?: boolean;
     readonly titleSize?: SIZE;
 
-    readonly flag?: NeonSmartFormShort;
-    readonly cover?: NeonSmartFormShort;
+    readonly flag?: NeonFlagCut;
+    readonly cover?: NeonStickerCut;
 
     readonly loading?: boolean;
 
@@ -87,7 +81,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
         return (<NeonSticker
             type={this.props.cover.type || FLAG_TYPE.SUCCEED}
-            title={this.props.cover.message || 'Complete'}
+            title={this.props.cover.title || 'Complete'}
             info={this.props.cover.info}
         />);
     }
