@@ -110,10 +110,11 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
         return (<NeonFlag
             ignoreTheme
+            margin={this._getMargin()}
+
             type={this.props.flag.type}
             info={this.props.flag.info}
             message={this.props.flag.message}
-            margin={this._getMargin()}
         />);
     }
 

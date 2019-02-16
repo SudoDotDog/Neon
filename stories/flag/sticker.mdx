@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import { NeonSticker } from "../../src/flag";
 import { MARGIN } from "../../src/declare";
 
@@ -8,6 +9,14 @@ import { MARGIN } from "../../src/declare";
 <NeonSticker title={this.props.title} info={this.props.info} />
 <NeonSticker title={this.props.title} info={this.props.info} type="SUCCEED" />
 <NeonSticker title={this.props.title} info={this.props.info} type="ERROR" />
+
+- HasButton
+
+<NeonSticker title={this.props.title} button={this.props.title} onClick={action("Click")} type="ERROR" />
+
+- Both
+
+<NeonSticker title={this.props.title} info={this.props.info} button={this.props.title} onClick={action("Click")} type="ERROR" />
 
 - Container
 
