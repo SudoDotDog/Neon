@@ -15,23 +15,20 @@ import { NeonIndicator } from "../spinner";
 import { NeonTitle } from "../typography/title";
 import { NeonFromStructure, parseStructure, RenderableFormElement } from "./structure";
 
+export type NeonSmartFormShort = {
+    readonly type?: FLAG_TYPE;
+    readonly message?: string;
+    readonly info?: string;
+};
+
 export type NeonSmartFormProps = {
 
     readonly title?: string;
     readonly titleBorderless?: boolean;
     readonly titleSize?: SIZE;
 
-    readonly flag?: {
-        readonly type?: FLAG_TYPE;
-        readonly message?: string;
-        readonly info?: string;
-    };
-
-    readonly cover?: {
-        readonly type?: FLAG_TYPE;
-        readonly message?: string;
-        readonly info?: string;
-    };
+    readonly flag?: NeonSmartFormShort;
+    readonly cover?: NeonSmartFormShort;
 
     readonly loading?: boolean;
 
