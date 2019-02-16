@@ -12,16 +12,18 @@ import { SIZE } from "../declare";
 import { FLAG_TYPE } from "./declare";
 import { NeonFlagStyle } from "./style";
 
-export type NeonFlagProps = {
+export type NeonFlagCut = {
 
     readonly type?: FLAG_TYPE;
+    readonly message?: string;
     readonly info?: string;
+};
+
+export type NeonFlagProps = {
+
     readonly maxSize?: SIZE;
-
     readonly hidden?: boolean;
-
-    readonly children?: any;
-} & ThemeProps & BoxProps;
+} & NeonFlagCut & ThemeProps & BoxProps;
 
 export type NeonFlagState = {
 
@@ -53,7 +55,7 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
 
             <div className={NeonFlagStyle.main}>
                 <div className={NeonFlagStyle.content}>
-                    {this.props.children}
+                    {this.props.message}
                 </div>
                 {this._renderExpendButton()}
             </div>

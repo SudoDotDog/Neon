@@ -5,40 +5,46 @@ import { MARGIN } from "../../src/declare";
 
 - ERROR
 
-<NeonFlag type={FLAG_TYPE.ERROR}>
-    {this.props.message}
-</NeonFlag>
+<NeonFlag 
+    message={this.props.message}
+    type={FLAG_TYPE.ERROR}
+/>
 
 - WARNING
 
-<NeonFlag type={FLAG_TYPE.WARNING}>
-    {this.props.message}
-</NeonFlag>
+<NeonFlag 
+    message={this.props.message}
+    type={FLAG_TYPE.WARNING}
+/>
 
 - PLAIN
 
-<NeonFlag type={FLAG_TYPE.PLAIN}>
-    {this.props.message}
-</NeonFlag>
+<NeonFlag 
+    message={this.props.message}
+    type={FLAG_TYPE.PLAIN}
+/>
 
-With info
+- With info
+
 <NeonFlag
+    message={this.props.message}
     info={this.props.message}
-    type={FLAG_TYPE.WARNING}>
-    {this.props.message}
-</NeonFlag>
+    type={FLAG_TYPE.WARNING}
+/>
 
-With info, Hidden
+- With info, Hidden
+
 <NeonFlag
+    message={this.props.message}
     info={this.props.message}
     hidden={this.props.hidden}
-    type={FLAG_TYPE.WARNING}>
-    {this.props.message}
-</NeonFlag>
+    type={FLAG_TYPE.WARNING}
+/>
 
-With Margin
+- With Margin
+
 <NeonFlag
+    message={this.props.message}
     margin={MARGIN.SMALL}
-    type={FLAG_TYPE.ERROR}>
-    {this.props.message}
-</NeonFlag>
+    type={FLAG_TYPE.ERROR}
+/>

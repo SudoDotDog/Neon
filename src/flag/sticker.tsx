@@ -12,14 +12,18 @@ import { mergeClasses } from "../#common/style";
 import { FLAG_TYPE } from "./declare";
 import { NeonFlagStyle } from "./style";
 
-export type NeonStickerProps = {
-
-    readonly type?: FLAG_TYPE;
-    readonly hidden?: boolean;
+export type NeonStickerCut = {
 
     readonly title: string;
+
+    readonly type?: FLAG_TYPE;
     readonly info?: string;
-} & ThemeProps & BoxProps;
+};
+
+export type NeonStickerProps = {
+
+    readonly hidden?: boolean;
+} & NeonStickerCut & ThemeProps & BoxProps;
 
 const getColorStyle = (type?: FLAG_TYPE): string => {
 
@@ -36,7 +40,7 @@ export const NeonStickerBase: React.FC<NeonStickerProps> = (props: NeonStickerPr
 
     return (<NeonBox {...boxProps(props, NeonFlagStyle.sticker)}>
         <div className={NeonFlagStyle.stickerHolder}></div>
-        <div className={mergeClasses(NeonFlagStyle.stickerTitle, getColorStyle(props.type)) }>{props.title}</div>
+        <div className={mergeClasses(NeonFlagStyle.stickerTitle, getColorStyle(props.type))}>{props.title}</div>
         <div className={NeonFlagStyle.stickerHolder}>{props.info}</div>
     </NeonBox>);
 };

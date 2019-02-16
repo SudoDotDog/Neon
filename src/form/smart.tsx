@@ -115,13 +115,12 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
         }
 
         return (<NeonFlag
+            ignoreTheme
             type={this.props.flag.type}
             info={this.props.flag.info}
-            ignoreTheme
+            message={this.props.flag.message}
             margin={this._getMargin()}
-        >
-            {this.props.flag.message}
-        </NeonFlag>);
+        />);
     }
 
     private _renderForm(): React.ReactNode {
