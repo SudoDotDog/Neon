@@ -8,8 +8,9 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { SIZE, WIDTH } from "../declare";
-import { getNeonButtonStyle, NeonButtonStyle } from "./style";
+import { assertIfTrue, mergeClasses } from "../#common/style";
+import { SIZE } from "../declare";
+import { getNeonButtonStyle, NeonButtonStyle, NeonPeekStyle } from "./style";
 
 export type NeonPeekProps = {
 
@@ -23,59 +24,39 @@ export type NeonPeekProps = {
     readonly children?: any;
 } & ThemeProps & BoxProps;
 
-export class NeonButtonBase extends React.Component<NeonPeekProps, {}> {
+export class NeonPeekBase extends React.Component<NeonPeekProps, {}> {
 
     public render(): JSX.Element {
 
-        return (
-            <NeonBox {...boxProps(this.props, this._getBoxSizeClass())}>
+        return (<NeonBox {...boxProps(this.props)}>
 
-                <button
-                    disabled={this.props.disabled}
-                    style={getNeonButtonStyle(this.props.theme)}
-                    className={this._getClass()}
-                    tabIndex={this.props.tabIndex}
-                    onClick={() => this.props.onClick && this.props.onClick()}>
-                    {this.props.children}
-                </button>
-            </NeonBox>);
-    }
-
-    private _getBoxSizeClass(): string | undefined {
-
-        if (this.props.size === SIZE.FULL) {
-
-            return NeonButtonStyle.sizeFullBox;
-        }
-
-        return undefined;
+            <button
+                disabled={this.props.disabled}
+                style={getNeonButtonStyle(this.props.theme)}
+                className={mergeClasses(
+                    this._getSizeClass(),
+                    assertIfTrue(this.props.disabled, NeonButtonStyle.disabled),
+                )}
+                tabIndex={this.props.tabIndex}
+                onClick={() => this.props.onClick && this.props.onClick()}>
+                {this.props.children}
+            </button>
+        </NeonBox>);
     }
 
     private _getSizeClass(): string {
 
         switch (this.props.size) {
 
-            case SIZE.MEDIUM: return NeonButtonStyle.sizeMedium;
-            case SIZE.LARGE: return NeonButtonStyle.sizeLarge;
+            case SIZE.MEDIUM: return NeonPeekStyle.sizeMedium;
+            case SIZE.LARGE: return NeonPeekStyle.sizeLarge;
 
             case SIZE.FULL:
-            case SIZE.RELATIVE: return NeonButtonStyle.sizeFull;
-
+            case SIZE.RELATIVE:
             case SIZE.NORMAL:
-            default: return NeonButtonStyle.sizeNormal;
+            default: return NeonPeekStyle.sizeNormal;
         }
-    }
-
-    private _getClass(): string {
-
-        const classes: string[] = [];
-        if (this.props.disabled) {
-
-            classes.push(NeonButtonStyle.disabled);
-        }
-
-        return classes.join(' ');
     }
 }
 
-export const NeonButton: ThemedComponent<NeonPeekProps> = withConsumer<NeonPeekProps>(NeonButtonBase);
+export const NeonPeek: ThemedComponent<NeonPeekProps> = withConsumer<NeonPeekProps>(NeonPeekBase);
