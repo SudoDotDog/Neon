@@ -64,6 +64,16 @@ const NeonButtonStyleBase: JSSStyle = {
     },
 };
 
+export const NeonPeekStyleBase: JSSStyle = {
+
+    sizeNormal: {
+
+    },
+    sizeMedium: {
+
+    },
+};
+
 export const getNeonButtonStyle =
     (theme: NeonTheme): CSSProperties => ({
 
@@ -72,3 +82,6 @@ export const getNeonButtonStyle =
 
 export const NeonButtonStyleSheet: StyleSheet = jss.createStyleSheet(NeonButtonStyleBase).attach();
 export const NeonButtonStyle: Classes = NeonButtonStyleSheet.classes;
+
+export const NeonPeekStyleSheet: StyleSheet = jss.createStyleSheet(NeonPeekStyleBase).attach();
+export const NeonPeekStyle: Classes = NeonPeekStyleSheet.classes;
