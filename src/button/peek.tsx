@@ -16,14 +16,26 @@ export type NeonPeekProps = {
 
     readonly onClick?: () => void;
 
+    readonly circle?: boolean;
     readonly disabled?: boolean;
     readonly tabIndex?: number;
     readonly size?: SIZE;
 
     readonly children?: any;
+    readonly expend?: string;
 } & ThemeProps & BoxProps;
 
-export class NeonPeekBase extends React.Component<NeonPeekProps, {}> {
+export type NeonPeekStates = {
+
+    readonly hovering: boolean;
+};
+
+export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates> {
+
+    public readonly state: NeonPeekStates = {
+
+        hovering: false,
+    };
 
     public render(): JSX.Element {
 
@@ -35,12 +47,13 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, {}> {
                 className={mergeClasses(
                     NeonButtonStyle.button,
                     this._getSizeClass(),
-                    NeonPeekStyle.circle,
+                    assertIfTrue(this.state.hovering, NeonPeekStyle.hovering),
+                    assertIfTrue(this.props.circle, NeonPeekStyle.circle),
                     assertIfTrue(this.props.disabled, NeonButtonStyle.disabled),
                 )}
                 tabIndex={this.props.tabIndex}
                 onClick={() => this.props.onClick && this.props.onClick()}>
-                {this.props.children}
+                {this.state.hovering ? this.props.expend : this.props.children}
             </button>
         </NeonBox>);
     }
