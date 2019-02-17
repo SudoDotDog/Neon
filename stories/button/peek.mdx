@@ -1,0 +1,36 @@
+import { NeonPeek } from "../../src/button";
+import { SIZE } from "../../src/declare";
+import './button.css';
+
+# Neon Peek
+
+- Normal Size
+
+<NeonPeek
+    {...this.props.events}>
+    {this.props.name}
+</NeonPeek>
+
+- Medium Size
+
+<NeonPeek
+    size={SIZE.MEDIUM}
+    {...this.props.events}>
+    {this.props.name}
+</NeonPeek>
+
+- Large Size
+
+<NeonPeek
+    size={SIZE.LARGE}
+    {...this.props.events}>
+    {this.props.name}
+</NeonPeek>
+
+- Full Size
+
+<NeonPeek
+    size={SIZE.FULL}
+    {...this.props.events}>
+    {this.props.name}
+</NeonPeek>

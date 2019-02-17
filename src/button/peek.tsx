@@ -18,7 +18,6 @@ export type NeonPeekProps = {
 
     readonly disabled?: boolean;
     readonly tabIndex?: number;
-    readonly className?: string;
     readonly size?: SIZE;
 
     readonly children?: any;
@@ -34,7 +33,9 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, {}> {
                 disabled={this.props.disabled}
                 style={getNeonButtonStyle(this.props.theme)}
                 className={mergeClasses(
+                    NeonButtonStyle.button,
                     this._getSizeClass(),
+                    NeonPeekStyle.circle,
                     assertIfTrue(this.props.disabled, NeonButtonStyle.disabled),
                 )}
                 tabIndex={this.props.tabIndex}
@@ -50,8 +51,8 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, {}> {
 
             case SIZE.MEDIUM: return NeonPeekStyle.sizeMedium;
             case SIZE.LARGE: return NeonPeekStyle.sizeLarge;
+            case SIZE.FULL: return NeonPeekStyle.sizeFull;
 
-            case SIZE.FULL:
             case SIZE.RELATIVE:
             case SIZE.NORMAL:
             default: return NeonPeekStyle.sizeNormal;

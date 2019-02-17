@@ -66,11 +66,29 @@ const NeonButtonStyleBase: JSSStyle = {
 
 export const NeonPeekStyleBase: JSSStyle = {
 
-    sizeNormal: {
+    circle: {
+        borderRadius: '100%',
+    },
 
+    sizeNormal: {
+        fontSize: '0.8rem',
+        width: '3rem',
+        height: '3rem',
     },
     sizeMedium: {
-
+        fontSize: '1.1rem',
+        width: '4.5rem',
+        height: '4.5rem',
+    },
+    sizeLarge: {
+        fontSize: '1.4rem',
+        width: '6rem',
+        height: '6rem',
+    },
+    sizeFull: {
+        fontSize: '1.7rem',
+        width: '7.5rem',
+        height: '7.5rem',
     },
 };
 
