@@ -20,7 +20,7 @@ componentStories.add(
     wInfo([NeonPeekBase], [NeonPeek, PeekMDX])(() => {
 
         const name: string = text('Name', 'Name');
-        const expend: string = text('Expend', 'expend');
+        const expend: string = text('Expend', 'expend some long sentence');
 
         return (<PeekMDX name={name} events={events} expend={expend} />);
     }),

@@ -37,6 +37,14 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
         hovering: false,
     };
 
+    public constructor(props: NeonPeekProps) {
+
+        super(props);
+
+        this._handleMouseEnter = this._handleMouseEnter.bind(this);
+        this._handleMouseLeave = this._handleMouseLeave.bind(this);
+    }
+
     public render(): JSX.Element {
 
         return (<NeonBox {...boxProps(this.props)}>
@@ -52,10 +60,37 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
                     assertIfTrue(this.props.disabled, NeonButtonStyle.disabled),
                 )}
                 tabIndex={this.props.tabIndex}
-                onClick={() => this.props.onClick && this.props.onClick()}>
+                onClick={() => this.props.onClick && this.props.onClick()}
+                {...this._getMouseHandlers()}>
                 {this.state.hovering ? this.props.expend : this.props.children}
             </button>
         </NeonBox>);
+    }
+
+    private _getMouseHandlers(): Record<string, any> {
+
+        if (this.props.expend) {
+            return {
+                onMouseEnter: this._handleMouseEnter,
+                onMouseLeave: this._handleMouseLeave,
+            };
+        }
+
+        return {};
+    }
+
+    private _handleMouseEnter(): void {
+
+        this.setState({
+            hovering: true,
+        });
+    }
+
+    private _handleMouseLeave(): void {
+
+        this.setState({
+            hovering: false,
+        });
     }
 
     private _getSizeClass(): string {

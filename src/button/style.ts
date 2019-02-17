@@ -90,6 +90,10 @@ export const NeonPeekStyleBase: JSSStyle = {
         width: '7.5rem',
         height: '7.5rem',
     },
+
+    hovering: {
+        width: 'auto',
+    },
 };
 
 export const getNeonButtonStyle =
