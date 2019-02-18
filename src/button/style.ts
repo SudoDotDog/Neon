@@ -16,13 +16,12 @@ const NeonButtonStyleBase: JSSStyle = {
 
         padding: 0,
         cursor: 'pointer',
-
         fontSize: '1rem',
+
         fontWeight: 'bold',
         color: COLOR.WHITE,
 
         '&:active': {
-            color: COLOR.WHITE,
             borderColor: COLOR.BLUE,
         },
 
@@ -40,6 +39,7 @@ const NeonButtonStyleBase: JSSStyle = {
     sizeNormal: {
         width: '5rem',
         height: '2rem',
+        fontSize: '0.8rem',
     },
     sizeMedium: {
         width: '7rem',
@@ -48,6 +48,7 @@ const NeonButtonStyleBase: JSSStyle = {
     sizeLarge: {
         width: '9rem',
         height: '4rem',
+        fontSize: '1.2rem',
     },
     sizeFullBox: {
         boxSizing: 'border-box',
