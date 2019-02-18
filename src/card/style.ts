@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Neon_Paper
+ * @namespace Neon_Card
  * @description Style
  */
 

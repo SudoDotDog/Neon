@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
- * @namespace Neon_Paper
- * @description Button
+ * @namespace Neon_Card
+ * @description Card
  */
 
 import * as React from "react";
