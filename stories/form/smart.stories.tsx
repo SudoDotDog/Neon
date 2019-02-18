@@ -7,8 +7,8 @@
 import { boolean, object, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { MARGIN, SIZE } from "../../src/declare";
-import { FLAG_TYPE } from "../../src/flag";
+import { CORNER, MARGIN, SIZE } from "../../src/declare";
+import { FLAG_TYPE, NeonFlagCut, NeonStickerCut } from "../../src/flag";
 import { INPUT_TYPE, NeonSmartForm } from "../../src/form";
 import { wInfo } from "../util";
 import SmartMDX from "./smart.mdx";
@@ -37,7 +37,7 @@ componentStories.add(
             type: FLAG_TYPE.ERROR,
             message: 'message',
             info: 'info',
-        });
+        } as NeonFlagCut);
 
         const covering: boolean = boolean('Covering', false);
 
@@ -45,7 +45,10 @@ componentStories.add(
             type: FLAG_TYPE.ERROR,
             title: 'title',
             info: 'info',
-        });
+
+            peek: {},
+            peekCorner: CORNER.BOTTOM_RIGHT,
+        } as NeonStickerCut);
 
         return (<SmartMDX
             title={title}

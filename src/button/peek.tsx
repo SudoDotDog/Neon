@@ -12,7 +12,7 @@ import { assertIfTrue, mergeClasses } from "../#common/style";
 import { SIZE } from "../declare";
 import { getNeonButtonStyle, NeonButtonStyle, NeonPeekStyle } from "./style";
 
-export type NeonPeekProps = {
+export type NeonPeekCut = {
 
     readonly onClick?: () => void;
 
@@ -23,7 +23,9 @@ export type NeonPeekProps = {
 
     readonly children?: any;
     readonly expend?: string;
-} & ThemeProps & BoxProps;
+};
+
+export type NeonPeekProps = NeonPeekCut & ThemeProps & BoxProps;
 
 export type NeonPeekStates = {
 
