@@ -11,7 +11,7 @@ import { NeonTree } from "../../src/navigation";
 import { createAction, wInfo } from "../util";
 import TreeMDX from "./tree.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Navigation', module);
 const events = createAction();
 
 componentStories.add(

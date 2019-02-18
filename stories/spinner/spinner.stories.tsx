@@ -11,7 +11,7 @@ import { NeonSpinnerBase } from "../../src/spinner/spinner";
 import { wInfo } from "../util";
 import SpinnerMDX from "./spinner.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Spinner', module);
 
 componentStories.add(
     'Spinner',

@@ -13,7 +13,7 @@ import { INPUT_TYPE, NeonSmartForm } from "../../src/form";
 import { wInfo } from "../util";
 import SmartMDX from "./smart.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Form', module);
 
 componentStories.add(
     'Smart Form',

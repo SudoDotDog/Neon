@@ -12,7 +12,7 @@ import { NeonInputBase } from "../../src/input/input";
 import { createAction, wInfo } from "../util";
 import InputMDX from "./input.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Input', module);
 const events = createAction();
 
 componentStories.add(

@@ -12,7 +12,7 @@ import { NeonButtonBase } from "../../src/button/button";
 import { createAction, wInfo } from "../util";
 import ButtonMDX from "./button.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Button', module);
 const events = createAction();
 
 componentStories.add(

@@ -12,7 +12,7 @@ import { NeonPairBase } from "../../src/input/pair";
 import { createAction, wInfo } from "../util";
 import PairMDX from "./pair.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Input', module);
 const events = createAction();
 
 componentStories.add(

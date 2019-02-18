@@ -12,7 +12,7 @@ import { NeonEditableBase } from "../../src/input/editable";
 import { createAction, wInfo } from "../util";
 import EditableMDX from "./editable.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Input', module);
 const events = createAction();
 
 componentStories.add(

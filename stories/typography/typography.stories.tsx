@@ -13,7 +13,7 @@ import { NeonTitleBase } from "../../src/typography/title";
 import { wInfo } from "../util";
 import TypographyMDX from "./typography.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Typography', module);
 
 componentStories.add(
     'Typography',

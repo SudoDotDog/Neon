@@ -11,7 +11,7 @@ import { NeonPillGroupBase } from "../../src/pill/group";
 import { wInfo } from "../util";
 import GroupMDX from "./group.mdx";
 
-const componentStories = storiesOf('Scenarios', module);
+const componentStories = storiesOf('Pill', module);
 
 class GroupStory extends React.Component {
 
@@ -33,7 +33,7 @@ class GroupStory extends React.Component {
 }
 
 componentStories.add(
-    'Pill Groups',
+    'Group',
     wInfo([NeonPillGroupBase], [NeonPillGroup, GroupStory, GroupMDX])(() => {
 
         return (<GroupStory />);

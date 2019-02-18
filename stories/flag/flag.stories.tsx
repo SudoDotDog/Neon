@@ -12,7 +12,7 @@ import { NeonFlag } from "../../src/flag/index";
 import { wInfo } from "../util";
 import FlagMDX from "./flag.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Flag', module);
 
 componentStories.add(
     'Flag',

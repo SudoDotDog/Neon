@@ -12,7 +12,7 @@ import { NeonStickerBase } from "../../src/flag/sticker";
 import { wInfo } from "../util";
 import StickerMDX from "./sticker.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Flag', module);
 
 componentStories.add(
     'Sticker',

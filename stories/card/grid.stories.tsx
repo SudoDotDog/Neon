@@ -13,10 +13,10 @@ import { wInfo } from "../util";
 import "./grid.css";
 import GridMDX from "./grid.mdx";
 
-const componentStories = storiesOf('Scenarios', module);
+const componentStories = storiesOf('Card', module);
 
 componentStories.add(
-    'Card Grid',
+    'Grid',
     wInfo([NeonCardBase], [NeonCard, GridMDX])(() => {
 
         const label: string = text('Label', 'Label');

@@ -11,7 +11,7 @@ import { NeonTable, NeonTableBase } from "../../src/table";
 import { wInfo } from "../util";
 import TableMDX from "./table.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Table', module);
 
 componentStories.add(
     'Table',

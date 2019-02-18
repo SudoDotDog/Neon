@@ -11,7 +11,7 @@ import { NeonNavigation } from "../../src/navigation";
 import { createAction, wInfo } from "../util";
 import NavigationMDX from "./navigation.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Navigation', module);
 const events = createAction();
 
 componentStories.add(

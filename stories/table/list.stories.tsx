@@ -11,7 +11,7 @@ import { NeonSmartListBase } from "../../src/table/list";
 import { wInfo } from "../util";
 import ListMDX from "./list.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Table', module);
 
 class ListStory extends React.Component {
 

@@ -12,7 +12,7 @@ import { NeonPillBase } from "../../src/pill/pill";
 import { wInfo } from "../util";
 import PillMDX from "./pill.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Pill', module);
 
 componentStories.add(
     'Pill',

@@ -12,7 +12,7 @@ import { NeonPeekBase } from "../../src/button/peek";
 import { createAction, wInfo } from "../util";
 import PeekMDX from "./peek.mdx";
 
-const componentStories = storiesOf('Components', module);
+const componentStories = storiesOf('Button', module);
 const events = createAction();
 
 componentStories.add(
