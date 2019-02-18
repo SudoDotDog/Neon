@@ -10,7 +10,7 @@ import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style";
 import { NeonPeek, NeonPeekCut } from "../button/peek";
-import { CORNER } from "../declare";
+import { CORNER, MARGIN } from "../declare";
 import { FLAG_TYPE } from "./declare";
 import { NeonStickerStyle } from "./style";
 
@@ -22,7 +22,7 @@ export type NeonStickerCut = {
     readonly info?: string;
 
     readonly peek?: NeonPeekCut;
-    readonly peekPosition?: CORNER;
+    readonly peekCorner?: CORNER;
 };
 
 export type NeonStickerProps = {
@@ -41,7 +41,7 @@ const getColorStyle = (type?: FLAG_TYPE): string => {
     }
 };
 
-const getPositionStyle = (position: CORNER, padding: string = '0.2rem'): React.CSSProperties => {
+const getPositionStyle = (position: CORNER, padding: number = 0): React.CSSProperties => {
 
     switch (position) {
         case CORNER.BOTTOM_LEFT: return {
@@ -70,7 +70,9 @@ const renderPeek = (props: NeonStickerProps): React.ReactNode => {
     }
 
     return (<NeonPeek
-        style={getPositionStyle(props.peekPosition || CORNER.TOP_LEFT)}
+        ignoreTheme
+        margin={MARGIN.TINY}
+        style={getPositionStyle(props.peekCorner || CORNER.TOP_LEFT)}
         className={NeonStickerStyle.peek}
     >
         {props.peek.children}

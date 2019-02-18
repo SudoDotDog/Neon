@@ -79,10 +79,21 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
             return undefined;
         }
 
+        const { type = FLAG_TYPE.SUCCEED,
+            title = 'Complete',
+            info,
+            peek,
+            peekCorner,
+        } = this.props.cover;
+
         return (<NeonSticker
-            type={this.props.cover.type || FLAG_TYPE.SUCCEED}
-            title={this.props.cover.title || 'Complete'}
-            info={this.props.cover.info}
+            ignoreTheme
+            type={type}
+            title={title}
+            info={info}
+
+            peek={peek}
+            peekCorner={peekCorner}
         />);
     }
 
