@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@mdx-js/loader": "^0.17.0",
+    "@mdx-js/loader": "^0.17.5",
     "@storybook/addon-actions": "^4.1.11",
     "@storybook/addon-info": "^4.1.11",
     "@storybook/addon-knobs": "^4.1.11",
