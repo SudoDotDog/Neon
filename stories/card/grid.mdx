@@ -1,0 +1,32 @@
+import { NeonCard } from "../../src/card";
+import { MARGIN, SIZE } from "../../src/declare";
+import { NeonThemeProvider } from "../../src/theme";
+
+# Neon Card Grid
+
+<div className="card-grid">
+    <NeonThemeProvider value={{
+        margin: MARGIN.TINY,
+    }}>
+        <NeonCard
+            size={SIZE.RELATIVE}
+            style={{ gridArea: 'top' }}>
+            {this.props.label}
+        </NeonCard>
+        <NeonCard
+            size={SIZE.RELATIVE}
+            style={{ gridArea: 'right' }}>
+            {this.props.label}
+        </NeonCard>
+        <NeonCard
+            size={SIZE.RELATIVE}
+            style={{ gridArea: 'medium' }}>
+            {this.props.label}
+        </NeonCard>
+        <NeonCard
+            size={SIZE.RELATIVE}
+            style={{ gridArea: 'center' }}>
+            {this.props.label}
+        </NeonCard>
+    </NeonThemeProvider>
+</div>
