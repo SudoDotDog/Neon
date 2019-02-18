@@ -99,6 +99,7 @@ const NeonStickerStyleBase: JSSStyle = {
         border: `0.4rem solid ${COLOR.NAVY}`,
         padding: '0.2rem',
         boxSizing: 'border-box',
+        position: 'relative',
 
         height: 'inherit',
         width: 'inherit',
@@ -108,6 +109,9 @@ const NeonStickerStyleBase: JSSStyle = {
         alignItems: 'center',
 
         overflow: 'auto',
+    },
+    peek: {
+        position: 'absolute',
     },
     error: {
         color: COLOR.RED,

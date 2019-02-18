@@ -9,7 +9,7 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style";
-import { NeonPeekCut } from "../button/peek";
+import { NeonPeek, NeonPeekCut } from "../button/peek";
 import { CORNER } from "../declare";
 import { FLAG_TYPE } from "./declare";
 import { NeonStickerStyle } from "./style";
@@ -41,6 +41,42 @@ const getColorStyle = (type?: FLAG_TYPE): string => {
     }
 };
 
+const getPositionStyle = (position: CORNER, padding: string = '0.2rem'): React.CSSProperties => {
+
+    switch (position) {
+        case CORNER.BOTTOM_LEFT: return {
+            left: padding,
+            bottom: padding,
+        };
+        case CORNER.BOTTOM_RIGHT: return {
+            right: padding,
+            bottom: padding,
+        };
+        case CORNER.TOP_LEFT: return {
+            left: padding,
+            top: padding,
+        };
+        case CORNER.TOP_RIGHT: return {
+            right: padding,
+            top: padding,
+        };
+    }
+};
+
+const renderPeek = (props: NeonStickerProps): React.ReactNode => {
+
+    if (!props.peek) {
+        return null;
+    }
+
+    return (<NeonPeek
+        style={getPositionStyle(props.peekPosition || CORNER.TOP_LEFT)}
+        className={NeonStickerStyle.peek}
+    >
+        {props.peek.children}
+    </NeonPeek>);
+};
+
 export const NeonStickerBase: React.FC<NeonStickerProps> = (props: NeonStickerProps) => {
 
     return (<NeonBox {...boxProps(props, NeonStickerStyle.box)}>
@@ -49,6 +85,7 @@ export const NeonStickerBase: React.FC<NeonStickerProps> = (props: NeonStickerPr
         <div className={NeonStickerStyle.holder}>
             {props.info && <div>{props.info}</div>}
         </div>
+        {renderPeek(props)}
     </NeonBox>);
 };
 
