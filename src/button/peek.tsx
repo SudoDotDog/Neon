@@ -56,8 +56,8 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
                 style={getNeonButtonStyle(this.props.theme)}
                 className={mergeClasses(
                     NeonButtonStyle.button,
+                    NeonPeekStyle.peek,
                     this._getSizeClass(),
-                    assertIfTrue(this.state.hovering, NeonPeekStyle.hovering),
                     assertIfTrue(this.props.circle, NeonPeekStyle.circle),
                     assertIfTrue(this.props.disabled, NeonButtonStyle.disabled),
                 )}

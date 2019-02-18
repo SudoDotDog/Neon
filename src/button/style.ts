@@ -66,33 +66,53 @@ const NeonButtonStyleBase: JSSStyle = {
 
 export const NeonPeekStyleBase: JSSStyle = {
 
+    peek: {
+        transition: 'max-width 0.2s',
+        whiteSpace: 'nowrap',
+    },
     circle: {
         borderRadius: '100%',
     },
 
     sizeNormal: {
         fontSize: '0.8rem',
-        width: '3rem',
+        minWidth: '3rem',
+        maxWidth: '3rem',
         height: '3rem',
+        padding: '0.2rem',
+        '&:hover': {
+            maxWidth: '15rem',
+        },
     },
     sizeMedium: {
-        fontSize: '1.1rem',
-        width: '4.5rem',
-        height: '4.5rem',
+        fontSize: '1rem',
+        minWidth: '4rem',
+        maxWidth: '4rem',
+        height: '4rem',
+        padding: '0.4rem',
+        '&:hover': {
+            maxWidth: '20rem',
+        },
     },
     sizeLarge: {
-        fontSize: '1.4rem',
-        width: '6rem',
-        height: '6rem',
+        fontSize: '1.2rem',
+        minWidth: '5rem',
+        maxWidth: '5rem',
+        height: '5rem',
+        padding: '0.6rem',
+        '&:hover': {
+            maxWidth: '25rem',
+        },
     },
     sizeFull: {
-        fontSize: '1.7rem',
-        width: '7.5rem',
-        height: '7.5rem',
-    },
-
-    hovering: {
-        width: 'auto',
+        fontSize: '1.4rem',
+        minWidth: '6rem',
+        maxWidth: '6rem',
+        height: '6rem',
+        padding: '0.8rem',
+        '&:hover': {
+            maxWidth: '30rem',
+        },
     },
 };
 

@@ -33,7 +33,8 @@ import './button.css';
 - Normal Size
 
 <NeonPeek
-    {...this.props.events}>
+    {...this.props.events}
+    expend={this.props.expend}>
     {this.props.name}
 </NeonPeek>
 
@@ -41,7 +42,8 @@ import './button.css';
 
 <NeonPeek
     size={SIZE.LARGE}
-    {...this.props.events}>
+    {...this.props.events}
+    expend={this.props.expend}>
     {this.props.name}
 </NeonPeek>
 
@@ -49,6 +51,7 @@ import './button.css';
 
 <NeonPeek
     size={SIZE.FULL}
-    {...this.props.events}>
+    {...this.props.events}
+    expend={this.props.expend}>
     {this.props.name}
 </NeonPeek>
