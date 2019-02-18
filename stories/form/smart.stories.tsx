@@ -46,7 +46,10 @@ componentStories.add(
             title: 'title',
             info: 'info',
 
-            peek: {},
+            peek: {
+                text: "A",
+                expend: "AAA",
+            },
             peekCorner: CORNER.BOTTOM_RIGHT,
         } as NeonStickerCut);
 

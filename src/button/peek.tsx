@@ -21,7 +21,7 @@ export type NeonPeekCut = {
     readonly tabIndex?: number;
     readonly size?: SIZE;
 
-    readonly children?: any;
+    readonly text?: string;
     readonly expend?: string;
 };
 
@@ -64,7 +64,7 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
                 tabIndex={this.props.tabIndex}
                 onClick={() => this.props.onClick && this.props.onClick()}
                 {...this._getMouseHandlers()}>
-                {this.state.hovering ? this.props.expend : this.props.children}
+                {this.state.hovering ? this.props.expend : this.props.text}
             </button>
         </NeonBox>);
     }

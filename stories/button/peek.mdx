@@ -8,50 +8,50 @@ import './button.css';
 
 <NeonPeek
     size={SIZE.MEDIUM}
-    {...this.props.events}>
-    {this.props.name}
-</NeonPeek>
+    text={this.props.name}
+    {...this.props.events}
+/>
 
 - Circle
 
 <NeonPeek
     size={SIZE.MEDIUM}
     circle
-    {...this.props.events}>
-    {this.props.name}
-</NeonPeek>
+    text={this.props.name}
+    {...this.props.events}
+/>
 
 - Expendable
 
 <NeonPeek
     size={SIZE.MEDIUM}
+    text={this.props.name}
     expend={this.props.expend}
-    {...this.props.events}>
-    {this.props.name}
-</NeonPeek>
+    {...this.props.events}
+/>
 
 - Normal Size
 
 <NeonPeek
     {...this.props.events}
-    expend={this.props.expend}>
-    {this.props.name}
-</NeonPeek>
+    text={this.props.name}
+    expend={this.props.expend}
+/>
 
 - Large Size
 
 <NeonPeek
     size={SIZE.LARGE}
     {...this.props.events}
-    expend={this.props.expend}>
-    {this.props.name}
-</NeonPeek>
+    text={this.props.name}
+    expend={this.props.expend}
+/>
 
 - Full Size
 
 <NeonPeek
     size={SIZE.FULL}
     {...this.props.events}
-    expend={this.props.expend}>
-    {this.props.name}
-</NeonPeek>
+    text={this.props.name}
+    expend={this.props.expend}
+/>

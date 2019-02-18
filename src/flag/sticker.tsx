@@ -74,9 +74,8 @@ const renderPeek = (props: NeonStickerProps): React.ReactNode => {
         margin={MARGIN.TINY}
         style={getPositionStyle(props.peekCorner || CORNER.TOP_LEFT)}
         className={NeonStickerStyle.peek}
-    >
-        {props.peek.children}
-    </NeonPeek>);
+        {...props.peek}
+    />);
 };
 
 export const NeonStickerBase: React.FC<NeonStickerProps> = (props: NeonStickerProps) => {
