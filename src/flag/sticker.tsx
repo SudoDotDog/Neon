@@ -11,7 +11,7 @@ import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style";
 import { NeonButton } from "../button";
 import { FLAG_TYPE } from "./declare";
-import { NeonFlagStyle } from "./style";
+import { NeonStickerStyle } from "./style";
 
 export type NeonStickerCut = {
 
@@ -32,20 +32,20 @@ export type NeonStickerProps = {
 const getColorStyle = (type?: FLAG_TYPE): string => {
 
     switch (type) {
-        case FLAG_TYPE.ERROR: return NeonFlagStyle.stickerError;
-        case FLAG_TYPE.WARNING: return NeonFlagStyle.stickerWarning;
-        case FLAG_TYPE.SUCCEED: return NeonFlagStyle.stickerSucceed;
+        case FLAG_TYPE.ERROR: return NeonStickerStyle.error;
+        case FLAG_TYPE.WARNING: return NeonStickerStyle.warning;
+        case FLAG_TYPE.SUCCEED: return NeonStickerStyle.succeed;
         case FLAG_TYPE.PLAIN:
-        default: return NeonFlagStyle.stickerPlain;
+        default: return NeonStickerStyle.plain;
     }
 };
 
 export const NeonStickerBase: React.FC<NeonStickerProps> = (props: NeonStickerProps) => {
 
-    return (<NeonBox {...boxProps(props, NeonFlagStyle.sticker)}>
-        <div className={NeonFlagStyle.stickerHolder}></div>
-        <div className={mergeClasses(NeonFlagStyle.stickerTitle, getColorStyle(props.type))}>{props.title}</div>
-        <div className={NeonFlagStyle.stickerHolder}>
+    return (<NeonBox {...boxProps(props, NeonStickerStyle.box)}>
+        <div className={NeonStickerStyle.holder}></div>
+        <div className={mergeClasses(NeonStickerStyle.title, getColorStyle(props.type))}>{props.title}</div>
+        <div className={NeonStickerStyle.holder}>
             {props.info && <div>{props.info}</div>}
             {props.button && <NeonButton onClick={props.onClick}>{props.button}</NeonButton>}
         </div>

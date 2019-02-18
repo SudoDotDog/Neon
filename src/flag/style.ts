@@ -91,22 +91,11 @@ const NeonFlagStyleBase: JSSStyle = {
         backgroundColor: COLOR.WHITE,
         color: COLOR.BLACK,
     },
+};
 
+const NeonStickerStyleBase: JSSStyle = {
 
-    stickerError: {
-        color: COLOR.RED,
-    },
-    stickerWarning: {
-        color: COLOR.ORANGE,
-    },
-    stickerSucceed: {
-        color: COLOR.GREEN,
-    },
-    stickerPlain: {
-        color: COLOR.NAVY,
-    },
-
-    sticker: {
+    box: {
         border: `0.4rem solid ${COLOR.NAVY}`,
         padding: '0.2rem',
         boxSizing: 'border-box',
@@ -120,11 +109,23 @@ const NeonFlagStyleBase: JSSStyle = {
 
         overflow: 'auto',
     },
-    stickerTitle: {
+    error: {
+        color: COLOR.RED,
+    },
+    warning: {
+        color: COLOR.ORANGE,
+    },
+    succeed: {
+        color: COLOR.GREEN,
+    },
+    plain: {
+        color: COLOR.NAVY,
+    },
+    title: {
         fontSize: '3.8rem',
         fontWeight: 'bold',
     },
-    stickerHolder: {
+    holder: {
         textAlign: 'center',
         fontSize: '1.2rem',
         flex: 1,
@@ -133,3 +134,6 @@ const NeonFlagStyleBase: JSSStyle = {
 
 export const NeonFlagStyleSheet: StyleSheet = jss.createStyleSheet(NeonFlagStyleBase).attach();
 export const NeonFlagStyle: Classes = NeonFlagStyleSheet.classes;
+
+export const NeonStickerStyleSheet: StyleSheet = jss.createStyleSheet(NeonStickerStyleBase).attach();
+export const NeonStickerStyle: Classes = NeonStickerStyleSheet.classes;
