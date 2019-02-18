@@ -19,9 +19,9 @@ const componentStories = storiesOf('Theme', module);
 
 const getExampleComponents = (label: string) => (
     <React.Fragment>
-        <NeonFlag type={FLAG_TYPE.WARNING}>{label}</NeonFlag>
-        <NeonFlag type={FLAG_TYPE.WARNING}>{label}</NeonFlag>
-        <NeonFlag type={FLAG_TYPE.WARNING} margin={MARGIN.MEDIUM}>Margin Replace</NeonFlag>
+        <NeonFlag type={FLAG_TYPE.WARNING} message={label}/>
+        <NeonFlag type={FLAG_TYPE.WARNING} message={label}/>
+        <NeonFlag type={FLAG_TYPE.WARNING} margin={MARGIN.MEDIUM} message="Margin"/>
         <NeonButton>{label}</NeonButton>
     </React.Fragment>
 );
