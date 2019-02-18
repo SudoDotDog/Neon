@@ -12,11 +12,21 @@ import { MARGIN } from "../../src/declare";
 
 - HasButton
 
-<NeonSticker title={this.props.title} button={this.props.title} onClick={action("Click")} type="ERROR" />
+<NeonSticker 
+    title={this.props.title}
+    peek={{}}
+    corner="BOTTOM_RIGHT"
+    onClick={action("Click")} 
+    type="ERROR" />
 
 - Both
 
-<NeonSticker title={this.props.title} info={this.props.info} button={this.props.title} onClick={action("Click")} type="ERROR" />
+<NeonSticker 
+    title={this.props.title} 
+    info={this.props.info} 
+    peek={{}} 
+    onClick={action("Click")} 
+    type="ERROR" />
 
 - Container
 

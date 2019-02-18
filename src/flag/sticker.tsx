@@ -9,6 +9,8 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style";
+import { NeonPeekCut } from "../button/peek";
+import { CORNER } from "../declare";
 import { FLAG_TYPE } from "./declare";
 import { NeonStickerStyle } from "./style";
 
@@ -18,6 +20,9 @@ export type NeonStickerCut = {
 
     readonly type?: FLAG_TYPE;
     readonly info?: string;
+
+    readonly peek?: NeonPeekCut;
+    readonly peekPosition?: CORNER;
 };
 
 export type NeonStickerProps = {

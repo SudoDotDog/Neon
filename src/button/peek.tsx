@@ -12,7 +12,7 @@ import { assertIfTrue, mergeClasses } from "../#common/style";
 import { SIZE } from "../declare";
 import { getNeonButtonStyle, NeonButtonStyle, NeonPeekStyle } from "./style";
 
-export type NeonPeekProps = {
+export type NeonPeekCut = {
 
     readonly onClick?: () => void;
 
@@ -21,7 +21,9 @@ export type NeonPeekProps = {
     readonly size?: SIZE;
 
     readonly children?: any;
-} & ThemeProps & BoxProps;
+};
+
+export type NeonPeekProps = NeonPeekCut & ThemeProps & BoxProps;
 
 export class NeonPeekBase extends React.Component<NeonPeekProps, {}> {
 
