@@ -18,9 +18,8 @@ componentStories.add(
     'Navigation',
     wInfo([NeonNavigation], [NavigationMDX])(() => {
 
-        const label: string = text('Label', 'Label');
-        const value: string = text('Value', 'Value');
+        const selected: string = text('Selected', 'First');
 
-        return (<NavigationMDX label={label} value={value} events={events} />);
+        return (<NavigationMDX selected={selected} events={events} />);
     }),
 );

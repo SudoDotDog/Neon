@@ -1,8 +1,79 @@
 import { action } from "@storybook/addon-actions";
+import { SIZE } from "../../src/declare";
 import { NeonNavigation } from "../../src/navigation";
 
 # Neon Navigation
 
-- Editable
+- Normal
 
-<NeonNavigation/>
+<NeonNavigation
+    selected={this.props.selected}
+    size={SIZE.NORMAL}
+    navigation={[
+        {
+            text: "First",
+            onClick: action("First")
+        },
+        {
+            text: "Second",
+            onClick: action("Second")
+        },
+        {
+            text: "Third",
+            onClick: action("Third")
+        },
+        {
+            text: "Fourth",
+            onClick: action("Fourth")
+        },
+    ]}
+/>
+
+- Medium
+
+<NeonNavigation
+    selected={this.props.selected}
+    navigation={[
+        {
+            text: "First",
+            onClick: action("First")
+        },
+        {
+            text: "Second",
+            onClick: action("Second")
+        },
+        {
+            text: "Third",
+            onClick: action("Third")
+        },
+        {
+            text: "Fourth",
+            onClick: action("Fourth")
+        },
+    ]}
+/>
+
+- Large
+
+<NeonNavigation
+    selected={this.props.selected}
+    size={SIZE.LARGE}
+    navigation={[
+        {
+            text: "First",
+            onClick: action("First")
+        },
+        {
+            text: "Second",
+            onClick: action("Second")
+        },
+        {
+            text: "Third",
+            onClick: action("Third")
+        },
+        {
+            text: "Fourth",
+            onClick: action("Fourth")
+        },
+    ]}
+/>

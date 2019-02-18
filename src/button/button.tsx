@@ -8,6 +8,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
+import { mergeClasses } from "../#common/style";
 import { SIZE, WIDTH } from "../declare";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style";
 
@@ -72,7 +73,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
         }
     }
 
-    private _getClass(): string {
+    private _getClass(): string | undefined {
 
         const classes: string[] = [];
 
@@ -100,7 +101,10 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
             classes.push(NeonButtonStyle.disabled);
         }
 
-        return classes.join(' ');
+        return mergeClasses(
+            ...classes,
+            this.props.className,
+        );
     }
 }
 
