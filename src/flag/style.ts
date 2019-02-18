@@ -132,6 +132,7 @@ const NeonStickerStyleBase: JSSStyle = {
     holder: {
         textAlign: 'center',
         fontSize: '1.2rem',
+        wordBreak: 'break-word',
         flex: 1,
     },
 };
