@@ -58,7 +58,7 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
                     NeonButtonStyle.button,
                     NeonPeekStyle.peek,
                     this._getSizeClass(),
-                    assertIfTrue(this.props.circle, NeonPeekStyle.circle),
+                    assertIfTrue(this.props.circle, 'circle'),
                     assertIfTrue(this.props.disabled, NeonButtonStyle.disabled),
                 )}
                 tabIndex={this.props.tabIndex}

@@ -70,10 +70,6 @@ export const NeonPeekStyleBase: JSSStyle = {
         transition: 'max-width 0.2s',
         whiteSpace: 'nowrap',
     },
-    circle: {
-        borderRadius: '100%',
-    },
-
     sizeNormal: {
         fontSize: '0.8rem',
         minWidth: '3rem',
@@ -82,6 +78,9 @@ export const NeonPeekStyleBase: JSSStyle = {
         padding: '0.2rem',
         '&:hover': {
             maxWidth: '15rem',
+        },
+        '&.circle': {
+            borderRadius: '3rem',
         },
     },
     sizeMedium: {
@@ -93,6 +92,9 @@ export const NeonPeekStyleBase: JSSStyle = {
         '&:hover': {
             maxWidth: '20rem',
         },
+        '&.circle': {
+            borderRadius: '4rem',
+        },
     },
     sizeLarge: {
         fontSize: '1.2rem',
@@ -103,6 +105,9 @@ export const NeonPeekStyleBase: JSSStyle = {
         '&:hover': {
             maxWidth: '25rem',
         },
+        '&.circle': {
+            borderRadius: '5rem',
+        },
     },
     sizeFull: {
         fontSize: '1.4rem',
@@ -112,6 +117,9 @@ export const NeonPeekStyleBase: JSSStyle = {
         padding: '0.8rem',
         '&:hover': {
             maxWidth: '30rem',
+        },
+        '&.circle': {
+            borderRadius: '6rem',
         },
     },
 };

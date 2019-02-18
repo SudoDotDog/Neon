@@ -108,7 +108,7 @@ const NeonStickerStyleBase: JSSStyle = {
         flexDirection: 'column',
         alignItems: 'center',
 
-        overflow: 'auto',
+        overflow: 'hidden',
     },
     peek: {
         position: 'absolute',
