@@ -10,4 +10,5 @@ NeonRegister.register();
 
 export { NeonButton, NeonButtonProps } from "./button";
 export { NeonPeek, NeonPeekCut, NeonPeekProps } from "./peek";
+export { NeonShine, NeonShineProps } from "./shine";
 

@@ -1,0 +1,77 @@
+import { NeonShine } from "../../src/button";
+import { SIZE } from "../../src/declare";
+import './button.css';
+
+# Neon Shine
+
+- Normal
+
+<div style={{
+    border: '0.2rem solid orange',
+    width: '350px',
+}}>
+    <NeonShine
+        size={SIZE.NORMAL}
+        {...this.props.events}
+    >
+        {this.props.name}
+    </NeonShine>
+</div>
+
+- Medium
+
+<div style={{
+    border: '0.2rem solid orange',
+    width: '350px',
+}}>
+    <NeonShine
+        size={SIZE.MEDIUM}
+        {...this.props.events}
+    >
+        {this.props.name}
+    </NeonShine>
+</div>
+
+- Medium Disabled
+
+<div style={{
+    border: '0.2rem solid orange',
+    width: '350px',
+}}>
+    <NeonShine
+        disabled
+        size={SIZE.MEDIUM}
+        {...this.props.events}
+    >
+        {this.props.name}
+    </NeonShine>
+</div>
+
+- Large
+
+<div style={{
+    border: '0.2rem solid orange',
+    width: '350px',
+}}>
+    <NeonShine
+        size={SIZE.LARGE}
+        {...this.props.events}
+    >
+        {this.props.name}
+    </NeonShine>
+</div>
+
+- Full
+
+<div style={{
+    border: '0.2rem solid orange',
+    width: '350px',
+    height: '500px'
+}}>
+    <NeonShine
+        size={SIZE.FULL}
+        {...this.props.events}
+    >
+        {this.props.name}
+    </NeonShine>
+</div>

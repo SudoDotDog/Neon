@@ -13,24 +13,18 @@ import { NeonTheme } from "../theme";
 const NeonButtonStyleBase: JSSStyle = {
 
     button: {
-
         padding: 0,
         cursor: 'pointer',
         fontSize: '1rem',
-
         fontWeight: 'bold',
         color: COLOR.WHITE,
-
         '&:active': {
             borderColor: COLOR.BLUE,
         },
-
         ...migrateFocusStyle(),
         ...getBorderStyle(),
     },
-
     disabled: {
-
         cursor: 'not-allowed',
         color: COLOR.DARKGRAY,
         borderColor: COLOR.DARKGRAY,
@@ -62,6 +56,47 @@ const NeonButtonStyleBase: JSSStyle = {
 
     full: {
         width: '100%',
+    },
+};
+
+export const NeonShineStyleBase: JSSStyle = {
+
+    button: {
+        border: 0,
+        borderLeft: `0.3rem solid ${COLOR.NAVY}`,
+        cursor: 'pointer',
+        textAlign: 'left',
+        transition: 'border 0.2s, color 0.1s',
+        overflow: 'hidden',
+        width: '100%',
+
+        '&:hover': {
+            borderLeft: `0.5rem solid ${COLOR.NAVY}`,
+        },
+
+        ...migrateFocusStyle(),
+    },
+
+    disabled: {
+        cursor: 'not-allowed',
+        color: COLOR.DARKGRAY,
+        borderColor: COLOR.DARKGRAY,
+    },
+
+    normal: {
+        height: '2rem',
+        fontSize: '1rem',
+    },
+    medium: {
+        height: '3rem',
+        fontSize: '1.2rem',
+    },
+    large: {
+        height: '4rem',
+        fontSize: '1.4rem',
+    },
+    full: {
+        height: '100%',
     },
 };
 
@@ -133,6 +168,9 @@ export const getNeonButtonStyle =
 
 export const NeonButtonStyleSheet: StyleSheet = jss.createStyleSheet(NeonButtonStyleBase).attach();
 export const NeonButtonStyle: Classes = NeonButtonStyleSheet.classes;
+
+export const NeonShineStyleSheet: StyleSheet = jss.createStyleSheet(NeonShineStyleBase).attach();
+export const NeonShineStyle: Classes = NeonShineStyleSheet.classes;
 
 export const NeonPeekStyleSheet: StyleSheet = jss.createStyleSheet(NeonPeekStyleBase).attach();
 export const NeonPeekStyle: Classes = NeonPeekStyleSheet.classes;
