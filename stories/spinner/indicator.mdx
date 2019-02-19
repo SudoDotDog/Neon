@@ -1,0 +1,28 @@
+import { NeonButton } from "../../src/button";
+import { NeonInput } from "../../src/input";
+import { NeonPaper } from "../../src/paper";
+import { NeonIndicator } from "../../src/spinner";
+import { SIZE, WIDTH } from "../../src/declare";
+
+# Neon Indicator
+
+<div>
+    <NeonPaper>
+        From
+        <NeonIndicator 
+            loading={this.props.loading} 
+            covering={this.props.covering} 
+            cover={this.props.label}
+        >
+            <div>
+                <NeonInput label={this.props.label} />
+                <NeonInput label={this.props.label} />
+                <NeonInput label={this.props.label} />
+                <NeonButton width={WIDTH.FULL} size={SIZE.LARGE}>Hello</NeonButton>
+            </div>
+        </NeonIndicator>
+        <hr />
+        Out of indicator
+        <NeonButton>Hello</NeonButton>
+    </NeonPaper>
+</div>
