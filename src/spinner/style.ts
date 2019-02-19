@@ -4,9 +4,9 @@
  * @description Style
  */
 
-import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../#common/declare";
 import { JSSStyle } from "../#common/style/decorator";
+import { NeonStyle } from "../#common/style/style";
 
 const commonFrontBackStyle = {
 
@@ -111,8 +111,5 @@ const NeonIndicatorStyleBase: JSSStyle = {
     },
 };
 
-export const NeonSpinnerStyleSheet: StyleSheet = jss.createStyleSheet(NeonSpinnerStyleBase).attach();
-export const NeonSpinnerStyle: Classes = NeonSpinnerStyleSheet.classes;
-
-export const NeonIndicatorStyleSheet: StyleSheet = jss.createStyleSheet(NeonIndicatorStyleBase).attach();
-export const NeonIndicatorStyle: Classes = NeonIndicatorStyleSheet.classes;
+export const NeonSpinnerStyle: NeonStyle = NeonStyle.create(NeonSpinnerStyleBase);
+export const NeonIndicatorStyle: NeonStyle = NeonStyle.create(NeonIndicatorStyleBase);

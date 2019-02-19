@@ -4,6 +4,7 @@
  * @description Indicator
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
@@ -11,6 +12,8 @@ import { BoxProps } from "../#common/declare";
 import { assertIfTri, assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { NeonSpinner } from "./spinner";
 import { NeonIndicatorStyle } from "./style";
+
+const IndicatorStyle: Classes = NeonIndicatorStyle.use();
 
 export type NeonIndicatorProps = {
 
@@ -24,22 +27,22 @@ export type NeonIndicatorProps = {
 export const NeonIndicatorBase: React.FC<NeonIndicatorProps> = (props: NeonIndicatorProps) => {
 
     const classes: string | undefined = mergeClasses(
-        NeonIndicatorStyle.wrap,
-        assertIfTri(props.loading || props.covering, NeonIndicatorStyle.invisible, NeonIndicatorStyle.visible),
+        IndicatorStyle.wrap,
+        assertIfTri(props.loading || props.covering, IndicatorStyle.invisible, IndicatorStyle.visible),
     );
 
     const coverClasses: string | undefined = mergeClasses(
-        NeonIndicatorStyle.cover,
-        NeonIndicatorStyle.invisible,
-        assertIfTrue(props.covering && (!props.loading), NeonIndicatorStyle.visible),
+        IndicatorStyle.cover,
+        IndicatorStyle.invisible,
+        assertIfTrue(props.covering && (!props.loading), IndicatorStyle.visible),
     );
 
-    return (<NeonBox {...boxProps(props, NeonIndicatorStyle.box)}>
+    return (<NeonBox {...boxProps(props, IndicatorStyle.box)}>
         <div className={classes}>
             {props.children}
         </div>
         <div className={coverClasses}>{props.cover}</div>
-        <div className={NeonIndicatorStyle.spinner}>
+        <div className={IndicatorStyle.spinner}>
             <NeonSpinner loading={props.loading || false} />
         </div>
     </NeonBox>);

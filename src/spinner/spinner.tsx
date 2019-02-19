@@ -4,10 +4,13 @@
  * @description Spinner
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { NeonSpinnerStyle } from "./style";
+
+const SpinnerStyle: Classes = NeonSpinnerStyle.use();
 
 export type NeonSpinnerProps = {
 
@@ -54,8 +57,8 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
 
     public render(): JSX.Element {
 
-        return (<div className={NeonSpinnerStyle.loading}>
-            <div className={NeonSpinnerStyle.outer} >
+        return (<div className={SpinnerStyle.loading}>
+            <div className={SpinnerStyle.outer} >
                 <div className={this._frontClass()} />
                 <div className={this._backClass()} />
             </div>
@@ -65,18 +68,18 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
     private _frontClass(): string | undefined {
 
         return mergeClasses(
-            NeonSpinnerStyle.front,
-            this.props.loading ? NeonSpinnerStyle.enableFront : NeonSpinnerStyle.disable,
-            assertIfTrue(this.state.spinning, NeonSpinnerStyle.spinningFront),
+            SpinnerStyle.front,
+            this.props.loading ? SpinnerStyle.enableFront : SpinnerStyle.disable,
+            assertIfTrue(this.state.spinning, SpinnerStyle.spinningFront),
         );
     }
 
     private _backClass(): string | undefined {
 
         return mergeClasses(
-            NeonSpinnerStyle.back,
-            this.props.loading ? NeonSpinnerStyle.enableBack : NeonSpinnerStyle.disable,
-            assertIfTrue(this.state.spinning, NeonSpinnerStyle.spinningBack),
+            SpinnerStyle.back,
+            this.props.loading ? SpinnerStyle.enableBack : SpinnerStyle.disable,
+            assertIfTrue(this.state.spinning, SpinnerStyle.spinningBack),
         );
     }
 }
