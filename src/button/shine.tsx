@@ -5,7 +5,7 @@
  */
 
 import * as React from "react";
-import { assertIfTrue, mergeClasses } from "../#common/style";
+import { assertIfFalse, assertIfTrue, mergeClasses } from "../#common/style";
 import { SIZE } from "../declare/index";
 import { NeonShineStyle } from "./style";
 
@@ -31,6 +31,7 @@ export class NeonShineBase extends React.Component<NeonShineProps> {
             className={mergeClasses(
                 this._getSizeClass(),
                 NeonShineStyle.button,
+                assertIfFalse(this.props.disabled, NeonShineStyle.hoverable),
                 assertIfTrue(this.props.disabled, NeonShineStyle.disabled),
             )}
             tabIndex={this.props.tabIndex}

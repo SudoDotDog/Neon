@@ -69,12 +69,13 @@ export const NeonShineStyleBase: JSSStyle = {
         transition: 'border 0.2s, color 0.1s',
         overflow: 'hidden',
         width: '100%',
-
+        padding: '0 0.3rem',
+        ...migrateFocusStyle(),
+    },
+    hoverable: {
         '&:hover': {
             borderLeft: `0.5rem solid ${COLOR.NAVY}`,
         },
-
-        ...migrateFocusStyle(),
     },
 
     disabled: {
