@@ -10,7 +10,7 @@ module.exports = (baseConfig: any, env: any, defaultConfig: any) => {
 
     defaultConfig.module.rules.push(
         {
-            test: /.mdx?$/,
+            test: /.mdx$/,
             exclude: /node_modules/,
             use: [
                 {
@@ -27,9 +27,22 @@ module.exports = (baseConfig: any, env: any, defaultConfig: any) => {
         }, {
             test: /\.(ts|tsx)$/,
             exclude: /node_modules/,
-            use: [{
-                loader: require.resolve('awesome-typescript-loader'),
-            }],
+            use: [
+                {
+                    loader: require.resolve('awesome-typescript-loader'),
+                },
+            ],
+        }, {
+            test: /\.stories\.(ts|tsx)$/,
+            use: [
+                {
+                    loader: require.resolve('@storybook/addon-storysource/loader'),
+                    options: {
+                        parser: 'typescript',
+                    },
+                },
+            ],
+            enforce: 'pre',
         },
     );
 
