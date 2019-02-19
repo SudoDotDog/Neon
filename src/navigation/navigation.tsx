@@ -11,8 +11,8 @@ import { MARGIN, SIZE } from "../declare";
 import { NeonNavigationStyle } from "./style";
 
 export type NavigationRoute = {
-    onClick: () => void;
     text: string;
+    onClick?: () => void;
     key?: string;
 };
 

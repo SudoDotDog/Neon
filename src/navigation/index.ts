@@ -8,6 +8,6 @@ import { NeonRegister } from "../#common/register";
 
 NeonRegister.register();
 
-export { NeonNavigation, NeonNavigationProps } from "./navigation";
-export { NeonTree, NeonTreeProps } from "./tree";
+export { NavigationRoute, NeonNavigation, NeonNavigationProps } from "./navigation";
+export { NeonTree, NeonTreeProps, TreeRoute } from "./tree";
 

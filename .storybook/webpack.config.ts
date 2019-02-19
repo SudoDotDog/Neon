@@ -16,7 +16,10 @@ module.exports = (baseConfig: any, env: any, defaultConfig: any) => {
                 {
                     loader: 'babel-loader',
                     options: {
-                        "presets": ["@babel/preset-env", "@babel/preset-react"],
+                        "presets": [
+                            "@babel/preset-env",
+                            "@babel/preset-react",
+                        ],
                     },
                 },
                 '@mdx-js/loader',
