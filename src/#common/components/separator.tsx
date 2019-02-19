@@ -8,7 +8,7 @@ import jss, { Classes, StyleSheet } from "jss";
 import * as React from "react";
 import { ThemedComponent, ThemeProps, withConsumer } from "../consumer";
 import { COLOR } from "../declare";
-import { JSSStyle } from "../style";
+import { JSSStyle } from "../style/decorator";
 
 const NeonSeparatorStyleBase: JSSStyle = {
 

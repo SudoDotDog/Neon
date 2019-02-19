@@ -6,7 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../#common/declare";
-import { getBorderStyle, JSSStyle } from "../#common/style";
+import { getBorderStyle, JSSStyle } from "../#common/style/decorator";
 
 const NeonInputStyleBase: JSSStyle = {
 

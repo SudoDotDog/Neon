@@ -1,12 +1,12 @@
 /**
  * @author WMXPY
- * @namespace Neon_Common
- * @description Style
+ * @namespace Neon_Common_Style
+ * @description Decorator
  */
 
 import { Style } from "jss/css";
 import { CSSProperties } from "react";
-import { COLOR } from "./declare";
+import { COLOR } from "../declare";
 
 export type JSSStyle = Record<string, Style | {
     [key: string]: any;

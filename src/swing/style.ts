@@ -5,7 +5,7 @@
  */
 
 import jss, { Classes, StyleSheet } from "jss";
-import { JSSStyle } from "../#common/style";
+import { JSSStyle } from "../#common/style/decorator";
 
 const NeonSwitchStyleBase: JSSStyle = {
 

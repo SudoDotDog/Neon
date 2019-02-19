@@ -6,7 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../#common/declare";
-import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../#common/style";
+import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../#common/style/decorator";
 
 const NeonFlagStyleBase: JSSStyle = {
 

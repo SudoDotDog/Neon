@@ -6,7 +6,7 @@
 
 import * as React from "react";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
-import { assertIfTrue, mergeClasses } from "../#common/style";
+import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { NeonSpinnerStyle } from "./style";
 
 export type NeonSpinnerProps = {

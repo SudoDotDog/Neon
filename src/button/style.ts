@@ -7,7 +7,7 @@
 import jss, { Classes, StyleSheet } from "jss";
 import { CSSProperties } from "react";
 import { COLOR } from "../#common/declare";
-import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../#common/style";
+import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../#common/style/decorator";
 import { NeonTheme } from "../theme";
 
 const NeonButtonStyleBase: JSSStyle = {

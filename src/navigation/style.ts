@@ -6,7 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../#common/declare";
-import { JSSStyle } from "../#common/style";
+import { JSSStyle } from "../#common/style/decorator";
 
 const NeonNavigationStyleBase: JSSStyle = {
 

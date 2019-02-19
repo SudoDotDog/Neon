@@ -5,7 +5,7 @@
  */
 
 import * as React from "react";
-import { assertIfFalse, assertIfTrue, mergeClasses } from "../#common/style";
+import { assertIfFalse, assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare/index";
 import { NeonShineStyle } from "./style";
 

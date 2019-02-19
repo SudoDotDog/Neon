@@ -9,7 +9,7 @@ import * as React from "react";
 import { MARGIN } from "../../declare/index";
 import { ExcludeTheme, ThemedComponent, ThemeProps, withConsumer } from "../consumer";
 import { BoxProps } from "../declare";
-import { JSSStyle, mergeClasses } from "../style";
+import { JSSStyle, mergeClasses } from "../style/decorator";
 
 const NeonBoxStyleBase: JSSStyle = {
     tiny: {

@@ -6,7 +6,7 @@
 
 import jss, { Classes, StyleSheet } from "jss";
 import { COLOR } from "../#common/declare";
-import { getBorder, JSSStyle } from "../#common/style";
+import { getBorder, JSSStyle } from "../#common/style/decorator";
 
 const NeonPaperStyleBase: JSSStyle = {
 

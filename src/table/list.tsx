@@ -9,7 +9,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { assertIfFalse, mergeClasses } from "../#common/style";
+import { assertIfFalse, mergeClasses } from "../#common/style/decorator";
 import { NeonEditableText } from "../input/index";
 import { NeonTableStyle } from "./style";
 

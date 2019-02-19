@@ -8,7 +8,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { mergeClasses } from "../#common/style";
+import { mergeClasses } from "../#common/style/decorator";
 import { SIZE, WIDTH } from "../declare";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style";
 

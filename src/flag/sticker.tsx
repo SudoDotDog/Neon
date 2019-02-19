@@ -8,7 +8,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { mergeClasses } from "../#common/style";
+import { mergeClasses } from "../#common/style/decorator";
 import { NeonPeek, NeonPeekCut } from "../button/peek";
 import { CORNER, MARGIN } from "../declare";
 import { FLAG_TYPE } from "./declare";
