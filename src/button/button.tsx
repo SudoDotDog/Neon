@@ -18,9 +18,10 @@ export type NeonButtonProps = {
 
     readonly disabled?: boolean;
     readonly tabIndex?: number;
-    readonly className?: string;
     readonly width?: WIDTH;
     readonly size?: SIZE;
+
+    readonly buttonClassName?: string;
 
     readonly children?: any;
 } & ThemeProps & BoxProps;
@@ -103,7 +104,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
         return mergeClasses(
             ...classes,
-            this.props.className,
+            this.props.buttonClassName,
         );
     }
 }

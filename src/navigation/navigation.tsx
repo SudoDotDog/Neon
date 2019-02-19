@@ -33,7 +33,7 @@ export const NeonNavigation: React.FC<NeonNavigationProps> =
 
                 return (<NeonButton
                     ignoreTheme
-                    className={mergeClasses(
+                    buttonClassName={mergeClasses(
                         assertIfTrue(
                             props.selected === key,
                             'selected',

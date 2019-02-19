@@ -15,12 +15,20 @@ const NeonNavigationStyleBase: JSSStyle = {
     },
     button: {
         border: 0,
-        borderBottom: `0.2rem solid ${COLOR.TRANSPARENT}`,
+        borderBottom: `0.3rem solid ${COLOR.TRANSPARENT}`,
+        borderTop: `0.3rem solid ${COLOR.TRANSPARENT}`,
+        boxSizing: 'border-box',
         '&:hover': {
-            borderBottom: `0.2rem solid ${COLOR.ORANGE}`,
+            borderTop: `0.3rem solid ${COLOR.TRANSPARENT}`,
+            borderBottom: `0.3rem solid ${COLOR.ORANGE}`,
+        },
+        '&:focus': {
+            borderTop: `0.3rem solid ${COLOR.TRANSPARENT}`,
+            borderBottom: `0.3rem solid ${COLOR.BLUE}`,
         },
         '&.selected': {
-            borderBottom: `0.2rem solid ${COLOR.LIME}`,
+            borderTop: `0.3rem solid ${COLOR.TRANSPARENT}`,
+            borderBottom: `0.3rem solid ${COLOR.LIME}`,
         },
     },
 };
