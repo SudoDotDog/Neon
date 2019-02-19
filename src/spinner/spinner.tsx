@@ -10,8 +10,6 @@ import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { NeonSpinnerStyle } from "./style";
 
-const SpinnerStyle: Classes = NeonSpinnerStyle.use();
-
 export type NeonSpinnerProps = {
 
     readonly loading: boolean;
@@ -30,6 +28,7 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
     };
 
     private _timer: any;
+    private readonly _SpinnerStyle: Classes = NeonSpinnerStyle.use();
 
     public constructor(props: NeonSpinnerProps) {
 
@@ -57,8 +56,8 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
 
     public render(): JSX.Element {
 
-        return (<div className={SpinnerStyle.loading}>
-            <div className={SpinnerStyle.outer} >
+        return (<div className={this._SpinnerStyle.loading}>
+            <div className={this._SpinnerStyle.outer} >
                 <div className={this._frontClass()} />
                 <div className={this._backClass()} />
             </div>
@@ -68,18 +67,18 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
     private _frontClass(): string | undefined {
 
         return mergeClasses(
-            SpinnerStyle.front,
-            this.props.loading ? SpinnerStyle.enableFront : SpinnerStyle.disable,
-            assertIfTrue(this.state.spinning, SpinnerStyle.spinningFront),
+            this._SpinnerStyle.front,
+            this.props.loading ? this._SpinnerStyle.enableFront : this._SpinnerStyle.disable,
+            assertIfTrue(this.state.spinning, this._SpinnerStyle.spinningFront),
         );
     }
 
     private _backClass(): string | undefined {
 
         return mergeClasses(
-            SpinnerStyle.back,
-            this.props.loading ? SpinnerStyle.enableBack : SpinnerStyle.disable,
-            assertIfTrue(this.state.spinning, SpinnerStyle.spinningBack),
+            this._SpinnerStyle.back,
+            this.props.loading ? this._SpinnerStyle.enableBack : this._SpinnerStyle.disable,
+            assertIfTrue(this.state.spinning, this._SpinnerStyle.spinningBack),
         );
     }
 }

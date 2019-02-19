@@ -13,8 +13,6 @@ import { assertIfTri, assertIfTrue, mergeClasses } from "../#common/style/decora
 import { NeonSpinner } from "./spinner";
 import { NeonIndicatorStyle } from "./style";
 
-const IndicatorStyle: Classes = NeonIndicatorStyle.use();
-
 export type NeonIndicatorProps = {
 
     readonly loading?: boolean;
@@ -25,6 +23,8 @@ export type NeonIndicatorProps = {
 } & ThemeProps & BoxProps;
 
 export const NeonIndicatorBase: React.FC<NeonIndicatorProps> = (props: NeonIndicatorProps) => {
+
+    const IndicatorStyle: Classes = NeonIndicatorStyle.use();
 
     const classes: string | undefined = mergeClasses(
         IndicatorStyle.wrap,

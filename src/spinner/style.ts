@@ -21,6 +21,7 @@ const commonFrontBackStyle = {
         border: '0px solid red',
     },
 };
+
 const keyframes = {
 
     '100%': 'transform: rotate(360deg)',
