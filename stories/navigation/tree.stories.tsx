@@ -8,6 +8,7 @@ import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonTree } from "../../src/navigation";
+import { NeonTreeBase } from "../../src/navigation/tree";
 import { createAction, wInfo } from "../util";
 import TreeMDX from "./tree.mdx";
 
@@ -16,7 +17,7 @@ const events = createAction();
 
 componentStories.add(
     'Tree',
-    wInfo([NeonTree], [TreeMDX])(() => {
+    wInfo([NeonTreeBase], [NeonTree, TreeMDX])(() => {
 
         const selected: string = text('Selected', 'First');
 

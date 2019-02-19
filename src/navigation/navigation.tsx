@@ -5,6 +5,9 @@
  */
 
 import * as React from "react";
+import { boxProps, NeonBox } from "../#common/components/box";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
+import { BoxProps } from "../#common/declare";
 import { assertIfTrue, mergeClasses } from "../#common/style";
 import { NeonButton } from "../button/index";
 import { MARGIN, SIZE } from "../declare";
@@ -21,12 +24,12 @@ export type NeonNavigationProps = {
     margin?: MARGIN;
     size?: SIZE;
     selected?: string;
-};
+} & BoxProps & ThemeProps;
 
-export const NeonNavigation: React.FC<NeonNavigationProps> =
+export const NeonNavigationBase: React.FC<NeonNavigationProps> =
     (props: NeonNavigationProps) => {
 
-        return (<div className={NeonNavigationStyle.box}>
+        return (<NeonBox {...boxProps(props, NeonNavigationStyle.box)}>
             {props.navigation.map((route: NavigationRoute) => {
 
                 const key: string = route.key || route.text;
@@ -48,5 +51,7 @@ export const NeonNavigation: React.FC<NeonNavigationProps> =
                     {route.text}
                 </NeonButton>);
             })}
-        </div>);
+        </NeonBox>);
     };
+
+export const NeonNavigation: ThemedComponent<NeonNavigationProps> = withConsumer<NeonNavigationProps>(NeonNavigationBase);
