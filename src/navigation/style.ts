@@ -31,6 +31,14 @@ const NeonNavigationStyleBase: JSSStyle = {
             borderBottom: `0.3rem solid ${COLOR.LIME}`,
         },
     },
+
+    treeSelected: {
+        borderLeft: `0.5rem solid ${COLOR.NAVY}`,
+        fontWeight: 'bold',
+        '&:hover': {
+            borderLeft: `0.6rem solid ${COLOR.NAVY}`,
+        },
+    },
 };
 
 export const NeonNavigationStyleSheet: StyleSheet = jss.createStyleSheet(NeonNavigationStyleBase).attach();

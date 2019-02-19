@@ -33,6 +33,7 @@ export class NeonShineBase extends React.Component<NeonShineProps> {
                 NeonShineStyle.button,
                 assertIfFalse(this.props.disabled, NeonShineStyle.hoverable),
                 assertIfTrue(this.props.disabled, NeonShineStyle.disabled),
+                this.props.buttonClassName,
             )}
             tabIndex={this.props.tabIndex}
             onClick={() => this.props.onClick && this.props.onClick()}>
