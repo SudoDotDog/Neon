@@ -8,8 +8,9 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { assertIfTrue } from "../#common/style";
+import { assertIfTrue, mergeClasses } from "../#common/style";
 import { NeonShine } from "../button/shine";
+import { SIZE } from "../declare/index";
 import { NeonNavigationStyle } from "./style";
 
 export type TreeRoute = {
@@ -22,6 +23,9 @@ export type TreeRoute = {
 export type NeonTreeProps = {
 
     tree: TreeRoute[];
+
+    buttonClassName?: string;
+    size?: SIZE;
     selected?: string;
 } & BoxProps & ThemeProps;
 
@@ -34,10 +38,14 @@ export const NeonTreeBase: React.FC<NeonTreeProps> =
                 const key: string = route.key || index.toString();
 
                 return (<NeonShine
-                    buttonClassName={assertIfTrue(
-                        props.selected === key,
-                        NeonNavigationStyle.treeSelected,
+                    buttonClassName={mergeClasses(
+                        assertIfTrue(
+                            props.selected === key,
+                            NeonNavigationStyle.treeSelected,
+                        ),
+                        props.buttonClassName,
                     )}
+                    size={props.size}
                     onClick={route.onClick}
                     key={key}
                 >

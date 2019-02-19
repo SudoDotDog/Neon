@@ -35,3 +35,72 @@ import { NeonTree } from "../../src/navigation";
     ]}
     selected={this.props.selected}
 />
+
+- Normal Cornered
+
+<NeonTree
+    style={{
+        border: '0.2rem solid orange',
+        width: '200px',
+    }}
+    tree={[
+        {
+            text: "First",
+            onClick: action("First"),
+        },
+        {
+            text: "Second",
+            onClick: action("Second"),
+        },
+        {
+            text: "Third",
+            onClick: action("Third"),
+        },
+        {
+            text: "Fourth",
+            onClick: action("Fourth"),
+        },
+        {
+            text: "Fifth",
+            onClick: action("Fifth"),
+        },
+        {
+            text: "Sixth",
+            onClick: action("Sixth"),
+        },
+    ]}
+    selected={this.props.selected}
+/>
+
+- Medium
+
+<NeonTree
+    size={SIZE.MEDIUM}
+    tree={[
+        {
+            text: "First",
+            onClick: action("First"),
+        },
+        {
+            text: "Second",
+            onClick: action("Second"),
+        },
+        {
+            text: "Third",
+            onClick: action("Third"),
+        },
+        {
+            text: "Fourth",
+            onClick: action("Fourth"),
+        },
+        {
+            text: "Fifth",
+            onClick: action("Fifth"),
+        },
+        {
+            text: "Sixth",
+            onClick: action("Sixth"),
+        },
+    ]}
+    selected={this.props.selected}
+/>
