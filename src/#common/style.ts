@@ -70,13 +70,14 @@ export const combineStyle = (style: CSSProperties, propsStyle?: CSSProperties): 
     return style;
 };
 
-export const migrateFocusStyle = () => ({
+export const migrateFocusStyle = (): JSSStyle => ({
 
+    position: 'relative',
     '&:focus': {
-
         outlineColor: `rgba(77, 144, 254, .7)`,
         outlineOffset: '-0.1rem',
         outlineStyle: 'auto',
         outlineWidth: '0.2rem',
+        zIndex: '5',
     },
-});
+} as JSSStyle);
