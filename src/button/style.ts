@@ -62,6 +62,7 @@ const NeonButtonStyleBase: JSSStyle = {
 export const NeonShineStyleBase: JSSStyle = {
 
     button: {
+        backgroundColor: COLOR.WHITE,
         border: 0,
         borderLeft: `0.3rem solid ${COLOR.NAVY}`,
         cursor: 'pointer',

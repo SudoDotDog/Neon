@@ -32,17 +32,6 @@ module.exports = (baseConfig: any, env: any, defaultConfig: any) => {
                     loader: require.resolve('awesome-typescript-loader'),
                 },
             ],
-        }, {
-            test: /\.stories\.(ts|tsx)$/,
-            use: [
-                {
-                    loader: require.resolve('@storybook/addon-storysource/loader'),
-                    options: {
-                        parser: 'typescript',
-                    },
-                },
-            ],
-            enforce: 'pre',
         },
     );
 
