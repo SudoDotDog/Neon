@@ -4,10 +4,10 @@
  * @description Style
  */
 
-import jss, { Classes, StyleSheet } from "jss";
 import { CSSProperties } from "react";
 import { COLOR } from "../#common/declare";
 import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../#common/style/decorator";
+import { NeonStyle } from "../#common/style/style";
 import { NeonTheme } from "../theme";
 
 const NeonButtonStyleBase: JSSStyle = {
@@ -72,6 +72,9 @@ export const NeonShineStyleBase: JSSStyle = {
         width: '100%',
         padding: '0 0.3rem',
         ...migrateFocusStyle(),
+        '&:active': {
+            color: COLOR.NAVY,
+        },
     },
     hoverable: {
         '&:hover': {
@@ -168,11 +171,6 @@ export const getNeonButtonStyle =
         backgroundColor: theme.main.color,
     });
 
-export const NeonButtonStyleSheet: StyleSheet = jss.createStyleSheet(NeonButtonStyleBase).attach();
-export const NeonButtonStyle: Classes = NeonButtonStyleSheet.classes;
-
-export const NeonShineStyleSheet: StyleSheet = jss.createStyleSheet(NeonShineStyleBase).attach();
-export const NeonShineStyle: Classes = NeonShineStyleSheet.classes;
-
-export const NeonPeekStyleSheet: StyleSheet = jss.createStyleSheet(NeonPeekStyleBase).attach();
-export const NeonPeekStyle: Classes = NeonPeekStyleSheet.classes;
+export const NeonButtonStyle: NeonStyle = NeonStyle.create(NeonButtonStyleBase);
+export const NeonShineStyle: NeonStyle = NeonStyle.create(NeonShineStyleBase);
+export const NeonPeekStyle: NeonStyle = NeonStyle.create(NeonPeekStyleBase);

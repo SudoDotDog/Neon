@@ -4,6 +4,7 @@
  * @description Button
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
@@ -26,12 +27,14 @@ export type NeonButtonProps = {
     readonly children?: any;
 } & ThemeProps & BoxProps;
 
-export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
+export class NeonButtonBase extends React.Component<NeonButtonProps> {
 
     public static readonly defaultProps: Partial<NeonButtonProps> = {
 
         width: WIDTH.NORMAL,
     };
+
+    private readonly _buttonStyle: Classes = NeonButtonStyle.use();
 
     public render(): JSX.Element {
 
@@ -53,7 +56,7 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
         if (this.props.size === SIZE.FULL) {
 
-            return NeonButtonStyle.sizeFullBox;
+            return this._buttonStyle.sizeFullBox;
         }
 
         return undefined;
@@ -63,14 +66,14 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
 
         switch (this.props.size) {
 
-            case SIZE.MEDIUM: return NeonButtonStyle.sizeMedium;
-            case SIZE.LARGE: return NeonButtonStyle.sizeLarge;
+            case SIZE.MEDIUM: return this._buttonStyle.sizeMedium;
+            case SIZE.LARGE: return this._buttonStyle.sizeLarge;
 
             case SIZE.FULL:
-            case SIZE.RELATIVE: return NeonButtonStyle.sizeFull;
+            case SIZE.RELATIVE: return this._buttonStyle.sizeFull;
 
             case SIZE.NORMAL:
-            default: return NeonButtonStyle.sizeNormal;
+            default: return this._buttonStyle.sizeNormal;
         }
     }
 
@@ -83,8 +86,8 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
             case WIDTH.FULL: {
                 classes.push(
                     this._getSizeClass(),
-                    NeonButtonStyle.button,
-                    NeonButtonStyle.full,
+                    this._buttonStyle.button,
+                    this._buttonStyle.full,
                 );
                 break;
             }
@@ -92,14 +95,14 @@ export class NeonButtonBase extends React.Component<NeonButtonProps, {}> {
             default: {
                 classes.push(
                     this._getSizeClass(),
-                    NeonButtonStyle.button,
+                    this._buttonStyle.button,
                 );
             }
         }
 
         if (this.props.disabled) {
 
-            classes.push(NeonButtonStyle.disabled);
+            classes.push(this._buttonStyle.disabled);
         }
 
         return mergeClasses(

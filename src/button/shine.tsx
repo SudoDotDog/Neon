@@ -4,6 +4,7 @@
  * @description Shine
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { assertIfFalse, assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare/index";
@@ -24,15 +25,17 @@ export type NeonShineProps = {
 
 export class NeonShineBase extends React.Component<NeonShineProps> {
 
+    private readonly _shineStyle: Classes = NeonShineStyle.use();
+
     public render(): JSX.Element {
 
         return (<button
             disabled={this.props.disabled}
             className={mergeClasses(
                 this._getSizeClass(),
-                NeonShineStyle.button,
-                assertIfFalse(this.props.disabled, NeonShineStyle.hoverable),
-                assertIfTrue(this.props.disabled, NeonShineStyle.disabled),
+                this._shineStyle.button,
+                assertIfFalse(this.props.disabled, this._shineStyle.hoverable),
+                assertIfTrue(this.props.disabled, this._shineStyle.disabled),
                 this.props.buttonClassName,
             )}
             tabIndex={this.props.tabIndex}
@@ -45,14 +48,14 @@ export class NeonShineBase extends React.Component<NeonShineProps> {
 
         switch (this.props.size) {
 
-            case SIZE.MEDIUM: return NeonShineStyle.medium;
-            case SIZE.LARGE: return NeonShineStyle.large;
+            case SIZE.MEDIUM: return this._shineStyle.medium;
+            case SIZE.LARGE: return this._shineStyle.large;
 
             case SIZE.FULL:
-            case SIZE.RELATIVE: return NeonShineStyle.full;
+            case SIZE.RELATIVE: return this._shineStyle.full;
 
             case SIZE.NORMAL:
-            default: return NeonShineStyle.normal;
+            default: return this._shineStyle.normal;
         }
     }
 }

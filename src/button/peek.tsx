@@ -4,6 +4,7 @@
  * @description Peek
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
@@ -39,6 +40,9 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
         hovering: false,
     };
 
+    private readonly _buttonStyle: Classes = NeonButtonStyle.use();
+    private readonly _peekStyle: Classes = NeonPeekStyle.use();
+
     public constructor(props: NeonPeekProps) {
 
         super(props);
@@ -55,11 +59,11 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
                 disabled={this.props.disabled}
                 style={getNeonButtonStyle(this.props.theme)}
                 className={mergeClasses(
-                    NeonButtonStyle.button,
-                    NeonPeekStyle.peek,
+                    this._buttonStyle.button,
+                    this._peekStyle.peek,
                     this._getSizeClass(),
                     assertIfTrue(this.props.circle, 'circle'),
-                    assertIfTrue(this.props.disabled, NeonButtonStyle.disabled),
+                    assertIfTrue(this.props.disabled, this._buttonStyle.disabled),
                 )}
                 tabIndex={this.props.tabIndex}
                 onClick={() => this.props.onClick && this.props.onClick()}
@@ -99,13 +103,13 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
 
         switch (this.props.size) {
 
-            case SIZE.MEDIUM: return NeonPeekStyle.sizeMedium;
-            case SIZE.LARGE: return NeonPeekStyle.sizeLarge;
-            case SIZE.FULL: return NeonPeekStyle.sizeFull;
+            case SIZE.MEDIUM: return this._peekStyle.sizeMedium;
+            case SIZE.LARGE: return this._peekStyle.sizeLarge;
+            case SIZE.FULL: return this._peekStyle.sizeFull;
 
             case SIZE.RELATIVE:
             case SIZE.NORMAL:
-            default: return NeonPeekStyle.sizeNormal;
+            default: return this._peekStyle.sizeNormal;
         }
     }
 }
