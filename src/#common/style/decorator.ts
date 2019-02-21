@@ -78,6 +78,6 @@ export const migrateFocusStyle = (): JSSStyle => ({
         outlineOffset: '-0.1rem',
         outlineStyle: 'auto',
         outlineWidth: '0.2rem',
-        zIndex: '5',
+        zIndex: 6,
     },
 } as JSSStyle);

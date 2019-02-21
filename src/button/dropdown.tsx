@@ -10,16 +10,24 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
-import { SIZE, WIDTH } from "../declare/index";
-import { getNeonButtonStyle, NeonButtonStyle } from "./style";
+import { SIZE } from "../declare/index";
+import { NeonShine } from "./shine";
+import { getNeonButtonStyle, NeonButtonStyle, NeonDropdownButtonStyle } from "./style";
+
+export type NeonDropdownButtonListElement = {
+
+    readonly text: string;
+    readonly key?: string;
+    readonly onClick?: () => void;
+};
 
 export type NeonDropdownButtonProps = {
 
     readonly onClick?: () => void;
+    readonly list?: NeonDropdownButtonListElement[];
 
     readonly disabled?: boolean;
     readonly tabIndex?: number;
-    readonly width?: WIDTH;
     readonly size?: SIZE;
 
     readonly buttonClassName?: string;
@@ -40,70 +48,90 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
     };
 
     private readonly _buttonStyle: Classes = NeonButtonStyle.use();
+    private readonly _dropdownButtonStyle: Classes = NeonDropdownButtonStyle.use();
+
+    public constructor(props: NeonDropdownButtonProps) {
+
+        super(props);
+
+        this._handleMouseEnter = this._handleMouseEnter.bind(this);
+        this._handleMouseLeave = this._handleMouseLeave.bind(this);
+    }
 
     public render(): JSX.Element {
 
         return (
-            <NeonBox {...boxProps(this.props, this._getBoxSizeClass())}>
+            <NeonBox {...boxProps(this.props, this._dropdownButtonStyle.box, this._buttonStyle.sizeFullBox)}>
+                <div
+                    onMouseEnter={this._handleMouseEnter}
+                    onMouseLeave={this._handleMouseLeave}
+                    className={this._dropdownButtonStyle.wrap}
+                >
+                    <button
+                        disabled={this.props.disabled}
+                        style={getNeonButtonStyle(this.props.theme)}
+                        className={this._getClass()}
+                        tabIndex={this.props.tabIndex}
 
-                <button
-                    disabled={this.props.disabled}
-                    style={getNeonButtonStyle(this.props.theme)}
-                    className={this._getClass()}
-                    tabIndex={this.props.tabIndex}
-                    onClick={() => this.props.onClick && this.props.onClick()}>
-                    {this.props.children}
-                </button>
+                        onClick={() => this.props.onClick && this.props.onClick()}>
+                        {this.props.children}&nbsp;▼
+                    </button>
+                    {this._renderDropdown()}
+                </div>
             </NeonBox>);
     }
 
-    private _getBoxSizeClass(): string | undefined {
+    private _handleMouseEnter() {
+        this.setState({ hover: true });
+    }
 
-        if (this.props.size === SIZE.FULL) {
+    private _handleMouseLeave() {
+        this.setState({ hover: false });
+    }
 
-            return this._buttonStyle.sizeFullBox;
+    private _renderDropdown(): React.ReactNode {
+
+        if (!this.state.hover) {
+            return null;
         }
 
-        return undefined;
+        if (!this.props.list) {
+            return null;
+        }
+
+        return (<div className={this._dropdownButtonStyle.dropdown}>
+            {this.props.list.map((element: NeonDropdownButtonListElement, index: number) =>
+                (<NeonShine
+                    key={element.key || index}
+                    onClick={element.onClick}>
+                    {element.text}
+                </NeonShine>),
+            )}
+        </div>);
     }
 
     private _getSizeClass(): string {
 
         switch (this.props.size) {
 
-            case SIZE.MEDIUM: return this._buttonStyle.sizeMedium;
-            case SIZE.LARGE: return this._buttonStyle.sizeLarge;
+            case SIZE.MEDIUM: return this._dropdownButtonStyle.sizeMedium;
+            case SIZE.LARGE: return this._dropdownButtonStyle.sizeLarge;
 
             case SIZE.FULL:
-            case SIZE.RELATIVE: return this._buttonStyle.sizeFull;
+            case SIZE.RELATIVE: return this._dropdownButtonStyle.sizeFull;
 
             case SIZE.NORMAL:
-            default: return this._buttonStyle.sizeNormal;
+            default: return this._dropdownButtonStyle.sizeNormal;
         }
     }
 
     private _getClass(): string | undefined {
 
-        const classes: string[] = [];
-
-        switch (this.props.width) {
-
-            case WIDTH.FULL: {
-                classes.push(
-                    this._getSizeClass(),
-                    this._buttonStyle.button,
-                    this._buttonStyle.full,
-                );
-                break;
-            }
-            case WIDTH.NORMAL:
-            default: {
-                classes.push(
-                    this._getSizeClass(),
-                    this._buttonStyle.button,
-                );
-            }
-        }
+        const classes: string[] = [
+            this._getSizeClass(),
+            this._buttonStyle.button,
+            this._buttonStyle.full,
+        ];
 
         if (this.props.disabled) {
 

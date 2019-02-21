@@ -21,6 +21,13 @@ componentStories.add(
 
         const name: string = text('Name', 'Name');
 
-        return (<DropdownMDX name={name} events={events} />);
+        return (<DropdownMDX name={name} list={[
+            {
+                text: "hello",
+            },
+            {
+                text: "world",
+            },
+        ]} events={events} />);
     }),
 );

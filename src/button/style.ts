@@ -170,6 +170,43 @@ export const NeonPeekStyleBase: JSSStyle = {
     },
 };
 
+export const NeonDropdownButtonStyleBase: JSSStyle = {
+
+    box: {
+        ...migrateFocusStyle(),
+    },
+
+    wrap: {
+        position: 'relative',
+    },
+    dropdown: {
+        width: '100%',
+        position: 'absolute',
+        zIndex: 5,
+        top: '100%',
+        left: 0,
+
+        boxSizing: 'border-box',
+        ...getBorderStyle(),
+    },
+
+    sizeNormal: {
+        height: '2rem',
+        fontSize: '1rem',
+    },
+    sizeMedium: {
+        height: '3rem',
+        fontSize: '1rem',
+    },
+    sizeLarge: {
+        height: '4rem',
+        fontSize: '1.2rem',
+    },
+    sizeFull: {
+        height: '100%',
+    },
+};
+
 export const getNeonButtonStyle =
     (theme: NeonTheme): CSSProperties => ({
 
@@ -179,3 +216,4 @@ export const getNeonButtonStyle =
 export const NeonButtonStyle: NeonStyle = NeonStyle.create(NeonButtonStyleBase);
 export const NeonShineStyle: NeonStyle = NeonStyle.create(NeonShineStyleBase);
 export const NeonPeekStyle: NeonStyle = NeonStyle.create(NeonPeekStyleBase);
+export const NeonDropdownButtonStyle: NeonStyle = NeonStyle.create(NeonDropdownButtonStyleBase);

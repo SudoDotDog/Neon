@@ -1,5 +1,5 @@
 import { NeonDropdownButton } from "../../src/button";
-import { MARGIN, SIZE, WIDTH } from "../../src/declare";
+import { SIZE } from "../../src/declare";
 import './button.css';
 
 # Neon Dropdown
@@ -7,6 +7,40 @@ import './button.css';
 - Dropdown Button
 
 <NeonDropdownButton
+    list={this.props.list}
+    {...this.props.events}
+>
+    {this.props.name}
+</NeonDropdownButton>
+
+- Bordered
+
+<div style={{
+    width: '300px',
+}}>
+    <NeonDropdownButton
+        list={this.props.list}
+        {...this.props.events}
+    >
+        {this.props.name}
+    </NeonDropdownButton>
+</div>
+
+- Meidum
+
+<NeonDropdownButton
+    size={SIZE.MEDIUM}
+    list={this.props.list}
+    {...this.props.events}
+>
+    {this.props.name}
+</NeonDropdownButton>
+
+- Large
+
+<NeonDropdownButton
+    size={SIZE.LARGE}
+    list={this.props.list}
     {...this.props.events}
 >
     {this.props.name}
