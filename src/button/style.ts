@@ -64,7 +64,10 @@ export const NeonShineStyleBase: JSSStyle = {
     button: {
         backgroundColor: COLOR.WHITE,
         border: 0,
-        borderLeft: `0.3rem solid ${COLOR.NAVY}`,
+        borderLeftWidth: '0.3rem',
+        borderLeftStyle: 'solid',
+        borderLeftColor: COLOR.NAVY,
+
         cursor: 'pointer',
         textAlign: 'left',
         transition: 'border 0.2s, color 0.1s',
@@ -72,7 +75,9 @@ export const NeonShineStyleBase: JSSStyle = {
         width: '100%',
         padding: '0 0.3rem',
         ...migrateFocusStyle(),
+
         '&:active': {
+            borderLeftColor: COLOR.BLUE,
             color: COLOR.NAVY,
         },
     },

@@ -33,10 +33,10 @@ const NeonNavigationStyleBase: JSSStyle = {
     },
 
     treeSelected: {
-        borderLeft: `0.5rem solid ${COLOR.NAVY}`,
+        borderLeftWidth: '0.5rem',
         fontWeight: 'bold',
         '&:hover': {
-            borderLeft: `0.6rem solid ${COLOR.NAVY}`,
+            borderLeftWidth: '0.6rem',
         },
     },
 };
