@@ -4,13 +4,14 @@
  * @description Group
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { MARGIN } from "../declare/index";
 import { NeonPill } from "./pill";
-import { NeonPillStyle } from "./style";
+import { NeonGroupStyle } from "./style/group";
 
 export type NeonPillGroupProps = {
 
@@ -24,6 +25,8 @@ export type NeonPillGroupProps = {
 } & ThemeProps & BoxProps;
 
 export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillGroupProps) => {
+
+    const groupStyle: Classes = NeonGroupStyle.use();
 
     const pills: React.ReactNode[] =
         props.selected.map((key: string, index: number) =>
@@ -47,16 +50,16 @@ export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillG
     const options: string[] = props.options || [];
 
     return (
-        <NeonBox {...boxProps(props, NeonPillStyle.group)}>
+        <NeonBox {...boxProps(props, groupStyle.group)}>
             {pills}
             {props.addable &&
-                <NeonBox margin={MARGIN.TINY} className={NeonPillStyle.add}>
+                <NeonBox margin={MARGIN.TINY} className={groupStyle.add}>
                     <select
                         value="__Neon_Default_Option"
                         onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
                             props.onChange &&
                             props.onChange([...props.selected, event.target.value])}
-                        className={NeonPillStyle.select}>
+                        className={groupStyle.select}>
                         <option
                             value="__Neon_Default_Option"
                             disabled
@@ -64,7 +67,7 @@ export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillG
                             {props.addText || 'Add...'}
                         </option>
                         {options.filter((option: string) => !props.selected.includes(option)).map((option: string) =>
-                            <option value={option} key={option} className={NeonPillStyle.option}>{option}</option>)}
+                            <option value={option} key={option} className={groupStyle.option}>{option}</option>)}
                     </select>
                 </NeonBox>}
         </NeonBox>

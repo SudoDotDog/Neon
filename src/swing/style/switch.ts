@@ -1,11 +1,11 @@
 /**
  * @author WMXPY
- * @namespace Neon_Swing
- * @description Style
+ * @namespace Neon_Swing_Style
+ * @description Switch
  */
 
 import jss, { Classes, StyleSheet } from "jss";
-import { JSSStyle } from "../#common/style/decorator";
+import { JSSStyle } from "../../#common/style/decorator";
 
 const NeonSwitchStyleBase: JSSStyle = {
 

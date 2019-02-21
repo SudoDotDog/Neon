@@ -8,7 +8,7 @@ import { Classes } from "jss";
 import * as React from "react";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
-import { NeonSpinnerStyle } from "./style";
+import { NeonSpinnerStyle } from "./style/spinner";
 
 export type NeonSpinnerProps = {
 
