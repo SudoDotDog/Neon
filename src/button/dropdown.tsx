@@ -61,23 +61,26 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
     public render(): JSX.Element {
 
         return (
-            <NeonBox {...boxProps(this.props, this._dropdownButtonStyle.box, this._buttonStyle.sizeFullBox)}>
-                <div
-                    onMouseEnter={this._handleMouseEnter}
-                    onMouseLeave={this._handleMouseLeave}
-                    className={this._dropdownButtonStyle.wrap}
-                >
-                    <button
-                        disabled={this.props.disabled}
-                        style={getNeonButtonStyle(this.props.theme)}
-                        className={this._getClass()}
-                        tabIndex={this.props.tabIndex}
+            <NeonBox
+                divAttributes={{
+                    onMouseEnter: this._handleMouseEnter,
+                    onMouseLeave: this._handleMouseLeave,
+                }}
+                {...boxProps(this.props,
+                    this._dropdownButtonStyle.wrap,
+                    this._dropdownButtonStyle.box,
+                    this._buttonStyle.sizeFullBox,
+                )}>
+                <button
+                    disabled={this.props.disabled}
+                    style={getNeonButtonStyle(this.props.theme)}
+                    className={this._getClass()}
+                    tabIndex={this.props.tabIndex}
 
-                        onClick={() => this.props.onClick && this.props.onClick()}>
-                        {this.props.children}&nbsp;▼
+                    onClick={() => this.props.onClick && this.props.onClick()}>
+                    {this.props.children}&nbsp;▼
                     </button>
-                    {this._renderDropdown()}
-                </div>
+                {this._renderDropdown()}
             </NeonBox>);
     }
 
