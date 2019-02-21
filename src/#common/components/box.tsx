@@ -42,6 +42,8 @@ export type NeonBoxProps = {
     readonly style?: React.CSSProperties;
     readonly className?: string;
     readonly margin?: MARGIN;
+
+    readonly divAttributes?: React.HTMLAttributes<HTMLDivElement>;
     readonly children?: any;
 } & ThemeProps;
 
@@ -72,6 +74,7 @@ export const NeonBoxBase: React.FC<NeonBoxProps> = (props: NeonBoxProps) => {
         : marginClass;
 
     return React.createElement('div', {
+        ...props.divAttributes,
         className: className || undefined,
         style: props.style,
     }, props.children);
