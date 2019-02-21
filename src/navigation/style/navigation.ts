@@ -1,12 +1,12 @@
 /**
  * @author WMXPY
- * @namespace Neon_Navigation
- * @description Style
+ * @namespace Neon_Navigation_Style
+ * @description Navigation
  */
 
-import jss, { Classes, StyleSheet } from "jss";
-import { COLOR } from "../#common/declare";
-import { JSSStyle } from "../#common/style/decorator";
+import { COLOR } from "../../#common/declare";
+import { JSSStyle } from "../../#common/style/decorator";
+import { NeonStyle } from "../../#common/style/style";
 
 const NeonNavigationStyleBase: JSSStyle = {
 
@@ -14,8 +14,8 @@ const NeonNavigationStyleBase: JSSStyle = {
         display: 'flex',
     },
     button: {
-        borderLeft: 0,
-        borderRight: 0,
+        borderLeftWidth: '0 !important',
+        borderRightWidth: '0 !important',
         borderTop: `0.3rem solid ${COLOR.TRANSPARENT}`,
         borderBottom: `0.3rem solid ${COLOR.TRANSPARENT}`,
         boxSizing: 'border-box',
@@ -33,16 +33,6 @@ const NeonNavigationStyleBase: JSSStyle = {
             borderBottom: `0.3rem solid ${COLOR.LIME}`,
         },
     },
-
-    treeSelected: {
-        borderLeftWidth: '0.5rem',
-        fontWeight: 'bold',
-
-        '&:hover': {
-            borderLeftWidth: '0.6rem',
-        },
-    },
 };
 
-export const NeonNavigationStyleSheet: StyleSheet = jss.createStyleSheet(NeonNavigationStyleBase).attach();
-export const NeonNavigationStyle: Classes = NeonNavigationStyleSheet.classes;
+export const NeonNavigationStyle: NeonStyle = NeonStyle.create(NeonNavigationStyleBase);

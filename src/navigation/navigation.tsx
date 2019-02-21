@@ -4,6 +4,7 @@
  * @description Navigation
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
@@ -11,7 +12,7 @@ import { BoxProps } from "../#common/declare";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { NeonButton } from "../button/index";
 import { MARGIN, SIZE } from "../declare";
-import { NeonNavigationStyle } from "./style";
+import { NeonNavigationStyle } from "./style/navigation";
 
 export type NavigationRoute = {
     text: string;
@@ -29,7 +30,9 @@ export type NeonNavigationProps = {
 export const NeonNavigationBase: React.FC<NeonNavigationProps> =
     (props: NeonNavigationProps) => {
 
-        return (<NeonBox {...boxProps(props, NeonNavigationStyle.box)}>
+        const navigationStyle: Classes = NeonNavigationStyle.use();
+
+        return (<NeonBox {...boxProps(props, navigationStyle.box)}>
             {props.navigation.map((route: NavigationRoute) => {
 
                 const key: string = route.key || route.text;
@@ -41,7 +44,7 @@ export const NeonNavigationBase: React.FC<NeonNavigationProps> =
                             props.selected === key,
                             'selected',
                         ),
-                        NeonNavigationStyle.button,
+                        navigationStyle.button,
                     )}
                     key={key}
                     size={props.size || SIZE.MEDIUM}

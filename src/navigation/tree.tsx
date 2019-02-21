@@ -4,6 +4,7 @@
  * @description Tree
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
@@ -11,7 +12,7 @@ import { BoxProps } from "../#common/declare";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { NeonShine } from "../button/shine";
 import { SIZE } from "../declare/index";
-import { NeonNavigationStyle } from "./style";
+import { NeonTreeStyle } from "./style/tree";
 
 export type TreeRoute = {
 
@@ -32,6 +33,8 @@ export type NeonTreeProps = {
 export const NeonTreeBase: React.FC<NeonTreeProps> =
     (props: NeonTreeProps) => {
 
+        const treeStyle: Classes = NeonTreeStyle.use();
+
         return (<NeonBox {...boxProps(props)}>
             {props.tree.map((route: TreeRoute, index: number) => {
 
@@ -41,7 +44,7 @@ export const NeonTreeBase: React.FC<NeonTreeProps> =
                     buttonClassName={mergeClasses(
                         assertIfTrue(
                             props.selected === key,
-                            NeonNavigationStyle.treeSelected,
+                            treeStyle.selected,
                         ),
                         props.buttonClassName,
                     )}
