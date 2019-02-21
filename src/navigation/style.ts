@@ -14,10 +14,12 @@ const NeonNavigationStyleBase: JSSStyle = {
         display: 'flex',
     },
     button: {
-        border: 0,
-        borderBottom: `0.3rem solid ${COLOR.TRANSPARENT}`,
+        borderLeft: 0,
+        borderRight: 0,
         borderTop: `0.3rem solid ${COLOR.TRANSPARENT}`,
+        borderBottom: `0.3rem solid ${COLOR.TRANSPARENT}`,
         boxSizing: 'border-box',
+
         '&:hover': {
             borderTop: `0.3rem solid ${COLOR.TRANSPARENT}`,
             borderBottom: `0.3rem solid ${COLOR.ORANGE}`,
@@ -35,6 +37,7 @@ const NeonNavigationStyleBase: JSSStyle = {
     treeSelected: {
         borderLeftWidth: '0.5rem',
         fontWeight: 'bold',
+
         '&:hover': {
             borderLeftWidth: '0.6rem',
         },
