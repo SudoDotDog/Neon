@@ -4,6 +4,9 @@ import { NeonDialog } from "../../src/dialog";
 
 - Dialog
 
-<NeonDialog 
-    message={this.props.message}
-/>
+<NeonDialog
+    show={this.props.show}
+    blur={this.props.blur}
+>
+    <div style={{color: 'red'}}>Red {this.props.message}</div>
+</NeonDialog>

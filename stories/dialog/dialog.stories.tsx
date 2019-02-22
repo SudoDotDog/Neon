@@ -4,7 +4,7 @@
  * @description Dialog
  */
 
-import { text } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonDialog } from "../../src/dialog";
@@ -20,6 +20,13 @@ componentStories.add(
 
         const message: string = text('Message', 'Message');
 
-        return (<DialogMDX message={message} />);
+        const show: boolean = boolean('Show', false);
+        const blur: boolean = boolean('Blur', false);
+
+        return (<DialogMDX
+            message={message}
+            show={show}
+            blur={blur}
+        />);
     }),
 );
