@@ -17,7 +17,7 @@ export enum COLOR {
     HARD_LIGHT_BLUE = "#E5E5EE",
     SUPER_LIGHT_BLUE = "#F5F5FF",
     NAVY = "#001F3F",
-    LIGHT_NAVY = "03396C",
+    LIGHT_NAVY = "#03396C",
     ORANGE = "#FF851B",
     MAROON = "#85144b",
     MAROON_LIGHT = "#651E3E",

@@ -4,7 +4,7 @@
  * @description Switch
  */
 
-import { text } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonSwitch } from "../../src/swing";
@@ -19,7 +19,16 @@ componentStories.add(
     wInfo([NeonSwitchBase], [NeonSwitch, SwitchMDX])(() => {
 
         const name: string = text('Name', 'Name');
+        const toggled: boolean = boolean('Toggled', false);
 
-        return (<SwitchMDX name={name} />);
+        const active: string = text('Active', 'ON');
+        const inactive: string = text('Inactive', 'OFF');
+
+        return (<SwitchMDX
+            active={active}
+            inactive={inactive}
+            name={name}
+            toggled={toggled}
+        />);
     }),
 );

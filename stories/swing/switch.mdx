@@ -1,8 +1,71 @@
+import { action } from "@storybook/addon-actions";
 import { NeonSwitch } from "../../src/swing";
-import { MARGIN, SIZE } from "../../src/declare";
+import { SIZE } from "../../src/declare";
 
 # Neon Switch
 
-<NeonSwitch>
+- Normal
+
+<NeonSwitch
+    size={SIZE.NORMAL}
+    active={this.props.active}
+    inactive={this.props.inactive}
+    onChange={action('Change')}
+    toggled={this.props.toggled}
+>
     {this.props.name}
 </NeonSwitch>
+
+- Medium
+
+<NeonSwitch
+    size={SIZE.MEDIUM}
+    active={this.props.active}
+    inactive={this.props.inactive}
+    onChange={action('Change')}
+    toggled={this.props.toggled}
+>
+    {this.props.name}
+</NeonSwitch>
+
+- Large
+
+<NeonSwitch
+    size={SIZE.LARGE}
+    active={this.props.active}
+    inactive={this.props.inactive}
+    onChange={action('Change')}
+    toggled={this.props.toggled}
+>
+    {this.props.name}
+</NeonSwitch>
+
+- Full
+
+<NeonSwitch
+    size={SIZE.FULL}
+    active={this.props.active}
+    inactive={this.props.inactive}
+    onChange={action('Change')}
+    toggled={this.props.toggled}
+>
+    {this.props.name}
+</NeonSwitch>
+
+- Relative
+
+<div style={{
+    width: '300px',
+    height: '300px',
+    border: '5px solid orange',
+}}>
+    <NeonSwitch
+        size={SIZE.RELATIVE}
+        active={this.props.active}
+        inactive={this.props.inactive}
+        onChange={action('Change')}
+        toggled={this.props.toggled}
+    >
+        {this.props.name}
+    </NeonSwitch>
+</div>
