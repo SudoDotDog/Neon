@@ -17,7 +17,7 @@ import { NeonDropdownButtonStyle } from "./style/dropdown";
 
 export type NeonDropdownButtonListElement = {
 
-    readonly text: string;
+    readonly children: any;
     readonly key?: string;
     readonly onClick?: () => void;
 };
@@ -108,7 +108,7 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
                 (<NeonShine
                     key={element.key || index}
                     onClick={element.onClick}>
-                    {element.text}
+                    {element.children}
                 </NeonShine>),
             )}
         </div>);

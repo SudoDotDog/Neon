@@ -47,7 +47,7 @@ componentStories.add(
             info: 'info',
 
             peek: {
-                text: "A",
+                children: "A",
                 expend: "AAA",
             },
             peekCorner: CORNER.BOTTOM_RIGHT,

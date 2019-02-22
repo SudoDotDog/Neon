@@ -23,10 +23,10 @@ componentStories.add(
 
         return (<DropdownMDX name={name} list={[
             {
-                text: "hello",
+                children: "hello",
             },
             {
-                text: "world",
+                children: <div style={{ color: 'red' }}>Red world</div>,
             },
         ]} events={events} />);
     }),
