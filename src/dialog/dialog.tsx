@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Neon_Dialog
- * @description Confirm
+ * @description Dialog
  */
 
 import { Classes } from "jss";
@@ -9,25 +9,25 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { NeonConfirmStyle } from "./style/confirm";
+import { NeonDialogStyle } from "./style/dialog";
 
-export type NeonConfirmProps = {
+export type NeonDialogProps = {
 
 } & BoxProps & ThemeProps;
 
-export const NeonConfirmBase: React.FC<NeonConfirmProps> =
-    (props: NeonConfirmProps) => {
+export const NeonDialogBase: React.FC<NeonDialogProps> =
+    (props: NeonDialogProps) => {
 
-        const confirmStyle: Classes = NeonConfirmStyle.use();
+        const dialogStyle: Classes = NeonDialogStyle.use();
 
         return (<NeonBox
             {...boxProps(
                 props,
-                confirmStyle.box,
+                dialogStyle.box,
             )}
         >
 
         </NeonBox>);
     };
 
-export const NeonConfirm: ThemedComponent<NeonConfirmProps> = withConsumer<NeonConfirmProps>(NeonConfirmBase);
+export const NeonDialog: ThemedComponent<NeonDialogProps> = withConsumer<NeonDialogProps>(NeonDialogBase);

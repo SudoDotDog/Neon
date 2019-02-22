@@ -8,5 +8,5 @@ import { NeonRegister } from "../#common/register";
 
 NeonRegister.register();
 
-export { NeonConfirm, NeonConfirmProps } from "./confirm";
+export { NeonDialog, NeonDialogProps } from "./dialog";
 
