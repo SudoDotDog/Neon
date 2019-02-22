@@ -19,7 +19,7 @@ componentStories.add(
     'Tree',
     wInfo([NeonTreeBase], [NeonTree, TreeMDX])(() => {
 
-        const selected: string = text('Selected', 'First');
+        const selected: string = text('Selected', '1');
 
         return (<TreeMDX selected={selected} events={events} />);
     }),

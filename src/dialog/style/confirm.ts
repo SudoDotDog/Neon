@@ -9,6 +9,9 @@ import { NeonStyle } from "../../#common/style/style";
 
 const NeonConfirmStyleBase: JSSStyle = {
 
+    box: {
+
+    },
 };
 
 export const NeonConfirmStyle: NeonStyle = NeonStyle.create(NeonConfirmStyleBase);

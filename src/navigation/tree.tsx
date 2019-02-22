@@ -16,7 +16,7 @@ import { NeonTreeStyle } from "./style/tree";
 
 export type TreeRoute = {
 
-    text: string;
+    children: any;
     onClick?: () => void;
     key?: string;
 };
@@ -52,7 +52,7 @@ export const NeonTreeBase: React.FC<NeonTreeProps> =
                     onClick={route.onClick}
                     key={key}
                 >
-                    {route.text}
+                    {route.children}
                 </NeonShine>);
             })}
         </NeonBox>);

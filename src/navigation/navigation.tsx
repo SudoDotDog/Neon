@@ -15,7 +15,7 @@ import { MARGIN, SIZE } from "../declare";
 import { NeonNavigationStyle } from "./style/navigation";
 
 export type NavigationRoute = {
-    text: string;
+    children: any;
     onClick?: () => void;
     key?: string;
 };
@@ -33,9 +33,9 @@ export const NeonNavigationBase: React.FC<NeonNavigationProps> =
         const navigationStyle: Classes = NeonNavigationStyle.use();
 
         return (<NeonBox {...boxProps(props, navigationStyle.box)}>
-            {props.navigation.map((route: NavigationRoute) => {
+            {props.navigation.map((route: NavigationRoute, index: number) => {
 
-                const key: string = route.key || route.text;
+                const key: string = route.key || index.toString();
 
                 return (<NeonButton
                     ignoreTheme
@@ -51,7 +51,7 @@ export const NeonNavigationBase: React.FC<NeonNavigationProps> =
                     margin={props.margin || MARGIN.NONE}
                     onClick={route.onClick}
                 >
-                    {route.text}
+                    {route.children}
                 </NeonButton>);
             })}
         </NeonBox>);

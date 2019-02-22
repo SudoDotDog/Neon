@@ -19,7 +19,7 @@ componentStories.add(
     'Navigation',
     wInfo([NeonNavigationBase], [NeonNavigation, NavigationMDX])(() => {
 
-        const selected: string = text('Selected', 'First');
+        const selected: string = text('Selected', '1');
 
         return (<NavigationMDX selected={selected} events={events} />);
     }),
