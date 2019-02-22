@@ -9,33 +9,32 @@ import { expect } from 'chai';
 import * as Chance from 'chance';
 import { shallow, ShallowWrapper } from 'enzyme';
 import * as React from "react";
-import { NeonBox } from '../../../src/#common/components/box';
-import { NeonCardProps } from "../../../src/card";
-import { NeonCardBase } from '../../../src/card/card';
+import { NeonButton } from '../../../src/button/button';
+import { NeonRacketProps } from "../../../src/card";
+import { NeonRacketBase } from '../../../src/card/racket';
 import { getDefaultTheme } from '../../../src/theme/declare';
 
 describe('Given a <Racket /> Component', (): void => {
 
     const chance: Chance.Chance = new Chance('neon-card-racket');
 
-    const getDefaultProps = (): NeonCardProps => ({
+    const getDefaultProps = (): NeonRacketProps => ({
 
         theme: getDefaultTheme(),
     });
 
-    const render = (props: NeonCardProps = getDefaultProps(), children: any = chance.string()) => {
+    const render = (props: NeonRacketProps = getDefaultProps(), children: any = chance.string()) => {
 
         return shallow(
-            (<NeonCardBase {...props}>
-                {children}
-            </NeonCardBase>),
+            (<NeonRacketBase {...props}>
+            </NeonRacketBase>),
         );
     };
 
-    it('should render a card element', (): void => {
+    it('should render a racket element', (): void => {
 
         const component: ShallowWrapper = render();
 
-        expect(component.type()).to.be.equal(NeonBox);
+        expect(component.type()).to.be.equal(NeonButton);
     });
 });
