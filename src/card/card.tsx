@@ -6,10 +6,12 @@
 
 import { Classes } from "jss";
 import * as React from "react";
-import { NeonBox } from "../#common/components/box";
+import { boxProps, NeonBox } from "../#common/components/box";
 import { NeonSeparator } from "../#common/components/separator";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
-import { MARGIN, SIZE, WIDTH } from "../declare";
+import { BoxProps } from "../#common/declare";
+import { mergeClasses } from "../#common/style/decorator";
+import { SIZE, WIDTH } from "../declare";
 import { NeonTheme } from "../theme/index";
 import { NeonCardStyle } from "./style/card";
 
@@ -18,12 +20,10 @@ export type NeonCardProps = {
     readonly upper?: any;
     readonly separator?: boolean;
 
-    readonly style?: React.CSSProperties;
-    readonly margin?: MARGIN;
     readonly width?: WIDTH;
     readonly size?: SIZE;
     readonly children?: any;
-} & ThemeProps;
+} & ThemeProps & BoxProps;
 
 export const NeonCardBase: React.FC<NeonCardProps> =
     (props: Partial<NeonCardProps> = {
@@ -57,11 +57,7 @@ export const NeonCardBase: React.FC<NeonCardProps> =
                 ? theme.separator
                 : props.separator;
 
-        return (<NeonBox
-            style={props.style}
-            className={classes.join(' ')}
-            margin={props.margin}
-        >
+        return (<NeonBox {...boxProps(props, mergeClasses(...classes))}>
 
             <div className={cardStyle.upper}>
                 {props.upper && props.upper}

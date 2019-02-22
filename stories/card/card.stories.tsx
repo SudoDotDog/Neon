@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Stories_Components
+ * @namespace Stories_Card
  * @description Card
  */
 

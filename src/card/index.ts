@@ -9,4 +9,5 @@ import { NeonRegister } from "../#common/register";
 NeonRegister.register();
 
 export { NeonCard, NeonCardProps } from "./card";
+export { NeonRacket, NeonRacketProps } from "./racket";
 
