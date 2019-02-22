@@ -4,7 +4,7 @@
  * @description Racket
  */
 
-import { text } from "@storybook/addon-knobs";
+import { number, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonRacket } from "../../src/card";
@@ -19,7 +19,14 @@ componentStories.add(
     wInfo([NeonRacketBase], [NeonRacket, RacketMDX])(() => {
 
         const name: string = text('Name', 'Name');
+        const image: string = text('Image', 'link');
 
-        return (<RacketMDX name={name} />);
+        const proportion: number = number('Proportion', 3);
+
+        return (<RacketMDX
+            name={name}
+            image={image}
+            proportion={proportion}
+        />);
     }),
 );

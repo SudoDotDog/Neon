@@ -1,6 +1,40 @@
 import { NeonRacket } from "../../src/card";
-import { MARGIN, SIZE } from "../../src/declare";
+import { SIZE } from "../../src/declare";
 
 # Neon Racket
 
-<NeonRacket />
+- Small
+
+<NeonRacket
+    size={SIZE.NORMAL}
+    text={this.props.name}
+    image={this.props.image}
+    proportion={this.props.proportion}
+/>
+
+- Medium
+
+<NeonRacket
+    size={SIZE.MEDIUM}
+    text={this.props.name}
+    image={this.props.image}
+    proportion={this.props.proportion}
+/>
+
+- Large
+
+<NeonRacket
+    size={SIZE.LARGE}
+    text={this.props.name}
+    image={this.props.image}
+    proportion={this.props.proportion}
+/>
+
+- Full
+
+<NeonRacket
+    size={SIZE.FULL}
+    text={this.props.name}
+    image={this.props.image}
+    proportion={this.props.proportion}
+/>
