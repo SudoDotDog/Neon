@@ -8,7 +8,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, withConsumer } from "../#common/consumer";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
-import { NeonInputStyle } from "./style";
+import { NeonInputStyle } from "./style/style";
 import { NeonText, NeonTextProps } from "./text";
 
 export type NeonEditableTextProps = {

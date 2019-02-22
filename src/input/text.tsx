@@ -4,13 +4,14 @@
  * @description Text
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { assertIfTrue } from "../#common/style/decorator";
 import { INPUT_TYPE } from "./declare";
-import { NeonInputStyle } from "./style";
+import { NeonTextStyle } from "./style/text";
 
 export type NeonTextProps = {
 
@@ -32,6 +33,8 @@ export class NeonTextBase extends React.Component<NeonTextProps> {
 
         type: INPUT_TYPE.TEXT,
     };
+
+    private readonly _textStyle: Classes = NeonTextStyle.use();
 
     private _ref: HTMLInputElement | null;
 
@@ -55,12 +58,12 @@ export class NeonTextBase extends React.Component<NeonTextProps> {
 
         return (<NeonBox {...boxProps(
             this.props,
-            NeonInputStyle.text,
-            assertIfTrue(this.props.lite, NeonInputStyle.borderLite),
+            this._textStyle.text,
+            assertIfTrue(this.props.lite, this._textStyle.borderLite),
         )}>
             <input
                 ref={(ref) => this._ref = ref}
-                className={NeonInputStyle.textInput}
+                className={this._textStyle.textInput}
                 type={this.props.type}
                 value={this.props.value}
                 tabIndex={this.props.tabIndex}

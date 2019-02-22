@@ -6,8 +6,9 @@
 
 import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
-import { NeonRacket, NeonRacketBase } from "card/racket";
 import * as React from "react";
+import { NeonRacket } from "../../src/card";
+import { NeonRacketBase } from "../../src/card/racket";
 import { wInfo } from "../util";
 import RacketMDX from "./racket.mdx";
 

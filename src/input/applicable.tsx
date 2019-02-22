@@ -13,7 +13,7 @@ import { NeonButton } from "../button";
 import { MARGIN, SIZE } from "../declare/index";
 import { INPUT_TYPE } from "./declare";
 import { NeonInput } from "./input";
-import { NeonApplicableStyle } from "./style";
+import { NeonApplicableStyle } from "./style/style";
 
 export type NeonApplicableProps = {
 

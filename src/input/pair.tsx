@@ -4,13 +4,14 @@
  * @description Pair
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { INPUT_TYPE } from "./declare";
 import { NeonEditableText } from "./editableText";
-import { NeonInputStyle } from "./style";
+import { NeonPairStyle } from "./style/pair";
 
 export type NeonPairProps = {
 
@@ -30,18 +31,20 @@ export type NeonPairProps = {
 
 export const NeonPairBase: React.FC<NeonPairProps> = (props: NeonPairProps) => {
 
+    const pairStyle: Classes = NeonPairStyle.use();
+
     return (
         <NeonBox
-            {...boxProps(props, NeonInputStyle.pair)}
+            {...boxProps(props, pairStyle.pair)}
         >
             <div
-                className={NeonInputStyle.pairLabel}>
+                className={pairStyle.pairLabel}>
                 {props.label}
             </div>
             {
                 props.editable
                     ? <NeonEditableText
-                        className={NeonInputStyle.pairText}
+                        className={pairStyle.pairText}
                         autofocus={props.autofocus}
                         ignoreTheme
                         value={props.value}
@@ -52,7 +55,7 @@ export const NeonPairBase: React.FC<NeonPairProps> = (props: NeonPairProps) => {
                         type={props.type}
                     />
                     : <div
-                        className={NeonInputStyle.pairRaw}>
+                        className={pairStyle.pairRaw}>
                         {props.value}
                     </div>
             }

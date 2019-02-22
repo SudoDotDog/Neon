@@ -8,7 +8,7 @@ import { Classes } from "jss";
 import * as React from "react";
 import { assertIfFalse, assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare/index";
-import { NeonShineStyle } from "./style";
+import { NeonShineStyle } from "./style/shine";
 
 export type NeonShineProps = {
 

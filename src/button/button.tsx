@@ -11,7 +11,7 @@ import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { SIZE, WIDTH } from "../declare";
-import { getNeonButtonStyle, NeonButtonStyle } from "./style";
+import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
 
 export type NeonButtonProps = {
 

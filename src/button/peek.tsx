@@ -11,7 +11,8 @@ import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare";
-import { getNeonButtonStyle, NeonButtonStyle, NeonPeekStyle } from "./style";
+import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
+import { NeonPeekStyle } from "./style/peek";
 
 export type NeonPeekCut = {
 

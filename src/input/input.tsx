@@ -10,7 +10,7 @@ import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { INPUT_TYPE } from "./declare";
-import { NeonInputStyle } from "./style";
+import { NeonInputStyle } from "./style/style";
 
 export type NeonInputProps = {
 

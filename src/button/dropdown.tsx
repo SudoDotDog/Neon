@@ -12,7 +12,8 @@ import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare/index";
 import { NeonShine } from "./shine";
-import { getNeonButtonStyle, NeonButtonStyle, NeonDropdownButtonStyle } from "./style";
+import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
+import { NeonDropdownButtonStyle } from "./style/dropdown";
 
 export type NeonDropdownButtonListElement = {
 
