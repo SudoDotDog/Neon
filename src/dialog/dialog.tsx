@@ -9,7 +9,7 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { mergeClasses } from "../#common/style/decorator";
+import { assertIfTri, mergeClasses } from "../#common/style/decorator";
 import { NeonDialogStyle } from "./style/dialog";
 
 export type NeonDialogProps = {
@@ -20,28 +20,91 @@ export type NeonDialogProps = {
     children?: any;
 } & BoxProps & ThemeProps;
 
-export const NeonDialogBase: React.FC<NeonDialogProps> = (props: NeonDialogProps) => {
+export type NeonDialogStates = {
 
-    if (!props.show) {
-        return null;
+    readonly visible?: boolean;
+
+};
+
+export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogStates> {
+
+    public state: NeonDialogStates = {
+
+        visible: false,
+    };
+
+    private readonly _dialogStyle: Classes = NeonDialogStyle.use();
+    private _timer: any = null;
+
+    public componentDidMount() {
+
+        this._updateVisibility();
     }
 
-    const dialogStyle: Classes = NeonDialogStyle.use();
+    public componentDidUpdate(lastProps: NeonDialogProps) {
 
-    return (<React.Fragment>
-        {props.blur && <div className={mergeClasses(dialogStyle.fixed, dialogStyle.grayOut)} />}
-        <div className={mergeClasses(dialogStyle.fixed, dialogStyle.center)}>
-            <NeonBox
-                ignoreTheme
-                {...boxProps(
-                    props,
-                    dialogStyle.box,
-                )}
-            >
-                {props.children}
-            </NeonBox>
-        </div>
-    </React.Fragment>);
-};
+        if (lastProps.show !== this.props.show) {
+            this._updateVisibility();
+        }
+    }
+
+    public render(): React.ReactNode {
+
+        if (!this.props.show) {
+            return null;
+        }
+
+        return (<React.Fragment>
+            {this._renderBlur()}
+            <div className={mergeClasses(
+                this._dialogStyle.fixed,
+                this._dialogStyle.center,
+                this._dialogStyle.traverse,
+                assertIfTri(this.state.visible, this._dialogStyle.visible, this._dialogStyle.invisible),
+            )}>
+                <NeonBox
+                    ignoreTheme
+                    {...boxProps(
+                        this.props,
+                        this._dialogStyle.box,
+                    )}
+                >
+                    {this.props.children}
+                </NeonBox>
+            </div>
+        </React.Fragment>);
+    }
+
+    private _updateVisibility() {
+
+        clearTimeout(this._timer);
+        if (this.props.show) {
+            this._timer = setTimeout(() => this.setState({
+                visible: Boolean(this.props.show),
+            }), 10);
+        } else {
+            this.setState({
+                visible: false,
+            });
+        }
+    }
+
+    private _renderBlur(): React.ReactNode {
+
+        if (!this.props.blur) {
+
+            return null;
+        }
+
+        return (<div
+            className={mergeClasses(
+                this._dialogStyle.fixed,
+                this._dialogStyle.grayOut,
+                this._dialogStyle.traverse,
+                assertIfTri(this.state.visible, this._dialogStyle.visible, this._dialogStyle.invisible),
+            )}
+        />);
+    }
+}
 
 export const NeonDialog: ThemedComponent<NeonDialogProps> = withConsumer<NeonDialogProps>(NeonDialogBase);

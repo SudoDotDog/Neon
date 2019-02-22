@@ -42,6 +42,16 @@ const NeonDialogStyleBase: JSSStyle = {
 
         zIndex: 10,
     },
+
+    traverse: {
+        transition: 'opacity 0.3s',
+    },
+    visible: {
+        opacity: 1,
+    },
+    invisible: {
+        opacity: 0,
+    },
 };
 
 export const NeonDialogStyle: NeonStyle = NeonStyle.create(NeonDialogStyleBase);
