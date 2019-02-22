@@ -18,6 +18,14 @@ mocha := node_modules/.bin/mocha
 
 main: run
 
+b: build
+c: clean
+i: install
+p: publish
+r: run
+s: storybook
+t: tests
+
 run:
 	@echo "[INFO] Starting storybook"
 	@NODE_ENV=development $(start_storybook) -p $(storybook_port) -c $(storybook_config_path)
