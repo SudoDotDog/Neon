@@ -11,7 +11,6 @@ import { getBorderStyle, JSSStyle } from "../../#common/style/decorator";
 const NeonInputStyleBase: JSSStyle = {
 
     wrap: {
-
         position: 'relative',
         padding: '0.2rem',
         cursor: 'text',
@@ -20,7 +19,6 @@ const NeonInputStyleBase: JSSStyle = {
         ...getBorderStyle(),
     },
     text: {
-
         padding: '0.2rem',
         cursor: 'text',
         backgroundColor: COLOR.WHITE,
@@ -28,26 +26,23 @@ const NeonInputStyleBase: JSSStyle = {
         ...getBorderStyle(),
     },
     borderLite: {
-
         borderWidth: 0,
         borderBottomWidth: '0.2rem',
     },
     notEditable: {
-
         paddingLeft: '0.3rem',
         borderStyle: 'dashed',
     },
     notEditableInput: {
-
         marginTop: '1px',
 
         fontFamily: 'system-ui',
         fontSize: '1rem',
     },
     label: {
-
         position: 'absolute',
         top: '0.8rem',
+        left: '0.4rem',
 
         fontSize: '1rem',
         fontWeight: 'bold',
@@ -56,13 +51,11 @@ const NeonInputStyleBase: JSSStyle = {
         transition: '0.2s all',
     },
     shrink: {
-
         top: '0.1rem',
         left: '0.2rem',
         fontSize: '0.8rem',
     },
     input: {
-
         border: '0',
         paddingTop: '0.8rem',
 
@@ -77,7 +70,6 @@ const NeonInputStyleBase: JSSStyle = {
         },
     },
     textInput: {
-
         border: '0',
         paddingTop: '0.3rem',
 

@@ -12,18 +12,20 @@ import { BoxProps } from "../#common/declare";
 import { assertIfTri, mergeClasses } from "../#common/style/decorator";
 import { NeonDialogStyle } from "./style/dialog";
 
+export type NeonDialogCut = {
+
+    readonly show?: boolean;
+    readonly blur?: boolean;
+};
+
 export type NeonDialogProps = {
 
-    show?: boolean;
-    blur?: boolean;
-
-    children?: any;
-} & BoxProps & ThemeProps;
+    readonly children?: any;
+} & NeonDialogCut & BoxProps & ThemeProps;
 
 export type NeonDialogStates = {
 
-    readonly visible?: boolean;
-
+    readonly visible: boolean;
 };
 
 export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogStates> {
