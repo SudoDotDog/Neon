@@ -1,17 +1,16 @@
 /**
  * @author WMXPY
- * @namespace Neon_Card
- * @description Style
+ * @namespace Neon_Card_Style
+ * @description Card
  */
 
-import jss, { Classes, StyleSheet } from "jss";
-import { COLOR } from "../#common/declare";
-import { getBorderStyle, JSSStyle } from "../#common/style/decorator";
+import { COLOR } from "../../#common/declare";
+import { getBorderStyle, JSSStyle } from "../../#common/style/decorator";
+import { NeonStyle } from "../../#common/style/style";
 
 const NeonCardStyleBase: JSSStyle = {
 
     wrap: {
-
         display: 'flex',
         flexDirection: 'column',
 
@@ -56,5 +55,4 @@ const NeonCardStyleBase: JSSStyle = {
     },
 };
 
-export const NeonCardStyleSheet: StyleSheet = jss.createStyleSheet(NeonCardStyleBase).attach();
-export const NeonCardStyle: Classes = NeonCardStyleSheet.classes;
+export const NeonCardStyle: NeonStyle = NeonStyle.create(NeonCardStyleBase);
