@@ -63,13 +63,28 @@ export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogS
 
         return (<React.Fragment>
             {this._renderBlur()}
-            <div className={mergeClasses(
-                this._dialogStyle.fixed,
-                this._dialogStyle.center,
-                this._dialogStyle.traverse,
-                assertIfTri(this.state.visible, this._dialogStyle.visible, this._dialogStyle.invisible),
-            )}>
+            <div
+                className={mergeClasses(
+                    this._dialogStyle.fixed,
+                    this._dialogStyle.center,
+                    this._dialogStyle.traverse,
+                    assertIfTri(this.state.visible, this._dialogStyle.visible, this._dialogStyle.invisible),
+                )}
+                onClick={() => {
+                    if (this.props.onClose) {
+                        this.props.onClose();
+                    }
+                }}
+            >
                 <NeonBox
+                    divAttributes={{
+                        onClick: (event: React.MouseEvent<HTMLDivElement>) => {
+
+                            if (this.props.onClose) {
+                                event.stopPropagation();
+                            }
+                        },
+                    }}
                     ignoreTheme
                     {...boxProps(
                         this.props,
