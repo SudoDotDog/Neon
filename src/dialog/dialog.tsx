@@ -36,7 +36,6 @@ export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogS
     };
 
     private readonly _dialogStyle: Classes = NeonDialogStyle.use();
-    private _timer: any = null;
 
     public componentDidMount() {
 
@@ -79,11 +78,10 @@ export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogS
 
     private _updateVisibility() {
 
-        clearTimeout(this._timer);
         if (this.props.show) {
-            this._timer = setTimeout(() => this.setState({
+            setImmediate(() => this.setState({
                 visible: Boolean(this.props.show),
-            }), 10);
+            }));
         } else {
             this.setState({
                 visible: false,

@@ -21,9 +21,13 @@ componentStories.add(
         const show: boolean = boolean('Show', false);
         const blur: boolean = boolean('Blur', false);
 
+        const title: string = text('Title', 'Title');
+        const content: string = text('Content', 'Content');
         const label: string = text('Label', 'Label');
 
         return (<GatherMDX
+            title={title}
+            content={content}
             label={label}
             show={show}
             blur={blur}
