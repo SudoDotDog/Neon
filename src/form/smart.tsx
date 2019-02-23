@@ -10,10 +10,10 @@ import { BoxProps } from "../#common/declare";
 import { NeonButton } from "../button";
 import { MARGIN, SIZE, WIDTH } from "../declare";
 import { FLAG_TYPE, NeonFlag, NeonFlagCut, NeonSticker, NeonStickerCut } from "../flag";
-import { NeonInput } from "../input";
 import { NeonIndicator } from "../spinner";
 import { NeonTitle } from "../typography/title";
-import { NeonFromStructure, parseStructure, RenderableFormElement } from "./structure";
+import { NeonSmartPoll } from "./poll";
+import { NeonFromStructure } from "./structure";
 
 export type NeonSmartFormProps = {
 
@@ -27,30 +27,15 @@ export type NeonSmartFormProps = {
     readonly loading?: boolean;
 
     readonly form: NeonFromStructure;
+    readonly onChange?: <T extends Record<string, any>>(value: T) => void;
+    readonly value?: Record<string, any>;
 
     readonly rift?: MARGIN;
     readonly submit?: string;
-    readonly onSubmit: <T>(content: T) => void;
+    readonly onSubmit?: () => void;
 } & BoxProps;
 
-export type NeonSmartFormStates = {
-
-    readonly current: Record<string, any>;
-};
-
-export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmartFormStates> {
-
-    public readonly state: NeonSmartFormStates = {
-
-        current: {},
-    };
-
-    public constructor(props: NeonSmartFormProps) {
-
-        super(props);
-
-        this._submit = this._submit.bind(this);
-    }
+export class NeonSmartForm extends React.Component<NeonSmartFormProps> {
 
     public render(): React.ReactNode {
 
@@ -67,10 +52,6 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
                 {this._renderSubmit()}
             </NeonIndicator>
         );
-    }
-
-    private _submit(): void {
-        this.props.onSubmit(this._getResponse());
     }
 
     private _renderSticker(): React.ReactNode | undefined {
@@ -131,29 +112,30 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
 
     private _renderForm(): React.ReactNode {
 
-        const renderableStructure: RenderableFormElement[] = parseStructure(this.props.form);
+        const value: Record<string, any> = this.props.value || {};
+        const onChange: (content: any) => void = this.props.onChange || (() => undefined);
 
-        return renderableStructure.map((element: RenderableFormElement) =>
-            (<NeonInput
-                key={element.key}
-                label={element.display}
-                value={this._getValue(element.key, element.defaultValue)}
-                onEnter={this._submit}
-                onChange={this._getSetValueFunction(element.key)}
-                type={element.type}
-                ignoreTheme
-                margin={this._getMargin()}
-            />),
-        );
+        return (<NeonSmartPoll
+            rift={this._getMargin()}
+            value={value}
+            structure={this.props.form}
+
+            onChange={onChange}
+            onEnter={this.props.onSubmit}
+        />);
     }
 
     private _renderSubmit(): React.ReactNode {
+
+        if (!this.props.onSubmit) {
+            return null;
+        }
 
         return (<NeonButton
             key="__neon_submit_button"
             width={WIDTH.FULL}
             size={SIZE.MEDIUM}
-            onClick={this._submit}
+            onClick={this.props.onSubmit}
             ignoreTheme
             margin={this._getMargin()}
         >
@@ -164,39 +146,5 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps, NeonSmart
     private _getMargin(): MARGIN {
 
         return this.props.rift || MARGIN.SMALL;
-    }
-
-    private _getValue(key: string, defaultValue: any): any {
-
-        if (this.state.current[key]) {
-            return this.state.current[key];
-        }
-
-        if (this.state.current[key] === undefined) {
-            return defaultValue;
-        }
-
-        return '';
-    }
-
-    private _getSetValueFunction(key: string): (value: any) => void {
-
-        return (value: any) =>
-            this.setState({
-                current: {
-                    ...this.state.current,
-                    [key]: value,
-                },
-            });
-    }
-
-    private _getResponse(): Record<string, any> {
-
-        const renderableStructure: RenderableFormElement[] = parseStructure(this.props.form);
-
-        return renderableStructure.reduce((previous: Record<string, any>, current: RenderableFormElement) => ({
-            ...previous,
-            [current.key]: this._getValue(current.key, current.defaultValue),
-        }), {} as Record<string, any>);
     }
 }

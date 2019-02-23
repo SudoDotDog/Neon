@@ -24,6 +24,12 @@ componentStories.add(
             number: INPUT_TYPE.NUMBER,
             world: INPUT_TYPE.PASSWORD,
         });
+
+        const value: Record<string, any> = object('Value', {
+            hello: 'Hello',
+            number: 123,
+        });
+
         const loading: boolean = boolean('Loading', false);
 
         const title: string = text('title', 'title');
@@ -62,6 +68,7 @@ componentStories.add(
             rift={rift}
 
             structure={structure}
+            value={value}
             loading={loading}
             flag={flag}
             cover={covering ? cover : null}

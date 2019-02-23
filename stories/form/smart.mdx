@@ -11,7 +11,9 @@ import { MARGIN } from "../../src/declare";
     titleBorderless={this.props.titleBorderless}
     margin={this.props.margin}
     rift={this.props.rift}
-    onSubmit={(response) => action('Submit')(response)}
+    value={this.props.value}
+    onSubmit={action('Submit')}
+    onChange={action('Change')}
     form={this.props.structure}
     flag={this.props.flag}
     loading={this.props.loading}

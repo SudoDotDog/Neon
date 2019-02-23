@@ -29,11 +29,9 @@ componentStories.add(
             number: 123,
         });
 
-        const margin: string = text('margin', MARGIN.SMALL);
         const rift: string = text('rift', MARGIN.SMALL);
 
         return (<PollMDX
-            margin={margin}
             rift={rift}
             structure={structure}
             value={value}
