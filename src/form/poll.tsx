@@ -5,20 +5,21 @@
  */
 
 import * as React from "react";
-import { BoxProps } from "../#common/declare";
 import { MARGIN } from "../declare";
 import { NeonInput } from "../input";
 import { NeonFromStructure, parseStructure, RenderableFormElement } from "./structure";
 
-export type NeonSmartPollProps = {
+export type NeonSmartPollCut = {
 
     readonly structure: NeonFromStructure;
     readonly value: Record<string, any>;
-    readonly rift: MARGIN;
+    readonly rift?: MARGIN;
 
-    readonly onChange: <T extends Record<string, any>>(content: T) => void;
+    readonly onChange?: <T extends Record<string, any>>(content: T) => void;
     readonly onEnter?: () => void;
-} & BoxProps;
+};
+
+export type NeonSmartPollProps = NeonSmartPollCut;
 
 export class NeonSmartPoll extends React.Component<NeonSmartPollProps> {
 
@@ -34,17 +35,19 @@ export class NeonSmartPoll extends React.Component<NeonSmartPollProps> {
     private _renderForm(): React.ReactNode {
 
         const renderableStructure: RenderableFormElement[] = parseStructure(this.props.structure);
+        const rift: MARGIN = this.props.rift || MARGIN.TINY;
 
         return renderableStructure.map((element: RenderableFormElement) =>
             (<NeonInput
                 key={element.key}
+                autofocus={element.autofocus}
                 label={element.display}
                 value={this._getValue(element.key, element.defaultValue)}
                 onEnter={this.props.onEnter}
                 onChange={this._getSetValueFunction(element.key)}
                 type={element.type}
                 ignoreTheme
-                margin={this.props.rift}
+                margin={rift}
             />),
         );
     }
@@ -64,6 +67,11 @@ export class NeonSmartPoll extends React.Component<NeonSmartPollProps> {
 
     private _getSetValueFunction(key: string): (value: any) => void {
 
+        if (!this.props.onChange) {
+
+            return () => undefined;
+        }
+
         return (value: any) => {
 
             const newValue: Record<string, any> = {
@@ -71,7 +79,9 @@ export class NeonSmartPoll extends React.Component<NeonSmartPollProps> {
                 [key]: value,
             };
 
-            this.props.onChange(newValue);
+            if (this.props.onChange) {
+                this.props.onChange(newValue);
+            }
         };
     }
 }

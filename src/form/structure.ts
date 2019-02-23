@@ -10,12 +10,14 @@ import { INPUT_TYPE } from "../input/declare";
 export type FromElement = {
 
     readonly type: INPUT_TYPE;
+    readonly autofocus?: boolean;
     readonly defaultValue?: any;
     readonly display?: string;
 };
 
 export type RenderableFormElement = {
 
+    readonly autofocus: boolean;
     readonly type: INPUT_TYPE;
     readonly defaultValue: any;
     readonly display: string;
@@ -32,6 +34,7 @@ export const parseStructure = (structure: NeonFromStructure): RenderableFormElem
 
         if (typeof value === 'string') {
             return {
+                autofocus: false,
                 defaultValue: '',
                 display: key,
                 key,
@@ -40,6 +43,7 @@ export const parseStructure = (structure: NeonFromStructure): RenderableFormElem
         }
 
         return {
+            autofocus: value.autofocus || false,
             defaultValue: value.defaultValue || '',
             display: value.display || key,
             key,

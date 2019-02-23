@@ -1,10 +1,17 @@
+import { action } from "@storybook/addon-actions";
 import { NeonGather } from "../../src/dialog";
 
 # Neon Gather
 
 <NeonGather
+    onClose={this.props.hasOnClose && action('Close')}
     title={this.props.title}
     label={this.props.label}
+    form={{
+        ...this.props.form,
+        onChange: action('Change'),
+        onEnter: action('Enter'),
+    }}
     show={this.props.show}
     blur={this.props.blur}
 >

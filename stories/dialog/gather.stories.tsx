@@ -4,11 +4,13 @@
  * @description Gather
  */
 
-import { boolean, text } from "@storybook/addon-knobs";
+import { boolean, object, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
+import { MARGIN } from "../../src/declare";
 import { NeonGather } from "../../src/dialog";
 import { NeonGatherBase } from "../../src/dialog/gather";
+import { INPUT_TYPE, NeonFromStructure } from "../../src/form";
 import { wInfo } from "../util";
 import GatherMDX from "./gather.mdx";
 
@@ -18,17 +20,37 @@ componentStories.add(
     'Gather',
     wInfo([NeonGatherBase], [NeonGather, GatherMDX])(() => {
 
+        const structure: NeonFromStructure = object('Structure', {
+            hello: INPUT_TYPE.TEXT,
+            number: {
+                autofocus: true,
+                type: INPUT_TYPE.NUMBER,
+            },
+        } as NeonFromStructure);
+
+        const value: Record<string, any> = object('Value', {
+            hello: 'Hello',
+            number: 123,
+        });
+
         const show: boolean = boolean('Show', false);
         const blur: boolean = boolean('Blur', false);
 
+        const hasOnClose: boolean = boolean('HasOnClose', false);
+        const rift: any = text('Rift', MARGIN.SMALL);
+
         const title: string = text('Title', 'Title');
         const content: string = text('Content', 'Content');
-        const label: string = text('Label', 'Label');
 
         return (<GatherMDX
             title={title}
             content={content}
-            label={label}
+            hasOnClose={hasOnClose}
+            form={{
+                structure,
+                value,
+                rift,
+            }}
             show={show}
             blur={blur}
         />);

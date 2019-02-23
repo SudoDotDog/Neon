@@ -8,8 +8,7 @@ import { Classes } from "jss";
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
-import { INPUT_TYPE } from "../input";
-import { NeonInput } from "../input/input";
+import { NeonSmartPoll, NeonSmartPollCut } from "../form/poll";
 import { NeonButtonGroup, NeonButtonGroupElement } from "../swing/group";
 import { NeonDialog, NeonDialogCut } from "./dialog";
 import { NeonGatherStyle } from "./style/gather";
@@ -18,11 +17,10 @@ export type NeonGatherProps = {
 
     readonly title?: string;
     readonly onClose?: () => void;
-
-    readonly label?: string;
-    readonly type?: INPUT_TYPE;
-
+    readonly form: NeonSmartPollCut;
     readonly buttons?: NeonButtonGroupElement[];
+
+    readonly onEnter?: () => void;
 
     readonly children?: any;
 } & NeonDialogCut & BoxProps;
@@ -76,14 +74,23 @@ export class NeonGatherBase extends React.Component<NeonGatherProps, NeonGatherS
 
     private _renderInput(): React.ReactNode {
 
-        return (<NeonInput
-            ignoreTheme
-            autofocus
-            className={this._gatherStyle.input}
-            label={this.props.label}
-            value={this.state.current}
-            onChange={this._handleChange}
-        />);
+        const {
+            rift,
+            structure,
+            value,
+            onChange,
+            onEnter = this.props.onEnter,
+        }: NeonSmartPollCut = this.props.form;
+
+        return (<div className={this._gatherStyle.input}>
+            <NeonSmartPoll
+                rift={rift}
+                structure={structure}
+                value={value}
+                onChange={onChange}
+                onEnter={onEnter}
+            />
+        </div>);
     }
 
     private _renderAction(): React.ReactNode {
