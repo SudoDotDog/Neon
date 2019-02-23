@@ -21,6 +21,20 @@ const NeonDialogStyleBase: JSSStyle = {
         backgroundColor: COLOR.WHITE,
         boxShadow: '3px 3px 5px -1px rgba(0, 30, 60, 0.3)',
         ...getBorderStyle('0.4rem'),
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    area: {
+        display: 'flex',
+    },
+    topButton: {
+        width: '2rem',
+    },
+    content: {
+        flex: 1,
+    },
+    tinyMargin: {
+        marginTop: '0.2rem',
     },
 
     fixed: {

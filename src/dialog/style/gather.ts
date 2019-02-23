@@ -13,13 +13,12 @@ const NeonGatherStyleBase: JSSStyle = {
         height: '100%',
         display: 'grid',
         gridTemplateAreas: `
-            'title title'
             'content content'
             'input input'
             'empty action'
         `,
         gridTemplateColumns: '1fr auto',
-        gridTemplateRows: 'auto 1fr auto auto',
+        gridTemplateRows: '1fr auto auto',
     },
     title: {
         gridArea: 'title',
@@ -29,6 +28,7 @@ const NeonGatherStyleBase: JSSStyle = {
     },
     input: {
         gridArea: 'input',
+        width: 'inherit',
     },
     action: {
         gridArea: 'action',

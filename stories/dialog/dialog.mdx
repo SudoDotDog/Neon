@@ -1,8 +1,11 @@
+import { action } from "@storybook/addon-actions";
 import { NeonDialog } from "../../src/dialog";
 
 # Neon Dialog
 
 <NeonDialog
+    onClose={this.props.hasOnClose && action('Close')}
+    title={this.props.title}
     show={this.props.show}
     blur={this.props.blur}
 >

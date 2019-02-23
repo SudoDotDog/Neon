@@ -18,13 +18,18 @@ componentStories.add(
     'Dialog',
     wInfo([NeonDialogBase], [NeonDialog, DialogMDX])(() => {
 
+        const title: string = text('Title', 'Title');
         const message: string = text('Message', 'Message');
+
+        const hasOnClose: boolean = boolean('HasOnClose', false);
 
         const show: boolean = boolean('Show', false);
         const blur: boolean = boolean('Blur', false);
 
         return (<DialogMDX
+            title={title}
             message={message}
+            hasOnClose={hasOnClose}
             show={show}
             blur={blur}
         />);

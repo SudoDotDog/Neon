@@ -9,10 +9,16 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { assertIfTri, mergeClasses } from "../#common/style/decorator";
+import { assertIfTri, assertIfTrue, mergeClasses } from "../#common/style/decorator";
+import { NeonButton } from "../button/index";
+import { SIZE } from "../declare";
+import { NeonTitle } from "../typography/title";
 import { NeonDialogStyle } from "./style/dialog";
 
 export type NeonDialogCut = {
+
+    readonly title?: string;
+    readonly onClose?: () => void;
 
     readonly show?: boolean;
     readonly blur?: boolean;
@@ -70,10 +76,48 @@ export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogS
                         this._dialogStyle.box,
                     )}
                 >
-                    {this.props.children}
+                    {this._renderTitle()}
+                    {this._renderContent()}
                 </NeonBox>
             </div>
         </React.Fragment>);
+    }
+
+    private _renderTitle(): React.ReactNode {
+
+        if (!this.props.title) {
+            return null;
+        }
+
+        return (<div className={this._dialogStyle.area}>
+            {this.props.onClose && <NeonButton
+                ignoreTheme
+                onClick={this.props.onClose}
+                size={SIZE.RELATIVE}
+                className={this._dialogStyle.topButton}
+            >
+                X
+            </NeonButton>}
+            <NeonTitle
+                ignoreTheme
+                removeBorder={Boolean(this.props.onClose)}
+                size={SIZE.MEDIUM}
+            >
+                {this.props.title}
+            </NeonTitle>
+        </div>);
+    }
+
+    private _renderContent(): React.ReactNode {
+
+        return (<div
+            className={mergeClasses(
+                this._dialogStyle.content,
+                assertIfTrue(Boolean(this.props.title), this._dialogStyle.tinyMargin),
+            )}
+        >
+            {this.props.children}
+        </div>);
     }
 
     private _updateVisibility() {

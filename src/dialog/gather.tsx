@@ -8,19 +8,21 @@ import { Classes } from "jss";
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
-import { SIZE } from "../declare/index";
 import { INPUT_TYPE } from "../input";
 import { NeonInput } from "../input/input";
-import { NeonTitle } from "../typography/title";
+import { NeonButtonGroup, NeonButtonGroupElement } from "../swing/group";
 import { NeonDialog, NeonDialogCut } from "./dialog";
 import { NeonGatherStyle } from "./style/gather";
 
 export type NeonGatherProps = {
 
     readonly title?: string;
+    readonly onClose?: () => void;
 
     readonly label?: string;
     readonly type?: INPUT_TYPE;
+
+    readonly buttons?: NeonButtonGroupElement[];
 
     readonly children?: any;
 } & NeonDialogCut & BoxProps;
@@ -50,11 +52,12 @@ export class NeonGatherBase extends React.Component<NeonGatherProps, NeonGatherS
 
         return (<NeonDialog
             {...boxProps(this.props)}
+            title={this.props.title}
+            onClose={this.props.onClose}
             show={this.props.show}
             blur={this.props.blur}
         >
             <div className={this._gatherStyle.grid}>
-                {this._renderTitle()}
                 {this._renderContent()}
                 {this._renderInput()}
                 {this._renderAction()}
@@ -62,24 +65,11 @@ export class NeonGatherBase extends React.Component<NeonGatherProps, NeonGatherS
         </NeonDialog>);
     }
 
-    private _renderTitle(): React.ReactNode {
-
-        if (!this.props.title) {
-            return null;
-        }
-
-        return (<NeonTitle
-            ignoreTheme
-            size={SIZE.MEDIUM}
-            className={this._gatherStyle.title}
-        >
-            {this.props.title}
-        </NeonTitle>);
-    }
-
     private _renderContent(): React.ReactNode {
 
-        return (<div className={this._gatherStyle.content}>
+        return (<div
+            className={this._gatherStyle.content}
+        >
             {this.props.children}
         </div>);
     }
@@ -98,9 +88,15 @@ export class NeonGatherBase extends React.Component<NeonGatherProps, NeonGatherS
 
     private _renderAction(): React.ReactNode {
 
-        return (<div className={this._gatherStyle.action}>
-            Action
-        </div>);
+        if (!this.props.buttons) {
+            return (<div className={this._gatherStyle.action} />);
+        }
+
+        return (<NeonButtonGroup
+            ignoreTheme
+            buttons={this.props.buttons}
+            className={this._gatherStyle.action}
+        />);
     }
 
     private _handleChange(newValue: string): void {
