@@ -9,7 +9,7 @@ import * as React from "react";
 import { MARGIN } from "../../declare/index";
 import { ExcludeTheme, ThemedComponent, ThemeProps, withConsumer } from "../consumer";
 import { BoxProps } from "../declare";
-import { JSSStyle, mergeClasses } from "../style/decorator";
+import { assertIfTrue, JSSStyle, mergeClasses } from "../style/decorator";
 
 const NeonBoxStyleBase: JSSStyle = {
     fit: {
@@ -41,14 +41,10 @@ export const boxProps = (props: BoxProps, ...extraClasses: Array<string | null |
 
 export type NeonBoxProps = {
 
-    readonly ignoreTheme?: boolean;
-    readonly style?: React.CSSProperties;
-    readonly className?: string;
-    readonly margin?: MARGIN;
-
     readonly divAttributes?: React.HTMLAttributes<HTMLDivElement>;
+    readonly fitContent?: boolean;
     readonly children?: any;
-} & ThemeProps;
+} & BoxProps & ThemeProps;
 
 export const NeonBoxBase: React.FC<NeonBoxProps> = (props: NeonBoxProps) => {
 
@@ -72,13 +68,13 @@ export const NeonBoxBase: React.FC<NeonBoxProps> = (props: NeonBoxProps) => {
         }
     })();
 
-    const className: string = props.className
-        ? `${props.className} ${marginClass}`
-        : marginClass;
-
     return React.createElement('div', {
         ...props.divAttributes,
-        className: mergeClasses(className, NeonBoxStyle.fit),
+        className: mergeClasses(
+            marginClass,
+            props.className,
+            assertIfTrue(props.fitContent, NeonBoxStyle.fit),
+        ),
         style: props.style,
     }, props.children);
 };
