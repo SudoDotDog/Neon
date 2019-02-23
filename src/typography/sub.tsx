@@ -4,11 +4,13 @@
  * @description Button
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { ALIGN, MARGIN } from "../declare";
-import { getAlignClass, NeonTypographyStyle, NeonTypographySubStyle } from "./style";
+import { NeonTypographySubStyle } from "./style/sub";
+import { getAlignClass, NeonTypographyStyle } from "./style/title";
 
 export type NeonSubProps = {
 
@@ -21,12 +23,14 @@ export type NeonSubProps = {
     readonly onClick?: () => any;
 } & ThemeProps;
 
-const renderSubTag = (children: any, href?: string, onClick?: () => any) => {
+const renderSubTag = (titleStyle: Classes, children: any, href?: string, onClick?: () => any) => {
+
+    const subStyle: Classes = NeonTypographySubStyle.use();
 
     if (href) {
         const classes: string[] = [
-            NeonTypographySubStyle.link,
-            NeonTypographyStyle.dye,
+            subStyle.link,
+            titleStyle.dye,
         ];
 
         return (<a href={href} className={classes.join(' ')}>{children}</a>);
@@ -34,8 +38,8 @@ const renderSubTag = (children: any, href?: string, onClick?: () => any) => {
 
     if (onClick) {
         const classes: string[] = [
-            NeonTypographySubStyle.link,
-            NeonTypographyStyle.dye,
+            subStyle.link,
+            titleStyle.dye,
         ];
 
         return (<a onClick={onClick} className={classes.join(' ')}>{children}</a>);
@@ -47,10 +51,12 @@ const renderSubTag = (children: any, href?: string, onClick?: () => any) => {
 export const NeonSubBase: React.FC<NeonSubProps> =
     (props: NeonSubProps) => {
 
+        const titleStyle: Classes = NeonTypographyStyle.use();
+
         const classes: string[] = [
-            getAlignClass(props.align || ALIGN.LEFT),
-            NeonTypographyStyle.small,
-            NeonTypographyStyle.dye,
+            getAlignClass(titleStyle, props.align || ALIGN.LEFT),
+            titleStyle.small,
+            titleStyle.dye,
         ];
 
         return (<NeonBox
@@ -58,7 +64,7 @@ export const NeonSubBase: React.FC<NeonSubProps> =
             margin={props.margin}
             className={classes.join(' ')}
         >
-            {renderSubTag(props.children, props.href, props.onClick)}
+            {renderSubTag(titleStyle, props.children, props.href, props.onClick)}
         </NeonBox>);
     };
 
