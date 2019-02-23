@@ -1,5 +1,22 @@
 import { action } from "@storybook/addon-actions";
-import { NeonSwitch } from "../../src/swing";
+import { NeonButtonGroup } from "../../src/swing";
 import { SIZE } from "../../src/declare";
 
 # Neon Button Group
+
+<NeonButtonGroup
+    buttons={[
+        {
+            text: 'First',
+            onClick: action('First'),
+        },
+        {
+            text: 'Second',
+            onClick: action('Second'),
+        },
+        {
+            text: 'Third',
+            onClick: action('Third'),
+        }
+    ]}
+/>

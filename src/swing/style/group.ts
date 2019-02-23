@@ -11,6 +11,9 @@ const NeonButtonGroupStyleBase: JSSStyle = {
 
     box: {
 
+        display: 'flex',
+    },
+    button: {
     },
 };
 

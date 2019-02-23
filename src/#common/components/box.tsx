@@ -12,6 +12,9 @@ import { BoxProps } from "../declare";
 import { JSSStyle, mergeClasses } from "../style/decorator";
 
 const NeonBoxStyleBase: JSSStyle = {
+    fit: {
+        width: 'fit-content',
+    },
     tiny: {
         margin: '0.2rem',
     },
@@ -75,7 +78,7 @@ export const NeonBoxBase: React.FC<NeonBoxProps> = (props: NeonBoxProps) => {
 
     return React.createElement('div', {
         ...props.divAttributes,
-        className: className || undefined,
+        className: mergeClasses(className, NeonBoxStyle.fit),
         style: props.style,
     }, props.children);
 };
