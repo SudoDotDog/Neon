@@ -4,17 +4,19 @@
  * @description Box
  */
 
-import jss, { Classes, StyleSheet } from "jss";
+import { Classes } from "jss";
 import * as React from "react";
 import { MARGIN } from "../../declare/index";
 import { ExcludeTheme, ThemedComponent, ThemeProps, withConsumer } from "../consumer";
 import { BoxProps } from "../declare";
 import { assertIfTrue, JSSStyle, mergeClasses } from "../style/decorator";
+import { NeonStyle } from "../style/style";
 
 const NeonBoxStyleBase: JSSStyle = {
     fit: {
         width: 'fit-content',
     },
+
     tiny: {
         margin: '0.2rem',
     },
@@ -27,14 +29,31 @@ const NeonBoxStyleBase: JSSStyle = {
     large: {
         margin: '2rem',
     },
+
+    tinyRift: {
+        marginTop: '0.2rem',
+        marginBottom: '0.2rem',
+    },
+    smallRift: {
+        marginTop: '0.5rem',
+        marginBottom: '0.5rem',
+    },
+    mediumRift: {
+        marginTop: '1rem',
+        marginBottom: '1rem',
+    },
+    largeRift: {
+        marginTop: '2rem',
+        marginBottom: '2rem',
+    },
 };
 
-const NeonBoxStyleSheet: StyleSheet = jss.createStyleSheet(NeonBoxStyleBase).attach();
-const NeonBoxStyle: Classes = NeonBoxStyleSheet.classes;
+const NeonBoxStyle: NeonStyle = NeonStyle.create(NeonBoxStyleBase);
 
 export const boxProps = (props: BoxProps, ...extraClasses: Array<string | null | undefined>): ExcludeTheme<NeonBoxProps> => ({
     style: props.style,
     margin: props.margin,
+    rift: props.rift,
     className: mergeClasses(props.className, ...extraClasses),
     ignoreTheme: props.ignoreTheme,
 });
@@ -48,6 +67,8 @@ export type NeonBoxProps = {
 
 export const NeonBoxBase: React.FC<NeonBoxProps> = (props: NeonBoxProps) => {
 
+    const boxStyle: Classes = NeonBoxStyle.use();
+
     const margin: MARGIN = ((): MARGIN => {
 
         if (props.ignoreTheme) {
@@ -57,12 +78,32 @@ export const NeonBoxBase: React.FC<NeonBoxProps> = (props: NeonBoxProps) => {
         return props.margin || props.theme.margin;
     })();
 
+    const rift: MARGIN = ((): MARGIN => {
+
+        if (props.ignoreTheme) {
+            return props.rift || MARGIN.NONE;
+        }
+
+        return props.rift || props.theme.rift;
+    })();
+
     const marginClass: string = (() => {
         switch (margin) {
-            case MARGIN.TINY: return NeonBoxStyle.tiny;
-            case MARGIN.SMALL: return NeonBoxStyle.small;
-            case MARGIN.MEDIUM: return NeonBoxStyle.medium;
-            case MARGIN.LARGE: return NeonBoxStyle.large;
+            case MARGIN.TINY: return boxStyle.tiny;
+            case MARGIN.SMALL: return boxStyle.small;
+            case MARGIN.MEDIUM: return boxStyle.medium;
+            case MARGIN.LARGE: return boxStyle.large;
+            case MARGIN.NONE:
+            default: return '';
+        }
+    })();
+
+    const riftClass: string = (() => {
+        switch (rift) {
+            case MARGIN.TINY: return boxStyle.tinyRift;
+            case MARGIN.SMALL: return boxStyle.smallRift;
+            case MARGIN.MEDIUM: return boxStyle.mediumRift;
+            case MARGIN.LARGE: return boxStyle.largeRift;
             case MARGIN.NONE:
             default: return '';
         }
@@ -72,8 +113,9 @@ export const NeonBoxBase: React.FC<NeonBoxProps> = (props: NeonBoxProps) => {
         ...props.divAttributes,
         className: mergeClasses(
             marginClass,
+            riftClass,
             props.className,
-            assertIfTrue(props.fitContent, NeonBoxStyle.fit),
+            assertIfTrue(props.fitContent, boxStyle.fit),
         ),
         style: props.style,
     }, props.children);

@@ -42,6 +42,7 @@ export type BoxProps = {
 
     readonly style?: React.CSSProperties;
     readonly margin?: MARGIN;
+    readonly rift?: MARGIN;
     readonly className?: string;
     readonly ignoreTheme?: boolean;
 };

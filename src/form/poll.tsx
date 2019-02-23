@@ -47,7 +47,7 @@ export class NeonSmartPoll extends React.Component<NeonSmartPollProps> {
                 onChange={this._getSetValueFunction(element.key)}
                 type={element.type}
                 ignoreTheme
-                margin={rift}
+                rift={rift}
             />),
         );
     }
