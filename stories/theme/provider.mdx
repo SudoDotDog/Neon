@@ -1,0 +1,22 @@
+import { NeonThemeProvider } from "../../src/theme";
+import { MARGIN } from "../../src/declare";
+
+# Neon Theme Provider
+
+
+- Without provider
+
+<div>
+    {this.props.example(this.props.label)}
+</div>
+
+- With provider
+
+<NeonThemeProvider value={{
+    margin: MARGIN.SMALL,
+    main: {
+        color: 'red',
+    },
+}}>
+    {this.props.example(this.props.label)}
+</NeonThemeProvider>

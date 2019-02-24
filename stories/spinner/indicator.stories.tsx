@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Stories_Scenario
+ * @namespace Stories_Spinner
  * @description Indicator
  */
 

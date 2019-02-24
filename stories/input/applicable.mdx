@@ -1,0 +1,44 @@
+import { action } from "@storybook/addon-actions";
+import { NeonButton } from "../../src/button";
+import { NeonApplicable } from "../../src/input";
+import { SIZE } from "../../src/declare";
+
+# Neon Applicable
+
+- Normal
+
+<NeonApplicable
+    onApply={action('Apply')}
+    label={this.props.label}
+    size={SIZE.MEDIUM}
+/>
+
+- With Extra Button
+
+<div style={{
+    display: 'flex',
+}}>
+    <NeonButton
+        style={{
+            flex: 1,
+        }}
+        size={SIZE.RELATIVE}
+    >
+        Left
+    </NeonButton>
+    <NeonApplicable
+        style={{
+            flex: 3,
+        }}
+        onApply={action('Apply')}
+        label={this.props.label}
+        size={SIZE.MEDIUM}
+    />
+    <NeonButton
+        style={{
+            flex: 1,
+        }}
+        size={SIZE.RELATIVE}>
+        Right
+    </NeonButton>
+</div>

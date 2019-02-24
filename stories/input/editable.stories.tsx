@@ -22,6 +22,10 @@ componentStories.add(
         const label: string = text('Label', 'Label');
         const value: string = text('Value', 'Value');
 
-        return (<EditableMDX label={label} value={value} events={events} />);
+        return (<EditableMDX
+            label={label}
+            value={value}
+            events={events}
+        />);
     }),
 );
