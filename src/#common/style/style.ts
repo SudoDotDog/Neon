@@ -29,6 +29,17 @@ export class NeonStyle {
         return sheet.classes;
     }
 
+    public keyframe(): Classes {
+
+        const sheet: StyleSheet = this._getAttached();
+        return sheet.keyframes;
+    }
+
+    public sheet(): StyleSheet {
+
+        return this._getAttached();
+    }
+
     private _getAttached(): StyleSheet {
 
         if (this._sheet) {
