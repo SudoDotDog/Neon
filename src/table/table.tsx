@@ -4,11 +4,12 @@
  * @description Table
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { NeonTableStyle } from "./style";
+import { NeonTableStyle } from "./style/table";
 
 export type NeonTableProps = {
 
@@ -20,11 +21,13 @@ export type NeonTableProps = {
 export const NeonTableBase: React.FC<NeonTableProps> =
     (props: NeonTableProps) => {
 
+        const tableStyle: Classes = NeonTableStyle.use();
+
         const header: string[] = props.headers || [];
         const headers = header.map((element: string, index: number) => <th key={index}>{element}</th>);
 
         return (<NeonBox {...boxProps(props)}>
-            <table className={NeonTableStyle.table}>
+            <table className={tableStyle.table}>
                 <thead>
                     <tr>
                         {headers}

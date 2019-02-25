@@ -5,13 +5,14 @@
  */
 
 import { keys, lash_mutate } from "@sudoo/bark/map";
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { assertIfFalse, mergeClasses } from "../#common/style/decorator";
 import { NeonEditableText } from "../input/index";
-import { NeonTableStyle } from "./style";
+import { NeonListStyle } from "./style/list";
 
 export type NeonSmartListProps = {
 
@@ -26,10 +27,12 @@ export type NeonSmartListProps = {
 
 export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
+    private _listStyle: Classes = NeonListStyle.use();
+
     public render() {
 
         return (<NeonBox {...boxProps(this.props)}>
-            <table className={NeonTableStyle.list}>
+            <table className={this._listStyle.list}>
                 <thead>{this._renderHeader()}</thead>
                 <tbody>{this._renderBody()}</tbody>
             </table>
@@ -39,7 +42,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
     private _renderHeader() {
 
         return (<tr>
-            <th className={NeonTableStyle.listKey} >{this.props.name || 'Key'}</th>
+            <th className={this._listStyle.listKey} >{this.props.name || 'Key'}</th>
             <th>{this.props.value || 'Value'}</th>
         </tr>);
     }
@@ -52,13 +55,13 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
             const value: string = list[key] as string;
             return (<tr key={index}>
                 <td className={mergeClasses(
-                    NeonTableStyle.listKey,
-                    assertIfFalse(this.props.editableName, NeonTableStyle.withBorder),
+                    this._listStyle.listKey,
+                    assertIfFalse(this.props.editableName, this._listStyle.withBorder),
                 )}>
                     {this.props.editableName ? this._renderEditableKey(key, value) : key}
                 </td>
                 <td className={mergeClasses(
-                    assertIfFalse(this.props.editableValue, NeonTableStyle.withBorder),
+                    assertIfFalse(this.props.editableValue, this._listStyle.withBorder),
                 )}>
                     {this.props.editableValue ? this._renderEditableValue(key, value) : value}
                 </td>
