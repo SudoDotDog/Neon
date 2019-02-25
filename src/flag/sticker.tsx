@@ -4,6 +4,7 @@
  * @description Sticker
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
@@ -12,7 +13,7 @@ import { mergeClasses } from "../#common/style/decorator";
 import { NeonPeek, NeonPeekCut } from "../button/peek";
 import { CORNER, MARGIN } from "../declare";
 import { FLAG_TYPE } from "./declare";
-import { NeonStickerStyle } from "./style";
+import { NeonStickerStyle } from "./style/sticker";
 
 export type NeonStickerCut = {
 
@@ -30,14 +31,14 @@ export type NeonStickerProps = {
     readonly hidden?: boolean;
 } & NeonStickerCut & ThemeProps & BoxProps;
 
-const getColorStyle = (type?: FLAG_TYPE): string => {
+const getColorStyle = (style: Classes, type?: FLAG_TYPE): string => {
 
     switch (type) {
-        case FLAG_TYPE.ERROR: return NeonStickerStyle.error;
-        case FLAG_TYPE.WARNING: return NeonStickerStyle.warning;
-        case FLAG_TYPE.SUCCEED: return NeonStickerStyle.succeed;
+        case FLAG_TYPE.ERROR: return style.error;
+        case FLAG_TYPE.WARNING: return style.warning;
+        case FLAG_TYPE.SUCCEED: return style.succeed;
         case FLAG_TYPE.PLAIN:
-        default: return NeonStickerStyle.plain;
+        default: return style.plain;
     }
 };
 
@@ -63,7 +64,7 @@ const getPositionStyle = (position: CORNER, padding: number = 0): React.CSSPrope
     }
 };
 
-const renderPeek = (props: NeonStickerProps): React.ReactNode => {
+const renderPeek = (style: Classes, props: NeonStickerProps): React.ReactNode => {
 
     if (!props.peek) {
         return null;
@@ -73,20 +74,22 @@ const renderPeek = (props: NeonStickerProps): React.ReactNode => {
         ignoreTheme
         margin={MARGIN.TINY}
         style={getPositionStyle(props.peekCorner || CORNER.TOP_LEFT)}
-        className={NeonStickerStyle.peek}
+        className={style.peek}
         {...props.peek}
     />);
 };
 
 export const NeonStickerBase: React.FC<NeonStickerProps> = (props: NeonStickerProps) => {
 
-    return (<NeonBox {...boxProps(props, NeonStickerStyle.box)}>
-        <div className={NeonStickerStyle.holder}></div>
-        <div className={mergeClasses(NeonStickerStyle.title, getColorStyle(props.type))}>{props.title}</div>
-        <div className={NeonStickerStyle.holder}>
+    const stickerStyle: Classes = NeonStickerStyle.use();
+
+    return (<NeonBox {...boxProps(props, stickerStyle.box)}>
+        <div className={stickerStyle.holder}></div>
+        <div className={mergeClasses(stickerStyle.title, getColorStyle(stickerStyle, props.type))}>{props.title}</div>
+        <div className={stickerStyle.holder}>
             {props.info && <div>{props.info}</div>}
         </div>
-        {renderPeek(props)}
+        {renderPeek(stickerStyle, props)}
     </NeonBox>);
 };
 
