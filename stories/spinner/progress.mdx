@@ -1,8 +1,43 @@
 import { NeonProgress } from "../../src/spinner";
-import { MARGIN } from "../../src/declare";
+import { SIZE } from "../../src/declare";
 
-# Neon Spinner
+# Neon Progress Bar
 
-<NeonProgress 
+- Normal
+
+<NeonProgress
     percentage={this.props.percentage}
 />
+
+- Medium
+
+<NeonProgress
+    size={SIZE.MEDIUM}
+    percentage={this.props.percentage}
+/>
+
+- Large
+
+<NeonProgress
+    size={SIZE.LARGE}
+    percentage={this.props.percentage}
+/>
+
+- Full
+
+<NeonProgress
+    size={SIZE.FULL}
+    percentage={this.props.percentage}
+/>
+
+- Relative
+
+<div style={{
+    width: '300px',
+    height: '180px',
+}}>
+    <NeonProgress
+        size={SIZE.RELATIVE}
+        percentage={this.props.percentage}
+    />
+</div>

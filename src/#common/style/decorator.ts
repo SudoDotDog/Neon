@@ -6,7 +6,9 @@
 
 import { Style } from "jss/css";
 import { CSSProperties } from "react";
+import { SIZE } from "../../declare/index";
 import { COLOR } from "../declare";
+import { Classes } from "jss";
 
 export type JSSStyle = Record<string, Style | {
     [key: string]: any;
@@ -81,3 +83,27 @@ export const migrateFocusStyle = (): JSSStyle => ({
         zIndex: 6,
     },
 } as JSSStyle);
+
+export const getSizeClass = (size: SIZE, normal: string, medium: string, large: string, full: string, relative: string) => {
+
+    switch (size) {
+        case SIZE.MEDIUM: return medium;
+        case SIZE.LARGE: return large;
+        case SIZE.FULL: return full;
+        case SIZE.RELATIVE: return relative;
+        case SIZE.NORMAL:
+        default: return normal;
+    }
+};
+
+export const getDefaultSizeClass = (size: SIZE, style: Classes) => {
+
+    switch (size) {
+        case SIZE.MEDIUM: return style.medium;
+        case SIZE.LARGE: return style.large;
+        case SIZE.FULL: return style.full;
+        case SIZE.RELATIVE: return style.relative;
+        case SIZE.NORMAL:
+        default: return style.normal;
+    }
+};

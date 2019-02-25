@@ -11,6 +11,7 @@ export type NeonTheme = {
 
     readonly main: {
         readonly color: string;
+        readonly text: string;
     };
     readonly margin: MARGIN;
     readonly rift: MARGIN;
@@ -20,6 +21,7 @@ export type NeonTheme = {
 export const getDefaultTheme = (): NeonTheme => ({
     main: {
         color: COLOR.NAVY,
+        text: COLOR.WHITE,
     },
     margin: MARGIN.NONE,
     rift: MARGIN.NONE,
