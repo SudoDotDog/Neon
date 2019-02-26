@@ -7,23 +7,21 @@
 import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
-import { NeonSeparator } from "../#common/components/separator";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { SIZE, WIDTH } from "../declare";
-import { NeonTheme } from "../theme/index";
 import { NeonCardStyle } from "./style/card";
 
-export type NeonCardProps = {
-
-    readonly upper?: any;
-    readonly separator?: boolean;
+export type NeonCardCut = {
 
     readonly width?: WIDTH;
     readonly size?: SIZE;
+
     readonly children?: any;
-} & ThemeProps & BoxProps;
+};
+
+export type NeonCardProps = NeonCardCut & ThemeProps & BoxProps;
 
 export const NeonCardBase: React.FC<NeonCardProps> =
     (props: Partial<NeonCardProps> = {
@@ -31,7 +29,6 @@ export const NeonCardBase: React.FC<NeonCardProps> =
         size: SIZE.NORMAL,
     }) => {
 
-        const theme: NeonTheme = props.theme as NeonTheme;
         const cardStyle: Classes = NeonCardStyle.use();
 
         const classes: string[] = [
@@ -52,21 +49,12 @@ export const NeonCardBase: React.FC<NeonCardProps> =
             default: classes.push(cardStyle.normalSize);
         }
 
-        const hasSeparator: boolean =
-            (props.separator === undefined)
-                ? theme.separator
-                : props.separator;
-
-        return (<NeonBox {...boxProps(props, mergeClasses(...classes))}>
-
-            <div className={cardStyle.upper}>
-                {props.upper && props.upper}
-            </div>
-
-            {(props.upper && hasSeparator) && <NeonSeparator />}
-            <div className={cardStyle.lower}>
-                {props.children}
-            </div>
+        return (<NeonBox {...boxProps(
+            props,
+            mergeClasses(...classes),
+        )}
+        >
+            {props.children}
         </NeonBox>);
     };
 

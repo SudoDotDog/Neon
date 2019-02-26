@@ -1,44 +1,63 @@
-import { NeonCard } from "../../src/card";
+import { NeonBadge } from "../../src/card";
 import { MARGIN, SIZE } from "../../src/declare";
 
-# Neon Card
+# Neon Badge
 
-<NeonCard margin={MARGIN.SMALL}>
+<NeonBadge margin={MARGIN.SMALL}>
     {this.props.name}
-</NeonCard>
+</NeonBadge>
+
+- With Upper
+
+<NeonBadge
+    upper="Upper content"
+    margin={MARGIN.SMALL}>
+    {this.props.name}
+</NeonBadge>
 
 - Other sizes
 
 <div style={{ display: 'flex' }}>
-    <NeonCard
+    <NeonBadge
         upper="Medium"
         size={SIZE.MEDIUM}
         margin={MARGIN.SMALL}>
         {this.props.name}
-    </NeonCard>
-    <NeonCard
+    </NeonBadge>
+    <NeonBadge
         upper="Large"
         size={SIZE.LARGE}
         margin={MARGIN.SMALL}>
         {this.props.name}
-    </NeonCard>
+    </NeonBadge>
 </div>
 
+- No Separator
+
+<NeonBadge
+    upper="No Separator"
+    separator={false}
+    margin={MARGIN.SMALL}>
+    {this.props.name}
+</NeonBadge>
+
+- Relative Size
+
 <div style={{ height: '150px', width: '100px' }}>
-    <NeonCard
+    <NeonBadge
         upper="Relative"
         size={SIZE.RELATIVE}
         margin={MARGIN.SMALL}>
         {this.props.name}
-    </NeonCard>
+    </NeonBadge>
 </div>
 
 - Full Size (Margin setting will be ignored)
 
 <div style={{ height: '150px', width: '100px' }}>
-    <NeonCard
+    <NeonBadge
         upper="Full"
         size={SIZE.FULL}>
         {this.props.name}
-    </NeonCard>
+    </NeonBadge>
 </div>

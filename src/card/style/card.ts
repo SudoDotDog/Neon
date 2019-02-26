@@ -21,13 +21,6 @@ const NeonCardStyleBase: JSSStyle = {
         ...getBorderStyle('0.1rem'),
     },
 
-    upper: {
-        flex: 1,
-    },
-    lower: {
-        minHeight: '30%',
-    },
-
     relativeSize: {
         height: 'auto',
         width: 'auto',
