@@ -1,0 +1,28 @@
+import { action } from "@storybook/addon-actions";
+import { NeonTextField } from "../../src/text";
+import { MARGIN, SIZE, WIDTH } from "../../src/declare";
+
+# Neon Text Field
+
+- WithValue
+
+<NeonTextField
+    {...this.props.events}
+    value={this.props.value}
+    label={this.props.label}
+/>
+
+- Empty
+
+<NeonTextField
+    {...this.props.events}
+    label={this.props.label}
+/>
+
+- Enter
+
+<NeonTextField
+    {...this.props.events}
+    onEnter={action('Enter')}
+    label={this.props.label}
+/>
