@@ -10,6 +10,7 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
+import { SIZE } from "../declare";
 import { NeonTextFieldStyle } from "./style/field";
 
 export type NeonTextFieldProps = {
@@ -22,6 +23,7 @@ export type NeonTextFieldProps = {
     readonly onChange?: (value: string) => void;
     readonly onEnter?: () => void;
 
+    readonly size?: SIZE;
     readonly tabIndex?: number;
 } & ThemeProps & BoxProps;
 
@@ -37,7 +39,7 @@ export class NeonTextFieldBase extends React.Component<NeonTextFieldProps, NeonT
         shrink: false,
     };
 
-    private _ref: HTMLInputElement | null;
+    private _ref: HTMLTextAreaElement | null;
     private _textFieldStyle: Classes = NeonTextFieldStyle.use();
 
     public constructor(props: NeonTextFieldProps) {
@@ -60,13 +62,41 @@ export class NeonTextFieldBase extends React.Component<NeonTextFieldProps, NeonT
 
     public render() {
 
-        return (<NeonBox {...boxProps(this.props, this._textFieldStyle.wrap)} >
+        return (<NeonBox {...boxProps(
+            this.props,
+            this._textFieldStyle.wrap,
+            this._getSizeClass(),
+        )} >
             <div
                 className={this._getShrinkClass()}
-                onClick={() => this._ref && this._ref.focus()}>
+                onClick={() => this._ref && this._ref.focus()}
+            >
                 {this.props.label}
             </div>
+            <textarea
+                ref={(ref) => this._ref = ref}
+                className={this._textFieldStyle.area}
+                tabIndex={this.props.tabIndex}
+                value={this.props.value}
+                onBlur={this._handleBlur}
+                onFocus={this._handleFocus}
+                onKeyPress={this._handleKeyPress}
+                onChange={(event) => this.props.onChange && this.props.onChange(event.target.value)}
+            />
         </NeonBox>);
+    }
+
+    private _getSizeClass(): string {
+
+        switch (this.props.size) {
+
+            case SIZE.NORMAL: return this._textFieldStyle.normal;
+            case SIZE.LARGE: return this._textFieldStyle.large;
+            case SIZE.FULL: return this._textFieldStyle.full;
+            case SIZE.RELATIVE: return this._textFieldStyle.relative;
+            case SIZE.MEDIUM:
+            default: return this._textFieldStyle.medium;
+        }
     }
 
     private _handleKeyPress(event: React.KeyboardEvent): void {

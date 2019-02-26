@@ -19,7 +19,11 @@ componentStories.add(
     wInfo([NeonTextFieldBase], [NeonTextField, FieldMDX])(() => {
 
         const label: string = text('Label', 'Label');
+        const value: string = text('Value', 'Value');
 
-        return (<FieldMDX label={label} />);
+        return (<FieldMDX
+            label={label}
+            value={value}
+        />);
     }),
 );

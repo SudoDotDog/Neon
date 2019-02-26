@@ -4,13 +4,69 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 
 # Neon Text Field
 
-- WithValue
+- Normal
+
+<NeonTextField
+    {...this.props.events}
+    size={SIZE.NORMAL}
+    value={this.props.value}
+    label={this.props.label}
+/>
+
+- Medium
 
 <NeonTextField
     {...this.props.events}
     value={this.props.value}
     label={this.props.label}
 />
+
+- Large
+
+<NeonTextField
+    {...this.props.events}
+    size={SIZE.LARGE}
+    value={this.props.value}
+    label={this.props.label}
+/>
+
+- Full
+
+<NeonTextField
+    {...this.props.events}
+    size={SIZE.FULL}
+    value={this.props.value}
+    label={this.props.label}
+/>
+
+- Relative
+
+<div style={{
+    width: '300px',
+    height: '200px',
+}}>
+    <NeonTextField
+        {...this.props.events}
+        size={SIZE.RELATIVE}
+        value={this.props.value}
+        label={this.props.label}
+    />
+</div>
+
+- With Margin
+
+<div style={{
+    width: '300px',
+    height: '200px',
+}}>
+    <NeonTextField
+        {...this.props.events}
+        margin={MARGIN.SMALL}
+        size={SIZE.RELATIVE}
+        value={this.props.value}
+        label={this.props.label}
+    />
+</div>
 
 - Empty
 

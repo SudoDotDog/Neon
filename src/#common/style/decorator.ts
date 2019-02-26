@@ -4,11 +4,11 @@
  * @description Decorator
  */
 
+import { Classes } from "jss";
 import { Style } from "jss/css";
 import { CSSProperties } from "react";
 import { SIZE } from "../../declare/index";
 import { COLOR } from "../declare";
-import { Classes } from "jss";
 
 export type JSSStyle = Record<string, Style | {
     [key: string]: any;
