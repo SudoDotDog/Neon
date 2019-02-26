@@ -53,16 +53,16 @@ const NeonTextFieldStyleBase: JSSStyle = {
     },
 
     normal: {
-        height: '3rem',
-    },
-    medium: {
         height: '5rem',
     },
-    large: {
+    medium: {
         height: '8rem',
     },
+    large: {
+        height: '11rem',
+    },
     full: {
-        height: '10rem',
+        height: '14rem',
     },
     relative: {
         height: '100%',
