@@ -5,7 +5,7 @@
  */
 
 import * as React from "react";
-import { boxProps } from "../#common/components/box";
+import { boxProps, NeonBox } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
 import { NeonButton } from "../button";
 import { MARGIN, SIZE, WIDTH } from "../declare";
@@ -115,14 +115,19 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps> {
         const value: Record<string, any> = this.props.value || {};
         const onChange: (content: any) => void = this.props.onChange || (() => undefined);
 
-        return (<NeonSmartPoll
-            rift={this._getMargin()}
-            value={value}
-            structure={this.props.form}
+        return (<NeonBox
+            ignoreTheme
+            margin={this._getMargin()}
+        >
+            <NeonSmartPoll
+                rift={this._getMargin()}
+                value={value}
+                structure={this.props.form}
 
-            onChange={onChange}
-            onEnter={this.props.onSubmit}
-        />);
+                onChange={onChange}
+                onEnter={this.props.onSubmit}
+            />
+        </NeonBox>);
     }
 
     private _renderSubmit(): React.ReactNode {
