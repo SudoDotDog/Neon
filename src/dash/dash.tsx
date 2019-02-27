@@ -16,7 +16,7 @@ import { NeonDashStyle } from "./style/dash";
 export type NeonDashProps = {
 
     readonly onClick?: () => void;
-
+    readonly onDash?: () => void;
     readonly dash?: SIGNAL;
 
     readonly disabled?: boolean;
@@ -55,7 +55,6 @@ export class NeonDashBase extends React.Component<NeonDashProps> {
                 this.props,
                 this._dashStyle.wrap,
             )}>
-
                 <button
                     disabled={this.props.disabled}
                     className={mergeClasses(
@@ -67,18 +66,41 @@ export class NeonDashBase extends React.Component<NeonDashProps> {
                     onClick={() => this.props.onClick && this.props.onClick()}>
                     {this.props.children}
                 </button>
-                <button
-                    disabled={this.props.disabled}
-                    style={this._gerDashStyle()}
-                    className={mergeClasses(
-                        this._dashStyle.dash,
-                        assertIfTrue(this.props.disabled, this._dashStyle.disabledButton),
-                        assertIfTrue(this.props.disabled, this._dashStyle.disabledDash),
-                    )}
-                    onMouseEnter={this._handleMouseEnter}
-                    onMouseLeave={this._handleMouseLeave}
-                />
+                {this._renderDash()}
             </NeonBox>);
+    }
+
+    private _renderDash(): React.ReactNode {
+
+        if (this.props.onDash) {
+            return (<button
+                disabled={this.props.disabled}
+                style={this._getDashStyle()}
+                className={mergeClasses(
+                    this._dashStyle.dashClickable,
+                    this._getSignalClass(),
+                    assertIfTrue(this.props.disabled, this._dashStyle.disabledButton),
+                    assertIfTrue(this.props.disabled, this._dashStyle.disabledDash),
+                )}
+                onClick={() => this.props.onDash && this.props.onDash()}
+                onMouseEnter={this._handleMouseEnter}
+                onMouseLeave={this._handleMouseLeave}
+            />);
+        }
+
+        if (this.props.dash) {
+            return (<div
+                style={this._getDashStyle()}
+                className={mergeClasses(
+                    this._dashStyle.dash,
+                    this._getSignalClass(),
+                    assertIfTrue(this.props.disabled, this._dashStyle.disabledButton),
+                    assertIfTrue(this.props.disabled, this._dashStyle.disabledDash),
+                )}
+            />);
+        }
+
+        return null;
     }
 
     private _handleMouseEnter() {
@@ -95,7 +117,7 @@ export class NeonDashBase extends React.Component<NeonDashProps> {
         });
     }
 
-    private _gerDashStyle(): React.CSSProperties {
+    private _getDashStyle(): React.CSSProperties {
 
         if (this.state.hovering) {
             return {
@@ -107,6 +129,17 @@ export class NeonDashBase extends React.Component<NeonDashProps> {
             width: '0.5rem',
             height: '0.5rem',
         };
+    }
+
+    private _getSignalClass(): string {
+
+        switch (this.props.dash) {
+            case SIGNAL.ERROR: return this._dashStyle.error;
+            case SIGNAL.WARNING: return this._dashStyle.warning;
+            case SIGNAL.SUCCEED: return this._dashStyle.succeed;
+            case SIGNAL.PLAIN:
+            default: return this._dashStyle.plain;
+        }
     }
 }
 

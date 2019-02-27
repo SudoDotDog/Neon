@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import { NeonDash } from "../../src/dash";
 import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 
@@ -5,15 +6,104 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 
 - Dash
 
-<NeonDash
-    style={{
-        height: '100px',
-        width: '100px',
-    }}
-    {...this.props.events}
-    width={WIDTH.FULL}>
-    {this.props.name}
-</NeonDash>
+<div style={{display: 'flex'}}>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        dash="PLAIN"
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        dash="SUCCEED"
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        dash="WARNING"
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        dash="ERROR"
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+</div>
+
+- Clickable
+
+<div style={{display: 'flex'}}>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        onDash={action('Dash')}
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        dash="SUCCEED"
+        onDash={action('Dash')}
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        dash="WARNING"
+        onDash={action('Dash')}
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+    <NeonDash
+        style={{
+            height: '100px',
+            width: '100px',
+        }}
+        dash="ERROR"
+        onDash={action('Dash')}
+        {...this.props.events}>
+        {this.props.name}
+    </NeonDash>
+</div>
 
 - Disabled
 
@@ -23,7 +113,8 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
         width: '100px',
     }}
     disabled
-    {...this.props.events}
-    width={WIDTH.FULL}>
+    dash="ERROR"
+    onDash={action('Dash')}
+    {...this.props.events}>
     {this.props.name}
 </NeonDash>

@@ -32,14 +32,34 @@ const NeonDashStyleBase: JSSStyle = {
         zIndex: 7,
         border: 0,
         padding: 0,
+        position: 'absolute',
+        top: '0.3rem',
+        right: '0.3rem',
+    },
+    dashClickable: {
+        zIndex: 7,
+        border: 0,
+        padding: 0,
         cursor: 'pointer',
-        backgroundColor: COLOR.NAVY,
         position: 'absolute',
         top: '0.3rem',
         right: '0.3rem',
         transition: '0.2s width, 0.2s height',
 
         ...migratePureFocusStyle(),
+    },
+
+    error: {
+        backgroundColor: COLOR.LIGHT_RED,
+    },
+    warning: {
+        backgroundColor: COLOR.ORANGE,
+    },
+    succeed: {
+        backgroundColor: COLOR.GREEN,
+    },
+    plain: {
+        backgroundColor: COLOR.NAVY,
     },
 
     disabledButton: {
