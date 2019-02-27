@@ -84,11 +84,13 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
 
     private _renderExpendButton(): any {
         if (this.props.info) {
-            return (<button
-                className={this._getExpendButtonClasses()}
-                onClick={this._toggleExpend}>
-                ▼
-            </button>);
+            return (
+                <button
+                    className={this._getExpendButtonClasses()}
+                    onClick={this._toggleExpend}>
+                    ▼
+            </button>
+            );
         }
         return void 0;
     }

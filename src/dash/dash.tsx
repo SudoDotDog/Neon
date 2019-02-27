@@ -10,6 +10,7 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
+import { fixTabIndex } from "../#common/util";
 import { SIGNAL } from "../declare/index";
 import { NeonDashStyle } from "./style/dash";
 
@@ -62,7 +63,7 @@ export class NeonDashBase extends React.Component<NeonDashProps> {
                         this._dashStyle.button,
                         assertIfTrue(this.props.disabled, this._dashStyle.disabledButton),
                     )}
-                    tabIndex={this.props.tabIndex}
+                    tabIndex={fixTabIndex(this.props.tabIndex)}
                     onClick={() => this.props.onClick && this.props.onClick()}>
                     {this.props.children}
                 </button>
@@ -73,19 +74,21 @@ export class NeonDashBase extends React.Component<NeonDashProps> {
     private _renderDash(): React.ReactNode {
 
         if (this.props.onDash) {
-            return (<button
-                disabled={this.props.disabled}
-                style={this._getDashStyle()}
-                className={mergeClasses(
-                    this._dashStyle.dashClickable,
-                    this._getSignalClass(),
-                    assertIfTrue(this.props.disabled, this._dashStyle.disabledButton),
-                    assertIfTrue(this.props.disabled, this._dashStyle.disabledDash),
-                )}
-                onClick={() => this.props.onDash && this.props.onDash()}
-                onMouseEnter={this._handleMouseEnter}
-                onMouseLeave={this._handleMouseLeave}
-            />);
+            return (
+                <button
+                    disabled={this.props.disabled}
+                    style={this._getDashStyle()}
+                    className={mergeClasses(
+                        this._dashStyle.dashClickable,
+                        this._getSignalClass(),
+                        assertIfTrue(this.props.disabled, this._dashStyle.disabledButton),
+                        assertIfTrue(this.props.disabled, this._dashStyle.disabledDash),
+                    )}
+                    onClick={() => this.props.onDash && this.props.onDash()}
+                    onMouseEnter={this._handleMouseEnter}
+                    onMouseLeave={this._handleMouseLeave}
+                />
+            );
         }
 
         if (this.props.dash) {

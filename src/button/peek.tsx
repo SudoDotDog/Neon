@@ -10,6 +10,7 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
+import { fixTabIndex } from "../#common/util";
 import { SIZE } from "../declare";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
 import { NeonPeekStyle } from "./style/peek";
@@ -66,7 +67,7 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
                     assertIfTrue(this.props.circle, 'circle'),
                     assertIfTrue(this.props.disabled, this._buttonStyle.disabled),
                 )}
-                tabIndex={this.props.tabIndex}
+                tabIndex={fixTabIndex(this.props.tabIndex)}
                 onClick={() => this.props.onClick && this.props.onClick()}
                 {...this._getMouseHandlers()}>
                 {this.state.hovering ? this.props.expend : this.props.children}

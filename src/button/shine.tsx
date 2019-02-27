@@ -7,6 +7,7 @@
 import { Classes } from "jss";
 import * as React from "react";
 import { assertIfFalse, assertIfTrue, mergeClasses } from "../#common/style/decorator";
+import { fixTabIndex } from "../#common/util";
 import { SIZE } from "../declare/index";
 import { NeonShineStyle } from "./style/shine";
 
@@ -29,19 +30,21 @@ export class NeonShineBase extends React.Component<NeonShineProps> {
 
     public render(): JSX.Element {
 
-        return (<button
-            disabled={this.props.disabled}
-            className={mergeClasses(
-                this._getSizeClass(),
-                this._shineStyle.button,
-                assertIfFalse(this.props.disabled, this._shineStyle.hoverable),
-                assertIfTrue(this.props.disabled, this._shineStyle.disabled),
-                this.props.buttonClassName,
-            )}
-            tabIndex={this.props.tabIndex}
-            onClick={() => this.props.onClick && this.props.onClick()}>
-            {this.props.children}
-        </button>);
+        return (
+            <button
+                disabled={this.props.disabled}
+                className={mergeClasses(
+                    this._getSizeClass(),
+                    this._shineStyle.button,
+                    assertIfFalse(this.props.disabled, this._shineStyle.hoverable),
+                    assertIfTrue(this.props.disabled, this._shineStyle.disabled),
+                    this.props.buttonClassName,
+                )}
+                tabIndex={fixTabIndex(this.props.tabIndex)}
+                onClick={() => this.props.onClick && this.props.onClick()}>
+                {this.props.children}
+            </button>
+        );
     }
 
     private _getSizeClass(): string {

@@ -47,17 +47,19 @@ export class NeonPaginationBase extends React.Component<NeonPaginationProps, Neo
 
                 const position: number = index + 1;
 
-                return (<button
-                    onMouseEnter={this._createHandleMouseEnterFunction(position)}
-                    onClick={this._createHandleClickFunction(position)}
-                    className={mergeClasses(
-                        this._paginationStyle.button,
-                        assertIfTrue(this.state.currentHover >= position, this._paginationStyle.hovering),
-                        assertIfTrue(this.props.selected >= position, this._paginationStyle.selecting),
-                    )}
-                >
-                    {this.props.element}
-                </button>);
+                return (
+                    <button
+                        onMouseEnter={this._createHandleMouseEnterFunction(position)}
+                        onClick={this._createHandleClickFunction(position)}
+                        className={mergeClasses(
+                            this._paginationStyle.button,
+                            assertIfTrue(this.state.currentHover >= position, this._paginationStyle.hovering),
+                            assertIfTrue(this.props.selected >= position, this._paginationStyle.selecting),
+                        )}
+                    >
+                        {this.props.element}
+                    </button>
+                );
             })}
         </NeonBox>);
     }
