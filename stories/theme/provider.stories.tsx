@@ -9,8 +9,8 @@ import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { NeonButton } from "../../src/button";
 import { NeonButtonBase } from "../../src/button/button";
-import { MARGIN } from "../../src/declare";
-import { FLAG_TYPE, NeonFlag } from "../../src/flag";
+import { MARGIN, SIGNAL } from "../../src/declare";
+import { NeonFlag } from "../../src/flag";
 import { NeonFlagBase } from "../../src/flag/flag";
 import { NeonThemeProvider } from "../../src/theme";
 import { wInfo } from "../util";
@@ -20,9 +20,9 @@ const componentStories = storiesOf('Theme', module);
 
 const getExampleComponents = (label: string) => (
     <React.Fragment>
-        <NeonFlag type={FLAG_TYPE.WARNING} message={label} />
-        <NeonFlag type={FLAG_TYPE.WARNING} message={label} />
-        <NeonFlag type={FLAG_TYPE.WARNING} margin={MARGIN.MEDIUM} message="Margin" />
+        <NeonFlag type={SIGNAL.WARNING} message={label} />
+        <NeonFlag type={SIGNAL.WARNING} message={label} />
+        <NeonFlag type={SIGNAL.WARNING} margin={MARGIN.MEDIUM} message="Margin" />
         <NeonButton>{label}</NeonButton>
     </React.Fragment>
 );

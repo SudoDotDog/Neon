@@ -9,13 +9,12 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { SIZE } from "../declare";
-import { FLAG_TYPE } from "./declare";
+import { SIGNAL, SIZE } from "../declare";
 import { NeonFlagStyle } from "./style/flag";
 
 export type NeonFlagCut = {
 
-    readonly type?: FLAG_TYPE;
+    readonly type?: SIGNAL;
     readonly message?: string;
     readonly info?: string;
 };
@@ -137,10 +136,10 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
 
         const flagClass: string = (() => {
             switch (this.props.type) {
-                case FLAG_TYPE.ERROR: return this._flagStyle.error;
-                case FLAG_TYPE.WARNING: return this._flagStyle.warning;
-                case FLAG_TYPE.SUCCEED: return this._flagStyle.succeed;
-                case FLAG_TYPE.PLAIN:
+                case SIGNAL.ERROR: return this._flagStyle.error;
+                case SIGNAL.WARNING: return this._flagStyle.warning;
+                case SIGNAL.SUCCEED: return this._flagStyle.succeed;
+                case SIGNAL.PLAIN:
                 default: return this._flagStyle.plain;
             }
         })();

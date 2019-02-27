@@ -11,15 +11,14 @@ import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { NeonPeek, NeonPeekCut } from "../button/peek";
-import { CORNER, MARGIN } from "../declare";
-import { FLAG_TYPE } from "./declare";
+import { CORNER, MARGIN, SIGNAL } from "../declare";
 import { NeonStickerStyle } from "./style/sticker";
 
 export type NeonStickerCut = {
 
     readonly title: string;
 
-    readonly type?: FLAG_TYPE;
+    readonly type?: SIGNAL;
     readonly info?: string;
 
     readonly peek?: NeonPeekCut;
@@ -31,13 +30,13 @@ export type NeonStickerProps = {
     readonly hidden?: boolean;
 } & NeonStickerCut & ThemeProps & BoxProps;
 
-const getColorStyle = (style: Classes, type?: FLAG_TYPE): string => {
+const getColorStyle = (style: Classes, type?: SIGNAL): string => {
 
     switch (type) {
-        case FLAG_TYPE.ERROR: return style.error;
-        case FLAG_TYPE.WARNING: return style.warning;
-        case FLAG_TYPE.SUCCEED: return style.succeed;
-        case FLAG_TYPE.PLAIN:
+        case SIGNAL.ERROR: return style.error;
+        case SIGNAL.WARNING: return style.warning;
+        case SIGNAL.SUCCEED: return style.succeed;
+        case SIGNAL.PLAIN:
         default: return style.plain;
     }
 };

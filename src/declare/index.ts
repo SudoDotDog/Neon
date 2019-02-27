@@ -42,3 +42,11 @@ export enum CORNER {
     BOTTOM_LEFT = "BOTTOM_LEFT",
     BOTTOM_RIGHT = "BOTTOM_RIGHT",
 }
+
+export enum SIGNAL {
+
+    PLAIN = "PLAIN",
+    ERROR = "ERROR",
+    WARNING = "WARNING",
+    SUCCEED = "SUCCEED",
+}

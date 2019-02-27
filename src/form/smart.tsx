@@ -8,8 +8,8 @@ import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
 import { NeonButton } from "../button";
-import { MARGIN, SIZE, WIDTH } from "../declare";
-import { FLAG_TYPE, NeonFlag, NeonFlagCut, NeonSticker, NeonStickerCut } from "../flag";
+import { MARGIN, SIGNAL, SIZE, WIDTH } from "../declare";
+import { NeonFlag, NeonFlagCut, NeonSticker, NeonStickerCut } from "../flag";
 import { NeonIndicator } from "../spinner";
 import { NeonTitle } from "../typography/title";
 import { NeonSmartPoll } from "./poll";
@@ -60,7 +60,7 @@ export class NeonSmartForm extends React.Component<NeonSmartFormProps> {
             return undefined;
         }
 
-        const { type = FLAG_TYPE.SUCCEED,
+        const { type = SIGNAL.SUCCEED,
             title = 'Complete',
             info,
             peek,

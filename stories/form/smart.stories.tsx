@@ -7,8 +7,8 @@
 import { boolean, object, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { CORNER, MARGIN, SIZE } from "../../src/declare";
-import { FLAG_TYPE, NeonFlagCut, NeonStickerCut } from "../../src/flag";
+import { CORNER, MARGIN, SIGNAL, SIZE } from "../../src/declare";
+import { NeonFlagCut, NeonStickerCut } from "../../src/flag";
 import { INPUT_TYPE, NeonSmartForm } from "../../src/form";
 import { wInfo } from "../util";
 import SmartMDX from "./smart.mdx";
@@ -40,7 +40,7 @@ componentStories.add(
         const rift: string = text('rift', MARGIN.SMALL);
 
         const flag: any = object('Flag', {
-            type: FLAG_TYPE.ERROR,
+            type: SIGNAL.ERROR,
             message: 'message',
             info: 'info',
         } as NeonFlagCut);
@@ -48,7 +48,7 @@ componentStories.add(
         const covering: boolean = boolean('Covering', false);
 
         const cover: any = object('Cover', {
-            type: FLAG_TYPE.ERROR,
+            type: SIGNAL.ERROR,
             title: 'title',
             info: 'info',
 

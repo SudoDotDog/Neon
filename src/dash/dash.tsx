@@ -10,11 +10,14 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
+import { SIGNAL } from "../declare/index";
 import { NeonDashStyle } from "./style/dash";
 
 export type NeonDashProps = {
 
     readonly onClick?: () => void;
+
+    readonly dash?: SIGNAL;
 
     readonly disabled?: boolean;
     readonly tabIndex?: number;
