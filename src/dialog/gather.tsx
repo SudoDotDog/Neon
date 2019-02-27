@@ -18,13 +18,10 @@ export type NeonGatherProps = {
 
     readonly title?: string;
     readonly onClose?: () => void;
-    readonly form: NeonSmartPollCut;
     readonly buttons?: NeonButtonGroupElement[];
 
-    readonly onEnter?: () => void;
-
     readonly children?: any;
-} & NeonDialogCut & BoxProps;
+} & NeonDialogCut & NeonSmartPollCut & BoxProps;
 
 export type NeonGatherStates = {
 
@@ -81,7 +78,7 @@ export class NeonGatherBase extends React.Component<NeonGatherProps, NeonGatherS
             value,
             onChange,
             onEnter = this.props.onEnter,
-        }: NeonSmartPollCut = this.props.form;
+        }: NeonSmartPollCut = this.props;
 
         return (<div className={this._gatherStyle.input}>
             <NeonSmartPoll

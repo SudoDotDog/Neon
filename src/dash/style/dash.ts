@@ -5,7 +5,7 @@
  */
 
 import { COLOR } from "../../#common/declare";
-import { getBorderStyle, JSSStyle, migrateFocusStyle, migratePureFocusStyle } from "../../#common/style/decorator";
+import { getBorderStyle, JSSStyle, migrateActiveStyle, migrateFocusStyle, migratePureFocusStyle } from "../../#common/style/decorator";
 import { NeonStyle } from "../../#common/style/style";
 
 const NeonDashStyleBase: JSSStyle = {
@@ -26,6 +26,7 @@ const NeonDashStyleBase: JSSStyle = {
         backgroundColor: COLOR.WHITE,
 
         ...getBorderStyle('0.3rem'),
+        ...migrateActiveStyle(),
         ...migrateFocusStyle(),
     },
     dash: {

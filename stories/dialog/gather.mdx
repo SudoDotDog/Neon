@@ -5,13 +5,13 @@ import { NeonGather } from "../../src/dialog";
 
 <NeonGather
     onClose={this.props.hasOnClose && action('Close')}
+    onChange={action('Change')}
+    onEnter={action('Enter')}
     title={this.props.title}
     label={this.props.label}
-    form={{
-        ...this.props.form,
-        onChange: action('Change'),
-        onEnter: action('Enter'),
-    }}
+    structure={this.props.structure}
+    rift={this.props.rift}
+    value={this.props.value}
     show={this.props.show}
     blur={this.props.blur}
     buttons={this.props.buttons}

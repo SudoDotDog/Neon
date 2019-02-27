@@ -72,25 +72,33 @@ export const combineStyle = (style: CSSProperties, propsStyle?: CSSProperties): 
     return style;
 };
 
+export const getFocusStyle = (): React.CSSProperties => ({
+
+    outlineColor: `rgba(77, 144, 254, .7)`,
+    outlineOffset: '-0.1rem',
+    outlineStyle: 'auto',
+    outlineWidth: '0.2rem',
+});
+
 export const migrateFocusStyle = (): JSSStyle => ({
 
     position: 'relative',
     '&:focus': {
-        outlineColor: `rgba(77, 144, 254, .7)`,
-        outlineOffset: '-0.1rem',
-        outlineStyle: 'auto',
-        outlineWidth: '0.2rem',
+        ...getFocusStyle(),
         zIndex: 6,
     },
 } as JSSStyle);
 
 export const migratePureFocusStyle = (): JSSStyle => ({
 
-    '&:focus': {
-        outlineColor: `rgba(77, 144, 254, .7)`,
-        outlineOffset: '-0.1rem',
-        outlineStyle: 'auto',
-        outlineWidth: '0.2rem',
+    '&:focus': getFocusStyle(),
+} as JSSStyle);
+
+export const migrateActiveStyle = (): JSSStyle => ({
+
+    '&:active': {
+        ...getFocusStyle(),
+        color: COLOR.NAVY,
     },
 } as JSSStyle);
 

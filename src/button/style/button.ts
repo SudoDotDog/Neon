@@ -6,7 +6,7 @@
 
 import { CSSProperties } from "react";
 import { COLOR } from "../../#common/declare";
-import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../../#common/style/decorator";
+import { getBorderStyle, getFocusStyle, JSSStyle, migrateFocusStyle } from "../../#common/style/decorator";
 import { NeonStyle } from "../../#common/style/style";
 import { NeonTheme } from "../../theme";
 
@@ -19,6 +19,7 @@ const NeonButtonStyleBase: JSSStyle = {
         fontWeight: 'bold',
         color: COLOR.WHITE,
         '&:active': {
+            ...getFocusStyle(),
             borderColor: COLOR.BLUE,
         },
         ...migrateFocusStyle(),

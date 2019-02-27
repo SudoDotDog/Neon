@@ -55,11 +55,9 @@ componentStories.add(
             title={title}
             content={content}
             hasOnClose={hasOnClose}
-            form={{
-                structure,
-                value,
-                rift,
-            }}
+            structure={structure}
+            value={value}
+            rift={rift}
             show={show}
             blur={blur}
             buttons={buttons}
