@@ -1,12 +1,28 @@
 import { NeonDash } from "../../src/dash";
 import { MARGIN, SIZE, WIDTH } from "../../src/declare";
-import './button.css';
 
 # Neon Dash
 
-- Normal
+- Dash
 
 <NeonDash
+    style={{
+        height: '100px',
+        width: '100px',
+    }}
+    {...this.props.events}
+    width={WIDTH.FULL}>
+    {this.props.name}
+</NeonDash>
+
+- Disabled
+
+<NeonDash
+    style={{
+        height: '100px',
+        width: '100px',
+    }}
+    disabled
     {...this.props.events}
     width={WIDTH.FULL}>
     {this.props.name}

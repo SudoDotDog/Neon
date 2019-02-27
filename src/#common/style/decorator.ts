@@ -84,6 +84,16 @@ export const migrateFocusStyle = (): JSSStyle => ({
     },
 } as JSSStyle);
 
+export const migratePureFocusStyle = (): JSSStyle => ({
+
+    '&:focus': {
+        outlineColor: `rgba(77, 144, 254, .7)`,
+        outlineOffset: '-0.1rem',
+        outlineStyle: 'auto',
+        outlineWidth: '0.2rem',
+    },
+} as JSSStyle);
+
 export const getSizeClass = (size: SIZE, normal: string, medium: string, large: string, full: string, relative: string) => {
 
     switch (size) {
