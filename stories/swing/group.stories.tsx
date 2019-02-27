@@ -4,8 +4,10 @@
  * @description Button Group
  */
 
+import { text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
+import { SIZE } from "../../src/declare";
 import { NeonButtonGroup } from "../../src/swing";
 import { NeonButtonGroupBase } from "../../src/swing/group";
 import { wInfo } from "../util";
@@ -17,6 +19,8 @@ componentStories.add(
     'Button Group',
     wInfo([NeonButtonGroupBase], [NeonButtonGroup, ButtonGroupMDX])(() => {
 
-        return (<ButtonGroupMDX />);
+        const size: string = text('Size', SIZE.NORMAL);
+
+        return (<ButtonGroupMDX size={size} />);
     }),
 );
