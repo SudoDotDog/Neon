@@ -8,6 +8,7 @@ import { Classes } from "jss";
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
+import { SIZE } from "../declare/index";
 import { NeonSmartPoll, NeonSmartPollCut } from "../form/poll";
 import { NeonButtonGroup, NeonButtonGroupElement } from "../swing/group";
 import { NeonDialog, NeonDialogCut } from "./dialog";
@@ -101,6 +102,7 @@ export class NeonGatherBase extends React.Component<NeonGatherProps, NeonGatherS
 
         return (<NeonButtonGroup
             ignoreTheme
+            size={SIZE.MEDIUM}
             buttons={this.props.buttons}
             className={this._gatherStyle.action}
         />);

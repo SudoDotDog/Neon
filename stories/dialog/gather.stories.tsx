@@ -4,17 +4,19 @@
  * @description Gather
  */
 
-import { boolean, object, text } from "@storybook/addon-knobs";
+import { array, boolean, object, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { MARGIN } from "../../src/declare";
 import { NeonGather } from "../../src/dialog";
 import { NeonGatherBase } from "../../src/dialog/gather";
 import { INPUT_TYPE, NeonFromStructure } from "../../src/form";
-import { wInfo } from "../util";
+import { NeonButtonGroupElement } from "../../src/swing";
+import { createAction, wInfo } from "../util";
 import GatherMDX from "./gather.mdx";
 
 const componentStories = storiesOf('Dialog', module);
+const events = createAction();
 
 componentStories.add(
     'Gather',
@@ -42,6 +44,13 @@ componentStories.add(
         const title: string = text('Title', 'Title');
         const content: string = text('Content', 'Content');
 
+        const buttons: NeonButtonGroupElement[] = array('Buttons', [
+            {
+                text: 'First',
+                ...events,
+            },
+        ] as NeonButtonGroupElement[]);
+
         return (<GatherMDX
             title={title}
             content={content}
@@ -53,6 +62,7 @@ componentStories.add(
             }}
             show={show}
             blur={blur}
+            buttons={buttons}
         />);
     }),
 );

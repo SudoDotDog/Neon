@@ -22,6 +22,7 @@ const NeonDialogStyleBase: JSSStyle = {
         boxShadow: '3px 3px 5px -1px rgba(0, 30, 60, 0.3)',
         ...getBorderStyle('0.4rem'),
         display: 'flex',
+        overflow: 'hidden',
         flexDirection: 'column',
     },
     area: {
@@ -32,6 +33,7 @@ const NeonDialogStyleBase: JSSStyle = {
     },
     content: {
         flex: 1,
+        overflow: 'auto',
     },
     tinyMargin: {
         marginTop: '0.2rem',
