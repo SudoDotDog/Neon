@@ -11,4 +11,4 @@ const NeonContextMenuBase: JSSStyle = {
 
 };
 
-export const NeonContextMenuStyle: NeonStyle = NeonStyle.create(NeonContextMenuBase);
+export const NeonContextMenuStyle: NeonStyle = NeonStyle.create(NeonContextMenuBase, 'Context');

@@ -37,4 +37,4 @@ const NeonGroupStyleBase: JSSStyle = {
     },
 };
 
-export const NeonGroupStyle: NeonStyle = NeonStyle.create(NeonGroupStyleBase);
+export const NeonGroupStyle: NeonStyle = NeonStyle.create(NeonGroupStyleBase, 'PillGroup');

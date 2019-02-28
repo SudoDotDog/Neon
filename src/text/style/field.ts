@@ -69,4 +69,4 @@ const NeonTextFieldStyleBase: JSSStyle = {
     },
 };
 
-export const NeonTextFieldStyle: NeonStyle = NeonStyle.create(NeonTextFieldStyleBase);
+export const NeonTextFieldStyle: NeonStyle = NeonStyle.create(NeonTextFieldStyleBase, 'Field');

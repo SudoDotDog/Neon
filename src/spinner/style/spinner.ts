@@ -67,4 +67,4 @@ const NeonSpinnerStyleBase: JSSStyle = {
     },
 };
 
-export const NeonSpinnerStyle: NeonStyle = NeonStyle.create(NeonSpinnerStyleBase);
+export const NeonSpinnerStyle: NeonStyle = NeonStyle.create(NeonSpinnerStyleBase, 'Spinner');

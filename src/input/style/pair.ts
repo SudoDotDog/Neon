@@ -48,4 +48,4 @@ const NeonPairStyleBase: JSSStyle = {
     },
 };
 
-export const NeonPairStyle: NeonStyle = NeonStyle.create(NeonPairStyleBase);
+export const NeonPairStyle: NeonStyle = NeonStyle.create(NeonPairStyleBase, 'Pair');

@@ -45,7 +45,7 @@ const NeonTypographyStyleBase: JSSStyle = {
     },
 };
 
-export const NeonTypographyStyle: NeonStyle = NeonStyle.create(NeonTypographyStyleBase);
+export const NeonTypographyStyle: NeonStyle = NeonStyle.create(NeonTypographyStyleBase, 'Title');
 
 export const getAlignClass = (style: Classes, align: ALIGN): string => {
 

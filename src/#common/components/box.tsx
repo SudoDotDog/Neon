@@ -48,7 +48,7 @@ const NeonBoxStyleBase: JSSStyle = {
     },
 };
 
-const NeonBoxStyle: NeonStyle = NeonStyle.create(NeonBoxStyleBase);
+const NeonBoxStyle: NeonStyle = NeonStyle.create(NeonBoxStyleBase, 'Box');
 
 export const boxProps = (props: BoxProps, ...extraClasses: Array<string | null | undefined>): ExcludeTheme<NeonBoxProps> => ({
     style: props.style,

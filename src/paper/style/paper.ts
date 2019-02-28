@@ -20,4 +20,4 @@ const NeonPaperStyleBase: JSSStyle = {
     },
 };
 
-export const NeonPaperStyle: NeonStyle = NeonStyle.create(NeonPaperStyleBase);
+export const NeonPaperStyle: NeonStyle = NeonStyle.create(NeonPaperStyleBase, 'Paper');

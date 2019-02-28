@@ -31,4 +31,4 @@ const NeonPaginationStyleBase: JSSStyle = {
     },
 };
 
-export const NeonPaginationStyle: NeonStyle = NeonStyle.create(NeonPaginationStyleBase);
+export const NeonPaginationStyle: NeonStyle = NeonStyle.create(NeonPaginationStyleBase, 'Pagination');

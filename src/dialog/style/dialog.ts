@@ -70,4 +70,4 @@ const NeonDialogStyleBase: JSSStyle = {
     },
 };
 
-export const NeonDialogStyle: NeonStyle = NeonStyle.create(NeonDialogStyleBase);
+export const NeonDialogStyle: NeonStyle = NeonStyle.create(NeonDialogStyleBase, 'Dialog');

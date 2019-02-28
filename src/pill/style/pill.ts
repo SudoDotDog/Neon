@@ -29,4 +29,4 @@ const NeonPillStyleBase: JSSStyle = {
     },
 };
 
-export const NeonPillStyle: NeonStyle = NeonStyle.create(NeonPillStyleBase);
+export const NeonPillStyle: NeonStyle = NeonStyle.create(NeonPillStyleBase, 'Pill');

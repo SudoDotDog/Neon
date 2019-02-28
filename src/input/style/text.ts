@@ -40,4 +40,4 @@ const NeonTextStyleBase: JSSStyle = {
     },
 };
 
-export const NeonTextStyle: NeonStyle = NeonStyle.create(NeonTextStyleBase);
+export const NeonTextStyle: NeonStyle = NeonStyle.create(NeonTextStyleBase, 'Text');

@@ -34,4 +34,4 @@ const NeonTableStyleBase: JSSStyle = {
     },
 };
 
-export const NeonTableStyle: NeonStyle = NeonStyle.create(NeonTableStyleBase);
+export const NeonTableStyle: NeonStyle = NeonStyle.create(NeonTableStyleBase, 'Table');

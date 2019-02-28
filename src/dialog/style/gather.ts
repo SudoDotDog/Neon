@@ -35,4 +35,4 @@ const NeonGatherStyleBase: JSSStyle = {
     },
 };
 
-export const NeonGatherStyle: NeonStyle = NeonStyle.create(NeonGatherStyleBase);
+export const NeonGatherStyle: NeonStyle = NeonStyle.create(NeonGatherStyleBase, 'Gather');

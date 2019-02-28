@@ -22,4 +22,4 @@ const NeonTypographySubStyleBase: JSSStyle = {
     },
 };
 
-export const NeonTypographySubStyle: NeonStyle = NeonStyle.create(NeonTypographySubStyleBase);
+export const NeonTypographySubStyle: NeonStyle = NeonStyle.create(NeonTypographySubStyleBase, 'Sub');

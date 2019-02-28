@@ -9,18 +9,20 @@ import { JSSStyle } from "./decorator";
 
 export class NeonStyle {
 
-    public static create(base: JSSStyle) {
+    public static create(base: JSSStyle, meta: string) {
 
-        return new NeonStyle(base);
+        return new NeonStyle(base, meta);
     }
 
     private readonly _base: JSSStyle;
+    private readonly _meta: string;
 
     private _sheet: StyleSheet | null;
 
-    private constructor(base: JSSStyle) {
+    private constructor(base: JSSStyle, meta: string) {
 
         this._base = base;
+        this._meta = meta;
         this._sheet = null;
     }
 
@@ -47,7 +49,9 @@ export class NeonStyle {
             return this._sheet;
         }
 
-        this._sheet = jss.createStyleSheet(this._base).attach();
+        this._sheet = jss.createStyleSheet(this._base, {
+            meta: `Neon${this._meta}`,
+        }).attach();
         return this._sheet;
     }
 }

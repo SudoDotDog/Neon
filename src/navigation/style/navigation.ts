@@ -35,4 +35,4 @@ const NeonNavigationStyleBase: JSSStyle = {
     },
 };
 
-export const NeonNavigationStyle: NeonStyle = NeonStyle.create(NeonNavigationStyleBase);
+export const NeonNavigationStyle: NeonStyle = NeonStyle.create(NeonNavigationStyleBase, 'Navigation');

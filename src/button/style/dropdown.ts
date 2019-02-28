@@ -40,4 +40,4 @@ export const NeonDropdownButtonStyleBase: JSSStyle = {
     },
 };
 
-export const NeonDropdownButtonStyle: NeonStyle = NeonStyle.create(NeonDropdownButtonStyleBase);
+export const NeonDropdownButtonStyle: NeonStyle = NeonStyle.create(NeonDropdownButtonStyleBase, 'Dropdown');

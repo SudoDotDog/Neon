@@ -67,4 +67,4 @@ export const NeonPeekStyleBase: JSSStyle = {
     },
 };
 
-export const NeonPeekStyle: NeonStyle = NeonStyle.create(NeonPeekStyleBase);
+export const NeonPeekStyle: NeonStyle = NeonStyle.create(NeonPeekStyleBase, 'Peek');

@@ -48,4 +48,4 @@ const NeonCardStyleBase: JSSStyle = {
     },
 };
 
-export const NeonCardStyle: NeonStyle = NeonStyle.create(NeonCardStyleBase);
+export const NeonCardStyle: NeonStyle = NeonStyle.create(NeonCardStyleBase, 'Card');

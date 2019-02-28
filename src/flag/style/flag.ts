@@ -93,4 +93,4 @@ const NeonFlagStyleBase: JSSStyle = {
     },
 };
 
-export const NeonFlagStyle: NeonStyle = NeonStyle.create(NeonFlagStyleBase);
+export const NeonFlagStyle: NeonStyle = NeonStyle.create(NeonFlagStyleBase, 'Flag');

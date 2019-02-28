@@ -4,6 +4,7 @@
  * @description Applicable
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemeProps } from "../#common/consumer";
@@ -13,7 +14,7 @@ import { NeonButton } from "../button";
 import { MARGIN, SIZE } from "../declare/index";
 import { INPUT_TYPE } from "./declare";
 import { NeonInput } from "./input";
-import { NeonApplicableStyle } from "./style/style";
+import { NeonApplicableStyle } from "./style/applicable";
 
 export type NeonApplicableProps = {
 
@@ -52,6 +53,8 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
 
     private _lastValue: any;
 
+    private readonly _applicableStyle: Classes = NeonApplicableStyle.use();
+
     public constructor(props: NeonApplicableProps) {
 
         super(props);
@@ -64,9 +67,9 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
 
     public render() {
 
-        return (<NeonBox {...boxProps(this.props, NeonApplicableStyle.wrap)}>
+        return (<NeonBox {...boxProps(this.props, this._applicableStyle.wrap)}>
             <NeonInput
-                className={NeonApplicableStyle.input}
+                className={this._applicableStyle.input}
                 label={this.props.label}
                 type={this.props.type}
                 value={this.state.value}
@@ -75,7 +78,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
                 onEnter={this._handleApply}
             />
             <NeonButton
-                className={mergeClasses(this._getButtonSizeClass(), NeonApplicableStyle.button)}
+                className={mergeClasses(this._getButtonSizeClass(), this._applicableStyle.button)}
                 size={SIZE.RELATIVE}
                 style={{
                     transition: '0.2s all',
@@ -121,13 +124,13 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
 
             switch (this.props.size) {
 
-                case SIZE.MEDIUM: return NeonApplicableStyle.buttonMedium;
-                case SIZE.LARGE: return NeonApplicableStyle.buttonLarge;
+                case SIZE.MEDIUM: return this._applicableStyle.buttonMedium;
+                case SIZE.LARGE: return this._applicableStyle.buttonLarge;
                 case SIZE.NORMAL:
-                default: return NeonApplicableStyle.buttonNormal;
+                default: return this._applicableStyle.buttonNormal;
             }
         }
 
-        return NeonApplicableStyle.buttonDisable;
+        return this._applicableStyle.buttonDisable;
     }
 }

@@ -73,4 +73,4 @@ const NeonDashStyleBase: JSSStyle = {
     },
 };
 
-export const NeonDashStyle: NeonStyle = NeonStyle.create(NeonDashStyleBase);
+export const NeonDashStyle: NeonStyle = NeonStyle.create(NeonDashStyleBase, 'Dash');

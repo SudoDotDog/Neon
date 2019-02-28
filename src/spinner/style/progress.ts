@@ -56,4 +56,4 @@ const NeonProgressStyleBase: JSSStyle = {
     },
 };
 
-export const NeonProgressStyle: NeonStyle = NeonStyle.create(NeonProgressStyleBase);
+export const NeonProgressStyle: NeonStyle = NeonStyle.create(NeonProgressStyleBase, 'Progress');

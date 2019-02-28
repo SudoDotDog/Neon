@@ -17,4 +17,4 @@ const NeonBadgeStyleBase: JSSStyle = {
     },
 };
 
-export const NeonBadgeStyle: NeonStyle = NeonStyle.create(NeonBadgeStyleBase);
+export const NeonBadgeStyle: NeonStyle = NeonStyle.create(NeonBadgeStyleBase, 'Badge');

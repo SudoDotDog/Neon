@@ -65,4 +65,4 @@ const NeonRacketStyleBase: JSSStyle = {
     },
 };
 
-export const NeonRacketStyle: NeonStyle = NeonStyle.create(NeonRacketStyleBase);
+export const NeonRacketStyle: NeonStyle = NeonStyle.create(NeonRacketStyleBase, 'Racket');

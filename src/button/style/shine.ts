@@ -59,4 +59,4 @@ export const NeonShineStyleBase: JSSStyle = {
     },
 };
 
-export const NeonShineStyle: NeonStyle = NeonStyle.create(NeonShineStyleBase);
+export const NeonShineStyle: NeonStyle = NeonStyle.create(NeonShineStyleBase, 'Shine');

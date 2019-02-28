@@ -23,7 +23,7 @@ const NeonSeparatorStyleBase: JSSStyle = {
     },
 };
 
-const NeonSeparatorStyle: NeonStyle = NeonStyle.create(NeonSeparatorStyleBase);
+const NeonSeparatorStyle: NeonStyle = NeonStyle.create(NeonSeparatorStyleBase, 'Separator');
 
 export type NeonSeparatorProps = {} & ThemeProps;
 

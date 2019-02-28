@@ -19,4 +19,4 @@ const NeonTreeStyleBase: JSSStyle = {
     },
 };
 
-export const NeonTreeStyle: NeonStyle = NeonStyle.create(NeonTreeStyleBase);
+export const NeonTreeStyle: NeonStyle = NeonStyle.create(NeonTreeStyleBase, 'Tree');

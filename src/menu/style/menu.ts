@@ -18,4 +18,4 @@ const NeonMenuStyleBase: JSSStyle = {
     },
 };
 
-export const NeonMenuStyle: NeonStyle = NeonStyle.create(NeonMenuStyleBase);
+export const NeonMenuStyle: NeonStyle = NeonStyle.create(NeonMenuStyleBase, 'Menu');

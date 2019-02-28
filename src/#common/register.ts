@@ -35,7 +35,9 @@ export class NeonRegister {
                     },
                 },
             };
-            jss.createStyleSheet(globalStyleBase).attach();
+            jss.createStyleSheet(globalStyleBase, {
+                meta: 'NeonGlobal',
+            }).attach();
         }
 
         return;

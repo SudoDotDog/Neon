@@ -4,11 +4,12 @@
  * @description Editable
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, withConsumer } from "../#common/consumer";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
-import { NeonInputStyle } from "./style/style";
+import { NeonInputStyle } from "./style/input";
 import { NeonText, NeonTextProps } from "./text";
 
 export type NeonEditableTextProps = {
@@ -30,6 +31,8 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
     };
 
     private readonly _origin: any;
+
+    private readonly _inputStyle: Classes = NeonInputStyle.use();
 
     public constructor(props: NeonEditableTextProps) {
 
@@ -57,13 +60,16 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
             return (<NeonBox
                 {...boxProps(
                     this.props,
-                    NeonInputStyle.wrap,
-                    NeonInputStyle.notEditable,
-                    assertIfTrue(this.props.lite, NeonInputStyle.borderLite),
+                    this._inputStyle.wrap,
+                    this._inputStyle.notEditable,
+                    assertIfTrue(this.props.lite, this._inputStyle.borderLite),
                 )}
             >
                 <div
-                    className={mergeClasses(NeonInputStyle.textInput, NeonInputStyle.notEditableInput)}
+                    className={mergeClasses(
+                        this._inputStyle.textInput,
+                        this._inputStyle.notEditableInput,
+                    )}
                     onClick={this._handleClickShowing}
                     tabIndex={this.props.tabIndex}>
                     {this.props.value}

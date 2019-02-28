@@ -52,4 +52,4 @@ const NeonIndicatorStyleBase: JSSStyle = {
     },
 };
 
-export const NeonIndicatorStyle: NeonStyle = NeonStyle.create(NeonIndicatorStyleBase);
+export const NeonIndicatorStyle: NeonStyle = NeonStyle.create(NeonIndicatorStyleBase, 'Indicator');

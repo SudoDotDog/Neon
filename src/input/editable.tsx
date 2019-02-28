@@ -4,12 +4,13 @@
  * @description Editable
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, withConsumer } from "../#common/consumer";
 import { mergeClasses } from "../#common/style/decorator";
 import { NeonInput, NeonInputProps } from "./input";
-import { NeonInputStyle } from "./style/style";
+import { NeonInputStyle } from "./style/input";
 
 export type NeonEditableProps = {
 
@@ -29,6 +30,8 @@ export class NeonEditableBase extends React.Component<NeonEditableProps, NeonEdi
     };
 
     private readonly _origin: any;
+
+    private readonly _inputStyle: Classes = NeonInputStyle.use();
 
     public constructor(props: NeonEditableProps) {
 
@@ -52,14 +55,24 @@ export class NeonEditableBase extends React.Component<NeonEditableProps, NeonEdi
             );
         } else {
 
-            return (<NeonBox {...boxProps(this.props, NeonInputStyle.wrap, NeonInputStyle.notEditable)} >
+            return (<NeonBox {...boxProps(
+                this.props,
+                this._inputStyle.wrap,
+                this._inputStyle.notEditable,
+            )} >
                 <div
-                    className={mergeClasses(NeonInputStyle.label, NeonInputStyle.shrink)}
+                    className={mergeClasses(
+                        this._inputStyle.label,
+                        this._inputStyle.shrink,
+                    )}
                     onClick={this._handleClickShowing}>
                     {this.props.label}
                 </div>
                 <div
-                    className={mergeClasses(NeonInputStyle.input, NeonInputStyle.notEditableInput)}
+                    className={mergeClasses(
+                        this._inputStyle.input,
+                        this._inputStyle.notEditableInput,
+                    )}
                     onClick={this._handleClickShowing}
                     tabIndex={this.props.tabIndex}>
                     {this.props.value}

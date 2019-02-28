@@ -17,4 +17,4 @@ const NeonButtonGroupStyleBase: JSSStyle = {
     },
 };
 
-export const NeonButtonGroupStyle: NeonStyle = NeonStyle.create(NeonButtonGroupStyleBase);
+export const NeonButtonGroupStyle: NeonStyle = NeonStyle.create(NeonButtonGroupStyleBase, 'ButtonGroup');

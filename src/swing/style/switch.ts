@@ -66,4 +66,4 @@ const NeonSwitchStyleBase: JSSStyle = {
     },
 };
 
-export const NeonSwitchStyle: NeonStyle = NeonStyle.create(NeonSwitchStyleBase);
+export const NeonSwitchStyle: NeonStyle = NeonStyle.create(NeonSwitchStyleBase, 'Switch');

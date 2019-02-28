@@ -66,4 +66,4 @@ export const getNeonButtonStyle =
         backgroundColor: theme.main.color,
     });
 
-export const NeonButtonStyle: NeonStyle = NeonStyle.create(NeonButtonStyleBase);
+export const NeonButtonStyle: NeonStyle = NeonStyle.create(NeonButtonStyleBase, 'Button');

@@ -4,13 +4,14 @@
  * @description Input
  */
 
+import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { INPUT_TYPE } from "./declare";
-import { NeonInputStyle } from "./style/style";
+import { NeonInputStyle } from "./style/input";
 
 export type NeonInputProps = {
 
@@ -45,6 +46,8 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
 
     private _ref: HTMLInputElement | null;
 
+    private readonly _inputStyle: Classes = NeonInputStyle.use();
+
     public constructor(props: NeonInputProps) {
 
         super(props);
@@ -65,7 +68,7 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
 
     public render() {
 
-        return (<NeonBox {...boxProps(this.props, NeonInputStyle.wrap)} >
+        return (<NeonBox {...boxProps(this.props, this._inputStyle.wrap)} >
             <div
                 className={this._getShrinkClass()}
                 onClick={() => this._ref && this._ref.focus()}>
@@ -73,7 +76,7 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
             </div>
             <input
                 ref={(ref) => this._ref = ref}
-                className={NeonInputStyle.input}
+                className={this._inputStyle.input}
                 type={this.props.type}
                 value={this.props.value}
                 tabIndex={this.props.tabIndex}
@@ -115,9 +118,9 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
     private _getShrinkClass(): string | undefined {
 
         if (this.state.shrink || this.props.value) {
-            return mergeClasses(NeonInputStyle.label, NeonInputStyle.shrink);
+            return mergeClasses(this._inputStyle.label, this._inputStyle.shrink);
         }
-        return NeonInputStyle.label;
+        return this._inputStyle.label;
     }
 }
 

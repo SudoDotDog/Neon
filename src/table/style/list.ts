@@ -46,4 +46,4 @@ const NeonListStyleBase: JSSStyle = {
     },
 };
 
-export const NeonListStyle: NeonStyle = NeonStyle.create(NeonListStyleBase);
+export const NeonListStyle: NeonStyle = NeonStyle.create(NeonListStyleBase, 'List');
