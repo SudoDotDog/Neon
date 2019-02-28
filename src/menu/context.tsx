@@ -38,4 +38,4 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps, N
     }
 }
 
-export const NeonMenu: ThemedComponent<NeonContextMenuProps> = withConsumer<NeonContextMenuProps>(NeonContextMenuBase);
+export const NeonContextMenu: ThemedComponent<NeonContextMenuProps> = withConsumer<NeonContextMenuProps>(NeonContextMenuBase);
