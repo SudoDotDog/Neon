@@ -33,6 +33,7 @@ export type NeonDropdownButtonProps = {
     readonly tabIndex?: number;
     readonly size?: SIZE;
 
+    readonly dropdownSize?: SIZE;
     readonly buttonClassName?: string;
 
     readonly children?: any;
@@ -106,15 +107,29 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
             return null;
         }
 
-        return (<NeonMenu className={this._dropdownButtonStyle.dropdown}>
+        return (<NeonMenu
+            className={this._dropdownButtonStyle.dropdown}
+            size={this.props.dropdownSize}
+        >
             {this.props.list.map((element: NeonDropdownButtonListElement, index: number) =>
                 (<NeonMenuItem
                     key={element.key || index}
-                    onClick={element.onClick}>
+                    onClick={this._createElementClickFunction(element.onClick)}>
                     {element.children}
                 </NeonMenuItem>),
             )}
         </NeonMenu>);
+    }
+
+    private _createElementClickFunction(onClick?: () => void) {
+
+        return () => {
+
+            this._handleMouseLeave();
+            if (onClick) {
+                onClick();
+            }
+        };
     }
 
     private _getSizeClass(): string {

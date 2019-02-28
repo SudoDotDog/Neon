@@ -15,6 +15,8 @@ import DropdownMDX from "./dropdown.mdx";
 const componentStories = storiesOf('Button', module);
 const events = createAction();
 
+const Actions: any = require("@storybook/addon-actions");
+
 componentStories.add(
     'Dropdown Button',
     wInfo([NeonDropdownButtonBase], [NeonDropdownButton, DropdownMDX])(() => {
@@ -23,9 +25,11 @@ componentStories.add(
 
         return (<DropdownMDX name={name} list={[
             {
+                onClick: Actions.action('First'),
                 children: "hello",
             },
             {
+                onClick: Actions.action('Second'),
                 children: <div style={{ color: 'red' }}>Red world</div>,
             },
         ]} events={events} />);
