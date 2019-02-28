@@ -10,6 +10,7 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { SIZE } from "../declare/index";
+import { NeonMenuItemElement } from "./declare";
 import { NeonMenuItem } from "./item";
 import { NeonMenu } from "./menu";
 import { NeonContextMenuStyle } from "./style/context";
@@ -17,6 +18,7 @@ import { NeonContextMenuStyle } from "./style/context";
 export type NeonContextMenuProps = {
 
     readonly size?: SIZE;
+    readonly list?: NeonMenuItemElement[];
 
     readonly children?: any;
 } & BoxProps & ThemeProps;
@@ -48,13 +50,14 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps, N
 
         return (
             <NeonBox
+                ignoreTheme
+                divAttributes={{
+                    onContextMenu: this._handleContextMenu,
+                }}
                 {...boxProps(
                     this.props,
                     this._contextMenuStyle.wrap,
                 )}
-                divAttributes={{
-                    onContextMenu: this._handleContextMenu,
-                }}
             >
                 {this.props.children}
                 {this._renderMenu()}
@@ -76,11 +79,46 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps, N
                     position: 'fixed',
                 }}
             >
-                <NeonMenu>
-                    <NeonMenuItem>Hello</NeonMenuItem>
+                <NeonMenu
+                    size={this.props.size}
+                >
+                    {this._renderItems()}
                 </NeonMenu>
             </div>
         );
+    }
+
+    private _renderItems(): React.ReactNode {
+
+        if (!this.props.list) {
+            return null;
+        }
+
+        return this.props.list.map((element: NeonMenuItemElement, index: number) =>
+            (<NeonMenuItem
+                key={element.key || index}
+                onClick={this._createElementClickFunction(element.onClick)}>
+                {element.children}
+            </NeonMenuItem>),
+        );
+    }
+
+    private _createElementClickFunction(onClick?: () => void) {
+
+        return () => {
+
+            this._handleCloseMenu();
+            if (onClick) {
+                onClick();
+            }
+        };
+    }
+
+    private _handleCloseMenu() {
+
+        this.setState({
+            triggered: false,
+        });
     }
 
     private _handleContextMenu(event: React.MouseEvent<HTMLDivElement>): void {
