@@ -1019,19 +1019,19 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@mdx-js/loader@^0.18.1":
-  version "0.18.1"
-  resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-0.18.1.tgz#05a3209811d0a643e6d91e39b32100b99762372c"
-  integrity sha512-Wjm274FFjqGBAjQrLRoskUENuDWEuOsi4oiQtIQwPfN+G5vJg9aMSJtmUH43SuY+o0k5keqR+0jeCBQ8nxl/pg==
+"@mdx-js/loader@^0.18.2":
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-0.18.2.tgz#fac2a13f23514ff3dc0e2a003df0e83d92f0da09"
+  integrity sha512-XMptm/9aZODvf1wUyvQYGyiccRq4hs3kffb+Yl4Nz78HkMD58fyhRutsEyNWe5KBGjp6TX8/CeOcmxwZOzYkoQ==
   dependencies:
-    "@mdx-js/mdx" "^0.18.1"
+    "@mdx-js/mdx" "^0.18.2"
     "@mdx-js/tag" "^0.18.0"
     loader-utils "^1.1.0"
 
-"@mdx-js/mdx@^0.18.1":
-  version "0.18.1"
-  resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-0.18.1.tgz#bbb2dc96d65e22c73b5f66a9428eb4561fdc33b7"
-  integrity sha512-NYD0CwCx5m48PPN2sUjvltQpVmmn71MpGvisYU+rAxxk0Ev2YgedMLomjmSiNZNywA52J8495M3q9tozObwzUA==
+"@mdx-js/mdx@^0.18.2":
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-0.18.2.tgz#5ed20c70ea89b13035c4534cbe43372ff459fe1c"
+  integrity sha512-7DqNBOGPV+36qpH8YZmKI5uvuXhrGZFhJ4C9+9uaQSpH2hQg9xAfdzjSSEO8FQhAlu6wJtUgb72J5/eWdc1HFw==
   dependencies:
     "@babel/plugin-proposal-object-rest-spread" "^7.3.2"
     "@babel/plugin-syntax-jsx" "^7.2.0"
