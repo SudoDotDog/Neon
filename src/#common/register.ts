@@ -7,6 +7,7 @@
 import jss from "jss";
 import jssPresetDefault from "jss-preset-default";
 import { COLOR } from "./declare";
+import { JSSStyle } from "./style/decorator";
 
 export class NeonRegister {
 
@@ -17,7 +18,7 @@ export class NeonRegister {
 
             jss.setup(jssPresetDefault());
 
-            jss.createStyleSheet({
+            const globalStyleBase: JSSStyle = {
                 '@global': {
                     '::-webkit-scrollbar': {
                         width: '0.5em',
@@ -26,11 +27,15 @@ export class NeonRegister {
                     '::-webkit-scrollbar-thumb': {
                         backgroundColor: COLOR.NAVY,
                     },
+                    '::-webkit-scrollbar-thumb:hover': {
+                        backgroundColor: COLOR.BLACK,
+                    },
                     '::-webkit-scrollbar-track': {
                         backgroundColor: COLOR.GRAY,
                     },
                 },
-            }).attach();
+            };
+            jss.createStyleSheet(globalStyleBase).attach();
         }
 
         return;
