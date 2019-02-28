@@ -1,9 +1,12 @@
 import { action } from "@storybook/addon-actions";
-import { NeonContextMenu } from "../../src/menu";
+import { NeonContextMenu } from "../../src/context";
 import { SIZE } from "../../src/declare";
 
 # Neon Context Menu
 
-<NeonContextMenu style={{backgroundColor: 'red'}}>
+<NeonContextMenu
+    size={SIZE.NORMAL}
+    style={{backgroundColor: 'red'}}
+>
     Something
 </NeonContextMenu>

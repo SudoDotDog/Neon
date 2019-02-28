@@ -6,12 +6,12 @@
 
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { NeonContextMenu } from "../../src/menu";
-import { NeonContextMenuBase } from "../../src/menu/context";
+import { NeonContextMenu } from "../../src/context";
+import { NeonContextMenuBase } from "../../src/context/context";
 import { wInfo } from "../util";
 import ContextMenuMDX from "./context.mdx";
 
-const componentStories = storiesOf('Menu', module);
+const componentStories = storiesOf('Context', module);
 
 componentStories.add(
     'Context Menu',

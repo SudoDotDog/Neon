@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Neon_Menu
+ * @namespace Neon_Context
  * @description Context Menu
  */
 
@@ -10,9 +10,7 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { SIZE } from "../declare/index";
-import { NeonMenuItemElement } from "./declare";
-import { NeonMenuItem } from "./item";
-import { NeonMenu } from "./menu";
+import { NeonMenu, NeonMenuItem, NeonMenuItemElement } from "../menu";
 import { NeonContextMenuStyle } from "./style/context";
 
 export type NeonContextMenuProps = {

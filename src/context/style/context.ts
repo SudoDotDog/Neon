@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Neon_Menu_Style
+ * @namespace Neon_Context_Style
  * @description Context Menu
  */
 
