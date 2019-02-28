@@ -30,7 +30,7 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps, N
         triggered: false,
     };
 
-    private _contextMenuStyle: Classes = NeonContextMenuStyle.use();
+    private readonly _contextMenuStyle: Classes = NeonContextMenuStyle.use();
 
     public render(): React.ReactNode {
 
