@@ -81,7 +81,7 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
 
                     onClick={() => this.props.onClick && this.props.onClick()}>
                     {this.props.children}&nbsp;▼
-                    </button>
+                </button>
                 {this._renderDropdown()}
             </NeonBox>);
     }
