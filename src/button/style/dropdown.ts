@@ -4,7 +4,7 @@
  * @description Dropdown
  */
 
-import { getBorderStyle, JSSStyle, migrateFocusStyle } from "../../#common/style/decorator";
+import { JSSStyle, migrateFocusStyle } from "../../#common/style/decorator";
 import { NeonStyle } from "../../#common/style/style";
 
 export const NeonDropdownButtonStyleBase: JSSStyle = {
@@ -17,14 +17,10 @@ export const NeonDropdownButtonStyleBase: JSSStyle = {
         position: 'relative',
     },
     dropdown: {
-        width: '100%',
         position: 'absolute',
         zIndex: 5,
         top: '100%',
         left: 0,
-
-        boxSizing: 'border-box',
-        ...getBorderStyle(),
     },
 
     sizeNormal: {

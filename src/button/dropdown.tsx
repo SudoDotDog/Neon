@@ -12,7 +12,8 @@ import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { fixTabIndex } from "../#common/util";
 import { SIZE } from "../declare/index";
-import { NeonShine } from "./shine";
+import { NeonMenuItem } from "../menu/item";
+import { NeonMenu } from "../menu/menu";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
 import { NeonDropdownButtonStyle } from "./style/dropdown";
 
@@ -68,7 +69,8 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
                     onMouseEnter: this._handleMouseEnter,
                     onMouseLeave: this._handleMouseLeave,
                 }}
-                {...boxProps(this.props,
+                {...boxProps(
+                    this.props,
                     this._dropdownButtonStyle.wrap,
                     this._dropdownButtonStyle.box,
                     this._buttonStyle.sizeFullBox,
@@ -104,15 +106,15 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
             return null;
         }
 
-        return (<div className={this._dropdownButtonStyle.dropdown}>
+        return (<NeonMenu className={this._dropdownButtonStyle.dropdown}>
             {this.props.list.map((element: NeonDropdownButtonListElement, index: number) =>
-                (<NeonShine
+                (<NeonMenuItem
                     key={element.key || index}
                     onClick={element.onClick}>
                     {element.children}
-                </NeonShine>),
+                </NeonMenuItem>),
             )}
-        </div>);
+        </NeonMenu>);
     }
 
     private _getSizeClass(): string {
