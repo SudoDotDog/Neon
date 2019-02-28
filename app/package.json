@@ -18,8 +18,8 @@
   "homepage": "https://github.com/SudoDotDog/Neon#readme",
   "dependencies": {
     "@sudoo/bark": "^2.1.0",
-    "jss": "^10.0.0-alpha.11",
-    "jss-preset-default": "^10.0.0-alpha.11"
+    "jss": "^10.0.0-alpha.12",
+    "jss-preset-default": "^10.0.0-alpha.12"
   },
   "peerDependencies": {
     "react": "*",
