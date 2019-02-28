@@ -12,22 +12,16 @@ import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { fixTabIndex } from "../#common/util";
 import { SIZE } from "../declare/index";
+import { NeonMenuItemElement } from "../menu/declare";
 import { NeonMenuItem } from "../menu/item";
 import { NeonMenu } from "../menu/menu";
 import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
 import { NeonDropdownButtonStyle } from "./style/dropdown";
 
-export type NeonDropdownButtonListElement = {
-
-    readonly children: any;
-    readonly key?: string;
-    readonly onClick?: () => void;
-};
-
 export type NeonDropdownButtonProps = {
 
     readonly onClick?: () => void;
-    readonly list?: NeonDropdownButtonListElement[];
+    readonly list?: NeonMenuItemElement[];
 
     readonly disabled?: boolean;
     readonly tabIndex?: number;
@@ -111,7 +105,7 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
             className={this._dropdownButtonStyle.dropdown}
             size={this.props.dropdownSize}
         >
-            {this.props.list.map((element: NeonDropdownButtonListElement, index: number) =>
+            {this.props.list.map((element: NeonMenuItemElement, index: number) =>
                 (<NeonMenuItem
                     key={element.key || index}
                     onClick={this._createElementClickFunction(element.onClick)}>

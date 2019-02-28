@@ -9,6 +9,11 @@ import { NeonStyle } from "../../#common/style/style";
 
 const NeonContextMenuBase: JSSStyle = {
 
+    wrap: {
+    },
+    menu: {
+        width: '15rem',
+    },
 };
 
-export const NeonContextMenuStyle: NeonStyle = NeonStyle.create(NeonContextMenuBase, 'Context');
+export const NeonContextMenuStyle: NeonStyle = NeonStyle.create(NeonContextMenuBase, 'ContextMenu');

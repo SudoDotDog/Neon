@@ -5,8 +5,9 @@
  */
 
 import { storiesOf } from "@storybook/react";
-import { NeonContextMenu, NeonContextMenuBase } from "menu/context";
 import * as React from "react";
+import { NeonContextMenu } from "../../src/menu";
+import { NeonContextMenuBase } from "../../src/menu/context";
 import { wInfo } from "../util";
 import ContextMenuMDX from "./context.mdx";
 
