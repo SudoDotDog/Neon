@@ -15,6 +15,7 @@ export class NeonStyle {
     }
 
     private readonly _base: JSSStyle;
+
     private _sheet: StyleSheet | null;
 
     private constructor(base: JSSStyle) {

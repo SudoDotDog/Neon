@@ -42,7 +42,7 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
         expended: false,
     };
 
-    private _flagStyle: Classes = NeonFlagStyle.use();
+    private readonly _flagStyle: Classes = NeonFlagStyle.use();
 
     public constructor(props: NeonFlagProps) {
 

@@ -32,7 +32,7 @@ export class NeonPaginationBase extends React.Component<NeonPaginationProps, Neo
         currentHover: 0,
     };
 
-    private _paginationStyle: Classes = NeonPaginationStyle.use();
+    private readonly _paginationStyle: Classes = NeonPaginationStyle.use();
 
     public render(): React.ReactNode {
 

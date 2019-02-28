@@ -27,7 +27,7 @@ export type NeonSmartListProps = {
 
 export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
-    private _listStyle: Classes = NeonListStyle.use();
+    private readonly _listStyle: Classes = NeonListStyle.use();
 
     public render() {
 

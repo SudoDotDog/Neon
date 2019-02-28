@@ -35,7 +35,7 @@ export class NeonGatherBase extends React.Component<NeonGatherProps, NeonGatherS
         current: '',
     };
 
-    private _gatherStyle: Classes = NeonGatherStyle.use();
+    private readonly _gatherStyle: Classes = NeonGatherStyle.use();
 
     public constructor(props: NeonGatherProps) {
 

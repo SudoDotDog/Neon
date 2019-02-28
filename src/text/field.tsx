@@ -39,8 +39,9 @@ export class NeonTextFieldBase extends React.Component<NeonTextFieldProps, NeonT
         shrink: false,
     };
 
+    private readonly _textFieldStyle: Classes = NeonTextFieldStyle.use();
+
     private _ref: HTMLTextAreaElement | null;
-    private _textFieldStyle: Classes = NeonTextFieldStyle.use();
 
     public constructor(props: NeonTextFieldProps) {
 
