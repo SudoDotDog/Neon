@@ -5,11 +5,14 @@
  */
 
 import * as React from "react";
+import { boxProps, NeonBox } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
+import { NeonMenuItemElement } from "../menu/index";
 import { ContextedComponent, ContextProps, withContextMenu } from "./connect";
 
 export type NeonContextMenuProps = {
 
+    readonly list?: NeonMenuItemElement[];
     readonly children?: any;
 } & BoxProps & ContextProps;
 
@@ -25,11 +28,14 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps> {
     public render(): React.ReactNode {
 
         return (
-            <div
-                onContextMenu={this._handleContextMenu}
+            <NeonBox
+                divAttributes={{
+                    onContextMenu: this._handleContextMenu,
+                }}
+                {...boxProps(this.props)}
             >
                 {this.props.children}
-            </div>
+            </NeonBox>
         );
     }
 
@@ -37,6 +43,10 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps> {
 
         event.preventDefault();
         event.stopPropagation();
+
+        if (!this.props.list) {
+            return;
+        }
 
         const X: number = event.clientX;
         const Y: number = event.clientY;
@@ -59,7 +69,7 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps> {
         //     ref.style.top = `${Y - height}px`;
         // }
 
-        this.props.context.openContextMenu(X, Y, []);
+        this.props.context.openContextMenu(X, Y, this.props.list);
     }
 }
 
