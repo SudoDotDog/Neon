@@ -7,7 +7,6 @@
 import { Classes } from "jss";
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
-import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare";
@@ -19,7 +18,7 @@ export type NeonPeekCut = {
     readonly expend?: any;
 } & NeonCoinCut;
 
-export type NeonPeekProps = NeonPeekCut & ThemeProps & BoxProps;
+export type NeonPeekProps = NeonPeekCut & BoxProps;
 
 export type NeonPeekStates = {
 
@@ -103,4 +102,4 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
     }
 }
 
-export const NeonPeek: ThemedComponent<NeonPeekProps> = withConsumer<NeonPeekProps>(NeonPeekBase);
+export const NeonPeek: React.ComponentType<NeonPeekProps> = NeonPeekBase;

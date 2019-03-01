@@ -7,16 +7,15 @@
 import { Classes } from "jss";
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
-import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
-import { NeonPeek } from "../button/peek";
+import { NeonCoin, NeonCoinCut } from "../button/coin";
 import { NeonFloatStyle } from "./style/float";
 
 export type NeonFloatProps = {
 
     readonly children?: any;
-} & ThemeProps & BoxProps;
+} & NeonCoinCut & BoxProps;
 
 export type NeonFloatStates = {
 
@@ -48,13 +47,19 @@ export class NeonFloatBase extends React.Component<NeonFloatProps> {
                     this._floatStyle.float,
                 )}
             >
-                <NeonPeek
-                    {...boxProps(
-                        this.props,
-                    )}
+                <NeonCoin
+                    {...boxProps(this.props)}
+                    disabled={this.props.disabled}
+                    buttonClassName={this.props.buttonClassName}
+                    tabIndex={this.props.tabIndex}
+                    onClick={this.props.onClick}
+                    buttonAttributes={{
+                        onMouseEnter: this._handleMouseEnter,
+                        onMouseLeave: this._handleMouseLeave,
+                    }}
                 >
                     {this.props.children}
-                </NeonPeek>
+                </NeonCoin>
             </div>
         );
     }
@@ -74,4 +79,4 @@ export class NeonFloatBase extends React.Component<NeonFloatProps> {
     }
 }
 
-export const NeonFloat: ThemedComponent<NeonFloatProps> = withConsumer<NeonFloatProps>(NeonFloatBase);
+export const NeonFloat: React.ComponentType<NeonFloatProps> = NeonFloatBase;
