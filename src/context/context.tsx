@@ -6,60 +6,57 @@
 
 import { Classes } from "jss";
 import * as React from "react";
-import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { SIZE } from "../declare/index";
 import { NeonMenu, NeonMenuItem, NeonMenuItemElement } from "../menu";
+import { getDefaultNeonContext, NeonContext } from "./declare";
 import { NeonContextMenuStyle } from "./style/context";
 
-export type NeonContextMenuProps = {
-
-    readonly size?: SIZE;
-    readonly list?: NeonMenuItemElement[];
+export type NeonContextMenuProviderProps = {
 
     readonly children?: any;
 } & BoxProps & ThemeProps;
 
-export type NeonContextMenuStates = {
+export type NeonContextMenuProviderStates = {
 
     readonly triggered: boolean;
+    readonly list: NeonMenuItemElement[];
+    readonly x: number;
+    readonly y: number;
 };
 
-export class NeonContextMenuBase extends React.Component<NeonContextMenuProps, NeonContextMenuStates> {
+export const NeonContextMenuContext: React.Context<NeonContext> = React.createContext<NeonContext>(getDefaultNeonContext());
 
-    public readonly state: NeonContextMenuStates = {
+export class NeonContextMenuProviderBase extends React.Component<NeonContextMenuProviderProps, NeonContextMenuProviderStates> {
+
+    public readonly state: NeonContextMenuProviderStates = {
 
         triggered: false,
+        list: [],
+        x: 0,
+        y: 0,
     };
-
-    private _ref: HTMLDivElement | null = null;
 
     private readonly _contextMenuStyle: Classes = NeonContextMenuStyle.use();
 
-    public constructor(props: NeonContextMenuProps) {
+    public constructor(props: NeonContextMenuProviderProps) {
 
         super(props);
 
-        this._handleContextMenu = this._handleContextMenu.bind(this);
+        this._openContextMenu = this._openContextMenu.bind(this);
     }
 
     public render(): React.ReactNode {
 
         return (
-            <NeonBox
-                ignoreTheme
-                divAttributes={{
-                    onContextMenu: this._handleContextMenu,
+            <NeonContextMenuContext.Provider
+                value={{
+                    openContextMenu: this._openContextMenu,
                 }}
-                {...boxProps(
-                    this.props,
-                    this._contextMenuStyle.wrap,
-                )}
             >
                 {this.props.children}
                 {this._renderMenu()}
-            </NeonBox>
+            </NeonContextMenuContext.Provider>
         );
     }
 
@@ -71,15 +68,14 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps, N
 
         return (
             <div
-                ref={(ref: HTMLDivElement) => this._ref = ref}
                 className={this._contextMenuStyle.menu}
                 style={{
                     position: 'fixed',
+                    top: this.state.y,
+                    left: this.state.x,
                 }}
             >
-                <NeonMenu
-                    size={this.props.size}
-                >
+                <NeonMenu>
                     {this._renderItems()}
                 </NeonMenu>
             </div>
@@ -88,11 +84,11 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps, N
 
     private _renderItems(): React.ReactNode {
 
-        if (!this.props.list) {
+        if (!this.state.list) {
             return null;
         }
 
-        return this.props.list.map((element: NeonMenuItemElement, index: number) =>
+        return this.state.list.map((element: NeonMenuItemElement, index: number) =>
             (<NeonMenuItem
                 key={element.key || index}
                 onClick={this._createElementClickFunction(element.onClick)}>
@@ -119,42 +115,15 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps, N
         });
     }
 
-    private _handleContextMenu(event: React.MouseEvent<HTMLDivElement>): void {
-
-        event.preventDefault();
-        event.stopPropagation();
+    private _openContextMenu(x: number, y: number, list: NeonMenuItemElement[]) {
 
         this.setState({
             triggered: true,
+            list,
+            x,
+            y,
         });
-
-        if (!this._ref) {
-            return;
-        }
-
-        const ref: HTMLDivElement = this._ref;
-
-        const X: number = event.clientX;
-        const Y: number = event.clientY;
-        const viewWidth: number = window.innerWidth;
-        const viewHeight: number = window.innerHeight;
-        const width: number = ref.offsetWidth;
-        const height: number = ref.offsetHeight;
-
-        if (viewWidth - X > width) {
-            console.log(1);
-            ref.style.left = `${X}px`;
-        } else {
-            ref.style.left = `${X - width}px`;
-        }
-
-        if (viewHeight - Y > height) {
-            console.log(2);
-            ref.style.top = `${Y}px`;
-        } else {
-            ref.style.top = `${Y - height}px`;
-        }
     }
 }
 
-export const NeonContextMenu: ThemedComponent<NeonContextMenuProps> = withConsumer<NeonContextMenuProps>(NeonContextMenuBase);
+export const NeonContextMenuProvider: ThemedComponent<NeonContextMenuProviderProps> = withConsumer<NeonContextMenuProviderProps>(NeonContextMenuProviderBase);

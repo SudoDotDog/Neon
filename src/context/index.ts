@@ -8,5 +8,6 @@ import { NeonRegister } from "../#common/register";
 
 NeonRegister.register();
 
+export { NeonContextMenuProvider, NeonContextMenuProviderProps } from "./context";
+export { NeonContextMenu, NeonContextMenuProps } from "./triggerable";
 
-export { NeonContextMenu, NeonContextMenuProps } from "./context";
