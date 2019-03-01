@@ -5,7 +5,6 @@
  */
 
 import * as React from "react";
-import { boxProps, NeonBox } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
 import { NeonMenuItemElement } from "../menu/index";
 import { ContextedComponent, ContextProps, withContextMenu } from "./connect";
@@ -28,14 +27,13 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps> {
     public render(): React.ReactNode {
 
         return (
-            <NeonBox
-                divAttributes={{
-                    onContextMenu: this._handleContextMenu,
-                }}
-                {...boxProps(this.props)}
+            <div
+                onContextMenu={this._handleContextMenu}
+                style={this.props.style}
+                className={this.props.className}
             >
                 {this.props.children}
-            </NeonBox>
+            </div>
         );
     }
 
@@ -50,26 +48,34 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps> {
 
         const X: number = event.clientX;
         const Y: number = event.clientY;
-        // const viewWidth: number = window.innerWidth;
-        // const viewHeight: number = window.innerHeight;
-        // const width: number = ref.offsetWidth;
-        // const height: number = ref.offsetHeight;
 
-        // if (viewWidth - X > width) {
-        //     console.log(1);
-        //     ref.style.left = `${X}px`;
-        // } else {
-        //     ref.style.left = `${X - width}px`;
-        // }
+        this.props.context.openContextMenu(
+            this._getPositionX(X),
+            this._getPositionY(Y),
+            this.props.list,
+        );
+    }
 
-        // if (viewHeight - Y > height) {
-        //     console.log(2);
-        //     ref.style.top = `${Y}px`;
-        // } else {
-        //     ref.style.top = `${Y - height}px`;
-        // }
+    private _getPositionX(x: number): number {
 
-        this.props.context.openContextMenu(X, Y, this.props.list);
+        const viewWidth: number = window.innerWidth;
+        const width: number = this.props.context.width || 0;
+        if (viewWidth - x > width) {
+            return x;
+        } else {
+            return x - width;
+        }
+    }
+
+    private _getPositionY(y: number): number {
+
+        const viewHeight: number = window.innerHeight;
+        const height: number = this.props.context.height || 0;
+        if (viewHeight - y > height) {
+            return y;
+        } else {
+            return y - height;
+        }
     }
 }
 

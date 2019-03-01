@@ -6,9 +6,17 @@ import { SIZE } from "../../src/declare";
 
 <NeonContextMenuProvider>
     <NeonContextMenu
-        style={{backgroundColor: 'red'}}
-        list={[1,2,3]}
+        style={{
+            border: '3px solid navy',
+            width: '100%',
+            height: '500px',
+        }}
+        list={[
+            {children: "First", onClick: action('First')},
+            {children: "Second", onClick: action('Second')},
+            {children: "Third", onClick: action('First')},
+        ]}
     >
-        Something
+        Right click here
     </NeonContextMenu>
 </NeonContextMenuProvider>

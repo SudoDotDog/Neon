@@ -37,6 +37,8 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
         y: 0,
     };
 
+    private _ref: HTMLDivElement | null = null;
+
     private readonly _contextMenuStyle: Classes = NeonContextMenuStyle.use();
 
     public constructor(props: NeonContextMenuProviderProps) {
@@ -52,6 +54,8 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
             <NeonContextMenuContext.Provider
                 value={{
                     openContextMenu: this._openContextMenu,
+                    width: this._ref ? this._ref.offsetWidth : undefined,
+                    height: this._ref ? this._ref.offsetHeight : undefined,
                 }}
             >
                 {this.props.children}
@@ -69,6 +73,7 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
         return (
             <div
                 className={this._contextMenuStyle.menu}
+                ref={(ref: HTMLDivElement) => this._ref = ref}
                 style={{
                     position: 'fixed',
                     top: this.state.y,
