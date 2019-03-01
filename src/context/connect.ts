@@ -23,6 +23,7 @@ export const withContextMenu = <T extends ContextProps>(Component: any): React.C
         );
 
 export type ContextProps = {
+
     readonly context: NeonContext;
 };
 

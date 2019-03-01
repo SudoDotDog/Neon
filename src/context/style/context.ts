@@ -9,10 +9,10 @@ import { NeonStyle } from "../../#common/style/style";
 
 const NeonContextMenuBase: JSSStyle = {
 
-    wrap: {
-    },
     menu: {
         width: '15rem',
+        maxHeight: '50rem',
+        overflow: 'auto',
     },
 };
 

@@ -60,6 +60,7 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps> {
 
         const viewWidth: number = window.innerWidth;
         const width: number = this.props.context.width || 0;
+
         if (viewWidth - x > width) {
             return x;
         } else {
@@ -71,6 +72,7 @@ export class NeonContextMenuBase extends React.Component<NeonContextMenuProps> {
 
         const viewHeight: number = window.innerHeight;
         const height: number = this.props.context.height || 0;
+
         if (viewHeight - y > height) {
             return y;
         } else {
