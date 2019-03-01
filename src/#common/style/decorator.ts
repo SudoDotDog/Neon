@@ -58,7 +58,7 @@ export const getBorder = (color: string, width: string = '0.2rem') => ({
 export const getBorderStyle = (width?: string) => ({
 
     ...getBorder(COLOR.NAVY, width),
-    transition: 'border 0.2s, color 0.1s',
+    transition: 'all 0.2s',
 });
 
 export const combineStyle = (style: CSSProperties, propsStyle?: CSSProperties): CSSProperties => {

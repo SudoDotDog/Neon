@@ -46,7 +46,7 @@ const NeonFlagStyleBase: JSSStyle = {
         backgroundColor: COLOR.TRANSPARENT,
         fontWeight: 'bold',
 
-        transition: 'transform 0.2s',
+        transition: 'all 0.2s',
 
         ...migrateFocusStyle(),
     },

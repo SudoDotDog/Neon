@@ -60,7 +60,7 @@ const NeonDialogStyleBase: JSSStyle = {
     },
 
     traverse: {
-        transition: 'opacity 0.3s',
+        transition: 'all 0.2s',
     },
     visible: {
         opacity: 1,

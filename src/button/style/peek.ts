@@ -10,59 +10,39 @@ import { NeonStyle } from "../../#common/style/style";
 export const NeonPeekStyleBase: JSSStyle = {
 
     peek: {
-        transition: 'max-width 0.2s',
+        transition: 'all 0.2s',
         whiteSpace: 'nowrap',
     },
     sizeNormal: {
-        fontSize: '0.8rem',
+        width: 'auto !important',
         minWidth: '3rem',
         maxWidth: '3rem',
-        height: '3rem',
-        padding: '0.2rem',
         '&:hover': {
             maxWidth: '15rem',
         },
-        '&.circle': {
-            borderRadius: '3rem',
-        },
     },
     sizeMedium: {
-        fontSize: '1rem',
+        width: 'auto !important',
         minWidth: '4rem',
         maxWidth: '4rem',
-        height: '4rem',
-        padding: '0.4rem',
         '&:hover': {
             maxWidth: '20rem',
         },
-        '&.circle': {
-            borderRadius: '4rem',
-        },
     },
     sizeLarge: {
-        fontSize: '1.2rem',
+        width: 'auto !important',
         minWidth: '5rem',
         maxWidth: '5rem',
-        height: '5rem',
-        padding: '0.6rem',
         '&:hover': {
             maxWidth: '25rem',
         },
-        '&.circle': {
-            borderRadius: '5rem',
-        },
     },
     sizeFull: {
-        fontSize: '1.4rem',
+        width: 'auto !important',
         minWidth: '6rem',
         maxWidth: '6rem',
-        height: '6rem',
-        padding: '0.8rem',
         '&:hover': {
             maxWidth: '30rem',
-        },
-        '&.circle': {
-            borderRadius: '6rem',
         },
     },
 };

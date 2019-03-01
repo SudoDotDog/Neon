@@ -1,0 +1,49 @@
+import { NeonCoin } from "../../src/button";
+import { SIZE } from "../../src/declare";
+
+# Neon Coin
+
+- Medium Size
+
+<NeonCoin
+    size={SIZE.MEDIUM}
+    {...this.props.events}
+>
+    <div style={{color: 'red'}}>Red {this.props.name}</div>
+</NeonCoin>
+
+- Circle
+
+<NeonCoin
+    size={SIZE.MEDIUM}
+    circle
+    {...this.props.events}
+>
+    {this.props.name}
+</NeonCoin>
+
+- Normal Size
+
+<NeonCoin
+    {...this.props.events}
+>
+    {this.props.name}
+</NeonCoin>
+
+- Large Size
+
+<NeonCoin
+    size={SIZE.LARGE}
+    {...this.props.events}
+>
+    {this.props.name}
+</NeonCoin>
+
+- Full Size
+
+<NeonCoin
+    size={SIZE.FULL}
+    {...this.props.events}
+>
+    {this.props.name}
+</NeonCoin>

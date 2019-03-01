@@ -19,7 +19,7 @@ export const NeonShineStyleBase: JSSStyle = {
 
         cursor: 'pointer',
         textAlign: 'left',
-        transition: 'border 0.2s, color 0.1s',
+        transition: 'all 0.2s',
         overflow: 'hidden',
         width: '100%',
         padding: '0 0.3rem',

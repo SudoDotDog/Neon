@@ -45,7 +45,7 @@ const NeonDashStyleBase: JSSStyle = {
         position: 'absolute',
         top: '0.3rem',
         right: '0.3rem',
-        transition: '0.2s width, 0.2s height',
+        transition: 'all 0.2s',
 
         ...migratePureFocusStyle(),
     },

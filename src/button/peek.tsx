@@ -6,27 +6,18 @@
 
 import { Classes } from "jss";
 import * as React from "react";
-import { boxProps, NeonBox } from "../#common/components/box";
+import { boxProps } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
-import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
-import { fixTabIndex } from "../#common/util";
+import { mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare";
-import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
+import { NeonCoin, NeonCoinCut } from "./coin";
 import { NeonPeekStyle } from "./style/peek";
 
 export type NeonPeekCut = {
 
-    readonly onClick?: () => void;
-
-    readonly circle?: boolean;
-    readonly disabled?: boolean;
-    readonly tabIndex?: number;
-    readonly size?: SIZE;
     readonly expend?: any;
-
-    readonly children?: any;
-};
+} & NeonCoinCut;
 
 export type NeonPeekProps = NeonPeekCut & ThemeProps & BoxProps;
 
@@ -42,7 +33,6 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
         hovering: false,
     };
 
-    private readonly _buttonStyle: Classes = NeonButtonStyle.use();
     private readonly _peekStyle: Classes = NeonPeekStyle.use();
 
     public constructor(props: NeonPeekProps) {
@@ -55,24 +45,21 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
 
     public render(): JSX.Element {
 
-        return (<NeonBox {...boxProps(this.props)}>
-
-            <button
-                disabled={this.props.disabled}
-                style={getNeonButtonStyle(this.props.theme)}
-                className={mergeClasses(
-                    this._buttonStyle.button,
-                    this._peekStyle.peek,
-                    this._getSizeClass(),
-                    assertIfTrue(this.props.circle, 'circle'),
-                    assertIfTrue(this.props.disabled, this._buttonStyle.disabled),
-                )}
-                tabIndex={fixTabIndex(this.props.tabIndex)}
-                onClick={() => this.props.onClick && this.props.onClick()}
-                {...this._getMouseHandlers()}>
-                {this.state.hovering ? this.props.expend : this.props.children}
-            </button>
-        </NeonBox>);
+        return (<NeonCoin
+            {...boxProps(this.props)}
+            buttonClassName={mergeClasses(
+                this._peekStyle.peek,
+                this._getSizeClass(),
+            )}
+            circle={this.props.circle}
+            size={this.props.size}
+            disabled={this.props.disabled}
+            tabIndex={this.props.tabIndex}
+            onClick={this.props.onClick}
+            buttonAttributes={this._getMouseHandlers()}
+        >
+            {this.state.hovering ? this.props.expend : this.props.children}
+        </NeonCoin>);
     }
 
     private _getMouseHandlers(): Record<string, any> {
