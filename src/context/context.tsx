@@ -38,6 +38,7 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
     };
 
     private _ref: HTMLDivElement | null = null;
+    private _bindingDocument: boolean = false;
 
     private readonly _contextMenuStyle: Classes = NeonContextMenuStyle.use();
 
@@ -45,7 +46,13 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
 
         super(props);
 
+        this._handleDocumentClick = this._handleDocumentClick.bind(this);
         this._openContextMenu = this._openContextMenu.bind(this);
+    }
+
+    public componentWillUnmount() {
+
+        this._debindDocument();
     }
 
     public render(): React.ReactNode {
@@ -102,6 +109,26 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
         );
     }
 
+    private _bindDocument() {
+
+        if (!this._bindingDocument) {
+            document.addEventListener('click', this._handleDocumentClick);
+            document.addEventListener('contextmenu', this._handleDocumentClick);
+
+            this._bindingDocument = true;
+        }
+    }
+
+    private _debindDocument() {
+        console.log(this._bindingDocument, 'de bind');
+        if (this._bindingDocument) {
+            document.removeEventListener('click', this._handleDocumentClick);
+            document.removeEventListener('contextmenu', this._handleDocumentClick);
+
+            this._bindingDocument = false;
+        }
+    }
+
     private _createElementClickFunction(onClick?: () => void) {
 
         return () => {
@@ -113,11 +140,25 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
         };
     }
 
+    private _handleDocumentClick(event: MouseEvent) {
+
+        if (!this._ref) {
+            return;
+        }
+
+        if (this.state.triggered) {
+            event.preventDefault();
+            event.stopPropagation();
+            this._handleCloseMenu();
+        }
+    }
+
     private _handleCloseMenu() {
 
         this.setState({
             triggered: false,
         });
+        this._debindDocument();
     }
 
     private _openContextMenu(x: number, y: number, list: NeonMenuItemElement[]) {
@@ -128,6 +169,7 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
             x,
             y,
         });
+        this._bindDocument();
     }
 }
 
