@@ -120,7 +120,7 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
     }
 
     private _debindDocument() {
-        console.log(this._bindingDocument, 'de bind');
+
         if (this._bindingDocument) {
             document.removeEventListener('click', this._handleDocumentClick);
             document.removeEventListener('contextmenu', this._handleDocumentClick);
