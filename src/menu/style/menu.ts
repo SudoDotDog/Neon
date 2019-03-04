@@ -13,6 +13,8 @@ const NeonMenuStyleBase: JSSStyle = {
 
         boxSizing: 'border-box',
         width: '100%',
+    },
+    bordered: {
 
         ...getBorderStyle(),
     },

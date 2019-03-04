@@ -24,6 +24,30 @@ import { SIZE } from "../../src/declare";
     </NeonMenu>
 </div>
 
+- Borderless
+
+<div style={{
+    width: '300px',
+}}>
+    <NeonMenu borderless>
+        <NeonMenuItem onClick={action('Element 1')}>{this.props.element1}</NeonMenuItem>
+        <NeonMenuItem onClick={action('Element 2')}>{this.props.element2}</NeonMenuItem>
+        <NeonMenuItem onClick={action('Element 3')}>{this.props.element3}</NeonMenuItem>
+    </NeonMenu>
+</div>
+
+- Bordered Reverse
+
+<div style={{
+    width: '300px',
+}}>
+    <NeonMenu reverse>
+        <NeonMenuItem onClick={action('Element 1')}>{this.props.element1}</NeonMenuItem>
+        <NeonMenuItem onClick={action('Element 2')}>{this.props.element2}</NeonMenuItem>
+        <NeonMenuItem onClick={action('Element 3')}>{this.props.element3}</NeonMenuItem>
+    </NeonMenu>
+</div>
+
 - Meidum
 
 <NeonMenu size={SIZE.MEDIUM}>

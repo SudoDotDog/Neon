@@ -12,9 +12,12 @@ import { SIZE } from "../declare/index";
 
 export type NeonMenuItemProps = {
 
-    readonly size?: SIZE;
     readonly onClick?: () => void;
+
+    readonly size?: SIZE;
+    readonly reverse?: boolean;
     readonly disabled?: boolean;
+
     readonly children?: any;
 } & BoxProps;
 
@@ -22,6 +25,7 @@ export const NeonMenuItem: React.FC<NeonMenuItemProps> = (props: NeonMenuItemPro
 
     return (<NeonShine
         size={props.size}
+        reverse={props.reverse}
         disabled={props.disabled}
         onClick={props.onClick}
         {...boxProps(props)}
