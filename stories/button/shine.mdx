@@ -17,6 +17,21 @@ import { SIZE } from "../../src/declare";
     </NeonShine>
 </div>
 
+- Normal Reverse
+
+<div style={{
+    border: '0.2rem solid orange',
+    width: '350px',
+}}>
+    <NeonShine
+        size={SIZE.NORMAL}
+        reverse
+        {...this.props.events}
+    >
+        {this.props.name}
+    </NeonShine>
+</div>
+
 - Medium
 
 <div style={{

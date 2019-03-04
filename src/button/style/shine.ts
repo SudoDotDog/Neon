@@ -13,12 +13,8 @@ export const NeonShineStyleBase: JSSStyle = {
     button: {
         backgroundColor: COLOR.WHITE,
         border: 0,
-        borderLeftWidth: '0.3rem',
-        borderLeftStyle: 'solid',
-        borderLeftColor: COLOR.NAVY,
 
         cursor: 'pointer',
-        textAlign: 'left',
         transition: 'all 0.2s',
         overflow: 'hidden',
         width: '100%',
@@ -30,9 +26,26 @@ export const NeonShineStyleBase: JSSStyle = {
             color: COLOR.NAVY,
         },
     },
-    hoverable: {
+    regular: {
+        textAlign: 'left',
+        borderLeftWidth: '0.3rem',
+        borderLeftStyle: 'solid',
+        borderLeftColor: COLOR.NAVY,
+    },
+    reverse: {
+        textAlign: 'right',
+        borderRightWidth: '0.3rem',
+        borderRightStyle: 'solid',
+        borderRightColor: COLOR.NAVY,
+    },
+    hoverableRegular: {
         '&:hover': {
             borderLeft: `0.5rem solid ${COLOR.NAVY}`,
+        },
+    },
+    hoverableReverse: {
+        '&:hover': {
+            borderRight: `0.5rem solid ${COLOR.NAVY}`,
         },
     },
 

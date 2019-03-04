@@ -6,7 +6,7 @@
 
 import { Classes } from "jss";
 import * as React from "react";
-import { assertIfFalse, assertIfTrue, mergeClasses } from "../#common/style/decorator";
+import { assertIfFalse, assertIfTri, assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { fixTabIndex } from "../#common/util";
 import { SIZE } from "../declare/index";
 import { NeonShineStyle } from "./style/shine";
@@ -18,6 +18,7 @@ export type NeonShineProps = {
     readonly disabled?: boolean;
     readonly tabIndex?: number;
     readonly size?: SIZE;
+    readonly reverse?: boolean;
 
     readonly buttonClassName?: string;
 
@@ -36,8 +37,9 @@ export class NeonShineBase extends React.Component<NeonShineProps> {
                 className={mergeClasses(
                     this._getSizeClass(),
                     this._shineStyle.button,
-                    assertIfFalse(this.props.disabled, this._shineStyle.hoverable),
+                    assertIfFalse(this.props.disabled, this._getHoverableClass()),
                     assertIfTrue(this.props.disabled, this._shineStyle.disabled),
+                    assertIfTri(this.props.reverse, this._shineStyle.reverse, this._shineStyle.regular),
                     this.props.buttonClassName,
                 )}
                 tabIndex={fixTabIndex(this.props.tabIndex)}
@@ -45,6 +47,14 @@ export class NeonShineBase extends React.Component<NeonShineProps> {
                 {this.props.children}
             </button>
         );
+    }
+
+    private _getHoverableClass(): string {
+
+        if (this.props.reverse) {
+            return this._shineStyle.hoverableReverse;
+        }
+        return this._shineStyle.hoverableRegular;
     }
 
     private _getSizeClass(): string {
