@@ -4,7 +4,18 @@ import { NeonFloat } from "../../src/float";
 # Neon Float
 
 <NeonFloat
+    circle={this.props.circle}
     margin={this.props.margin}
+    list={[
+        {
+            onClick: action('First'),
+            children: "hello",
+        },
+        {
+            onClick: action('Second'),
+            children: <div style={{ color: 'red' }}>Red world</div>,
+        },
+    ]}
 >
     {this.props.name}
 </NeonFloat>

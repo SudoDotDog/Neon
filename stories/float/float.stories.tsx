@@ -4,7 +4,7 @@
  * @description Float
  */
 
-import { text } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { MARGIN } from "../../src/declare";
@@ -20,10 +20,13 @@ componentStories.add(
     'Float',
     wInfo([NeonFloatBase], [NeonFloat, FloatMDX])(() => {
 
+        const circle: boolean = boolean('Circle', true);
+
         const name: string = text('Name', 'Name');
         const margin: MARGIN = text('Margin', MARGIN.SMALL) as MARGIN;
 
         return (<FloatMDX
+            circle={circle}
             name={name}
             events={events}
             margin={margin}
