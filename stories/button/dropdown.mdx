@@ -25,6 +25,20 @@ import { SIZE } from "../../src/declare";
     </NeonDropdownButton>
 </div>
 
+- Bordered With Icon
+
+<div style={{
+    width: '300px',
+}}>
+    <NeonDropdownButton
+        icon=" ▼"
+        list={this.props.list}
+        {...this.props.events}
+    >
+        {this.props.name}
+    </NeonDropdownButton>
+</div>
+
 - Meidum
 
 <NeonDropdownButton

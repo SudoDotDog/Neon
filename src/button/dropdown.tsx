@@ -28,6 +28,7 @@ export type NeonDropdownButtonProps = {
     readonly size?: SIZE;
 
     readonly dropdownSize?: SIZE;
+    readonly icon?: React.ReactNode;
     readonly buttonClassName?: string;
 
     readonly children?: any;
@@ -77,7 +78,7 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
                     tabIndex={fixTabIndex(this.props.tabIndex)}
 
                     onClick={() => this.props.onClick && this.props.onClick()}>
-                    {this.props.children}&nbsp;▼
+                    {this.props.children}{this.props.icon && this.props.icon}
                 </button>
                 {this._renderDropdown()}
             </NeonBox>);
