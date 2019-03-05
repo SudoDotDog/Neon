@@ -57,6 +57,7 @@ export class NeonFloatBase extends React.Component<NeonFloatProps> {
                 <NeonCoin
                     {...boxProps(this.props)}
                     circle={this.props.circle}
+                    round={this.props.round}
                     disabled={this.props.disabled}
                     buttonClassName={this.props.buttonClassName}
                     tabIndex={this.props.tabIndex}

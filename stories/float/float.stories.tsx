@@ -20,13 +20,15 @@ componentStories.add(
     'Float',
     wInfo([NeonFloatBase], [NeonFloat, FloatMDX])(() => {
 
-        const circle: boolean = boolean('Circle', true);
+        const circle: boolean = boolean('Circle', false);
+        const round: boolean = boolean('Round', true);
 
         const name: string = text('Name', 'Name');
         const margin: MARGIN = text('Margin', MARGIN.SMALL) as MARGIN;
 
         return (<FloatMDX
             circle={circle}
+            round={round}
             name={name}
             events={events}
             margin={margin}

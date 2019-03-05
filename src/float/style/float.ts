@@ -16,8 +16,8 @@ const NeonFloatStyleBase: JSSStyle = {
     },
 
     menu: {
+        width: '10rem !important',
         position: 'absolute',
-        width: '10rem',
         right: 0,
         bottom: '100%',
     },
