@@ -22,6 +22,16 @@ import { SIZE } from "../../src/declare";
     {this.props.name}
 </NeonCoin>
 
+- Rounded
+
+<NeonCoin
+    size={SIZE.MEDIUM}
+    round
+    {...this.props.events}
+>
+    {this.props.name}
+</NeonCoin>
+
 - Normal Size
 
 <NeonCoin
@@ -47,3 +57,14 @@ import { SIZE } from "../../src/declare";
 >
     {this.props.name}
 </NeonCoin>
+
+- Full Size Rounded
+
+<NeonCoin
+    round
+    size={SIZE.FULL}
+    {...this.props.events}
+>
+    {this.props.name}
+</NeonCoin>
+

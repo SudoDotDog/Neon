@@ -17,6 +17,9 @@ export const NeonCoinStyleBase: JSSStyle = {
         '&.circle': {
             borderRadius: '3rem',
         },
+        '&.round': {
+            borderRadius: '0.3rem',
+        },
     },
     sizeMedium: {
         fontSize: '1rem',
@@ -25,6 +28,9 @@ export const NeonCoinStyleBase: JSSStyle = {
         padding: '0.4rem',
         '&.circle': {
             borderRadius: '4rem',
+        },
+        '&.round': {
+            borderRadius: '0.5rem',
         },
     },
     sizeLarge: {
@@ -35,6 +41,9 @@ export const NeonCoinStyleBase: JSSStyle = {
         '&.circle': {
             borderRadius: '5rem',
         },
+        '&.round': {
+            borderRadius: '0.7rem',
+        },
     },
     sizeFull: {
         fontSize: '1.4rem',
@@ -43,6 +52,9 @@ export const NeonCoinStyleBase: JSSStyle = {
         padding: '0.8rem',
         '&.circle': {
             borderRadius: '6rem',
+        },
+        '&.round': {
+            borderRadius: '0.9rem',
         },
     },
 };

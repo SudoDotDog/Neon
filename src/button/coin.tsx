@@ -20,9 +20,11 @@ export type NeonCoinCut = {
     readonly onClick?: () => void;
 
     readonly circle?: boolean;
+    readonly round?: boolean;
+    readonly size?: SIZE;
+
     readonly disabled?: boolean;
     readonly tabIndex?: number;
-    readonly size?: SIZE;
 
     readonly buttonClassName?: string;
 
@@ -51,7 +53,7 @@ export class NeonCoinBase extends React.Component<NeonCoinProps> {
                     this._buttonStyle.button,
                     this.props.buttonClassName,
                     this._getSizeClass(),
-                    assertIfTrue(this.props.circle, 'circle'),
+                    this._getShapeClass(),
                     assertIfTrue(this.props.disabled, this._buttonStyle.disabled),
                 )}
                 tabIndex={fixTabIndex(this.props.tabIndex)}
@@ -61,6 +63,17 @@ export class NeonCoinBase extends React.Component<NeonCoinProps> {
                 {this.props.children}
             </button>
         </NeonBox>);
+    }
+
+    private _getShapeClass(): string | undefined {
+
+        if (this.props.circle) {
+            return 'circle';
+        }
+        if (this.props.round) {
+            return 'round';
+        }
+        return undefined;
     }
 
     private _getSizeClass(): string {
