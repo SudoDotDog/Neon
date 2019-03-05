@@ -7,7 +7,7 @@
 import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { MARGIN } from "../../src/declare";
+import { MARGIN, SIZE } from "../../src/declare";
 import { NeonFloat } from "../../src/float";
 import { NeonFloatBase } from "../../src/float/float";
 import { createAction, wInfo } from "../util";
@@ -25,6 +25,7 @@ componentStories.add(
 
         const name: string = text('Name', 'Name');
         const margin: MARGIN = text('Margin', MARGIN.SMALL) as MARGIN;
+        const size: SIZE = text('Size', SIZE.NORMAL) as SIZE;
 
         return (<FloatMDX
             circle={circle}
@@ -32,6 +33,7 @@ componentStories.add(
             name={name}
             events={events}
             margin={margin}
+            size={size}
         />);
     }),
 );
