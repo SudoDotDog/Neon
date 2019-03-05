@@ -13,6 +13,7 @@ import { assertIfTrue, JSSStyle, mergeClasses } from "../style/decorator";
 import { NeonStyle } from "../style/style";
 
 const NeonBoxStyleBase: JSSStyle = {
+
     fit: {
         width: 'fit-content',
     },
