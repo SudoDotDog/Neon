@@ -34,6 +34,8 @@ export class NeonGridElementBase extends React.Component<NeonGridElementProps> {
                     this._gridStyle.element,
                 )}
                 style={{
+                    ...this.props.style,
+                    paddingBottom: `${100 / ((this.props.width || 1) / (this.props.height || 1))}%`,
                     gridColumn: this._getColumnStyle(),
                     gridRow: this._getRowStyle(),
                 }}

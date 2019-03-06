@@ -7,10 +7,10 @@ import { NeonGrid, NeonGridElement } from "../../src/grid";
     width={5}
 >
     <NeonGridElement x={5}>{this.props.name}</NeonGridElement>
-    <NeonGridElement x={3} width={2}>{this.props.name}</NeonGridElement>
-    <NeonGridElement>{this.props.name}</NeonGridElement>
-    <NeonGridElement>{this.props.name}</NeonGridElement>
-    <NeonGridElement>{this.props.name}</NeonGridElement>
+    <NeonGridElement x={2} width={3} style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
+    <NeonGridElement y={2} height={2}>{this.props.name}</NeonGridElement>
+    <NeonGridElement x={3} y={3} width={3} height={2} style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
+    <NeonGridElement x={1} y={1}>1, 1</NeonGridElement>
     <NeonGridElement>{this.props.name}</NeonGridElement>
     <NeonGridElement>{this.props.name}</NeonGridElement>
 </NeonGrid>

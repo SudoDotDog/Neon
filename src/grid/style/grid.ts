@@ -14,7 +14,7 @@ const NeonGridStyleBase: JSSStyle = {
     },
     element: {
         position: 'relative',
-        paddingBottom: '100%',
+        width: '100%',
     },
     inner: {
         position: 'absolute',
