@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Neon_Float_Style
- * @description Dash
+ * @description Float
  */
 
 import { JSSStyle } from "../../#common/style/decorator";

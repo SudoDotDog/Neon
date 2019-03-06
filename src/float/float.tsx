@@ -27,7 +27,7 @@ export type NeonFloatStates = {
     readonly hovering: boolean;
 };
 
-export class NeonFloatBase extends React.Component<NeonFloatProps> {
+export class NeonFloatBase extends React.Component<NeonFloatProps, NeonFloatStates> {
 
     public readonly state: NeonFloatStates = {
 
