@@ -13,9 +13,7 @@ pids
 
 # Build
 dist
-
-app/**/*.d.ts
-app/**/*.js
+app
 
 # Storybook
 storybook-static
