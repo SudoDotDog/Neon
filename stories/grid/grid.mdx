@@ -1,10 +1,16 @@
 import { action } from "@storybook/addon-actions";
-import { NeonGrid } from "../../src/grid";
+import { NeonGrid, NeonGridElement } from "../../src/grid";
 
 # Neon Grid
 
 <NeonGrid
-    hello="world"
+    width={5}
 >
-    {this.props.name}
+    <NeonGridElement x={5}>{this.props.name}</NeonGridElement>
+    <NeonGridElement x={3} width={2}>{this.props.name}</NeonGridElement>
+    <NeonGridElement>{this.props.name}</NeonGridElement>
+    <NeonGridElement>{this.props.name}</NeonGridElement>
+    <NeonGridElement>{this.props.name}</NeonGridElement>
+    <NeonGridElement>{this.props.name}</NeonGridElement>
+    <NeonGridElement>{this.props.name}</NeonGridElement>
 </NeonGrid>

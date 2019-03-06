@@ -8,5 +8,6 @@ import { NeonRegister } from "../#common/register";
 
 NeonRegister.register();
 
+export { NeonGridElement, NeonGridElementProps } from "./element";
 export { NeonGrid, NeonGridProps } from "./grid";
 
