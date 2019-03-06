@@ -35,7 +35,7 @@ export class NeonGridElementBase extends React.Component<NeonGridElementProps> {
                 )}
                 style={{
                     ...this.props.style,
-                    paddingBottom: `${100 / ((this.props.width || 1) / (this.props.height || 1))}%`,
+                    paddingBottom: `${this._getPaddingExpendSize()}%`,
                     gridColumn: this._getColumnStyle(),
                     gridRow: this._getRowStyle(),
                 }}
@@ -45,6 +45,15 @@ export class NeonGridElementBase extends React.Component<NeonGridElementProps> {
                 </div>
             </NeonBox>
         );
+    }
+
+    private _getPaddingExpendSize(): number {
+
+        const oneHundred: number = 100;
+        const width: number = this.props.width || 1;
+        const height: number = this.props.height || 1;
+
+        return oneHundred / (width / height);
     }
 
     private _getColumnStyle(): string | undefined {

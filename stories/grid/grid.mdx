@@ -1,16 +1,18 @@
 import { action } from "@storybook/addon-actions";
 import { NeonGrid, NeonGridElement } from "../../src/grid";
+import { MARGIN } from "../../src/declare"
 
 # Neon Grid
 
 <NeonGrid
     width={5}
+    margin={MARGIN.SMALL}
 >
-    <NeonGridElement x={5}>{this.props.name}</NeonGridElement>
-    <NeonGridElement x={2} width={3} style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
-    <NeonGridElement y={2} height={2}>{this.props.name}</NeonGridElement>
-    <NeonGridElement x={3} y={3} width={3} height={2} style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
-    <NeonGridElement x={1} y={1}>1, 1</NeonGridElement>
-    <NeonGridElement>{this.props.name}</NeonGridElement>
-    <NeonGridElement>{this.props.name}</NeonGridElement>
+    <NeonGridElement x={5} style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
+    <NeonGridElement x={2} y={1} width={3} style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
+    <NeonGridElement y={2} height={2} style={{backgroundColor: 'lightblue'}}>1, 2</NeonGridElement>
+    <NeonGridElement x={3} y={2} width={3} height={2} style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
+    <NeonGridElement x={1} y={1} style={{backgroundColor: 'lightblue'}}>1, 1</NeonGridElement>
+    <NeonGridElement style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
+    <NeonGridElement style={{backgroundColor: 'lightblue'}}>{this.props.name}</NeonGridElement>
 </NeonGrid>
