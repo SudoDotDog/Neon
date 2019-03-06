@@ -6,9 +6,9 @@
 
 const TSDocgenPlugin: any = require("react-docgen-typescript-webpack-plugin");
 
-module.exports = (baseConfig: any, env: any, defaultConfig: any) => {
+module.exports = ({ config }: any) => {
 
-    defaultConfig.module.rules.push(
+    config.module.rules.push(
         {
             test: /.mdx$/,
             exclude: /node_modules/,
@@ -35,8 +35,8 @@ module.exports = (baseConfig: any, env: any, defaultConfig: any) => {
         },
     );
 
-    defaultConfig.plugins.push(new TSDocgenPlugin());
-    defaultConfig.resolve.extensions.push('.ts', '.tsx');
+    config.plugins.push(new TSDocgenPlugin());
+    config.resolve.extensions.push('.ts', '.tsx');
 
-    return defaultConfig;
+    return config;
 };

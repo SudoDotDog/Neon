@@ -5,24 +5,21 @@
  */
 
 import { withKnobs } from "@storybook/addon-knobs/react";
-import { withOptions } from '@storybook/addon-options';
-import { addDecorator, configure } from "@storybook/react";
+import { addDecorator, addParameters, configure } from "@storybook/react";
+import { create } from "@storybook/theming";
 
 addDecorator(withKnobs);
-addDecorator(
-    withOptions({
-        name: 'Neon',
-        url: 'https://github.com/sudodotdog/neon',
-        goFullScreen: false,
-        showStoriesPanel: true,
-        showAddonPanel: true,
-        addonPanelInRight: false,
-        sortStoriesByKind: false,
-        sidebarAnimations: true,
-        selectedAddonPanel: undefined,
-        enableShortcuts: true,
-    }),
-);
+addParameters({
+    options: {
+        theme: create({
+            base: 'light',
+            brandTitle: 'Neon',
+            brandUrl: 'https://github.com/sudodotdog/neon',
+        }),
+        isFullscreen: false,
+    },
+});
+
 const req: __WebpackModuleApi.RequireContext = require.context('../stories', true, /\.stories\.tsx$/);
 
 const loadStories = () => {
