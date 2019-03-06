@@ -13,10 +13,5 @@ const appPath: string = Path.join(__dirname, '..', 'app');
 const files: string[] = Fs.readdirSync(appPath);
 for (const file of files) {
 
-    if (file === 'LICENSE' || file === 'package.json') {
-
-        continue;
-    }
-
     rmRFFolderSync(Path.join(appPath, file));
 }

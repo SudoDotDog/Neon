@@ -38,7 +38,7 @@ storybook:
 	@echo "[INFO] Building storybook"
 	@NODE_ENV=production $(build_storybook)
 
-publish: install tests clean build
+publish: install tests license build
 	@echo "[INFO] Publishing package"
 	@cd app && npm publish --access=public
 
@@ -58,6 +58,10 @@ install:
 install-prod:
 	@echo "[INFO] Installing Dependencies"
 	@yarn install --production=true
+
+license: clean
+	@echo "[INFO] Sign files"
+	@NODE_ENV=development $(ts_node) script/license.ts
 
 clean: clean-linux
 	@echo "[INFO] Cleaning release files"
