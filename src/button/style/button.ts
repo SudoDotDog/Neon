@@ -4,11 +4,9 @@
  * @description Button
  */
 
-import { CSSProperties } from "react";
 import { COLOR } from "../../#common/declare";
 import { getBorderStyle, getFocusStyle, JSSStyle, migrateFocusStyle } from "../../#common/style/decorator";
 import { NeonStyle } from "../../#common/style/style";
-import { NeonTheme } from "../../theme";
 
 const NeonButtonStyleBase: JSSStyle = {
 
@@ -17,7 +15,6 @@ const NeonButtonStyleBase: JSSStyle = {
         cursor: 'pointer',
         fontSize: '1rem',
         fontWeight: 'bold',
-        color: COLOR.WHITE,
         '&:active': {
             ...getFocusStyle(),
             borderColor: COLOR.BLUE,
@@ -59,11 +56,5 @@ const NeonButtonStyleBase: JSSStyle = {
         width: '100%',
     },
 };
-
-export const getNeonButtonStyle =
-    (theme: NeonTheme): CSSProperties => ({
-
-        backgroundColor: theme.main.color,
-    });
 
 export const NeonButtonStyle: NeonStyle = NeonStyle.create(NeonButtonStyleBase, 'Button');

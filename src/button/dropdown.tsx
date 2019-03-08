@@ -15,7 +15,7 @@ import { SIZE } from "../declare/index";
 import { NeonMenuItemElement } from "../menu/declare";
 import { NeonMenuItem } from "../menu/item";
 import { NeonMenu } from "../menu/menu";
-import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
+import { NeonButtonStyle } from "./style/button";
 import { NeonDropdownButtonStyle } from "./style/dropdown";
 
 export type NeonDropdownButtonProps = {
@@ -73,7 +73,10 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
                 )}>
                 <button
                     disabled={this.props.disabled}
-                    style={getNeonButtonStyle(this.props.theme)}
+                    style={{
+                        backgroundColor: this.props.theme.main.color,
+                        color: this.props.theme.main.text,
+                    }}
                     className={this._getClass()}
                     tabIndex={fixTabIndex(this.props.tabIndex)}
 

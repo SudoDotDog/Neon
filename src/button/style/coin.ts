@@ -59,4 +59,4 @@ export const NeonCoinStyleBase: JSSStyle = {
     },
 };
 
-export const NeonCoinStyle: NeonStyle = NeonStyle.create(NeonCoinStyleBase, 'Peek');
+export const NeonCoinStyle: NeonStyle = NeonStyle.create(NeonCoinStyleBase, 'Coin');

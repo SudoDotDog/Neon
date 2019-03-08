@@ -12,7 +12,7 @@ import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
 import { fixTabIndex } from "../#common/util";
 import { SIZE, WIDTH } from "../declare";
-import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
+import { NeonButtonStyle } from "./style/button";
 
 export type NeonButtonProps = {
 
@@ -40,11 +40,17 @@ export class NeonButtonBase extends React.Component<NeonButtonProps> {
     public render(): JSX.Element {
 
         return (
-            <NeonBox {...boxProps(this.props, this._getBoxSizeClass())}>
+            <NeonBox {...boxProps(
+                this.props,
+                this._getBoxSizeClass(),
+            )}>
 
                 <button
                     disabled={this.props.disabled}
-                    style={getNeonButtonStyle(this.props.theme)}
+                    style={{
+                        backgroundColor: this.props.theme.main.color,
+                        color: this.props.theme.main.text,
+                    }}
                     className={this._getClass()}
                     tabIndex={fixTabIndex(this.props.tabIndex)}
                     onClick={() => this.props.onClick && this.props.onClick()}>

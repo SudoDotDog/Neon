@@ -12,7 +12,7 @@ import { BoxProps } from "../#common/declare";
 import { assertIfTrue, mergeClasses } from "../#common/style/decorator";
 import { fixTabIndex } from "../#common/util";
 import { SIZE } from "../declare";
-import { getNeonButtonStyle, NeonButtonStyle } from "./style/button";
+import { NeonButtonStyle } from "./style/button";
 import { NeonCoinStyle } from "./style/coin";
 
 export type NeonCoinCut = {
@@ -48,7 +48,10 @@ export class NeonCoinBase extends React.Component<NeonCoinProps> {
         >
             <button
                 disabled={this.props.disabled}
-                style={getNeonButtonStyle(this.props.theme)}
+                style={{
+                    backgroundColor: this.props.theme.main.color,
+                    color: this.props.theme.main.text,
+                }}
                 className={mergeClasses(
                     this._buttonStyle.button,
                     this.props.buttonClassName,
