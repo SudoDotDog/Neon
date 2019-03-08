@@ -7,7 +7,7 @@
 import { Classes } from "jss";
 import * as React from "react";
 import { boxProps, NeonBox } from "../#common/components/box";
-import { ThemeProps } from "../#common/consumer";
+import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { NeonGridStyle } from "./style/grid";
 
@@ -83,4 +83,4 @@ export class NeonGridElementBase extends React.Component<NeonGridElementProps> {
     }
 }
 
-export const NeonGridElement: React.ComponentType<NeonGridElementProps> = NeonGridElementBase;
+export const NeonGridElement: ThemedComponent<NeonGridElementProps> = withConsumer<NeonGridElementProps>(NeonGridElementBase);
