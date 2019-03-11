@@ -1129,19 +1129,20 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-knobs@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-5.0.0.tgz#3d8ffc01112e9c6073349c60e8addccd3da9a53d"
-  integrity sha512-YPxVzRbM3IepgU2GekuA7AVUnGVdu1mglh7ENAaRlynbMLAS7H780JxF4qK9aJiXm8oUudYxprz6Fmr4BNkWiA==
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-5.0.1.tgz#c7a3449691d07485d3e31681db47655749ccaa16"
+  integrity sha512-ELEjUF9n8aSMkszBzik6PpGgYp5eOPROeXaW815gZqFuZlu8MaYTkCSDbx2obQc8YsGSJ5G4Vbupmtg7IuQR1Q==
   dependencies:
-    "@storybook/addons" "5.0.0"
-    "@storybook/components" "5.0.0"
-    "@storybook/core-events" "5.0.0"
-    "@storybook/theming" "5.0.0"
+    "@storybook/addons" "5.0.1"
+    "@storybook/components" "5.0.1"
+    "@storybook/core-events" "5.0.1"
+    "@storybook/theming" "5.0.1"
     copy-to-clipboard "^3.0.8"
-    core-js "^2.6.2"
+    core-js "^2.6.5"
     escape-html "^1.0.3"
     fast-deep-equal "^2.0.1"
     global "^4.3.2"
+    lodash.debounce "^4.0.8"
     prop-types "^15.6.2"
     qs "^6.5.2"
     react-color "^2.17.0"
@@ -1189,7 +1190,7 @@
 "@storybook/channels@5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-5.0.1.tgz#68e0c67ee6d9d7b526c3b3a79e7bc320dae058e7"
-  integrity sha512-INIIez+a7h99KkYX/3FGLUFa1a5rKckSrHMRK/+FcFLIpALsvwuY5n7ihdHfU9TgXOBmtpt84oJO/JliFHjw9w==
+
   dependencies:
     core-js "^2.6.5"
 
