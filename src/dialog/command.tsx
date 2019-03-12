@@ -9,23 +9,40 @@ import * as React from "react";
 import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
 import { SIZE } from "../declare/index";
-import { NeonSmartPoll, NeonSmartPollCut } from "../form/poll";
 import { NeonButtonGroup, NeonButtonGroupElement } from "../swing/group";
+import { NeonTextField, NeonTextFieldCut } from "../text/field";
 import { NeonDialog, NeonDialogCut } from "./dialog";
 import { NeonGatherStyle } from "./style/gather";
 
-export type NeonGatherProps = {
+export type NeonCommandProps = {
 
     readonly title?: string;
     readonly onClose?: () => void;
     readonly buttons?: NeonButtonGroupElement[];
 
     readonly children?: any;
-} & NeonDialogCut & NeonSmartPollCut & BoxProps;
+} & NeonDialogCut & NeonTextFieldCut & BoxProps;
 
-export class NeonGatherBase extends React.Component<NeonGatherProps> {
+export type NeonCommandStates = {
+
+    readonly current: string;
+};
+
+export class NeonCommandBase extends React.Component<NeonCommandProps, NeonCommandStates> {
+
+    public state: NeonCommandStates = {
+
+        current: '',
+    };
 
     private readonly _gatherStyle: Classes = NeonGatherStyle.use();
+
+    public constructor(props: NeonCommandProps) {
+
+        super(props);
+
+        this._handleChange = this._handleChange.bind(this);
+    }
 
     public render(): React.ReactNode {
 
@@ -56,18 +73,18 @@ export class NeonGatherBase extends React.Component<NeonGatherProps> {
     private _renderInput(): React.ReactNode {
 
         const {
-            rift,
-            structure,
+            label,
             value,
+            onBlur,
             onChange,
-            onEnter = this.props.onEnter,
-        }: NeonSmartPollCut = this.props;
+            onEnter,
+        }: NeonTextFieldCut = this.props;
 
         return (<div className={this._gatherStyle.input}>
-            <NeonSmartPoll
-                rift={rift}
-                structure={structure}
+            <NeonTextField
+                label={label}
                 value={value}
+                onBlur={onBlur}
                 onChange={onChange}
                 onEnter={onEnter}
             />
@@ -87,6 +104,13 @@ export class NeonGatherBase extends React.Component<NeonGatherProps> {
             className={this._gatherStyle.action}
         />);
     }
+
+    private _handleChange(newValue: string): void {
+
+        this.setState({
+            current: newValue,
+        });
+    }
 }
 
-export const NeonGather: React.ComponentType<NeonGatherProps> = NeonGatherBase;
+export const NeonCommand: React.ComponentType<NeonCommandProps> = NeonCommandBase;

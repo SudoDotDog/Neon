@@ -1,0 +1,19 @@
+import { action } from "@storybook/addon-actions";
+import { NeonCommand } from "../../src/dialog";
+
+# Neon Command
+
+<NeonCommand
+    onClose={this.props.hasOnClose && action('Close')}
+    onChange={action('Change')}
+    onEnter={action('Enter')}
+    title={this.props.title}
+    label={this.props.label}
+    rift={this.props.rift}
+    value={this.props.value}
+    show={this.props.show}
+    blur={this.props.blur}
+    buttons={this.props.buttons}
+>
+    {this.props.content}
+</NeonCommand>

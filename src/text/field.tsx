@@ -13,19 +13,23 @@ import { mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare";
 import { NeonTextFieldStyle } from "./style/field";
 
-export type NeonTextFieldProps = {
+export type NeonTextFieldCut = {
 
-    readonly autofocus?: boolean;
     readonly label?: string;
     readonly value?: string;
 
     readonly onBlur?: () => void;
     readonly onChange?: (value: string) => void;
     readonly onEnter?: () => void;
+};
+
+export type NeonTextFieldProps = {
+
+    readonly autofocus?: boolean;
 
     readonly size?: SIZE;
     readonly tabIndex?: number;
-} & ThemeProps & BoxProps;
+} & ThemeProps & NeonTextFieldCut & BoxProps;
 
 export type NeonTextFieldStates = {
 
