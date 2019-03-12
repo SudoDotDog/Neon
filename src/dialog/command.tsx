@@ -1,13 +1,14 @@
 /**
  * @author WMXPY
  * @namespace Neon_Dialog
- * @description Gather
+ * @description Command
  */
 
 import { Classes } from "jss";
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
+import { mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare/index";
 import { NeonButtonGroup, NeonButtonGroupElement } from "../swing/group";
 import { NeonTextField, NeonTextFieldCut } from "../text/field";
@@ -23,26 +24,9 @@ export type NeonCommandProps = {
     readonly children?: any;
 } & NeonDialogCut & NeonTextFieldCut & BoxProps;
 
-export type NeonCommandStates = {
-
-    readonly current: string;
-};
-
-export class NeonCommandBase extends React.Component<NeonCommandProps, NeonCommandStates> {
-
-    public state: NeonCommandStates = {
-
-        current: '',
-    };
+export class NeonCommandBase extends React.Component<NeonCommandProps> {
 
     private readonly _gatherStyle: Classes = NeonGatherStyle.use();
-
-    public constructor(props: NeonCommandProps) {
-
-        super(props);
-
-        this._handleChange = this._handleChange.bind(this);
-    }
 
     public render(): React.ReactNode {
 
@@ -53,7 +37,10 @@ export class NeonCommandBase extends React.Component<NeonCommandProps, NeonComma
             show={this.props.show}
             blur={this.props.blur}
         >
-            <div className={this._gatherStyle.grid}>
+            <div className={mergeClasses(
+                this._gatherStyle.grid,
+                this._gatherStyle.command,
+            )}>
                 {this._renderContent()}
                 {this._renderInput()}
                 {this._renderAction()}
@@ -63,9 +50,7 @@ export class NeonCommandBase extends React.Component<NeonCommandProps, NeonComma
 
     private _renderContent(): React.ReactNode {
 
-        return (<div
-            className={this._gatherStyle.content}
-        >
+        return (<div className={this._gatherStyle.content}>
             {this.props.children}
         </div>);
     }
@@ -82,6 +67,9 @@ export class NeonCommandBase extends React.Component<NeonCommandProps, NeonComma
 
         return (<div className={this._gatherStyle.input}>
             <NeonTextField
+                autofocus
+                size={SIZE.RELATIVE}
+                tabIndex={0}
                 label={label}
                 value={value}
                 onBlur={onBlur}
@@ -103,13 +91,6 @@ export class NeonCommandBase extends React.Component<NeonCommandProps, NeonComma
             buttons={this.props.buttons}
             className={this._gatherStyle.action}
         />);
-    }
-
-    private _handleChange(newValue: string): void {
-
-        this.setState({
-            current: newValue,
-        });
     }
 }
 

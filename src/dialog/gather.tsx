@@ -8,6 +8,7 @@ import { Classes } from "jss";
 import * as React from "react";
 import { boxProps } from "../#common/components/box";
 import { BoxProps } from "../#common/declare";
+import { mergeClasses } from "../#common/style/decorator";
 import { SIZE } from "../declare/index";
 import { NeonSmartPoll, NeonSmartPollCut } from "../form/poll";
 import { NeonButtonGroup, NeonButtonGroupElement } from "../swing/group";
@@ -36,7 +37,10 @@ export class NeonGatherBase extends React.Component<NeonGatherProps> {
             show={this.props.show}
             blur={this.props.blur}
         >
-            <div className={this._gatherStyle.grid}>
+            <div className={mergeClasses(
+                this._gatherStyle.grid,
+                this._gatherStyle.gather,
+            )}>
                 {this._renderContent()}
                 {this._renderInput()}
                 {this._renderAction()}

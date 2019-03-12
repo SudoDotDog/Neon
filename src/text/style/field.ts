@@ -14,6 +14,7 @@ const NeonTextFieldStyleBase: JSSStyle = {
         position: 'relative',
         cursor: 'text',
         backgroundColor: COLOR.WHITE,
+        boxSizing: 'border-box',
 
         ...getBorderStyle(),
     },
