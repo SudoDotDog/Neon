@@ -7,6 +7,7 @@
 import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
+import { SIZE } from "../../src/declare";
 import { NeonDialog } from "../../src/dialog";
 import { NeonDialogBase } from "../../src/dialog/dialog";
 import { wInfo } from "../util";
@@ -26,12 +27,15 @@ componentStories.add(
         const show: boolean = boolean('Show', true);
         const blur: boolean = boolean('Blur', false);
 
+        const size: any = text('Size', SIZE.MEDIUM);
+
         return (<DialogMDX
             title={title}
             message={message}
             hasOnClose={hasOnClose}
             show={show}
             blur={blur}
+            size={size}
         />);
     }),
 );

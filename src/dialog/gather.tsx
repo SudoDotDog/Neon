@@ -36,6 +36,7 @@ export class NeonGatherBase extends React.Component<NeonGatherProps> {
             onClose={this.props.onClose}
             show={this.props.show}
             blur={this.props.blur}
+            size={this.props.size}
         >
             <div className={mergeClasses(
                 this._gatherStyle.grid,

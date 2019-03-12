@@ -7,7 +7,7 @@
 import { array, boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { MARGIN } from "../../src/declare";
+import { MARGIN, SIZE } from "../../src/declare";
 import { NeonCommand } from "../../src/dialog";
 import { NeonCommandBase } from "../../src/dialog/command";
 import { NeonButtonGroupElement } from "../../src/swing";
@@ -39,6 +39,8 @@ componentStories.add(
             },
         ] as NeonButtonGroupElement[]);
 
+        const size: any = text('Size', SIZE.MEDIUM);
+
         return (<CommandMDX
             title={title}
             content={content}
@@ -48,6 +50,7 @@ componentStories.add(
             show={show}
             blur={blur}
             buttons={buttons}
+            size={size}
         />);
     }),
 );

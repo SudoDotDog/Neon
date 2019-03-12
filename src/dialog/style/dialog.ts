@@ -14,9 +14,6 @@ const NeonDialogStyleBase: JSSStyle = {
         width: '100vw',
         height: '100vh',
 
-        maxWidth: '37rem',
-        maxHeight: '17rem',
-
         padding: '0.4rem',
         backgroundColor: COLOR.WHITE,
         boxShadow: '3px 3px 5px -1px rgba(0, 30, 60, 0.3)',
@@ -25,6 +22,27 @@ const NeonDialogStyleBase: JSSStyle = {
         overflow: 'hidden',
         flexDirection: 'column',
     },
+
+    normal: {
+        maxWidth: '37rem',
+        maxHeight: '15rem',
+    },
+    medium: {
+        maxWidth: '37rem',
+        maxHeight: '18rem',
+    },
+    large: {
+        maxWidth: '40rem',
+        maxHeight: '21rem',
+    },
+    full: {
+        maxWidth: '43rem',
+        maxHeight: '25rem',
+    },
+    relative: {
+        maxWidth: '46rem',
+    },
+
     area: {
         display: 'flex',
     },

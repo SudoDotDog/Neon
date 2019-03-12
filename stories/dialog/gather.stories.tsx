@@ -7,7 +7,7 @@
 import { array, boolean, object, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
-import { MARGIN } from "../../src/declare";
+import { MARGIN, SIZE } from "../../src/declare";
 import { NeonGather } from "../../src/dialog";
 import { NeonGatherBase } from "../../src/dialog/gather";
 import { INPUT_TYPE, NeonFromStructure } from "../../src/form";
@@ -51,6 +51,8 @@ componentStories.add(
             },
         ] as NeonButtonGroupElement[]);
 
+        const size: any = text('Size', SIZE.MEDIUM);
+
         return (<GatherMDX
             title={title}
             content={content}
@@ -61,6 +63,7 @@ componentStories.add(
             show={show}
             blur={blur}
             buttons={buttons}
+            size={size}
         />);
     }),
 );

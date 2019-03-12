@@ -22,6 +22,8 @@ export type NeonDialogCut = {
 
     readonly show?: boolean;
     readonly blur?: boolean;
+
+    readonly size?: SIZE;
 };
 
 export type NeonDialogProps = {
@@ -89,6 +91,7 @@ export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogS
                     {...boxProps(
                         this.props,
                         this._dialogStyle.box,
+                        this._getSizeClass(),
                     )}
                 >
                     {this._renderTitle()}
@@ -133,6 +136,18 @@ export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogS
         >
             {this.props.children}
         </div>);
+    }
+
+    private _getSizeClass(): string {
+
+        switch (this.props.size) {
+            case SIZE.NORMAL: return this._dialogStyle.normal;
+            case SIZE.LARGE: return this._dialogStyle.large;
+            case SIZE.FULL: return this._dialogStyle.full;
+            case SIZE.RELATIVE: return this._dialogStyle.relative;
+            case SIZE.MEDIUM:
+            default: return this._dialogStyle.medium;
+        }
     }
 
     private _updateVisibility() {
