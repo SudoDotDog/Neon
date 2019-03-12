@@ -6,3 +6,19 @@
 [![downloads](https://img.shields.io/npm/dm/@sudoo/neon.svg)](https://www.npmjs.com/package/@sudoo/neon)
 
 :milky_way: React components collection
+
+## Install
+
+To use Neon in your project
+
+```sh
+yarn add @sudoo/neon
+# or
+npm install @sudoo/neon --save
+```
+
+## Development
+
+```sh
+make
+```
