@@ -35,7 +35,7 @@ componentStories.add(
             number: 123,
         });
 
-        const show: boolean = boolean('Show', false);
+        const show: boolean = boolean('Show', true);
         const blur: boolean = boolean('Blur', false);
 
         const hasOnClose: boolean = boolean('HasOnClose', false);

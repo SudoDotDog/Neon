@@ -23,7 +23,7 @@ componentStories.add(
 
         const hasOnClose: boolean = boolean('HasOnClose', false);
 
-        const show: boolean = boolean('Show', false);
+        const show: boolean = boolean('Show', true);
         const blur: boolean = boolean('Blur', false);
 
         return (<DialogMDX
