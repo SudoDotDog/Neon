@@ -17,8 +17,27 @@ yarn add @sudoo/neon
 npm install @sudoo/neon --save
 ```
 
-## Development
+## Test
+
+Use the following command to run unit test sets
 
 ```sh
+make tests
+```
+
+## Development
+
+Use the following command to start development storybook
+
+```sh
+make install
 make
+```
+
+## Deploy
+
+Use the following command to test, build and publish
+
+```sh
+make publish
 ```
