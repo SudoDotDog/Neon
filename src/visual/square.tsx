@@ -21,13 +21,12 @@ export const NeonSquareBase: React.FC<NeonSquareProps> = (props: NeonSquareProps
 
     return <NeonBox
         ignoreTheme
-        {...boxProps(
-            props,
-            squareStyle.outer,
-        )}
+        {...boxProps(props)}
     >
-        <div className={squareStyle.inner}>
-            {props.children}
+        <div className={squareStyle.outer}>
+            <div className={squareStyle.inner}>
+                {props.children}
+            </div>
         </div>
     </NeonBox>;
 };

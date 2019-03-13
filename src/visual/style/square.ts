@@ -12,6 +12,8 @@ const NeonSquareStyleBase: JSSStyle = {
     outer: {
         position: 'relative',
         paddingBottom: '100%',
+        width: '100%',
+        height: 'auto',
     },
     inner: {
         position: 'absolute',
