@@ -12,11 +12,14 @@ const NeonSquareStyleBase: JSSStyle = {
     outer: {
         position: 'relative',
         paddingBottom: '100%',
+        overflow: 'hidden',
+        boxSizing: 'border-box',
         width: '100%',
         height: 'auto',
     },
     inner: {
         position: 'absolute',
+        overflow: 'hidden',
         top: 0,
         left: 0,
         height: '100%',

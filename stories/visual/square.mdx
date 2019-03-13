@@ -3,10 +3,35 @@ import { MARGIN, SIZE, WIDTH } from "../../src/declare";
 
 # Neon Square
 
+- Width
+
 <NeonSquare
+    width="100px"
     style={{
-        width: '100px',
         backgroundColor: 'red',
+    }}
+>
+    {this.props.content}
+</NeonSquare>
+
+- Height
+
+<NeonSquare
+    width="100px"
+    style={{
+        height: '100px',
+        backgroundColor: 'red',
+    }}
+>
+    {this.props.content}
+</NeonSquare>
+
+- Border
+
+<NeonSquare
+    width="100px"
+    style={{
+        border: "5px solid red"
     }}
 >
     {this.props.content}

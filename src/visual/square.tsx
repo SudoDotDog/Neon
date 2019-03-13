@@ -12,6 +12,8 @@ import { NeonSquareStyle } from "./style/square";
 
 export type NeonSquareProps = {
 
+    readonly width?: string;
+
     readonly children?: React.ReactNode;
 } & BoxProps;
 
@@ -22,6 +24,10 @@ export const NeonSquareBase: React.FC<NeonSquareProps> = (props: NeonSquareProps
     return <NeonBox
         ignoreTheme
         {...boxProps(props)}
+        style={{
+            ...props.style,
+            width: props.width,
+        }}
     >
         <div className={squareStyle.outer}>
             <div className={squareStyle.inner}>
