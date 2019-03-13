@@ -9,4 +9,5 @@ import { NeonRegister } from "../#common/register";
 NeonRegister.register();
 
 export { NeonLogo, NeonLogoProps } from "./logo";
+export { NeonSquare, NeonSquareProps } from "./square";
 
