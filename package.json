@@ -32,6 +32,7 @@
     "@types/storybook__react": "^4.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
+    "enzyme-adapter-react-16.3": "^1.6.2",
     "jss": "^10.0.0-alpha.12",
     "jss-preset-default": "^10.0.0-alpha.12",
     "react-docgen-typescript-webpack-plugin": "^1.1.0"
