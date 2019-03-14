@@ -1,5 +1,4 @@
 import { NeonLogo } from "../../src/visual";
-import { MARGIN } from "../../src/declare";
 
 # Neon Logo
 
@@ -8,14 +7,15 @@ import { MARGIN } from "../../src/declare";
 <NeonLogo
     title={this.props.title}
     sub={this.props.sub}
+    margin={this.props.margin}
+    size={this.props.size}
 />
 
 - Neon
 
 <NeonLogo
-    width="6rem"
     title="Sudo"
-    titleFontSize="2rem"
     sub="Neon"
-    subFontSize="2rem"
+    margin={this.props.margin}
+    size={this.props.size}
 />

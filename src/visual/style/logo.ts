@@ -37,7 +37,7 @@ const NeonLogoStyleBase: JSSStyle = {
     },
 
     normal: {
-        height: '4rem',
+        height: '3rem',
     },
     normalTitle: {
         fontSize: '1.5rem',
@@ -46,7 +46,7 @@ const NeonLogoStyleBase: JSSStyle = {
         fontSize: '1.2rem',
     },
     medium: {
-        height: '5rem',
+        height: '4rem',
     },
     mediumTitle: {
         fontSize: '2rem',
@@ -55,7 +55,7 @@ const NeonLogoStyleBase: JSSStyle = {
         fontSize: '1.5rem',
     },
     large: {
-        height: '6rem',
+        height: '5rem',
     },
     largeTitle: {
         fontSize: '2.3rem',
@@ -64,7 +64,7 @@ const NeonLogoStyleBase: JSSStyle = {
         fontSize: '1.8rem',
     },
     full: {
-        height: '7rem',
+        height: '6rem',
     },
     fullTitle: {
         fontSize: '3rem',
