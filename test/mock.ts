@@ -5,7 +5,7 @@
  */
 
 import { configure } from 'enzyme';
-const Adapter = require('enzyme-adapter-react-16.3');
+import * as Adapter from 'enzyme-adapter-react-16';
 
 const registerEnzyme = (): void => {
 
