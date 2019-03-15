@@ -10,18 +10,49 @@ import { boxProps, NeonBox } from "../#common/components/box";
 import { ThemedComponent, ThemeProps, withConsumer } from "../#common/consumer";
 import { BoxProps } from "../#common/declare";
 import { mergeClasses } from "../#common/style/decorator";
-import { NeonSquare } from "./square";
+import { SIZE } from "../declare/index";
 import { NeonLogoStyle } from "./style/logo";
 
 export type NeonLogoProps = {
 
-    readonly width?: string;
+    readonly size?: SIZE;
 
     readonly title: string;
-    readonly titleFontSize?: string;
     readonly sub?: string;
-    readonly subFontSize?: string;
 } & ThemeProps & BoxProps;
+
+const getSizeClass = (style: Classes, size?: SIZE) => {
+
+    switch (size) {
+        case SIZE.NORMAL: return style.normal;
+        case SIZE.LARGE: return style.large;
+        case SIZE.FULL: return style.full;
+        case SIZE.MEDIUM:
+        default: return style.medium;
+    }
+};
+
+const getSizeTitleClass = (style: Classes, size?: SIZE) => {
+
+    switch (size) {
+        case SIZE.NORMAL: return style.normalTitle;
+        case SIZE.LARGE: return style.largeTitle;
+        case SIZE.FULL: return style.fullTitle;
+        case SIZE.MEDIUM:
+        default: return style.mediumTitle;
+    }
+};
+
+const getSizeSubClass = (style: Classes, size?: SIZE) => {
+
+    switch (size) {
+        case SIZE.NORMAL: return style.normalSub;
+        case SIZE.LARGE: return style.largeSub;
+        case SIZE.FULL: return style.fullSub;
+        case SIZE.MEDIUM:
+        default: return style.mediumSub;
+    }
+};
 
 export const NeonLogoBase: React.FC<NeonLogoProps> = (props: NeonLogoProps) => {
 
@@ -31,31 +62,26 @@ export const NeonLogoBase: React.FC<NeonLogoProps> = (props: NeonLogoProps) => {
         {...boxProps(
             props,
             logoStyle.wrap,
+            getSizeClass(logoStyle, props.size),
         )}
     >
-        <NeonSquare
-            width={props.width || "8rem"}
-            className={logoStyle.title}
-            style={{
-                fontSize: props.titleFontSize || '3rem',
-            }}
-        >
-            <div className={mergeClasses(
-                logoStyle.alignBottom,
-                logoStyle.paddingMore,
-            )}>{props.title}</div>
-        </NeonSquare>
         <div
-            className={logoStyle.sub}
-            style={{
-                fontSize: props.subFontSize || '2rem',
-            }}
+            className={mergeClasses(
+                logoStyle.title,
+                logoStyle.flexEnd,
+                getSizeTitleClass(logoStyle, props.size),
+            )}
         >
-            <div className={logoStyle.placeholder}>{props.sub}</div>
-            <div className={mergeClasses(
-                logoStyle.alignBottom,
-                logoStyle.innerSub,
-            )}>{props.sub}</div>
+            <div className={logoStyle.innerTitle}>{props.title}</div>
+        </div>
+        <div
+            className={mergeClasses(
+                logoStyle.sub,
+                logoStyle.flexEnd,
+                getSizeSubClass(logoStyle, props.size),
+            )}
+        >
+            <div className={logoStyle.innerSub}>{props.sub}</div>
         </div>
     </NeonBox>;
 };

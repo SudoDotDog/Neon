@@ -15,28 +15,62 @@ const NeonLogoStyleBase: JSSStyle = {
     },
     title: {
         backgroundColor: COLOR.NAVY,
-        boxSizing: 'border-box',
         color: COLOR.WHITE,
     },
     sub: {
         color: COLOR.NAVY,
-        position: 'relative',
         border: `5px solid ${COLOR.NAVY}`,
+    },
+    flexEnd: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
         boxSizing: 'border-box',
-        textAlign: 'justify',
     },
-    placeholder: {
-        visibility: 'hidden',
+    innerTitle: {
+        paddingBottom: '0.4rem',
+        paddingRight: '0.1rem',
+        paddingLeft: '1rem',
+    },
+    innerSub: {
         padding: '0.3rem',
     },
-    alignBottom: {
-        position: 'absolute',
-        padding: '0.3rem',
-        right: 0,
-        bottom: 0,
+
+    normal: {
+        height: '3rem',
     },
-    paddingMore: {
-        paddingBottom: '0.6rem',
+    normalTitle: {
+        fontSize: '1.5rem',
+    },
+    normalSub: {
+        fontSize: '1.2rem',
+    },
+    medium: {
+        height: '4rem',
+    },
+    mediumTitle: {
+        fontSize: '2rem',
+    },
+    mediumSub: {
+        fontSize: '1.5rem',
+    },
+    large: {
+        height: '5rem',
+    },
+    largeTitle: {
+        fontSize: '2.3rem',
+    },
+    largeSub: {
+        fontSize: '1.8rem',
+    },
+    full: {
+        height: '6rem',
+    },
+    fullTitle: {
+        fontSize: '3rem',
+    },
+    fullSub: {
+        fontSize: '2.5rem',
     },
 };
 
