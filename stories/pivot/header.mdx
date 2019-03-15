@@ -1,11 +1,37 @@
 import { action } from "@storybook/addon-actions";
 import { NeonHeader } from "../../src/pivot";
-import { size } from "../../src/declare";
+import { SIZE } from "../../src/declare";
 
 # Neon Header
 
 - Normal
 
 <NeonHeader
-    name={this.props.name}
+    title={this.props.title}
+    sub={this.props.sub}
+    size={SIZE.NORMAL}
+/>
+
+- Medium
+
+<NeonHeader
+    title={this.props.title}
+    sub={this.props.sub}
+    size={SIZE.MEDIUM}
+/>
+
+- Large
+
+<NeonHeader
+    title={this.props.title}
+    sub={this.props.sub}
+    size={SIZE.LARGE}
+/>
+
+- Full
+
+<NeonHeader
+    title={this.props.title}
+    sub={this.props.sub}
+    size={SIZE.FULL}
 />

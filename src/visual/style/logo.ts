@@ -18,6 +18,7 @@ const NeonLogoStyleBase: JSSStyle = {
         color: COLOR.WHITE,
     },
     sub: {
+        backgroundColor: COLOR.WHITE,
         color: COLOR.NAVY,
         border: `5px solid ${COLOR.NAVY}`,
     },

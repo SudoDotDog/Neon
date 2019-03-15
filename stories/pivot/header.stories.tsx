@@ -18,10 +18,12 @@ componentStories.add(
     'Header',
     wInfo([NeonHeaderBase], [NeonHeader, HeaderMDX])(() => {
 
-        const name: string = text('Name', 'Name');
+        const title: string = text('Title', 'Title');
+        const sub: string = text('Sub', 'Subtitle');
 
         return (<HeaderMDX
-            name={name}
+            title={title}
+            sub={sub}
         />);
     }),
 );
