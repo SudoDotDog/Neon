@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/SudoDotDog/Neon#readme",
   "devDependencies": {
-    "@mdx-js/loader": "^1.0.1",
+    "@mdx-js/loader": "^0.20.3",
     "@storybook/addon-actions": "^5.0.6",
     "@storybook/addon-info": "^5.0.6",
     "@storybook/addon-knobs": "^5.0.6",
