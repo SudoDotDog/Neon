@@ -36,7 +36,7 @@ build:
 
 storybook:
 	@echo "[INFO] Building storybook"
-	@NODE_ENV=production $(build_storybook)
+	@NODE_ENV=production $(build_storybook) -c $(storybook_config_path)
 
 publish: install tests license build
 	@echo "[INFO] Publishing package"

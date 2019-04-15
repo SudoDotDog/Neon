@@ -2,9 +2,8 @@ language:
  - node_js
 
 node_js:
- - '8'
- - '9'
  - '10'
+ - '11'
 
 cache: npm
 
@@ -14,6 +13,7 @@ install:
 
 before_script:
  - make build
+ - make storybook
 
 script:
  - nyc mocha
