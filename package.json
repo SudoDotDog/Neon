@@ -28,7 +28,7 @@
     "@sudoo/triforce": "^1.5.0",
     "@types/jss": "^9.5.8",
     "@types/storybook__addon-info": "^4.1.1",
-    "@types/storybook__addon-knobs": "^4.0.4",
+    "@types/storybook__addon-knobs": "^5.0.0",
     "@types/storybook__react": "^4.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
