@@ -1714,9 +1714,9 @@
     util-deprecate "^1.0.2"
 
 "@sudoo/bark@^2.6.4":
-  version "2.6.4"
-  resolved "https://registry.yarnpkg.com/@sudoo/bark/-/bark-2.6.4.tgz#e2232edfa76dcfc362cd16da662a36a57b3bd1f2"
-  integrity sha512-kfRGRwG+KiUm4yl+PiE1mJs9/QPKQ3yrtdPN6LPbzfi7mNJ80ry28YGB709Od2qijA12nPN9zWnOCxd7qr1JAQ==
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/@sudoo/bark/-/bark-2.7.1.tgz#84b9db0be3aa7b4d6896ced81d9fa9aac96578ef"
+  integrity sha512-0zBFbIQAtu3XNJkFPszdljYXXIPXzR63qypfTwFRupmu3gxgfBMtdPShbQebGuGG0KQEmXasGMBQVi2O0jWbbQ==
 
 "@sudoo/react-force-dev@^1.5.0":
   version "1.5.0"
@@ -5968,7 +5968,7 @@ jss-plugin-vendor-prefixer@10.0.0-alpha.17:
     css-vendor "^2.0.1"
     jss "10.0.0-alpha.17"
 
-jss-preset-default@^10.0.0-alpha.16:
+jss-preset-default@^10.0.0-alpha.17:
   version "10.0.0-alpha.17"
   resolved "https://registry.yarnpkg.com/jss-preset-default/-/jss-preset-default-10.0.0-alpha.17.tgz#f13324a489f22912a9f3c2bdf30e7a1b533bc25c"
   integrity sha512-wUKfTJZeoypPs6aR8yc59ZMm9+Z6zIkMg5vtEKQvawEgPSUkUAXTPaRGkAGPuzq33hyAtvmTJW/KgVzB+B0K7w==
@@ -5988,7 +5988,7 @@ jss-preset-default@^10.0.0-alpha.16:
     jss-plugin-template "10.0.0-alpha.17"
     jss-plugin-vendor-prefixer "10.0.0-alpha.17"
 
-jss@10.0.0-alpha.17, jss@^10.0.0-alpha.16:
+jss@10.0.0-alpha.17, jss@^10.0.0-alpha.17:
   version "10.0.0-alpha.17"
   resolved "https://registry.yarnpkg.com/jss/-/jss-10.0.0-alpha.17.tgz#3057c85a846c3bd207c04aafd91c8277955d9c57"
   integrity sha512-egGIUg+YRu0+U+XXlD0gmVtU/gW5sn7+qmDv7opwK5s8emZBE/VoN55X6CaMrAa0kLeGMldnI43KOWea6M9/mA==
