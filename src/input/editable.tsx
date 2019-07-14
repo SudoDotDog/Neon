@@ -49,7 +49,7 @@ export class NeonEditableBase extends React.Component<NeonEditableProps, NeonEdi
             return (
                 <NeonInput
                     {...this.props}
-                    autofocus
+                    autoFocus
                     onBlur={this._handleBlur}
                 />
             );

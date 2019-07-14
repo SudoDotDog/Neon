@@ -40,7 +40,7 @@ export class NeonSmartPoll extends React.Component<NeonSmartPollProps> {
         return renderableStructure.map((element: RenderableFormElement) =>
             (<NeonInput
                 key={element.key}
-                autofocus={element.autofocus}
+                autoFocus={element.autofocus}
                 label={element.display}
                 value={this._getValue(element.key, element.defaultValue)}
                 onEnter={this.props.onEnter}

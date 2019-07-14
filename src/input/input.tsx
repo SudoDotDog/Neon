@@ -15,7 +15,11 @@ import { NeonInputStyle } from "./style/input";
 
 export type NeonInputProps = {
 
-    readonly autofocus?: boolean;
+    readonly autoFocus?: boolean;
+    readonly autoCapitalize?: boolean;
+    readonly autoComplete?: boolean;
+    readonly autoCorrect?: boolean;
+    readonly autoSave?: boolean;
     readonly label?: string;
     readonly value?: string;
 
@@ -59,13 +63,6 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
         this._handleFocus = this._handleFocus.bind(this);
     }
 
-    public componentDidMount() {
-
-        if (this.props.autofocus && this._ref) {
-            this._ref.focus();
-        }
-    }
-
     public render() {
 
         return (<NeonBox {...boxProps(this.props, this._inputStyle.wrap)} >
@@ -75,6 +72,11 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
                 {this.props.label}
             </div>
             <input
+                autoFocus={this.props.autoFocus}
+                autoCapitalize={this.props.autoCapitalize ? 'on' : undefined}
+                autoComplete={this.props.autoComplete ? 'on' : undefined}
+                autoCorrect={this.props.autoCorrect ? 'on' : undefined}
+                autoSave={this.props.autoSave ? 'on' : undefined}
                 ref={(ref) => this._ref = ref}
                 className={this._inputStyle.input}
                 type={this.props.type}
