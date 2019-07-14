@@ -1,0 +1,37 @@
+import { action } from "@storybook/addon-actions";
+import { NeonCheckbox } from "../../src/radio";
+
+# Neon Checkbox
+
+<NeonCheckbox
+    value={this.props.checked}
+    {...this.props.events}
+>
+    Same as Value
+</NeonCheckbox>
+
+<NeonCheckbox
+    value={!this.props.checked}
+    {...this.props.events}
+>
+    Different as Value
+</NeonCheckbox>
+
+- With Margin
+
+<NeonCheckbox
+    margin={this.props.margin}
+    value={this.props.checked}
+    {...this.props.events}
+>
+    With Margin
+</NeonCheckbox>
+
+<NeonCheckbox
+    margin={this.props.margin}
+    value={this.props.checked}
+    {...this.props.events}
+>
+    With Margin
+</NeonCheckbox>
+
