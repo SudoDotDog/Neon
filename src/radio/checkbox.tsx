@@ -52,7 +52,7 @@ export class NeonCheckboxBase extends React.Component<NeonCheckboxProps, NeonChe
             }}
         >
             <div className={this._getCheckboxClasses()} />
-            <div className={this._checkboxStyle.label}>
+            <div className={this._getLabelClasses()}>
                 {this.props.children}
             </div>
         </NeonBox>);
@@ -64,16 +64,15 @@ export class NeonCheckboxBase extends React.Component<NeonCheckboxProps, NeonChe
             this._checkboxStyle.checkbox,
             this.props.value ? this._checkboxStyle.activated : this._checkboxStyle.inactivated,
         ];
+        return mergeClasses(...classes) as string;
+    }
 
-        if (this.state.hovering) {
+    private _getLabelClasses(): string {
 
-            if (this.props.value) {
-                classes.push(this._checkboxStyle.removing);
-            } else {
-                classes.push(this._checkboxStyle.clicking);
-            }
-        }
-
+        const classes: Array<string | null> = [
+            this._checkboxStyle.label,
+            this.state.hovering ? this._checkboxStyle.hovering : null,
+        ];
         return mergeClasses(...classes) as string;
     }
 }

@@ -30,17 +30,15 @@ const NeonCheckboxStyleBase: JSSStyle = {
 
         backgroundColor: COLOR.WHITE,
     },
-    clicking: {
+    hovering: {
 
-        backgroundColor: COLOR.LIME,
-    },
-    removing: {
-
-        backgroundColor: COLOR.GRAY,
+        color: COLOR.DARKGRAY,
     },
     label: {
 
+        userSelect: 'none',
         paddingLeft: '0.3rem',
+        textAlign: 'left',
         flex: 1,
     },
 };

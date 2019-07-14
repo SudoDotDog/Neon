@@ -23,6 +23,8 @@ export type NeonInputProps = {
     readonly label?: string;
     readonly value?: string;
 
+    readonly inputRef?: (ref: HTMLInputElement) => void;
+
     readonly onBlur?: () => void;
     readonly onChange?: (value: string) => void;
     readonly onEnter?: () => void;
@@ -77,7 +79,12 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
                 autoComplete={this.props.autoComplete ? 'on' : 'off'}
                 autoCorrect={this.props.autoCorrect ? 'on' : 'off'}
                 autoSave={this.props.autoSave ? 'on' : 'off'}
-                ref={(ref) => this._ref = ref}
+                ref={(ref: HTMLInputElement) => {
+                    if (this.props.inputRef) {
+                        this.props.inputRef(ref);
+                    }
+                    this._ref = ref;
+                }}
                 className={this._inputStyle.input}
                 type={this.props.type}
                 value={this.props.value}
