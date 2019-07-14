@@ -58,6 +58,8 @@ const NeonInputStyleBase: JSSStyle = {
     input: {
         border: '0',
         paddingTop: '0.8rem',
+        paddingLeft: '0',
+        paddingRight: '0',
 
         fontSize: '1rem',
         outline: '0',
