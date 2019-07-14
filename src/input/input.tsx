@@ -73,10 +73,10 @@ export class NeonInputBase extends React.Component<NeonInputProps, NeonInputStat
             </div>
             <input
                 autoFocus={this.props.autoFocus}
-                autoCapitalize={this.props.autoCapitalize ? 'on' : undefined}
-                autoComplete={this.props.autoComplete ? 'on' : undefined}
-                autoCorrect={this.props.autoCorrect ? 'on' : undefined}
-                autoSave={this.props.autoSave ? 'on' : undefined}
+                autoCapitalize={this.props.autoCapitalize ? 'on' : 'off'}
+                autoComplete={this.props.autoComplete ? 'on' : 'off'}
+                autoCorrect={this.props.autoCorrect ? 'on' : 'off'}
+                autoSave={this.props.autoSave ? 'on' : 'off'}
                 ref={(ref) => this._ref = ref}
                 className={this._inputStyle.input}
                 type={this.props.type}
