@@ -19,6 +19,7 @@ const NeonApplicableStyleBase: JSSStyle = {
     },
     button: {
         height: 'auto',
+        whiteSpace: 'nowrap',
         transition: '0.4s all ease-in-out',
         overflow: 'hidden',
     },
