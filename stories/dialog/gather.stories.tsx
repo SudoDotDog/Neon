@@ -49,7 +49,7 @@ componentStories.add(
                 text: 'First',
                 ...events,
             },
-        ] as NeonButtonGroupElement[]);
+        ] as any) as any as NeonButtonGroupElement[];
 
         const size: any = text('Size', SIZE.MEDIUM);
 

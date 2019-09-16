@@ -8,7 +8,7 @@ import { withKnobs } from "@storybook/addon-knobs/react";
 import { addDecorator, addParameters, configure } from "@storybook/react";
 import { create } from "@storybook/theming";
 
-addDecorator(withKnobs);
+addDecorator(withKnobs as any);
 addParameters({
     options: {
         theme: create({
