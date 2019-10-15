@@ -13,3 +13,6 @@ declare module '*.mdx' {
 }
 
 declare module 'react-jss';
+declare module '@storybook/addon-info';
+declare module '@storybook/addon-knobs';
+declare module '@storybook/addon-knobs/react';
