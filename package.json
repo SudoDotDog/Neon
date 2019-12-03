@@ -21,7 +21,7 @@
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-info": "^5.2.5",
     "@storybook/addon-knobs": "^5.2.5",
-    "@storybook/react": "^5.2.5",
+    "@storybook/react": "^5.2.8",
     "@sudoo/bark": "^2.7.1",
     "@sudoo/react-force": "^1.6.1",
     "@sudoo/react-force-dev": "^1.6.1",
