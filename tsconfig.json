@@ -33,6 +33,7 @@
         "resolveJsonModule": true
     },
     "include": [
+        "src/module.d.ts",
         "src/**/*",
         "stories/**/*"
     ],

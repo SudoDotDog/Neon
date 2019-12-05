@@ -4,8 +4,7 @@
  * @description Decorator
  */
 
-import { Classes } from "jss";
-import { Style } from "jss/css";
+import { Classes, Style } from "jss";
 import { CSSProperties } from "react";
 import { SIZE } from "../../declare/index";
 import { COLOR } from "../declare";
