@@ -4,6 +4,7 @@
  * @description Webpack Config
  */
 
+// tslint:disable-next-line: no-require-imports
 const TSDocgenPlugin: any = require("react-docgen-typescript-webpack-plugin");
 
 module.exports = ({ config }: any) => {
@@ -24,7 +25,8 @@ module.exports = ({ config }: any) => {
                 },
                 '@mdx-js/loader',
             ],
-        }, {
+        },
+        {
             test: /\.(ts|tsx)$/,
             exclude: /node_modules/,
             use: [
