@@ -16,6 +16,7 @@
         ],
         "module": "commonjs",
         "moduleResolution": "node",
+        "declaration": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
