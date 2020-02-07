@@ -1,6 +1,6 @@
 {
   "name": "@sudoo/neon",
-  "version": "2.12.0",
+  "version": "2.12.1",
   "description": ":milky_way: React components collection",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "@storybook/addon-info": "^5.3.12",
     "@storybook/addon-knobs": "^5.3.12",
     "@storybook/react": "^5.3.12",
-    "@sudoo/bark": "^2.7.1",
+    "@sudoo/bark": "^2.7.2",
     "@sudoo/react-force": "^1.6.2",
     "@sudoo/react-force-dev": "^1.6.4",
     "@sudoo/triforce": "^2.1.0",

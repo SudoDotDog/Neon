@@ -15,6 +15,9 @@ pids
 dist
 app
 
+# lock
+yarn.lock
+
 # Storybook
 storybook-static
 build
