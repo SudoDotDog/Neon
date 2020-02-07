@@ -18,10 +18,10 @@
   "homepage": "https://github.com/SudoDotDog/Neon#readme",
   "devDependencies": {
     "@mdx-js/loader": "^0.20.3",
-    "@storybook/addon-actions": "^5.2.8",
-    "@storybook/addon-info": "^5.2.8",
-    "@storybook/addon-knobs": "^5.2.8",
-    "@storybook/react": "^5.2.8",
+    "@storybook/addon-actions": "^5.3.12",
+    "@storybook/addon-info": "^5.3.12",
+    "@storybook/addon-knobs": "^5.3.12",
+    "@storybook/react": "^5.3.12",
     "@sudoo/bark": "^2.7.1",
     "@sudoo/react-force": "^1.6.2",
     "@sudoo/react-force-dev": "^1.6.4",
@@ -30,8 +30,8 @@
     "@types/react-color": "^3.0.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
-    "jss": "^10.0.2",
-    "jss-preset-default": "^10.0.2",
+    "jss": "^10.0.4",
+    "jss-preset-default": "^10.0.4",
     "react-docgen-typescript-webpack-plugin": "^1.1.0"
   },
   "nyc": {
