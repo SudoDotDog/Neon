@@ -37,7 +37,7 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
         this._timer = undefined;
     }
 
-    public componentWillReceiveProps(nextProps: NeonSpinnerProps) {
+    public UNSAFE_componentWillReceiveProps(nextProps: NeonSpinnerProps) {
 
         clearTimeout(this._timer);
 
