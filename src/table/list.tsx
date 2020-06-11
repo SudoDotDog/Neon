@@ -52,7 +52,7 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
         const list: Record<string, string> = this.props.list;
         return keys(list).map((key: string, index: number) => {
 
-            const value: string = list[key] as string;
+            const value: string = list[key];
             return (<tr key={index}>
                 <td className={mergeClasses(
                     this._listStyle.listKey,

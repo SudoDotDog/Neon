@@ -4,4 +4,4 @@
  * @description Nothing
  */
 
-export const createNothing = (): any => Object.create(null) as any;
+export const createNothing = (): any => Object.create(null);
