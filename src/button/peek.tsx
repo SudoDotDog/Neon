@@ -65,7 +65,9 @@ export class NeonPeekBase extends React.Component<NeonPeekProps, NeonPeekStates>
 
         if (this.props.expend) {
             return {
+                // eslint-disable-next-line @typescript-eslint/unbound-method
                 onMouseEnter: this._handleMouseEnter,
+                // eslint-disable-next-line @typescript-eslint/unbound-method
                 onMouseLeave: this._handleMouseLeave,
             };
         }

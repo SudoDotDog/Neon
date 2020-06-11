@@ -25,7 +25,7 @@ const NeonSeparatorStyleBase: JSSStyle = {
 
 const NeonSeparatorStyle: NeonStyle = NeonStyle.create(NeonSeparatorStyleBase, 'Separator');
 
-export type NeonSeparatorProps = {} & ThemeProps;
+export type NeonSeparatorProps = ThemeProps;
 
 export const NeonSeparatorBase: React.FC<NeonSeparatorProps> = () => {
 

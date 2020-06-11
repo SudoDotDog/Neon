@@ -17,18 +17,11 @@ export type NeonContextMenuProps = {
 
 export class NeonContextMenuBase extends React.Component<NeonContextMenuProps> {
 
-    public constructor(props: NeonContextMenuProps) {
-
-        super(props);
-
-        this._handleContextMenu = this._handleContextMenu.bind(this);
-    }
-
     public render(): React.ReactNode {
 
         return (
             <div
-                onContextMenu={this._handleContextMenu}
+                onContextMenu={this._handleContextMenu.bind(this)}
                 style={this.props.style}
                 className={this.props.className}
             >

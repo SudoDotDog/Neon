@@ -43,8 +43,6 @@ export class NeonTextBase extends React.Component<NeonTextProps> {
         super(props);
 
         this._ref = null;
-
-        this._handleKeyPress = this._handleKeyPress.bind(this);
     }
 
     public componentDidMount() {
@@ -69,7 +67,7 @@ export class NeonTextBase extends React.Component<NeonTextProps> {
                 tabIndex={this.props.tabIndex}
                 onBlur={this.props.onBlur}
                 onChange={(event) => this.props.onChange && this.props.onChange(event.target.value)}
-                onKeyPress={this._handleKeyPress}
+                onKeyPress={this._handleKeyPress.bind(this)}
             />
         </NeonBox>);
     }

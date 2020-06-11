@@ -39,8 +39,6 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
         super(props);
 
         this._origin = props.value;
-        this._handleBlur = this._handleBlur.bind(this);
-        this._handleClickShowing = this._handleClickShowing.bind(this);
     }
 
     public render() {
@@ -51,7 +49,7 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
                 <NeonText
                     {...this.props}
                     autofocus
-                    onBlur={this._handleBlur}
+                    onBlur={this._handleBlur.bind(this)}
                     ignoreTheme={this.props.ignoreTheme}
                 />
             );
@@ -70,7 +68,7 @@ export class NeonEditableTextBase extends React.Component<NeonEditableTextProps,
                         this._inputStyle.textInput,
                         this._inputStyle.notEditableInput,
                     )}
-                    onClick={this._handleClickShowing}
+                    onClick={this._handleClickShowing.bind(this)}
                     tabIndex={this.props.tabIndex}>
                     {this.props.value}
                 </div>

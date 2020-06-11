@@ -9,7 +9,7 @@ import { JSSStyle } from "./decorator";
 
 export class NeonStyle {
 
-    public static create(base: JSSStyle, meta: string) {
+    public static create(base: JSSStyle, meta: string): NeonStyle {
 
         return new NeonStyle(base, meta);
     }

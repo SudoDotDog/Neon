@@ -62,7 +62,9 @@ export class NeonDropdownButtonBase extends React.Component<NeonDropdownButtonPr
         return (
             <NeonBox
                 divAttributes={{
+                    // eslint-disable-next-line @typescript-eslint/unbound-method
                     onMouseEnter: this._handleMouseEnter,
+                    // eslint-disable-next-line @typescript-eslint/unbound-method
                     onMouseLeave: this._handleMouseLeave,
                 }}
                 {...boxProps(

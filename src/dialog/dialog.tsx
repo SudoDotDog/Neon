@@ -50,7 +50,7 @@ export class NeonDialogBase extends React.Component<NeonDialogProps, NeonDialogS
         this._updateVisibility();
     }
 
-    public componentDidUpdate(lastProps: NeonDialogProps) {
+    public componentDidUpdate(lastProps: NeonDialogProps): void {
 
         if (lastProps.show !== this.props.show) {
             this._updateVisibility();

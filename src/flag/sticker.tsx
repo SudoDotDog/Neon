@@ -65,6 +65,7 @@ const getPositionStyle = (position: CORNER, padding: number = 0): React.CSSPrope
 
 const renderPeek = (style: Classes, props: NeonStickerProps): React.ReactNode => {
 
+    // eslint-disable-next-line react/prop-types
     if (!props.peek) {
         return null;
     }
@@ -72,8 +73,10 @@ const renderPeek = (style: Classes, props: NeonStickerProps): React.ReactNode =>
     return (<NeonPeek
         ignoreTheme
         margin={MARGIN.TINY}
+        // eslint-disable-next-line react/prop-types
         style={getPositionStyle(props.peekCorner || CORNER.TOP_LEFT)}
         className={style.peek}
+        // eslint-disable-next-line react/prop-types
         {...props.peek}
     />);
 };

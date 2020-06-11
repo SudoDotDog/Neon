@@ -47,6 +47,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
 
     public readonly state: NeonApplicableStates = {
 
+        // eslint-disable-next-line no-invalid-this
         value: this.props.defaultValue,
         applicable: true,
     };
@@ -60,9 +61,6 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
         super(props);
 
         this._lastValue = null;
-
-        this._handleChange = this._handleChange.bind(this);
-        this._handleApply = this._handleApply.bind(this);
     }
 
     public render() {
@@ -74,8 +72,8 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
                 type={this.props.type}
                 value={this.state.value}
 
-                onChange={this._handleChange}
-                onEnter={this._handleApply}
+                onChange={this._handleChange.bind(this)}
+                onEnter={this._handleApply.bind(this)}
             />
             <NeonButton
                 className={mergeClasses(this._getButtonSizeClass(), this._applicableStyle.button)}
@@ -85,7 +83,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
                     color: assertIfFalse(this.state.applicable, COLOR.TRANSPARENT),
                 }}
 
-                onClick={this._handleApply}
+                onClick={this._handleApply.bind(this)}
             >
                 {this.props.apply}
             </NeonButton>

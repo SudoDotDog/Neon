@@ -51,7 +51,9 @@ export class NeonFloatBase extends React.Component<NeonFloatProps, NeonFloatStat
                 className={mergeClasses(
                     this._floatStyle.float,
                 )}
+                // eslint-disable-next-line @typescript-eslint/unbound-method
                 onMouseEnter={this._handleMouseEnter}
+                // eslint-disable-next-line @typescript-eslint/unbound-method
                 onMouseLeave={this._handleMouseLeave}
             >
                 <NeonCoin

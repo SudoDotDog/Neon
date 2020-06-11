@@ -47,14 +47,14 @@ export const assertIfTri = (condition: any, ifTrue: string, ifFalse: string): st
     return ifFalse;
 };
 
-export const getBorder = (color: string, width: string = '0.2rem') => ({
+export const getBorder = (color: string, width: string = '0.2rem'): React.CSSProperties => ({
 
     borderColor: color,
     borderWidth: width,
     borderStyle: 'solid',
 });
 
-export const getBorderStyle = (width?: string) => ({
+export const getBorderStyle = (width?: string): React.CSSProperties => ({
 
     ...getBorder(COLOR.NAVY, width),
     transition: 'all 0.2s',
@@ -101,7 +101,14 @@ export const migrateActiveStyle = (): JSSStyle => ({
     },
 } as JSSStyle);
 
-export const getSizeClass = (size: SIZE, normal: string, medium: string, large: string, full: string, relative: string) => {
+export const getSizeClass = (
+    size: SIZE,
+    normal: string,
+    medium: string,
+    large: string,
+    full: string,
+    relative: string,
+): string => {
 
     switch (size) {
         case SIZE.MEDIUM: return medium;
@@ -113,7 +120,7 @@ export const getSizeClass = (size: SIZE, normal: string, medium: string, large: 
     }
 };
 
-export const getDefaultSizeClass = (size: SIZE, style: Classes) => {
+export const getDefaultSizeClass = (size: SIZE, style: Classes): string => {
 
     switch (size) {
         case SIZE.MEDIUM: return style.medium;

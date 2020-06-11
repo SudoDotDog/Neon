@@ -60,6 +60,7 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
         return (
             <NeonContextMenuContext.Provider
                 value={{
+                    // eslint-disable-next-line @typescript-eslint/unbound-method
                     openContextMenu: this._openContextMenu,
                     width: this._ref ? this._ref.offsetWidth : undefined,
                     height: this._ref ? this._ref.offsetHeight : undefined,
@@ -112,7 +113,9 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
     private _bindDocument() {
 
         if (!this._bindingDocument) {
+            // eslint-disable-next-line @typescript-eslint/unbound-method
             document.addEventListener('click', this._handleDocumentClick);
+            // eslint-disable-next-line @typescript-eslint/unbound-method
             document.addEventListener('contextmenu', this._handleDocumentClick);
 
             this._bindingDocument = true;
@@ -122,7 +125,9 @@ export class NeonContextMenuProviderBase extends React.Component<NeonContextMenu
     private _debindDocument() {
 
         if (this._bindingDocument) {
+            // eslint-disable-next-line @typescript-eslint/unbound-method
             document.removeEventListener('click', this._handleDocumentClick);
+            // eslint-disable-next-line @typescript-eslint/unbound-method
             document.removeEventListener('contextmenu', this._handleDocumentClick);
 
             this._bindingDocument = false;

@@ -38,8 +38,6 @@ export class NeonEditableBase extends React.Component<NeonEditableProps, NeonEdi
         super(props);
 
         this._origin = props.value;
-        this._handleBlur = this._handleBlur.bind(this);
-        this._handleClickShowing = this._handleClickShowing.bind(this);
     }
 
     public render() {
@@ -50,7 +48,7 @@ export class NeonEditableBase extends React.Component<NeonEditableProps, NeonEdi
                 <NeonInput
                     {...this.props}
                     autoFocus
-                    onBlur={this._handleBlur}
+                    onBlur={this._handleBlur.bind(this)}
                 />
             );
         } else {
@@ -65,7 +63,7 @@ export class NeonEditableBase extends React.Component<NeonEditableProps, NeonEdi
                         this._inputStyle.label,
                         this._inputStyle.shrink,
                     )}
-                    onClick={this._handleClickShowing}>
+                    onClick={this._handleClickShowing.bind(this)}>
                     {this.props.label}
                 </div>
                 <div
@@ -73,7 +71,7 @@ export class NeonEditableBase extends React.Component<NeonEditableProps, NeonEdi
                         this._inputStyle.input,
                         this._inputStyle.notEditableInput,
                     )}
-                    onClick={this._handleClickShowing}
+                    onClick={this._handleClickShowing.bind(this)}
                     tabIndex={this.props.tabIndex}>
                     {this.props.value}
                 </div>

@@ -14,6 +14,8 @@ const height: Record<string, number> = {
     full: 7,
 };
 
+const LEFT_MERGE = 0.4;
+
 const NeonRacketStyleBase: JSSStyle = {
 
     box: {
@@ -29,16 +31,16 @@ const NeonRacketStyleBase: JSSStyle = {
         flex: 1,
     },
     leftNormal: {
-        height: height.normal - 0.4 + 'rem',
+        height: `${height.normal - LEFT_MERGE}rem`,
     },
     leftMedium: {
-        height: height.medium - 0.4 + 'rem',
+        height: `${height.medium - LEFT_MERGE}rem`,
     },
     leftLarge: {
-        height: height.large - 0.4 + 'rem',
+        height: `${height.large - LEFT_MERGE}rem`,
     },
     leftFull: {
-        height: height.full - 0.4 + 'rem',
+        height: `${height.full - LEFT_MERGE}rem`,
     },
     leftRelative: {
         height: '100%',
@@ -49,16 +51,16 @@ const NeonRacketStyleBase: JSSStyle = {
     },
 
     normal: {
-        height: height.normal + 'rem',
+        height: `${height.normal}rem`,
     },
     medium: {
-        height: height.medium + 'rem',
+        height: `${height.medium}rem`,
     },
     large: {
-        height: height.large + 'rem',
+        height: `${height.large}rem`,
     },
     full: {
-        height: height.full + 'rem',
+        height: `${height.full}rem`,
     },
     relative: {
         height: 'inherit',

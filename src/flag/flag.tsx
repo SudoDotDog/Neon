@@ -44,13 +44,6 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
 
     private readonly _flagStyle: Classes = NeonFlagStyle.use();
 
-    public constructor(props: NeonFlagProps) {
-
-        super(props);
-
-        this._toggleExpend = this._toggleExpend.bind(this);
-    }
-
     public render(): JSX.Element {
 
         return (<NeonBox {...boxProps(this.props, this._getFlagClasses())}>
@@ -87,9 +80,9 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
             return (
                 <button
                     className={this._getExpendButtonClasses()}
-                    onClick={this._toggleExpend}>
+                    onClick={this._toggleExpend.bind(this)}>
                     ▼
-            </button>
+                </button>
             );
         }
         return void 0;

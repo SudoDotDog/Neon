@@ -11,6 +11,8 @@ import { JSSStyle } from "./style/decorator";
 
 export class NeonRegister {
 
+    private static _instance: NeonRegister;
+
     public static register(): void {
 
         if (!this._instance) {
@@ -41,11 +43,5 @@ export class NeonRegister {
         }
 
         return;
-    }
-
-    private static _instance: NeonRegister;
-
-    private constructor() {
-
     }
 }

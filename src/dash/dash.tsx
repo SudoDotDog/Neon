@@ -85,7 +85,9 @@ export class NeonDashBase extends React.Component<NeonDashProps> {
                         assertIfTrue(this.props.disabled, this._dashStyle.disabledDash),
                     )}
                     onClick={() => this.props.onDash && this.props.onDash()}
+                    // eslint-disable-next-line @typescript-eslint/unbound-method
                     onMouseEnter={this._handleMouseEnter}
+                    // eslint-disable-next-line @typescript-eslint/unbound-method
                     onMouseLeave={this._handleMouseLeave}
                 />
             );
