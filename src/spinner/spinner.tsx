@@ -24,6 +24,7 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
 
     public readonly state: NeonSpinnerState = {
 
+        // eslint-disable-next-line no-invalid-this
         spinning: this.props.loading,
     };
 
@@ -37,7 +38,8 @@ export class NeonSpinnerBase extends React.Component<NeonSpinnerProps, NeonSpinn
         this._timer = undefined;
     }
 
-    public UNSAFE_componentWillReceiveProps(nextProps: NeonSpinnerProps) {
+    // eslint-disable-next-line camelcase
+    public UNSAFE_componentWillReceiveProps(nextProps: NeonSpinnerProps): void {
 
         clearTimeout(this._timer);
 

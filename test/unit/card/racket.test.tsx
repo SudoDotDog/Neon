@@ -16,6 +16,7 @@ import { getDefaultTheme } from '../../../src/theme/declare';
 
 describe('Given a <Racket /> Component', (): void => {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const chance: Chance.Chance = new Chance('neon-card-racket');
 
     const getDefaultProps = (): NeonRacketProps => ({
@@ -23,7 +24,7 @@ describe('Given a <Racket /> Component', (): void => {
         theme: getDefaultTheme(),
     });
 
-    const render = (props: NeonRacketProps = getDefaultProps(), children: any = chance.string()) => {
+    const render = (props: NeonRacketProps = getDefaultProps()) => {
 
         return shallow(
             (<NeonRacketBase {...props}>

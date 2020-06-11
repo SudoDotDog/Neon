@@ -10,6 +10,7 @@
         "Unmount",
         "WMXPY",
         "airbnb",
+        "camelcase",
         "clazz",
         "codecov",
         "debind",
@@ -35,7 +36,9 @@
         "tshook",
         "vfile"
     ],
-    "tslint.configFile": "typescript/tslint.json",
+    "eslint.options": {
+        "configFile": "./typescript/.eslintrc.json"
+    },
     "javascript.preferences.importModuleSpecifier": "relative",
     "typescript.preferences.importModuleSpecifier": "relative"
 }

@@ -52,10 +52,6 @@ export class NeonTextFieldBase extends React.Component<NeonTextFieldProps, NeonT
         super(props);
 
         this._ref = null;
-
-        this._handleKeyPress = this._handleKeyPress.bind(this);
-        this._handleBlur = this._handleBlur.bind(this);
-        this._handleFocus = this._handleFocus.bind(this);
     }
 
     public componentDidMount() {
@@ -83,9 +79,9 @@ export class NeonTextFieldBase extends React.Component<NeonTextFieldProps, NeonT
                 className={this._textFieldStyle.area}
                 tabIndex={this.props.tabIndex}
                 value={this.props.value}
-                onBlur={this._handleBlur}
-                onFocus={this._handleFocus}
-                onKeyPress={this._handleKeyPress}
+                onBlur={this._handleBlur.bind(this)}
+                onFocus={this._handleFocus.bind(this)}
+                onKeyPress={this._handleKeyPress.bind(this)}
                 onChange={(event) => this.props.onChange && this.props.onChange(event.target.value)}
             />
         </NeonBox>);

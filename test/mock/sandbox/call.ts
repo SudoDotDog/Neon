@@ -13,7 +13,7 @@ export class Call {
         this._args = args;
     }
 
-    public arg(order: number) {
+    public arg(order: number): any {
 
         return this._args[order];
     }

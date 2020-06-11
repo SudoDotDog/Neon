@@ -13,10 +13,10 @@ import { NeonBox } from '../../../src/#common/components/box';
 import { NeonEditableProps, NeonInput } from "../../../src/input";
 import { NeonEditableBase } from '../../../src/input/editable';
 import { getDefaultTheme } from '../../../src/theme/declare';
-import { Sandbox } from "../../mock/sandbox/sandbox";
 
 describe('Given a <Editable /> Component', (): void => {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const chance: Chance.Chance = new Chance('neon-input-editable');
 
     const getDefaultProps = (): NeonEditableProps => ({
@@ -24,7 +24,7 @@ describe('Given a <Editable /> Component', (): void => {
         theme: getDefaultTheme(),
     });
 
-    const render = (props: NeonEditableProps = getDefaultProps(), children: any = chance.string()) => {
+    const render = (props: NeonEditableProps = getDefaultProps()) => {
 
         return shallow(
             (<NeonEditableBase {...props} />),

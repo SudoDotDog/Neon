@@ -31,6 +31,8 @@ const getPercentage = (condition: any, className: string, value: number): React.
     return null;
 };
 
+const MIDDLE: number = 50;
+
 export const NeonProgressBase: React.FC<NeonProgressProps> = (props: NeonProgressProps) => {
 
     const percentageStyle: Classes = NeonProgressStyle.use();
@@ -45,12 +47,12 @@ export const NeonProgressBase: React.FC<NeonProgressProps> = (props: NeonProgres
             style={{
                 backgroundColor: props.theme.main.color,
                 color: props.theme.main.text,
-                width: percentage + '%',
+                width: `${percentage}%`,
             }}
             className={percentageStyle.bar}
         >
             {getPercentage(
-                percentage >= 50,
+                percentage >= MIDDLE,
                 percentageStyle.percentage,
                 props.percentage,
             )}
@@ -59,7 +61,7 @@ export const NeonProgressBase: React.FC<NeonProgressProps> = (props: NeonProgres
             className={percentageStyle.reverse}
         >
             {getPercentage(
-                percentage < 50,
+                percentage < MIDDLE,
                 percentageStyle.percentage,
                 props.percentage,
             )}

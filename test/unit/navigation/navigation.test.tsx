@@ -16,6 +16,7 @@ import { getDefaultTheme } from '../../../src/theme/declare';
 
 describe('Given a <Navigation /> Component', (): void => {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const chance: Chance.Chance = new Chance('neon-navigation-navigation');
 
     const getDefaultProps = (): NeonNavigationProps => ({
@@ -25,7 +26,7 @@ describe('Given a <Navigation /> Component', (): void => {
         navigation: [],
     });
 
-    const render = (props: NeonNavigationProps = getDefaultProps(), children: any = chance.string()) => {
+    const render = (props: NeonNavigationProps = getDefaultProps()) => {
 
         return shallow(
             (<NeonNavigationBase {...props}>

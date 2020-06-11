@@ -24,7 +24,7 @@ describe('Given a <Input /> Component', (): void => {
         theme: getDefaultTheme(),
     });
 
-    const render = (props: NeonInputProps = getDefaultProps(), children: any = chance.string()) => {
+    const render = (props: NeonInputProps = getDefaultProps()) => {
 
         return shallow(
             (<NeonInputBase {...props} />),

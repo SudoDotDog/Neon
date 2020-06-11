@@ -49,6 +49,7 @@ export class NeonPaginationBase extends React.Component<NeonPaginationProps, Neo
 
                 return (
                     <button
+                        key={index}
                         onMouseEnter={this._createHandleMouseEnterFunction(position)}
                         onClick={this._createHandleClickFunction(position)}
                         className={mergeClasses(

@@ -16,6 +16,7 @@ import { getDefaultTheme } from '../../../src/theme/declare';
 
 describe('Given a <Dash /> Component', (): void => {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const chance: Chance.Chance = new Chance('neon-dash-dash');
 
     const getDefaultProps = (): NeonDashProps => ({
@@ -23,7 +24,7 @@ describe('Given a <Dash /> Component', (): void => {
         theme: getDefaultTheme(),
     });
 
-    const render = (props: NeonDashProps = getDefaultProps(), children: any = chance.string()) => {
+    const render = (props: NeonDashProps = getDefaultProps()) => {
 
         return shallow(
             (<NeonDashBase {...props}>

@@ -16,6 +16,7 @@ import { getDefaultTheme } from '../../../src/theme/declare';
 
 describe('Given a <Tree /> Component', (): void => {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const chance: Chance.Chance = new Chance('neon-navigation-tree');
 
     const getDefaultProps = (): NeonTreeProps => ({
@@ -25,7 +26,7 @@ describe('Given a <Tree /> Component', (): void => {
         tree: [],
     });
 
-    const render = (props: NeonTreeProps = getDefaultProps(), children: any = chance.string()) => {
+    const render = (props: NeonTreeProps = getDefaultProps()) => {
 
         return shallow(
             (<NeonTreeBase {...props}>
