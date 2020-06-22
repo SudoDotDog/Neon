@@ -38,13 +38,10 @@ storybook:
 	@echo "[INFO] Building storybook"
 	@NODE_ENV=production $(build_storybook) -c $(storybook_config_path)
 
-publish: install tests license build
-	@echo "[INFO] Publishing package"
-	@cd app && npm publish --access=public
-
 tests:
 	@echo "[INFO] Testing with Mocha"
-	@NODE_ENV=test $(mocha) --config test/.mocharc.json
+	@NODE_ENV=test \
+	$(mocha) --config test/.mocharc.json
 
 cov:
 	@echo "[INFO] Testing with Nyc and Mocha"
@@ -53,11 +50,15 @@ cov:
 
 lint:
 	@echo "[INFO] Linting"
-	@$(eslint) . --ext .ts,.tsx --config ./typescript/.eslintrc.json
+	@NODE_ENV=production \
+	$(eslint) . --ext .ts,.tsx \
+	--config ./typescript/.eslintrc.json
 
 lint-fix:
 	@echo "[INFO] Linting and Fixing"
-	@$(eslint) . --ext .ts,.tsx --config ./typescript/.eslintrc.json --fix
+	@NODE_ENV=development \
+	$(eslint) . --ext .ts,.tsx \
+	--config ./typescript/.eslintrc.json --fix
 
 install:
 	@echo "[INFO] Installing dev Dependencies"
@@ -82,3 +83,11 @@ clean-linux:
 	@rm -rf .nyc_output
 	@rm -rf coverage
 	@rm -rf storybook-static
+
+publish: install tests lint license build
+	@echo "[INFO] Publishing package"
+	@cd app && npm publish --access=public
+
+publish-dry-run: install tests lint license build
+	@echo "[INFO] Publishing package"
+	@cd app && npm publish --access=public --dry-run

@@ -25,6 +25,7 @@
         "ifeq",
         "jsesc",
         "lockfile",
+        "mocharc",
         "nowrap",
         "scrollbar",
         "semver",
