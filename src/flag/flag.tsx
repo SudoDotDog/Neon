@@ -23,6 +23,8 @@ export type NeonFlagProps = {
 
     readonly maxSize?: SIZE;
     readonly hidden?: boolean;
+    readonly infoClassName?: string;
+    readonly contentClassName?: string;
 } & NeonFlagCut & ThemeProps & BoxProps;
 
 export type NeonFlagState = {
@@ -49,7 +51,7 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
         return (<NeonBox {...boxProps(this.props, this._getFlagClasses())}>
 
             <div className={this._flagStyle.main}>
-                <div className={this._flagStyle.content}>
+                <div className={this._getContentClasses()}>
                     {this.props.message}
                 </div>
                 {this._renderExpendButton()}
@@ -101,11 +103,28 @@ export class NeonFlagBase extends React.Component<NeonFlagProps, NeonFlagState> 
         ].join(' ');
     }
 
+    private _getContentClasses(): string {
+
+        const classes: string[] = [
+            this._flagStyle.content,
+        ];
+
+        if (this.props.contentClassName) {
+            classes.push(this.props.contentClassName);
+        }
+
+        return classes.join(' ');
+    }
+
     private _getInfoClasses(): string {
 
         const classes: string[] = [
             this._flagStyle.info,
         ];
+
+        if (this.props.infoClassName) {
+            classes.push(this.props.infoClassName);
+        }
 
         if (this.props.info) {
 

@@ -1,5 +1,6 @@
 import { NeonFlag } from "../../src/flag";
 import { MARGIN, SIGNAL } from "../../src/declare";
+import { SIZE } from "../../src/declare";
 
 # Neon Flag
 
@@ -30,6 +31,15 @@ import { MARGIN, SIGNAL } from "../../src/declare";
     message={this.props.message}
     info={this.props.message}
     type={SIGNAL.WARNING}
+/>
+
+- With info, Large
+
+<NeonFlag
+    message={this.props.message}
+    info={this.props.message}
+    type={SIGNAL.WARNING}
+    maxSize={SIZE.FULL}
 />
 
 - With info, Hidden
