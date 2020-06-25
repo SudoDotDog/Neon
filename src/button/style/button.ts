@@ -15,6 +15,7 @@ const NeonButtonStyleBase: JSSStyle = {
         cursor: 'pointer',
         fontSize: '1rem',
         fontWeight: 'bold',
+        borderRadius: 0,
         '&:active': {
             ...getFocusStyle(),
             borderColor: COLOR.BLUE,
