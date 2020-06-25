@@ -1,7 +1,8 @@
 import { action } from "@storybook/addon-actions";
 import { NeonButton } from "../../src/button";
 import { NeonApplicable } from "../../src/input";
-import { SIZE } from "../../src/declare";
+import { NeonThemeProvider } from "../../src/theme";
+import { MARGIN, SIZE } from "../../src/declare";
 
 # Neon Applicable
 
@@ -12,6 +13,18 @@ import { SIZE } from "../../src/declare";
     label={this.props.label}
     size={SIZE.MEDIUM}
 />
+
+- With Theme
+
+<NeonThemeProvider value={{
+    margin: MARGIN.SMALL,
+}}>
+    <NeonApplicable
+        onApply={action('Apply')}
+        label={this.props.label}
+        size={SIZE.MEDIUM}
+    />
+</NeonThemeProvider>
 
 - With Extra Button
 
