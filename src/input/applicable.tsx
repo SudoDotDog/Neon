@@ -67,6 +67,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
 
         return (<NeonBox {...boxProps(this.props, this._applicableStyle.wrap)}>
             <NeonInput
+                ignoreTheme
                 className={this._applicableStyle.input}
                 label={this.props.label}
                 type={this.props.type}
@@ -76,6 +77,7 @@ export class NeonApplicable extends React.Component<NeonApplicableProps, NeonApp
                 onEnter={this._handleApply.bind(this)}
             />
             <NeonButton
+                ignoreTheme
                 className={mergeClasses(this._getButtonSizeClass(), this._applicableStyle.button)}
                 size={SIZE.RELATIVE}
                 style={{
