@@ -27,7 +27,6 @@
     "@sudoo/react-force-dev": "^1.7.2",
     "@sudoo/triforce": "^2.7.4",
     "@types/jss": "^10.0.0",
-    "@types/react-color": "^3.0.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
     "jss": "^10.3.0",
