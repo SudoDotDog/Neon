@@ -20,6 +20,7 @@ export type NeonPillGroupProps = {
 
     readonly addable?: boolean;
     readonly removable?: boolean;
+    readonly removeIcon?: React.ReactNode;
 
     readonly addText?: string;
     readonly options?: string[];
@@ -37,6 +38,7 @@ export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillG
             ignoreTheme
             key={key}
             margin={MARGIN.TINY}
+            removeIcon={props.removeIcon}
             onRemove={Boolean(props.removable) ? (() => {
                 const newSelected: string[] = [...props.selected];
                 newSelected.splice(index, 1);
@@ -50,29 +52,27 @@ export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillG
 
     const options: string[] = props.options || [];
 
-    return (
-        <NeonBox {...boxProps(props, groupStyle.group)}>
-            {pills}
-            {props.addable &&
-                <NeonBox margin={MARGIN.TINY} className={groupStyle.add}>
-                    <select
+    return (<NeonBox {...boxProps(props, groupStyle.group)}>
+        {pills}
+        {props.addable &&
+            <NeonBox margin={MARGIN.TINY} className={groupStyle.add}>
+                <select
+                    value="__Neon_Default_Option"
+                    onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
+                        props.onChange &&
+                        props.onChange([...props.selected, event.target.value])}
+                    className={groupStyle.select}>
+                    <option
                         value="__Neon_Default_Option"
-                        onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
-                            props.onChange &&
-                            props.onChange([...props.selected, event.target.value])}
-                        className={groupStyle.select}>
-                        <option
-                            value="__Neon_Default_Option"
-                            disabled
-                            hidden>
-                            {props.addText || 'Add...'}
-                        </option>
-                        {options.filter((option: string) => !props.selected.includes(option)).map((option: string) =>
-                            <option value={option} key={option} className={groupStyle.option}>{option}</option>)}
-                    </select>
-                </NeonBox>}
-        </NeonBox>
-    );
+                        disabled
+                        hidden>
+                        {props.addText || 'Add...'}
+                    </option>
+                    {options.filter((option: string) => !props.selected.includes(option)).map((option: string) =>
+                        <option value={option} key={option} className={groupStyle.option}>{option}</option>)}
+                </select>
+            </NeonBox>}
+    </NeonBox>);
 };
 
 export const NeonPillGroup: ThemedComponent<NeonPillGroupProps> = withConsumer<NeonPillGroupProps>(NeonPillGroupBase);
