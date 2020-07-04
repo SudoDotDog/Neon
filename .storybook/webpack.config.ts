@@ -23,7 +23,9 @@ module.exports = ({ config }: any) => {
                         ],
                     },
                 },
-                '@mdx-js/loader',
+                {
+                    loader: '@mdx-js/loader',
+                },
             ],
         },
         {
@@ -31,7 +33,7 @@ module.exports = ({ config }: any) => {
             exclude: /node_modules/,
             use: [
                 {
-                    loader: require.resolve('awesome-typescript-loader'),
+                    loader: "ts-loader",
                 },
             ],
         },
