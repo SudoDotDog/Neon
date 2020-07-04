@@ -16,6 +16,8 @@ import { NeonPillStyle } from "./style/pill";
 export type NeonPillProps = {
 
     readonly onRemove?: () => void;
+    readonly removeIcon?: React.ReactNode;
+
     readonly children?: any;
 } & ThemeProps & BoxProps;
 
@@ -23,6 +25,7 @@ export const NeonPillBase: React.FC<NeonPillProps> =
     (props: NeonPillProps) => {
 
         const pillStyle: Classes = NeonPillStyle.use();
+        const removeIcon: React.ReactNode = props.removeIcon ? props.removeIcon : 'X';
 
         return (
             <NeonBox {...boxProps(props, pillStyle.wrap)}>
@@ -34,7 +37,7 @@ export const NeonPillBase: React.FC<NeonPillProps> =
                         className={pillStyle.remove}
                         onClick={() => props.onRemove && props.onRemove()}
                     >
-                        X
+                        {removeIcon}
                     </NeonButton>
                 }
             </NeonBox>
