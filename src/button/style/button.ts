@@ -11,11 +11,12 @@ import { NeonStyle } from "../../#common/style/style";
 const NeonButtonStyleBase: JSSStyle = {
 
     button: {
-        padding: 0,
+        padding: '0px',
         cursor: 'pointer',
         fontSize: '1rem',
         fontWeight: 'bold',
-        borderRadius: 0,
+        borderRadius: '0px',
+        outline: '0px !important',
         '&:active': {
             ...getFocusStyle(),
             borderColor: COLOR.BLUE,
