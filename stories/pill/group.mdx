@@ -1,4 +1,6 @@
 import { NeonPillGroup } from "../../src/pill";
+import { NeonThemeProvider } from "../../src/theme";
+import { MARGIN, SIZE } from "../../src/declare";
 
 # Neon Pill Group
 
@@ -39,3 +41,18 @@ import { NeonPillGroup } from "../../src/pill";
     selected={this.props.selected}
     onChange={this.props.onChange}
 />
+
+- With Margin Theme
+
+<NeonThemeProvider value={{
+    margin: MARGIN.SMALL,
+}}>
+    <NeonPillGroup
+        addable
+        removable
+        addText="Add Text"
+        options={this.props.options}
+        selected={this.props.selected}
+        onChange={this.props.onChange}
+    />
+</NeonThemeProvider>

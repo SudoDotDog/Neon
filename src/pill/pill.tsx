@@ -29,9 +29,11 @@ export const NeonPillBase: React.FC<NeonPillProps> =
                 <div className={pillStyle.info}>{props.children}</div>
                 {props.onRemove &&
                     <NeonButton
+                        ignoreTheme
                         size={SIZE.RELATIVE}
                         className={pillStyle.remove}
-                        onClick={() => props.onRemove && props.onRemove()}>
+                        onClick={() => props.onRemove && props.onRemove()}
+                    >
                         X
                     </NeonButton>
                 }
