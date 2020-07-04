@@ -27,11 +27,11 @@
     "@sudoo/react-force-dev": "^1.7.3",
     "@sudoo/triforce": "^2.7.5",
     "@types/jss": "^10.0.0",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
     "jss": "^10.3.0",
     "jss-preset-default": "^10.3.0",
-    "react-docgen-typescript-webpack-plugin": "^1.1.0"
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "ts-loader": "^7.0.5"
   },
   "nyc": {
     "extension": [
