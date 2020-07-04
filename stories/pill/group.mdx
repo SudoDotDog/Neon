@@ -2,6 +2,14 @@ import { NeonPillGroup } from "../../src/pill";
 
 # Neon Pill Group
 
+- Render
+
+<NeonPillGroup
+    options={this.props.options}
+    render={(value) => <a href="/">{value}</a>}
+    selected={this.props.selected}
+/>
+
 - Addable
 
 <NeonPillGroup
@@ -16,7 +24,6 @@ import { NeonPillGroup } from "../../src/pill";
 
 <NeonPillGroup
     removable
-    addText="Add Text"
     options={this.props.options}
     selected={this.props.selected}
     onChange={this.props.onChange}

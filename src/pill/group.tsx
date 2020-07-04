@@ -16,6 +16,8 @@ import { NeonGroupStyle } from "./style/group";
 export type NeonPillGroupProps = {
 
     readonly selected: string[];
+    readonly render?: (value: string) => React.ReactNode;
+
     readonly addable?: boolean;
     readonly removable?: boolean;
 
@@ -28,24 +30,23 @@ export const NeonPillGroupBase: React.FC<NeonPillGroupProps> = (props: NeonPillG
 
     const groupStyle: Classes = NeonGroupStyle.use();
 
-    const pills: React.ReactNode[] =
-        props.selected.map((key: string, index: number) =>
-            (
-                <NeonPill
-                    key={key}
-                    ignoreTheme
-                    margin={MARGIN.TINY}
-                    onRemove={Boolean(props.removable) ? (() => {
-                        const newSelected: string[] = [...props.selected];
-                        newSelected.splice(index, 1);
+    const pills: React.ReactNode[] = props.selected.map((key: string, index: number) => {
 
-                        (props as any).onChange(newSelected);
-                    }) : undefined}
-                >
-                    {key}
-                </NeonPill>
-            ),
-        );
+        const content: React.ReactNode = props.render ? props.render(key) : key;
+        return (<NeonPill
+            ignoreTheme
+            key={key}
+            margin={MARGIN.TINY}
+            onRemove={Boolean(props.removable) ? (() => {
+                const newSelected: string[] = [...props.selected];
+                newSelected.splice(index, 1);
+
+                (props as any).onChange(newSelected);
+            }) : undefined}
+        >
+            {content}
+        </NeonPill>);
+    });
 
     const options: string[] = props.options || [];
 
