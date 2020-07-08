@@ -84,7 +84,8 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
                     this.props.onChange(newList);
                 }
-            }} />);
+            }}
+        />);
     }
 
     private _renderEditableValue(key: string, value: string) {
@@ -101,7 +102,8 @@ export class NeonSmartListBase extends React.Component<NeonSmartListProps> {
 
                     this.props.onChange(newList);
                 }
-            }} />);
+            }}
+        />);
     }
 }
 
