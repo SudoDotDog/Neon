@@ -5,5 +5,8 @@
     "extends": [
         "@sudoo/eslint-config",
         "@sudoo/eslint-config-react"
-    ]
+    ],
+    "rules": {
+        "react/prop-types": "off"
+    }
 }
